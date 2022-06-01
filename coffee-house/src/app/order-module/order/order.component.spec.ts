@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CreateMenuOderComponent } from './create-menu-oder.component';
+import { OrderComponent } from './order.component';
 
-describe('CreateMenuOderComponent', () => {
-  let component: CreateMenuOderComponent;
-  let fixture: ComponentFixture<CreateMenuOderComponent>;
+describe('OderComponent', () => {
+  let component: OrderComponent;
+  let fixture: ComponentFixture<OrderComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CreateMenuOderComponent ]
+      declarations: [ OrderComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CreateMenuOderComponent);
+    fixture = TestBed.createComponent(OrderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

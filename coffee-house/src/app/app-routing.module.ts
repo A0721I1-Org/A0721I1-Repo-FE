@@ -36,7 +36,7 @@ const routes: Routes = [
     loadChildren: () => import('./forgetpass-module/forgetpass-module.module').then(module => module.ForgetpassModuleModule)
   },
   {
-    path: "oder",
+    path: "order",
     loadChildren: () => import('./order-module/order-module.module').then(module => module.OrderModuleModule)
   },
 ];

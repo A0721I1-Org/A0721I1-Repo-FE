@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-oder',
-  templateUrl: './oder.component.html',
-  styleUrls: ['./oder.component.css']
+  templateUrl: './order.component.html',
+  styleUrls: ['./order.component.css']
 })
-export class OderComponent implements OnInit {
+export class OrderComponent implements OnInit {
 
   constructor() { }
 

@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {OderComponent} from "./oder/oder.component";
+import {OrderComponent} from "./order/order.component";
 
 const routes: Routes = [
   {
-    path: "oder-child",
-    component: OderComponent
+    path: "order-child",
+    component: OrderComponent
   }
 ];
 

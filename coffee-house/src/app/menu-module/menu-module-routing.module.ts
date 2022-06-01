@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {MenuOderComponent} from "./menu-oder/create-menu-oder.component";
+import {MenuOrderComponent} from "./menu-order/create-menu-order.component";
 
 
 const routes: Routes = [
   {
-    path: "menu-oder-child",
-    component: MenuOderComponent
+    path: "menu-order-child",
+    component: MenuOrderComponent
   }
 ];
 

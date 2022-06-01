@@ -2,12 +2,12 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { OrderModuleRoutingModule } from './order-module-routing.module';
-import { OderComponent } from './oder/oder.component';
+import { OrderComponent } from './order/order.component';
 
 
 @NgModule({
   declarations: [
-    OderComponent
+    OrderComponent
   ],
   imports: [
     CommonModule,
