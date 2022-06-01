@@ -5,6 +5,5 @@ export interface Product {
   priceProduct: number,
   imageProduct: string,
   descriptionProduct: string,
-  typeProduct: string,
-
+  typeProduct: any,
 }

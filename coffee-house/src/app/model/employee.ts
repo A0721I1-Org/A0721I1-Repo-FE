@@ -7,5 +7,6 @@ export interface Employee {
   genderEmployee: boolean,
   dateOfBirthEmployee: string,
   salaryEmployee: number,
-  position: string
+  position: any,
+  user:any
 }
