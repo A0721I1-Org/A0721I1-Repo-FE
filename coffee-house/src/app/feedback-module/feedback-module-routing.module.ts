@@ -1,20 +1,21 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {CreateFeedbackComponent} from "./create-feedback/create-feedback.component";
-import {ListFeedbackComponent} from "./list-feedback/list-feedback.component";
-import {DetailFeedbackComponent} from "./detail-feedback/detail-feedback.component";
+import {CreateFeedbackComponent} from './create-feedback/create-feedback.component';
+import {ListFeedbackComponent} from './list-feedback/list-feedback.component';
+import {DetailFeedbackComponent} from './detail-feedback/detail-feedback.component';
+
 
 const routes: Routes = [
   {
-    path: "create",
+    path: 'create',
     component: CreateFeedbackComponent
   },
   {
-    path: "list",
+    path: 'list',
     component: ListFeedbackComponent
   },
   {
-    path: "detail",
+    path: 'detail',
     component: DetailFeedbackComponent
   },
 ];
