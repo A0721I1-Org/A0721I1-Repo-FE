@@ -21,39 +21,40 @@
                       <table  class="col-9">
                         <tr>
                           <td>Tên tài khoản:</td>
-                          <td>thienhaudn</td>
+                          <td>{{employee.user.username}}</td>
                         </tr>
                         <tr>
                           <td >Mật khẩu:</td>
-                          <td>*********</td>
+                          <td>{{employee.user.password}}</td>
                         </tr>
                         <tr>
                           <td>Họ và tên:</td>
-                          <td>Lê Sơn Thiên Hậu</td>
+                          <td>{{employee.nameEmployee}}</td>
                         </tr>
                         <tr>
                           <td>Địa chỉ:</td>
-                          <td>Đà Nẵng</td>
+                          <td>{{employee.addressEmployee}}</td>
                         </tr>
                         <tr>
                           <td>Giới tính:</td>
-                          <td>Nam</td>
+                          <td *ngIf="employee.genderEmployee == true">Nam</td>
+                          <td *ngIf="employee.genderEmployee == false">Nữ</td>
                         </tr>
                         <tr>
                           <td>Số điện thoại:</td>
-                          <td>092309182</td>
+                          <td>{{employee.phoneEmployee}}</td>
                         </tr>
                         <tr>
                           <td>Ngày sinh:</td>
-                          <td>15/06/1993</td>
+                          <td>{{employee.dateOfBirthEmployee}}</td>
                         </tr>
                         <tr>
                           <td>Lương(VNĐ):</td>
-                          <td>30.000.000</td>
+                          <td>{{employee.salaryEmployee}}</td>
                         </tr>
                         <tr>
                           <td>Vị trí:</td>
-                          <td>Quản lý</td>
+                          <td>{{employee.position.namePosition}}</td>
                         </tr>
                       </table>
                     </div>
