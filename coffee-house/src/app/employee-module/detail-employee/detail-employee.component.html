@@ -21,11 +21,11 @@
                       <table  class="col-9">
                         <tr>
                           <td>Tên tài khoản:</td>
-                          <td>{{employee.user.username}}</td>
+                          <td>{{employee.user1?.username}}</td>
                         </tr>
                         <tr>
                           <td >Mật khẩu:</td>
-                          <td>{{employee.user.password}}</td>
+                          <td>{{employee.user1?.password}} </td>
                         </tr>
                         <tr>
                           <td>Họ và tên:</td>
@@ -54,15 +54,15 @@
                         </tr>
                         <tr>
                           <td>Vị trí:</td>
-                          <td>{{employee.position.namePosition}}</td>
+                          <td>{{employee.position?.namePosition}}</td>
                         </tr>
                       </table>
                     </div>
                   </div>
                   <div class="modal-footer row">
-                    <button class="button btn col-7 col-md-3 col-sm-3"> << Quay lại</button>
-                    <button class="button btn col-7 col-md-4 col-sm-4" >Cập nhập thông tin</button>
-                    <button class="button btn col-7 col-md-4 col-sm-4">Thay đổi mật khẩu</button>
+                    <button class="button btn col-7 col-md-3 col-sm-3" (click)="back()"> << Quay lại</button>
+                    <button class="button btn col-7 col-md-4 col-sm-4" [disabled]="employee.position?.namePosition=='Nhân viên'">Cập nhập thông tin</button>
+                    <button class="button btn col-7 col-md-4 col-sm-4" [routerLink]="['']">Thay đổi mật khẩu</button>
                   </div>
                 </div>
               </div>

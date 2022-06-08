@@ -7,5 +7,5 @@ export interface Employee {
   dateOfBirthEmployee: string;
   salaryEmployee: number;
   position: any;
-  user?: any;
+  user1?: any;
 }

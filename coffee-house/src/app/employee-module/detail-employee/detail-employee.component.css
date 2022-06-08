@@ -49,6 +49,8 @@ h4 span:hover {
   border-radius: 20px;
   box-shadow: 1px 2px 2px 2px #a09a9a;
   font-size: 15px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .table-title {
@@ -86,8 +88,8 @@ h4 span:hover {
 
   .button {
     display: block;
-    /*margin-top: 5px;*/
-    /*margin-bottom: 5px;*/
+    margin-top: 5px;
+    margin-bottom: 5px;
     width: 70%;
     /*box-shadow: 5px 5px 5px #DBD9D9;*/
   }
