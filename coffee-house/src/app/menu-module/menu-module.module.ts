@@ -4,8 +4,6 @@ import { CommonModule } from '@angular/common';
 import { MenuModuleRoutingModule } from './menu-module-routing.module';
 import {MenuOrderComponent} from "./menu-order/create-menu-order.component";
 
-
-
 @NgModule({
   declarations: [
    MenuOrderComponent
