@@ -7,6 +7,7 @@ import { ListProductComponent } from './list-product/list-product.component';
 import { EditProductComponent } from './edit-product/edit-product.component';
 
 
+
 @NgModule({
   declarations: [
     CreateProductComponent,
