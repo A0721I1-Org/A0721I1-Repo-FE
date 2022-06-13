@@ -20,6 +20,7 @@ export class LoginComponent implements OnInit {
   userList: User[];
   roles: string[] = [];
   show = false;
+  rememberMeToken: string;
 
   constructor(private formBuilder: FormBuilder,
               private router: Router, private loginServer: LoginServiceService,
@@ -36,37 +37,37 @@ export class LoginComponent implements OnInit {
         remember_me: ['']
       }
     );
-    // this.formLogin = new FormGroup({
-    //   username: new FormControl(),
-    //   password: new FormControl(),
-    //   remember_me: new FormControl()
-    // });
-
-    if (this.tokenStorageService.getToken()) {
-      const user = this.tokenStorageService.getUser();
-      this.loginServer.isLoggedIn = true;
-      this.roles = this.tokenStorageService.getUser().roles;
-      this.username = this.tokenStorageService.getUser().username;
-      const accessToken = this.tokenStorageService.getToken();
-    }
+    // if (this.tokenStorageService.getToken()) {
+    //   const user = this.tokenStorageService.getUser();
+    //   this.loginServer.isLoggedIn = true;
+    //   this.roles = this.tokenStorageService.getUser().roles;
+    //   this.username = user.username;
+    //   const accessToken = this.tokenStorageService.getToken();
+    //   this.formLogin = this.formBuilder.group({
+    //       username: [user.username || ''],
+    //       password: [user.password || ''],
+    //       remember_me: ['']
+    //     }
+    //   );
+    //   console.log(this.formLogin.value);
+    // }
   }
 
   login() {
-    console.log(this.formLogin.value);
-    console.log(this.formLogin.value.remember_me);
+    this.formLogin.value.remember_me = this.tokenStorageService;
     this.loginServer.login(this.formLogin.value).subscribe(
       (data) => {
-        if (this.formLogin.value.remember_me) {
+        if (this.formLogin.value) {
           this.tokenStorageService.saveTokenLocal(this.formLogin.value.remember_me);
           this.tokenStorageService.saveUserLocal(data);
         } else {
           this.tokenStorageService.saveTokenSession(this.formLogin.value.remember_me);
           this.tokenStorageService.saveUserLocal(data);
         }
-
         this.loginServer.isLoggedIn = true;
         this.username = this.tokenStorageService.getUser().username;
         this.roles = this.tokenStorageService.getUser().roles;
+        this.rememberMeToken = this.tokenStorageService.getToken();
         this.formLogin.reset();
         this.router.navigateByUrl('/menu/menu-order-child');
       },
@@ -82,4 +83,14 @@ export class LoginComponent implements OnInit {
   }
 
   showPsw() {this.show = !this.show; }
+
+  rememberMe(event) {
+    console.log(event.target.checked);
+    if (event.target.checked === true){
+      console.log(this.rememberMeToken);
+      localStorage.setItem('remember_me', this.tokenStorageService.getToken());
+    } else {
+      localStorage.removeItem('remember_me');
+    }
+  }
 }

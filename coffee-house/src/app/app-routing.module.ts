@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import {
+  AuthGuardService as AuthGuard
+} from './login-module/service/auth-guard.service';
 
 
 const routes: Routes = [
@@ -39,6 +42,7 @@ const routes: Routes = [
     path: 'order',
     loadChildren: () => import('./order-module/order-module.module').then(module => module.OrderModuleModule)
   },
+  { path: '**', redirectTo: '/login/authentication' }
 ];
 
 @NgModule({

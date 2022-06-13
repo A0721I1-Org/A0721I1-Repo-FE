@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import {ListTableComponent} from './list-table/list-table.component';
 import {CreateTableComponent} from './create-table/create-table.component';
 import {DetailTableComponent} from './detail-table/detail-table.component';
+import {AuthGuardService as AuthGuard} from '../login-module/service/auth-guard.service';
 
 const routes: Routes = [
   {

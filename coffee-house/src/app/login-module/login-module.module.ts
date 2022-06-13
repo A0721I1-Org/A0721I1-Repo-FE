@@ -3,24 +3,27 @@ import { CommonModule } from '@angular/common';
 
 import { LoginModuleRoutingModule } from './login-module-routing.module';
 import { LoginComponent } from './login/login.component';
-import {ReactiveFormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
 import {HttpClientModule} from '@angular/common/http';
+import { HeaderComponent } from './header/header.component';
+import {ReactiveFormsModule} from '@angular/forms';
 
 
 @NgModule({
   declarations: [
-    LoginComponent
+    LoginComponent,
+    HeaderComponent
   ],
   exports: [
-    LoginComponent
+    LoginComponent,
+    HeaderComponent
   ],
-  imports: [
-    CommonModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    RouterModule,
-    LoginModuleRoutingModule
-  ]
+    imports: [
+        CommonModule,
+        ReactiveFormsModule,
+        HttpClientModule,
+        RouterModule,
+        LoginModuleRoutingModule
+    ]
 })
 export class LoginModuleModule { }

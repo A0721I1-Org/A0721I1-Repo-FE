@@ -1,0 +1,10 @@
+button {
+  cursor: pointer;
+  float: right;
+}
+
+.header {
+  /*position: absolute;*/
+  top: 0;
+  z-index: 100;
+}
