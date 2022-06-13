@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import {ListTableComponent} from './list-table/list-table.component';
 import {CreateTableComponent} from './create-table/create-table.component';
 import {DetailTableComponent} from './detail-table/detail-table.component';
+import {EditTableComponent} from './edit-table/edit-table.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,10 @@ const routes: Routes = [
   {
     path: 'detail',
     component: DetailTableComponent
+  },
+  {
+    path: 'edit/:id',
+    component: EditTableComponent
   }
 ];
 
