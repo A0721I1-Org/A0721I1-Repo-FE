@@ -1,3 +1,159 @@
+<h1>Code Tuấn</h1>
+<a (click)="getProductById(1)" type="button" class="btn" data-toggle="modal" data-target="#modal1">
+  Thêm món
+</a>
+
+
+<div class="container d-flex justify-content-center mt-100">
+  <!-- Button to Open the Modal -->
+  <!-- The Modal -->
+  <div class="modal fade" id="modal1">
+      <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title" >{{product?.nameProduct}}</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <!-- Modal body -->
+        <div class="modal-body" data-spy="scroll">
+          <div class="container">
+            <div class="row">
+              <div>
+                <div class="col">
+                  <img class="img-fluid" src="./assets/img/bac-xiu.jpg">
+                </div>
+                <div class="col-xs-7 flex-custum" style="padding-top: 2vh;">
+                  <ul type="none">
+                    <li class="font-weight-bold">{{product?.nameProduct}}</li>
+                    <li class="font-weight-light">{{product?.descriptionProduct}}
+                    </li>
+                  </ul>
+                </div>
+                <div class="d-flex justify-content-around align-items-center">
+                  <span class="font-weight-bold">{{product?.priceProduct * quatity}}đ</span>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <a class="px-2" (click)="subQuatity()" *ngIf="quatity === 1">
+                      <i  class='bx bx-minus-circle bx-md' style='color:#fa8c16'></i>
+                    </a>
+                    <a class="px-2" (click)="subQuatity()" *ngIf="quatity > 1">
+                      <i class='bx bxs-minus-circle bx-md' style='color:#fa8c16'></i>
+                    </a>
+                    <span >{{quatity}}</span>
+                    <a class="px-2" (click)="addQuality()" ><i class='bx bxs-plus-circle bx-md'
+                                                style='color:#fa8c16'></i></a>
+                  </div>
+                </div>
+                <!--<div class="input-group mb-3 my-2">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1"><i class='bx bx-notepad'
+                                                                            style='color:#fa8c16'></i></span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Ghi chú thêm cho món này"
+                           aria-label="Username" aria-describedby="basic-addon1">
+                </div>-->
+              </div>
+            </div>
+            <!--                       <div>
+                                       <div class="product-option mb-2">
+                                           <span>CHỌN SIZE (BẮT BUỘC)</span>
+                                       </div>
+                                       <div class="form-check ml-5">
+                                           <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1"
+                                                  value="option1" checked>
+                                           <label class="form-check-label" for="exampleRadios1">
+                                               Vừa <br>
+                                               +0đ
+                                           </label>
+                                       </div>
+                                   </div>
+                                   <div>
+                                       <div class="product-option mb-2">
+                                           <span>chọn topping (tùy chọn)</span>
+                                       </div>
+                                       <div class="ml-5">
+                                           <div class="d-flex justify-content-between align-items-center">
+                                               <label>Kem Phô Mai Macchiato <br>
+                                                   + 10.000đ
+                                               </label>
+                                               <div class="d-flex justify-content-between">
+                                                   <a class="px-2" href="#"><i class='bx bx-minus-circle bx-sm'
+                                                                               style='color:#fa8c16'></i></a>
+                                                   <span>0</span>
+                                                   <a class="px-2" href="#"><i class='bx bxs-plus-circle bx-sm'
+                                                                               style='color:#fa8c16'></i></a>
+                                               </div>
+                                           </div>
+                                           <hr>
+                                           <div class="d-flex justify-content-between align-items-center">
+                                               <label>Miếng Đào <br>
+                                                   + 10.000đ
+                                               </label>
+                                               <div class="d-flex justify-content-between">
+                                                   <a class="px-2" href="#"><i class='bx bx-minus-circle bx-sm'
+                                                                               style='color:#fa8c16'></i></a>
+                                                   <span>0</span>
+                                                   <a class="px-2" href="#"><i class='bx bxs-plus-circle bx-sm'
+                                                                               style='color:#fa8c16'></i></a>
+                                               </div>
+                                           </div>
+                                           <hr>
+                                           <div class="d-flex justify-content-between align-items-center">
+                                               <label>Kem Phô Mai Macchiato <br>
+                                                   + 10.000đ
+                                               </label>
+                                               <div class="d-flex justify-content-between">
+                                                   <a class="px-2" href="#"><i class='bx bx-minus-circle bx-sm'
+                                                                               style='color:#fa8c16'></i></a>
+                                                   <span>0</span>
+                                                   <a class="px-2" href="#"><i class='bx bxs-plus-circle bx-sm'
+                                                                               style='color:#fa8c16'></i></a>
+                                               </div>
+                                           </div>
+                                           <hr>
+                                           <div class="d-flex justify-content-between align-items-center">
+                                               <label>Kem Phô Mai Macchiato <br>
+                                                   + 10.000đ
+                                               </label>
+                                               <div class="d-flex justify-content-between">
+                                                   <a class="px-2" href="#"><i class='bx bx-minus-circle bx-sm'
+                                                                               style='color:#fa8c16'></i></a>
+                                                   <span>0</span>
+                                                   <a class="px-2" href="#"><i class='bx bxs-plus-circle bx-sm'
+                                                                               style='color:#fa8c16'></i></a>
+                                               </div>
+                                           </div>
+                                       </div>
+                                   </div>
+                                   &lt;!&ndash;                  <div class="row">
+                                                         <div class="col-xs-6">
+                                                             <ul type="none">
+                                                                 <li class="left">Order number:</li>
+                                                                 <li class="left">Date:</li>
+                                                                 <li class="left">Price:</li>
+                                                                 <li class="left">Shipping:</li>
+                                                                 <li class="left">Total Price:</li>
+                                                             </ul>
+                                                         </div>
+                                                         <div class="col-xs-6">
+                                                             <ul class="right" type="none">
+                                                                 <li class="right">#BBRT-3456981</li>
+                                                                 <li class="right">19-03-2020</li>
+                                                                 <li class="right">$690</li>
+                                                                 <li class="right">$30</li>
+                                                                 <li class="right">$720</li>
+                                                             </ul>
+                                                         </div>
+                                                     </div>&ndash;&gt;
+                               </div>
+                           </div>-->
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary btn-lg btn-block btn-custom" (click)="addOrderDetail()">{{product?.priceProduct * quatity}} - Thêm vào
+                giỏ
+                hàng
+              </button>
 <div class="menu__container">
   <div class="row w-100 h-100">
     <div class="col-2">
@@ -143,4 +299,10 @@
       </div>
     </div>
   </div>
-</div>
+        </div>
+<script>
+  function a() {
+    var a = 0;
+    a = a + 1;
+  }
+              </script>
