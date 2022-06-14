@@ -23,7 +23,7 @@ export class DetailEmployeeComponent implements OnInit {
         },
       () => {},
       () => {
-          console.log(this.employee);
+          // console.log(this.employee);
       }
       );
     });
@@ -31,5 +31,38 @@ export class DetailEmployeeComponent implements OnInit {
 
   back() {
     this.router.navigateByUrl('');
+  }
+
+  showPassword() {
+    // console.log('success');
+    const passField = document.querySelector('#inputPassword');
+    const showBtn = document.querySelector('#iconPassword i');
+    // @ts-ignore
+    // tslint:disable-next-line:only-arrow-functions
+    if (passField.type === 'password'){
+      // @ts-ignore
+      passField.type = 'text';
+      showBtn.classList.remove('bx-show');
+      showBtn.classList.add('bx-hide');
+    }else{
+      // @ts-ignore
+      passField.type = 'password';
+      showBtn.classList.remove('bx-hide');
+      showBtn.classList.add('bx-show');
+    }
+    /*showBtn.addEventListener('click', function() {
+      // @ts-ignore
+      if (passField.type === 'password'){
+        // @ts-ignore
+        passField.type = 'text';
+        showBtn.classList.add('hide-btn');
+      }else{
+        // @ts-ignore
+        passField.type = 'password';
+        showBtn.classList.remove('hide-btn');
+      }
+      // const currentType = passField.getAttribute('type');
+      // passField.setAttribute('type', currentType === 'password' ? 'text' : 'password');
+    });*/
   }
 }
