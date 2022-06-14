@@ -3,23 +3,25 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-// <<<<<<< HEAD
+
+
 import {LoginModuleModule} from './login-module/login-module.module';
 import {ToastrModule} from 'ngx-toastr';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {JWT_OPTIONS, JwtHelperService, JwtModule} from '@auth0/angular-jwt';
-// =======
+
+import { HomeComponent } from './home/home.component';
 import {HttpClientModule} from '@angular/common/http';
+
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-// >>>>>>> origin/employee-management
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
-// <<<<<<< HEAD
     AppRoutingModule,
     LoginModuleModule,
     ToastrModule.forRoot({
@@ -35,8 +37,6 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
   providers: [
     { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
     JwtHelperService,
-// =======
-// >>>>>>> origin/employee-management
   ],
   bootstrap: [AppComponent]
 })

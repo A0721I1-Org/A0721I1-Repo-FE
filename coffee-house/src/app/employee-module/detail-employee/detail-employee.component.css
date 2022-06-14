@@ -43,12 +43,26 @@ h4 span {
 h4 span:hover {
   color: orange;
 }
+#inputPassword {
+  border: 0px;
+  background-color: #F6F1F1;
+  padding-left: 0;
+  width: 30%;
+  position: relative;
+}
+#iconPassword{
+  position: absolute;
+}
+
+
 .button {
   background-color: var(--main-color);
   color: #fff;
   border-radius: 20px;
   box-shadow: 1px 2px 2px 2px #a09a9a;
   font-size: 15px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .table-title {
@@ -83,11 +97,15 @@ h4 span:hover {
     font-size: 15px;
     padding: 1px;
   }
+  #iconPassword{
+    position: absolute;
+    top: 8%;
+  }
 
   .button {
     display: block;
-    /*margin-top: 5px;*/
-    /*margin-bottom: 5px;*/
+    margin-top: 5px;
+    margin-bottom: 5px;
     width: 70%;
     /*box-shadow: 5px 5px 5px #DBD9D9;*/
   }
