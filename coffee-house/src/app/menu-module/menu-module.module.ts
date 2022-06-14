@@ -8,8 +8,6 @@ import {OderDetail} from '../model/oderDetail';
 import {Observable} from "rxjs";
 import {ReactiveFormsModule} from "@angular/forms";
 
-
-
 @NgModule({
   declarations: [
    MenuOrderComponent
