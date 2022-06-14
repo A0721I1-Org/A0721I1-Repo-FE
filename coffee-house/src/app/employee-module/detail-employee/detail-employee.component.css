@@ -43,6 +43,18 @@ h4 span {
 h4 span:hover {
   color: orange;
 }
+#inputPassword {
+  border: 0px;
+  background-color: #F6F1F1;
+  padding-left: 0;
+  width: 30%;
+  position: relative;
+}
+#iconPassword{
+  position: absolute;
+}
+
+
 .button {
   background-color: var(--main-color);
   color: #fff;
@@ -84,6 +96,10 @@ h4 span:hover {
 
     font-size: 15px;
     padding: 1px;
+  }
+  #iconPassword{
+    position: absolute;
+    top: 8%;
   }
 
   .button {
