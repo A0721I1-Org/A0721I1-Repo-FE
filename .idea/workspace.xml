@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="17545742-62f2-45e3-9df0-e76d6d9ee38d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/coffee-house/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/coffee-house/src/app/login-module/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/src/app/login-module/login/login.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/coffee-house/src/app/login-module/service/login.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/src/app/login-module/service/login.service.ts" afterDir="false" />
     </list>
+=======
+    <list default="true" id="17545742-62f2-45e3-9df0-e76d6d9ee38d" name="Default Changelist" comment="" />
+>>>>>>> origin/employee-management
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -27,6 +31,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
+<<<<<<< HEAD
     <property name="ts.external.directory.path" value="D:\A0421I1_Nguyen_Viet_Hoang\Module6\FE\A0721I1-Repo-FE\coffee-house\node_modules\typescript\lib" />
   </component>
   <component name="RunManager">
@@ -37,7 +42,12 @@
       <envs />
       <method v="2" />
     </configuration>
+=======
+    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+>>>>>>> origin/employee-management
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -49,13 +59,21 @@
       <option name="presentableId" value="Default" />
       <updated>1654532833012</updated>
       <workItem from="1654532845616" duration="33000" />
+<<<<<<< HEAD
       <workItem from="1654687682295" duration="1127000" />
       <workItem from="1654688834059" duration="139000" />
+=======
+      <workItem from="1654585451741" duration="38000" />
+>>>>>>> origin/employee-management
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
+<<<<<<< HEAD
     <option name="version" value="1" />
+=======
+    <option name="version" value="3" />
+>>>>>>> origin/employee-management
   </component>
   <component name="WindowStateProjectService">
     <state x="414" y="172" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1654688887915">
