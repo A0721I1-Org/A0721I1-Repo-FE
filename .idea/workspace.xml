@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="17545742-62f2-45e3-9df0-e76d6d9ee38d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee-house/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee-house/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/src/app/app.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/menu-module/menu-module.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/src/app/menu-module/menu-module.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/menu-module/menu-order/create-menu-order.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/src/app/menu-module/menu-order/create-menu-order.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/menu-module/menu-order/create-menu-order.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/src/app/menu-module/menu-order/create-menu-order.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/menu-module/menu-order/create-menu-order.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/src/app/menu-module/menu-order/create-menu-order.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/menu-module/service/menu.service.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/menu-module/service/menu.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/src/app/menu-module/service/menu.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee-house/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/src/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee-house/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/src/styles.css" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="2AD8XG61sGB1LKYggKw3Eq5v7Ho" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../A0721I1-Repo-BE" />
+    <property name="ts.external.directory.path" value="D:\Project_Sprint1\A0721I1-Repo-FE\coffee-house\node_modules\typescript\lib" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="17545742-62f2-45e3-9df0-e76d6d9ee38d" name="Default Changelist" comment="" />
+      <created>1654532833012</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1654532833012</updated>
+      <workItem from="1654532845616" duration="33000" />
+      <workItem from="1654858871677" duration="3548000" />
+      <workItem from="1654864283476" duration="3255000" />
+      <workItem from="1654869245736" duration="13000" />
+      <workItem from="1654876351718" duration="4383000" />
+      <workItem from="1654937121284" duration="2000" />
+      <workItem from="1655049966331" duration="3917000" />
+      <workItem from="1655087357161" duration="5363000" />
+      <workItem from="1655100635385" duration="954000" />
+      <workItem from="1655155890291" duration="1865000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="413" y="106" key="FileChooserDialogImpl" timestamp="1654869256380">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state x="413" y="106" key="FileChooserDialogImpl/0.0.1280.720@0.0.1280.720" timestamp="1654869256380" />
+    <state x="496" y="127" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1654532884916" />
+    <state x="233" y="94" key="Vcs.Push.Dialog.v2" timestamp="1654860951998">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state x="233" y="94" key="Vcs.Push.Dialog.v2/0.0.1280.720@0.0.1280.720" timestamp="1654860951998" />
+    <state x="297" y="161" key="run.anything.popup" timestamp="1654863812306">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state x="297" y="161" key="run.anything.popup/0.0.1280.720@0.0.1280.720" timestamp="1654863812306" />
+  </component>
+</project>
