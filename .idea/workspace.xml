@@ -20,29 +20,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="17545742-62f2-45e3-9df0-e76d6d9ee38d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/coffee-house/src/app/model/MenuOrderDTO.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/src/app/app.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/menu-module/menu-module.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/src/app/menu-module/menu-module.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/menu-module/menu-order/create-menu-order.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/src/app/menu-module/menu-order/create-menu-order.component.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/coffee-house/src/app/menu-module/menu-order/create-menu-order.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/src/app/menu-module/menu-order/create-menu-order.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/coffee-house/src/app/menu-module/menu-order/create-menu-order.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/src/app/menu-module/menu-order/create-menu-order.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/menu-module/service/menu.service.spec.ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/coffee-house/src/app/menu-module/service/menu.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/src/app/menu-module/service/menu.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/src/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/src/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="2AD8XG61sGB1LKYggKw3Eq5v7Ho" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -74,7 +76,10 @@
       <workItem from="1655049966331" duration="3917000" />
       <workItem from="1655087357161" duration="5363000" />
       <workItem from="1655100635385" duration="954000" />
-      <workItem from="1655155890291" duration="1865000" />
+      <workItem from="1655155890291" duration="7547000" />
+      <workItem from="1655164239768" duration="2098000" />
+      <workItem from="1655189737300" duration="5125000" />
+      <workItem from="1655282716885" duration="2865000" />
     </task>
     <servers />
   </component>

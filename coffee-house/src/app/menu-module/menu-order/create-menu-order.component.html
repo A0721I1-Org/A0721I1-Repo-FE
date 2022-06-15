@@ -35,12 +35,12 @@
             </div>
           </div>
           <ul class="pagination justify-content-center">
-            <li (click)="prevPage()" *ngIf="currentPage != 0">
+            <li (click)="prevPage(true)" *ngIf="currentPage != 0">
               <i class="fa-solid fa-angle-left"></i>
             </li>
-            <li (click)="redirectPagination(tg+1)"
+            <li (click)="redirectPagination(tg+1 ,true)"
               *ngFor="let tg of totalPageArray" [ngClass]="activedButton==tg+1?'active':null">{{tg+1}}</li>
-            <li (click)="nextPage()" *ngIf="this.activedButton != this.totalPageArray.length">
+            <li (click)="nextPage(true)" *ngIf="this.activedButton != this.totalPageArray.length">
               <i class="fa-solid fa-angle-right"></i>
             </li>
           </ul>
@@ -59,53 +59,27 @@
                 <th>Thời gian chờ</th>
               </tr>
 
-              <tr>
+              <tr *ngFor="let menuOrderDTO of menuOrderDTOs;let i = index">
                 <td>
                   <input type="checkbox">
                 </td>
-                <td>2</td>
-                <td>Cà phê đen</td>
-                <td>2</td>
-                <td>15.000 đ</td>
-                <td>30.000đ</td>
-                <td>05: 00</td>
-              </tr>
-
-              <tr>
-                <td>
-                  <input type="checkbox" name="">
-                </td>
-                <td>1</td>
-                <td>Cà phê đen</td>
-                <td>2</td>
-                <td>15.000 đ</td>
-                <td>30.000đ</td>
-                <td>05: 00</td>
-              </tr>
-
-              <tr>
-                <td>
-                  <input type="checkbox" name="">
-                </td>
-                <td>1</td>
-                <td>Cà phê đen</td>
-                <td>2</td>
-                <td>15.000 đ</td>
-                <td>30.000đ</td>
-                <td>05: 00</td>
+                <td>{{i+1}}</td>
+                <td>{{menuOrderDTO.nameProduct}}</td>
+                <td>{{menuOrderDTO.quantity}}</td>
+                <td>{{menuOrderDTO.price |number:'1.0'}} đ</td>
+                <td>{{menuOrderDTO.totalPrice| number:'1.0'}}đ</td>
+                <td>{{menuOrderDTO.totalPageDTO}}</td>
+                <td>05:00</td>
               </tr>
             </table>
 
-            <ul class="pagination">
-              <li>
+            <ul class="pagination justify-content-center">
+              <li (click)="prevPage(false)" *ngIf="currentPageTable != 0">
                 <i class="fa-solid fa-angle-left"></i>
               </li>
-              <li>1</li>
-              <li>2</li>
-              <li>...</li>
-              <li>6</li>
-              <li>7</li>
-              <li>
+              <li (click)="redirectPagination(tg+1 , false)"
+                *ngFor="let tg of totalPageTableArray" [ngClass]="activedButtonTable==tg+1?'active':null">{{tg+1}}</li>
+              <li (click)="nextPage(false)" *ngIf="this.activedButtonTable != this.totalPageTableArray.length">
                 <i class="fa-solid fa-angle-right"></i>
               </li>
             </ul>

@@ -3,6 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Product} from "../../model/product";
 import {TypeProduct} from "../../model/typeProduct";
+import {MenuOrderDTO} from "../../model/MenuOrderDTO";
 
 const API_URL = "http://localhost:8080/menu"
 
@@ -15,17 +16,33 @@ export class MenuService {
   currentPage:number = 0;
   sizePage:number = 4;
 
+  /* Size page for table */
+  currentPageTable: number = 0;
+  sizePageTable: number = 4;
+
   /* Next and prev */
-  nextPage(currentPage: number) {
-    this.currentPage = currentPage;
+  nextPage(currentPage: number , checkPage: boolean) {
+    if(checkPage) {
+      this.currentPage = currentPage;
+    } else {
+      this.currentPageTable += 1;
+    }
   }
 
-  prevPage(currentPage: number) {
-    this.currentPage = currentPage;
+  prevPage(currentPage: number, checkPage: boolean) {
+    if(checkPage) {
+      this.currentPage = currentPage;
+    } else {
+      this.currentPageTable -= 1;
+    }
   }
 
-  redirectPagination(currentPage: number) {
-    this.currentPage = currentPage;
+  redirectPagination(currentPage: number , checkPage: boolean) {
+    if(checkPage) {
+      this.currentPage = currentPage;
+    } else {
+      this.currentPageTable = currentPage;
+    }
   }
 
   /* Set default current page */
@@ -40,7 +57,6 @@ export class MenuService {
 
   /* Get product by product type id */
   getProductByTypeId(typeId: number):Observable<Product[]> {
-    // this.setDefaultCurrentPage();
     return this.httpClient.get<Product[]>(`${API_URL}/product-type/${typeId}/${this.currentPage}&${this.sizePage}`);
   }
 
@@ -57,6 +73,11 @@ export class MenuService {
   /* Get amount products by id type*/
   getAmountOfProductsByIdType(idType: number):Observable<number> {
     return this.httpClient.get<number>(`${API_URL}/amount-products/idType=${idType}`);
+  }
+
+  /* Get data DTO for table */
+  getDataDTOForTable(idTable: number):Observable<MenuOrderDTO[]> {
+    return this.httpClient.get<MenuOrderDTO[]>(`${API_URL}/table/${idTable}/${this.currentPageTable}&${this.sizePageTable}`);
   }
 
   constructor(private httpClient: HttpClient) { }
