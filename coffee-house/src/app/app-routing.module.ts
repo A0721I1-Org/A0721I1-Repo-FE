@@ -26,7 +26,8 @@ const routes: Routes = [
   },
   {
     path: 'table',
-    loadChildren: () => import('./table-module/table-module.module').then(module => module.TableModuleModule)
+    loadChildren: () => import('./table-module/table-module.module').then(module => module.TableModuleModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'menu',

@@ -8,7 +8,8 @@ import {AuthGuardService as AuthGuard} from '../login-module/service/auth-guard.
 const routes: Routes = [
   {
     path: 'list',
-    component: ListTableComponent
+    component: ListTableComponent,
+    canLoad: [AuthGuard]
   },
   {
     path: 'create',

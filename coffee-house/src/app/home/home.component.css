@@ -12,13 +12,9 @@
   font-size: 17px;
 }
 
-#logoutBtn{
-  margin: 0;
-}
-
-#logoutBtn button{
-  cursor: pointer;
-  float: right;
+.noidung_dropdown a{
+  background-color: black;
+  color: rgb(236, 155, 68);
 }
 
 *{
