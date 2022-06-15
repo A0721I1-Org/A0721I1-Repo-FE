@@ -24,9 +24,9 @@
     <div class="col-1">
     </div>
     <div class="col-2">
-      <button class="btn text-center" style="background-color: #d3ad7f;color:white">
+      <a [routerLink]="'/product/create'"><button class="btn text-center" style="background-color: #d3ad7f;color:white">
         Thêm Món
-      </button>
+      </button></a>
     </div>
   </div>
   <section class="menu" id="menu">
@@ -45,7 +45,7 @@
         <b>{{product.descriptionProduct}}</b>
         <div>
 <!--          Edit-->
-          <a><button class="btn" style="background: #13131a;color: white;width: 50px;height: 25px;font-size: small" >Edit</button></a>
+          <a [routerLink]="'/product/edit/' + product.idProduct"><button class="btn" style="background: #13131a;color: white;width: 50px;height: 25px;font-size: small" >Edit</button></a>
 
           <a class="delete"  data-toggle="modal" [attr.data-target]="'#exampleModalCenter'+product.idProduct">
             <button class="btn" style="background: #13131a;color: white;width: 50px;height: 25px;font-size: small" >Delete</button>
