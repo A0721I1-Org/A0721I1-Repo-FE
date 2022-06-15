@@ -13,6 +13,17 @@ const API_URL = 'http://localhost:8080/manager';
 })
 
 export class TableService {
+
+  private _mesage: String;
+
+  get mesage(): String {
+    return this._mesage;
+  }
+
+  set mesage(value: String) {
+    this._mesage = value;
+  }
+
   constructor(private _httpClient: HttpClient) {
   }
 
@@ -48,6 +59,10 @@ export class TableService {
 
   createTable(table: Table): Observable<Table> {
     return this._httpClient.post<Table>(API_URL + '/createTable', table);
+  }
+
+  checkId(id: String): Observable<Table[]> {
+    return this._httpClient.get<Table[]>(API_URL + '/checkId?id=' +id);
   }
 
 }
