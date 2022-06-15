@@ -5,6 +5,8 @@ import { ProductModuleRoutingModule } from './product-module-routing.module';
 import { CreateProductComponent } from './create-product/create-product.component';
 import { ListProductComponent } from './list-product/list-product.component';
 import { EditProductComponent } from './edit-product/edit-product.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import {FormsModule} from '@angular/forms';
 
 
 
@@ -16,7 +18,9 @@ import { EditProductComponent } from './edit-product/edit-product.component';
   ],
   imports: [
     CommonModule,
-    ProductModuleRoutingModule
+    ProductModuleRoutingModule,
+    MatDialogModule,
+    FormsModule
   ]
 })
 export class ProductModuleModule { }
