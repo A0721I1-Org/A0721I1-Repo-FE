@@ -27,10 +27,10 @@ export class TableService {
     return this._httpClient.get<OrderDetailMenuDTO[]>(`${API_URL}/emptyTable/detailTable/${id}`);
   }
 
-  addNewOrder(idEmployee: number, idTable: number): Observable<any> {
+  addNewOrder(idEmployee: number, idTable: number, dateOrder: string): Observable<any> {
     // return this.httpClient.post(this.URL_API + '/saveOrderInTable/', idEmployee + '/' + idTable);
     // @ts-ignore
-    return this._httpClient.post<any>(`${API_URL}/emptyTable/saveOrderInTable/${idEmployee}/${idTable}`);
+    return this._httpClient.post<any>(`${API_URL}/emptyTable/saveOrderInTable/${idEmployee}/${idTable}/${dateOrder}`);
   }
 
   cancelTable(idTable: number): Observable<Oder> {
