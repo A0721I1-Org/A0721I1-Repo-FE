@@ -7,6 +7,20 @@
   --border:.1rem solid rgba(255,255,255,.3);
 }
 
+#username{
+  color: white;
+  font-size: 17px;
+}
+
+#logoutBtn{
+  margin: 0;
+}
+
+#logoutBtn button{
+  cursor: pointer;
+  float: right;
+}
+
 *{
   font-family: 'Roboto', sans-serif;
   margin:0;

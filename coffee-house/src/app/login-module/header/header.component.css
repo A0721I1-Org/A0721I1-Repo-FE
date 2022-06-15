@@ -7,4 +7,5 @@ button {
   /*position: absolute;*/
   top: 0;
   z-index: 100;
+  right: 0;
 }

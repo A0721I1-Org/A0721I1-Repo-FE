@@ -1,20 +1,16 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-// <<<<<<< HEAD
 import {
   AuthGuardService as AuthGuard
 } from './login-module/service/auth-guard.service';
-// =======
-import {AppComponent} from './app.component';
 import {HomeComponent} from './home/home.component';
-
-// >>>>>>> 5a0328cee00a064d78969e3b9afbb92ac695828a
 
 
 const routes: Routes = [
   {
     path: 'employee',
-    loadChildren: () => import('./employee-module/employee-module.module').then(module => module.EmployeeModuleModule)
+    loadChildren: () => import('./employee-module/employee-module.module').then(module => module.EmployeeModuleModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'feedback',
@@ -48,10 +44,10 @@ const routes: Routes = [
     path: 'order',
     loadChildren: () => import('./order-module/order-module.module').then(module => module.OrderModuleModule)
   },
-  { path: '**', redirectTo: '/login/authentication' },
   {
-    path: '', component: HomeComponent
-  }
+    path: 'home', component: HomeComponent
+  },
+  { path: '**', redirectTo: '/login/authentication' }
 ];
 
 @NgModule({
