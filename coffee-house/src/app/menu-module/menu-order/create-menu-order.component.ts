@@ -9,6 +9,7 @@ import {MenuService} from "../service/menu.service";
 import {Product} from "../../model/product";
 import {TypeProduct} from "../../model/typeProduct";
 import {ActivatedRoute} from "@angular/router";
+import {MenuOrderDTO} from "../../model/MenuOrderDTO";
 
 @Component({
   selector: 'app-create-menu-oder',
@@ -27,6 +28,7 @@ export class MenuOrderComponent implements OnInit {
   products: Product[] | undefined;
   typeProducts: TypeProduct[] | undefined;
   amountProducts: number;
+  menuOrderDTOs: MenuOrderDTO[];
 
   /* Define size page and current page */
   sizePage: number = this.menuService.sizePage;
@@ -35,8 +37,16 @@ export class MenuOrderComponent implements OnInit {
   totalPageArray: Array<any>;
   currentPage: number = 0;
 
+  /* Define size page and current page for table DTO */
+  sizePageTable: number = this.menuService.sizePageTable;
+  totalPageTable: number = 0;
+  totalPageSurplusTable: number = 0;
+  totalPageTableArray: Array<any>;
+  currentPageTable: number = 0;
+
   /* Active button pagination */
   activedButton = 1;
+  activedButtonTable = 1;
 
   /* Check active click */
   idTypeProduct = 0;
@@ -49,6 +59,9 @@ export class MenuOrderComponent implements OnInit {
     this.getAll();
     /* Set value type default is get all */
     this.getTypeOfGet(0);
+
+    /* Show data DTO */
+    this.getDataDTOForTable();
   }
 
   /* Get products and pagination */
@@ -60,7 +73,7 @@ export class MenuOrderComponent implements OnInit {
     /* Get amount of products */
     this.menuService.getAmountOfProducts().subscribe(data => {
       this.amountProducts = data;
-      this.pagination(data);
+      this.pagination(data , true);
     })
   }
 
@@ -73,10 +86,9 @@ export class MenuOrderComponent implements OnInit {
     /* Get amount of products */
     this.menuService.getAmountOfProductsByIdType(idTypeProduct).subscribe(data => {
       this.amountProducts = data;
-      this.pagination(data);
+      this.pagination(data , true);
     })
   }
-
 
   /* Get list products */
   getAll() {
@@ -89,19 +101,19 @@ export class MenuOrderComponent implements OnInit {
     })
   }
 
-  /* Check which category has clicked */
+  /* Check which category has clicked  */
   getTypeOfGet(idTypeProduct: number) {
     if (idTypeProduct == 0) {
       /* Set and check current page */
       this.currentPage = 0;
       this.checkGetAll = true;
-      this.checkActiveButton(this.currentPage , this.currentPage);
+      this.checkActiveButton(this.currentPage , this.currentPage , true);
       this.menuService.getTypeOfGet();
       this.getProducts();
     } else {
       /* Set and check current page */
       this.currentPage = 0;
-      this.checkActiveButton(this.currentPage , this.currentPage);
+      this.checkActiveButton(this.currentPage , this.currentPage , true);
       this.checkGetAll = false;
       this.menuService.getTypeOfGet();
       /* Get id type product */
@@ -180,87 +192,161 @@ export class MenuOrderComponent implements OnInit {
   }*/
 
 
-  /* Pagination for home page */
-  pagination(amountProducts: number) {
-    this.totalPage = Math.floor(amountProducts / this.sizePage);
-    this.totalPageSurplus = Math.floor(amountProducts % this.sizePage);
-
-    /* Set numbers of page */
-    if (this.totalPageSurplus != 0) {
-      this.totalPageArray = Array(this.totalPage + 1).fill(1).map((x, i) => i);
+  /* Pagination for home page
+  * if pageCheck == true => pagination for products
+  * if pageCheck == false => pagination for table dto*/
+  pagination(amountProducts: number , pageCheck: boolean) {
+    if(pageCheck) {
+      this.totalPage = Math.floor(amountProducts / this.sizePage);
+      this.totalPageSurplus = Math.floor(amountProducts % this.sizePage);
+      if (this.totalPageSurplus != 0) {
+        this.totalPageArray = Array(this.totalPage + 1).fill(1).map((x, i) => i);
+      } else {
+        this.totalPageArray = Array(this.totalPage).fill(1).map((x, i) => i);
+      }
     } else {
-      this.totalPageArray = Array(this.totalPage).fill(1).map((x, i) => i);
+      this.totalPageTable = Math.floor(amountProducts / this.sizePageTable);
+      this.totalPageSurplusTable = Math.floor(amountProducts % this.sizePageTable);
+      if (this.totalPageSurplusTable != 0) {
+        this.totalPageTableArray = Array(this.totalPageTable + 1).fill(1).map((x, i) => i);
+      } else {
+        this.totalPageTableArray = Array(this.totalPageTable).fill(1).map((x, i) => i);
+      }
     }
   }
 
-  /* Check button next and prev */
-  nextPage() {
-    this.currentPage += this.sizePage;
-    this.menuService.nextPage(this.currentPage);
-    if(this.checkGetAll) {
-      this.getAll();
-    } else {
-      this.getProductByTypeId(this.idTypeProduct);
-    }
-
-    /* Check location current page */
-    this.checkActiveButton(this.currentPage , 1);
-  }
-
-  prevPage() {
-    this.currentPage -= this.sizePage;
-    this.menuService.prevPage(this.currentPage);
-    if(this.checkGetAll) {
-      this.getAll();
-    } else {
-      this.getProductByTypeId(this.idTypeProduct);
-    }
-
-    /* Check location current page */
-    this.checkActiveButton(this.currentPage , 1);
-  }
-
-  /* Redirect other page */
-  redirectPagination(tg: any) {
-    /* Check active button */
-    this.menuService.getAmountOfProducts().subscribe(data => {
-      /* Get amounts of all products */
-      this.currentPage = 1;
-      this.amountProducts = data;
-
-      /* Handle first page */
-      if (tg == 1) {
-        this.currentPage = 0;
-      }
-
-      if (this.amountProducts % tg != 0) {
-        tg -= 1;
-        this.currentPage = tg * this.sizePage;
-      }
-
-      if (tg != 1 && this.amountProducts % tg == 0) {
-        this.currentPage = tg * this.sizePage;
-      }
-      this.menuService.redirectPagination(this.currentPage);
-
-      /* Check location current page */
-      this.checkActiveButton(this.currentPage ,1);
-
-      /*Check between get All and GetById */
+  /* Check button next and prev
+  * if pageCheck == true => pagination for products
+  * if pageCheck == false => pagination for table dto */
+  nextPage(pageCheck: boolean) {
+    if(pageCheck) {
+      this.currentPage += this.sizePage;
+      this.menuService.nextPage(this.currentPage , true);
       if(this.checkGetAll) {
         this.getAll();
       } else {
         this.getProductByTypeId(this.idTypeProduct);
       }
-    });
+
+      /* Check location current page */
+      this.checkActiveButton(this.currentPage , 1 , true);
+    } else {
+      this.currentPageTable += this.sizePageTable;
+      this.menuService.nextPage(this.currentPageTable , false);
+      this.getDataDTOForTable();
+
+      /* Check location current page */
+      this.checkActiveButton(this.currentPageTable , 1 , false);
+    }
   }
 
-  /* Check active button and get location current of page and check last button */
-  checkActiveButton(currentPage: number, defaultCurrentPage: number) {
-    /* Set default current page when redirect other get */
-    if (defaultCurrentPage == 0) {
-      currentPage = defaultCurrentPage;
+  prevPage(pageCheck: boolean) {
+    if(pageCheck) {
+      this.currentPage -= this.sizePage;
+      this.menuService.prevPage(this.currentPage , false);
+      if(this.checkGetAll) {
+        this.getAll();
+      } else {
+        this.getProductByTypeId(this.idTypeProduct);
+      }
+
+      /* Check location current page */
+      this.checkActiveButton(this.currentPage , 1 , true);
+    } else {
+      this.currentPageTable -= this.sizePageTable;
+      this.menuService.prevPage(this.currentPageTable , false);
+      this.getDataDTOForTable();
+
+      /* Check location current page */
+      this.checkActiveButton(this.currentPageTable , 1 , false);
     }
-    this.activedButton = Math.round(currentPage / this.sizePage) + 1;
+  }
+
+  /* Redirect other page
+  * if pageCheck == true => pagination for products
+  * if pageCheck == false => pagination for table dto */
+  redirectPagination(tg: any ,pageCheck: boolean) {
+    if(pageCheck) {
+      this.menuService.getAmountOfProducts().subscribe(data => {
+        /* Get amounts of all products */
+        this.currentPage = 1;
+        this.amountProducts = data;
+
+        /* Handle first page */
+        if (tg == 1) {
+          this.currentPage = 0;
+        }
+
+        if (this.amountProducts % tg != 0) {
+          tg -= 1;
+          this.currentPage = tg * this.sizePage;
+        }
+
+        if (tg != 1 && this.amountProducts % tg == 0) {
+          this.currentPage = tg * this.sizePage;
+        }
+        this.menuService.redirectPagination(this.currentPage , true);
+
+        /* Check location current page */
+        this.checkActiveButton(this.currentPage ,1 , true);
+
+        /*Check between get All and GetById */
+        if(this.checkGetAll) {
+          this.getAll();
+        } else {
+          this.getProductByTypeId(this.idTypeProduct);
+        }
+      });
+    } else {
+      this.menuService.getDataDTOForTable(1).subscribe(data => {
+        /* Get amounts of all products */
+        this.currentPageTable = 1;
+        this.amountProducts = data.length;
+
+        /* Handle first page */
+        if (tg == 1) {
+          this.currentPageTable = 0;
+        }
+
+        /* When pagination with LIMIT will use
+        * currentPage = tg * sizePage
+        * otherwise use currentPage = tg*/
+        if (this.amountProducts % tg != 0) {
+          tg -= 1;
+          this.currentPageTable = tg;
+        } else if (tg != 1 && this.amountProducts % tg == 0) {
+          this.currentPageTable = tg - 1;
+        }
+        this.menuService.redirectPagination(this.currentPageTable, false);
+
+        /* Check location current page */
+        this.checkActiveButton(this.currentPageTable * this.sizePageTable, 1, false);
+
+        this.getDataDTOForTable();
+      });
+    }
+  }
+
+  /* Check active button and get location current of page and check last button
+  * if pageCheck == true => pagination for products
+  * if pageCheck == false => pagination for table dto */
+  checkActiveButton(currentPage: number, defaultCurrentPage: number , pageCheck: boolean) {
+    if(pageCheck) {
+      /* Set default current page when redirect other get */
+      if (defaultCurrentPage == 0) {
+        currentPage = defaultCurrentPage;
+      }
+      this.activedButton = Math.round(currentPage / this.sizePage) + 1;
+    } else {
+      this.activedButtonTable = Math.round(currentPage / this.sizePageTable) + 1;
+    }
+  }
+
+  /* Get data DTO for table */
+  getDataDTOForTable() {
+    this.menuService.getDataDTOForTable(1).subscribe(data=> {
+      this.menuOrderDTOs = data;
+      this.pagination(this.menuOrderDTOs[data.length - 1].totalPageDTO , false);
+    })
   }
 }
