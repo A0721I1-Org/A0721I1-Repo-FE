@@ -11,8 +11,8 @@ import {Router} from '@angular/router';
 })
 export class ListTableActiveComponent implements OnInit {
   tables: Table[];
-  idEmployee = 1;
-
+  idEmployee = 1; // dữ liệu cứng  . chờ a hoàng code để lấy idEmployee
+  dateOrder: string;
   constructor(private tableService: TableService,
               private router: Router) {
   }
@@ -23,8 +23,8 @@ export class ListTableActiveComponent implements OnInit {
     });
   }
 
-  addOrderBeNull(idEmployee: number, idTable: number) {
-    this.tableService.addNewOrder(this.idEmployee, idTable).subscribe(() => {
+  addOrderBeNull(idEmployee: number, idTable: number, dateOrder: string) {
+    this.tableService.addNewOrder(this.idEmployee, idTable, dateOrder).subscribe(() => {
     }, () => {
     }, () => {
       this.router.navigateByUrl('/menu/menu-order-child');
