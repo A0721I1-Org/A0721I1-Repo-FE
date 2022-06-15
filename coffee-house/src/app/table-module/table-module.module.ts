@@ -2,13 +2,12 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { TableModuleRoutingModule } from './table-module-routing.module';
-import { ListTableComponent } from './list-table/list-table.component';
 import { CreateTableComponent } from './create-table/create-table.component';
 import { DetailTableComponent } from './detail-table/detail-table.component';
 import { EditTableComponent } from './edit-table/edit-table.component';
-import {ReactiveFormsModule} from '@angular/forms';
+import {ListTableComponent} from './list-table/list-table.component';
 import { HttpClientModule } from '@angular/common/http';
-
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,7 +20,9 @@ import { HttpClientModule } from '@angular/common/http';
     CommonModule,
     TableModuleRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class TableModuleModule { }

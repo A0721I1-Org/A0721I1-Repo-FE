@@ -1,3 +1,4 @@
+
 <div id="booking" class="section">
   <div class="section-center">
     <div class="container-fluid">
@@ -11,25 +12,26 @@
                 =                            </div>
             </div>
           </div>
-          <form style="width: 50%" (ngSubmit)="update()" [formGroup]="updateForm" *ngIf="updateForm">
-            <input type="hidden" placeholder="Trang thai" value="0">
+          <form style="width: 50%" [formGroup]="updateForm" (ngSubmit)="update()">
+            <input type="hidden"  class="form-control" formControlName="idTable">
             <div class="header-content">
               <h2>Chỉnh sửa bàn</h2>
             </div>
             <div class="form-group">
               <span class="form-label">ID Bàn <i class="text-danger">(*)</i></span>
-              <input class="form-control" formControlName="codeTable" type="text" required readonly>
+              <input class="form-control" formControlName="codeTable" [(ngModel)]="table.codeTable"  type="text" readonly>
               <span class="select-arrow"></span>
             </div>
             <div class="form-group">
               <span class="form-label">Trạng thái bàn <i class="text-danger">(*)</i> </span>
-              <select id="select-status" class="form-control" required>
-                <option value="" selected hidden >Chọn một trạng thái</option>
-                <option class="option"><p>Lỗi</p></option>
-                <option class="option"><p>Tốt</p></option>
+              <select id="select-status" class="form-control" formControlName="status">
+                <option *ngFor="let item of status" class="option" [value]="item.idStatus"><p>{{item.nameStatus}}</p>
+                </option>
               </select>
               <span class="select-arrow"></span>
-              <p style="color: red"><i>Không được để trống</i></p>
+              <div *ngIf="updateForm.get('status').valid && updateForm.get('status').touched">
+                <p *ngIf="updateForm.get('status').errors.required"></p>
+              </div>
             </div>
             <div class="row">
               <div class="form-btn col-md-6">
@@ -38,7 +40,7 @@
                   Trở về</button>
               </div>
               <div class="form-btn col-md-6">
-                <button class="submit-btn">Chỉnh sửa</button>
+                <button class="submit-btn" type="submit">Chỉnh sửa</button>
               </div>
             </div>
           </form>
