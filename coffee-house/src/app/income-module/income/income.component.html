@@ -1,1 +1,111 @@
-<h1>income</h1>
+<div class="container">
+  <div class="title">
+    <h1>Quản lý thu nhập</h1>
+  </div>
+  <div class="">
+
+    <div class="row m-1">
+      <div class="form-group col-md-6">
+        <span class="textInput col-1 p-0">Tổng thu nhập:</span>
+        <label class="textInput" type="text" id="income">500.000.000 <span>VNĐ</span></label>
+        <!--        <input type="text" class="form-control" id="income"/>-->
+      </div>
+    </div>
+
+    <div class="row m-1">
+      <!--            <div class="form-group col-md-4">-->
+      <!--                <label class="textInput ">Từ ngày:</label>-->
+      <!--                <input type="date" id="startDay" class="date col-6"/>-->
+      <!--            </div>-->
+      <!--            <div class="col-md-4">-->
+      <!--                <label class="textInput">Đến ngày:</label>-->
+      <!--                <input type="date" id="endDay" class="date col-6"/>-->
+      <!--            </div>-->
+      <!--            <div class="col-md-4">-->
+      <!--                <input type="button" value="Tính thu nhập" class="thuNhap">-->
+      <!--            </div>-->
+      <div class="col-md-6">
+        <div class="form-group">
+          <span class="textInput form-label ">Từ ngày: <i style="color: red"> (*)</i></span>
+          <input class="form-control mt-2" type="date"/>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <span class="textInput form-label">Đến ngày:<i style="color: red"> (*)</i></span>
+          <input class="form-control mt-2" type="date"/>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <input type="button" value="Tính thu nhập" class="thuNhap mt-2">
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 col-sm-12 mt-4">
+          <div class="row m-1">
+            <div class="form-group">
+              <label class="textInput ">Hôm nay: </label>
+              <span class="textInput ">{{totalOrderToDay | number:'1.0-1'}} <span>VNĐ</span> </span>
+            </div>
+          </div>
+
+          <div class="row m-1">
+            <div class="form-group ">
+              <label class="textInput">Tuần này: </label>
+              <span class="textInput ">{{totalOrderToWeek| number: '1.0-1'}} <span>VNĐ</span> </span>
+            </div>
+          </div>
+
+          <div class="row m-1">
+            <div class="form-group ">
+              <label class="textInput">Tháng này: </label>
+              <span class="textInput ">{{totalOrderToMonth | number: '1.0-1'}} <span>VNĐ</span></span>
+
+            </div>
+          </div>
+
+          <div class="row m-1">
+            <div class="form-group ">
+              <label class="textInput">Năm này: </label>
+              <span class="textInput ">{{totalOrderToYear | number: '1.0-1'}}<span>VNĐ</span> </span>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 col-sm-12">
+          <div class="row m-1">
+            <main class="container-md-6">
+              <section>
+                <div class="pieID pie">
+                </div>
+                <ul class="pieID legend">
+                  <li>
+                    <em>Cà phê</em>
+                    <span>718</span>
+                  </li>
+                  <li>
+                    <em>Trà</em>
+                    <span>531</span>
+                  </li>
+                  <li>
+                    <em>Bánh</em>
+                    <span>868</span>
+                  </li>
+                  <li>
+                    <em>Món khác</em>
+                    <span>344</span>
+                  </li>
+                  <li>
+                    <em>Tại nhà</em>
+                    <span>1145</span>
+                  </li>
+                </ul>
+              </section>
+            </main>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
