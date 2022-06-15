@@ -1,34 +1,53 @@
+import {OrderDetailMenuDTO} from '../../model/OrderDetailMenuDTO';
+import {Oder} from '../../model/oder';
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
+import {Status} from '../../model/status';
 import {Table} from '../../model/table';
-import {OrderDetailMenuDTO} from '../../model/OrderDetailMenuDTO';
-import {Oder} from '../../model/oder';
+
+const API_URL = 'http://localhost:8080/manager';
 
 @Injectable({
   providedIn: 'root'
 })
-export class TableService {
-  URL_API = 'http://localhost:8080/manager/emptyTable';
 
-  constructor(private httpClient: HttpClient) {
+export class TableService {
+  constructor(private _httpClient: HttpClient) {
   }
 
+  /*
+    //Bin code all Method of Empty Table
+  */
   getAllStatusTable(): Observable<Table[]> {
-    return this.httpClient.get<Table[]>(this.URL_API);
+    return this._httpClient.get<Table[]>(API_URL + '/emptyTable');
   }
 
   getOrderDetailMenuDTO(id: number): Observable<OrderDetailMenuDTO[]> {
-    return this.httpClient.get<OrderDetailMenuDTO[]>(`${this.URL_API}/detailTable/${id}`);
+    return this._httpClient.get<OrderDetailMenuDTO[]>(`${API_URL}/emptyTable/detailTable/${id}`);
   }
 
   addNewOrder(idEmployee: number, idTable: number): Observable<any> {
     // return this.httpClient.post(this.URL_API + '/saveOrderInTable/', idEmployee + '/' + idTable);
     // @ts-ignore
-    return this.httpClient.post<any>(`${this.URL_API}/saveOrderInTable/${idEmployee}/${idTable}`);
+    return this._httpClient.post<any>(`${API_URL}/emptyTable/saveOrderInTable/${idEmployee}/${idTable}`);
   }
 
   cancelTable(idTable: number): Observable<Oder> {
-    return this.httpClient.delete<Oder>(this.URL_API + '/deleteOrderInTable/' + idTable);
+    return this._httpClient.delete<Oder>(API_URL + '/emptyTable/deleteOrderInTable/' + idTable);
   }
+
+  /* //Quang code getAllStatus*/
+  getAllStatus(): Observable<Status[]> {
+    return this._httpClient.get<Status[]>(API_URL + '/findAllStatus');
+  }
+
+  getAllTable(): Observable<Table[]> {
+    return this._httpClient.get<Table[]>(API_URL + '/findAllTable');
+  }
+
+  createTable(table: Table): Observable<Table> {
+    return this._httpClient.post<Table>(API_URL + '/createTable', table);
+  }
+
 }

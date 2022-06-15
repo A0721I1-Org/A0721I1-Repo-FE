@@ -8,7 +8,7 @@ import { DetailTableComponent } from './detail-table/detail-table.component';
 import {HttpClientModule} from '@angular/common/http';
 import {AppRoutingModule} from '../app-routing.module';
 import { ListTableActiveComponent } from './list-table-active/list-table-active.component';
-
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,6 +20,8 @@ import { ListTableActiveComponent } from './list-table-active/list-table-active.
   imports: [
     CommonModule,
     TableModuleRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class TableModuleModule { }

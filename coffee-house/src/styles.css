@@ -1,1 +1,6 @@
+
 @import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+
+:root{
+  --color-content: rgb(236, 155, 68);
+}
