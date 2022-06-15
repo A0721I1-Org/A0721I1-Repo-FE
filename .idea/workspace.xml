@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="17545742-62f2-45e3-9df0-e76d6d9ee38d" name="Default Changelist" comment="">
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
       <change afterPath="$PROJECT_DIR$/coffee-house/src/app/table-module/detail-table/img/login-background.jpeg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/coffee-house/src/app/table-module/detail-table/img/table.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
@@ -12,18 +14,21 @@
       <change beforePath="$PROJECT_DIR$/coffee-house/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/src/index.html" afterDir="false" />
 =======
       <change afterPath="$PROJECT_DIR$/coffee-house/src/app/table-module/create-table/img/hinh-anh-ly-cafe-dep-1.jpeg" afterDir="false" />
+>>>>>>> origin/table-management
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee-house/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/angular.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/coffee-house/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/model/table.ts" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/src/app/model/table.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/coffee-house/src/app/table-module/create-table/create-table.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/src/app/table-module/create-table/create-table.component.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/coffee-house/src/app/table-module/create-table/create-table.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/src/app/table-module/create-table/create-table.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/table-module/create-table/create-table.component.spec.ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/coffee-house/src/app/table-module/create-table/create-table.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/src/app/table-module/create-table/create-table.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/coffee-house/src/app/table-module/service/table.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/src/app/table-module/service/table.service.ts" afterDir="false" />
+<<<<<<< HEAD
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+=======
       <change beforePath="$PROJECT_DIR$/coffee-house/src/app/table-module/table-module.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/src/app/table-module/table-module.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/coffee-house/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/src/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/coffee-house/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/src/styles.css" afterDir="false" />
+>>>>>>> origin/table-management
 >>>>>>> origin/table-management
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -89,6 +94,15 @@
       <workItem from="1654788910201" duration="8186000" />
       <workItem from="1654858167725" duration="15723000" />
       <workItem from="1654913411645" duration="6507000" />
+<<<<<<< HEAD
+      <workItem from="1655001505129" duration="547000" />
+      <workItem from="1655117131383" duration="2399000" />
+      <workItem from="1655187451489" duration="6048000" />
+      <workItem from="1655209637464" duration="13198000" />
+      <workItem from="1655224080691" duration="5348000" />
+      <workItem from="1655268300941" duration="2839000" />
+=======
+>>>>>>> origin/table-management
 >>>>>>> origin/table-management
     </task>
     <servers />
@@ -97,6 +111,12 @@
     <option name="version" value="2" />
   </component>
   <component name="WindowStateProjectService">
+<<<<<<< HEAD
+    <state x="488" y="80" key="#com.intellij.ide.util.MemberChooser" timestamp="1655275006772">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="488" y="80" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1655275006772" />
+=======
 <<<<<<< HEAD
     <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1654690181197">
       <screen x="0" y="0" width="1536" height="824" />
@@ -107,6 +127,7 @@
     </state>
     <state x="496" y="121" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1654692052112" />
 =======
+>>>>>>> origin/table-management
     <state x="413" y="111" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1654916896893">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

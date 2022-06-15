@@ -38,7 +38,7 @@
   top: -25px;
   bottom: -25px;
   width: 400px;
-  background-image: url('img/hinh-anh-ly-cafe-dep-1.jpeg');
+  background-image: url('src/app/table-module/create-table/img/hinh-anh-ly-cafe-dep-1.jpeg');
   background-size: cover;
   background-position: center;
   padding: 25px;
@@ -211,4 +211,23 @@
   .booking-form>form {
     margin-left: 0px;
   }
+}
+@keyframes noti{
+  from{
+    transform: translateY(-140px);
+    opacity: 0;
+  }
+  to{
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+#noti{
+  position: absolute;
+  z-index: 100;
+  top: 44%;
+  right: 15%;
+  left: 15%;
+  animation-name: noti;
+  animation-duration: 1s;
 }
