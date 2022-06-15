@@ -1,1 +1,73 @@
-<h1>detail-table</h1>
+<!--<h1 style="text-align: center">Quản lý <span style="color: rgb(236, 155, 68)">Bán Hàng</span></h1>-->
+<div class="container">
+    <div class="row mt-5">
+      <h2 class="list-product-title">Phiếu thanh toán</h2>
+      <h3 class="list-product-subtitle">Bàn : <span style="color: green">{{codeTable}}</span></h3>
+      <h5 class="list-product-subtitle">Tổng tiền : <span style="color: red">{{totalOrder}}</span></h5>
+      <div class="table">
+        <table class="table table-striped table-hover">
+          <thead>
+
+          <tr>
+            <th>STT</th>
+            <th>Tên món</th>
+            <th>Số lượng</th>
+            <th></th>
+            <th>Giá (VND)</th>
+          </tr>
+          </thead>
+          <tbody>
+          <ng-template [ngIf]="totalOrder != 0">
+            <tr *ngFor="let dto of orderDTO;index as i">
+              <td>{{i + 1}}</td>
+              <td>{{dto.nameProduct}}</td>
+              <td>{{dto.numberProduct}}</td>
+              <td></td>
+              <td>{{dto.priceProduct}}</td>
+            </tr>
+          </ng-template>
+          <tr>
+            <td>
+              <button type="button" class="btn btn-warning">Tính Tiền</button>
+            </td>
+            <td></td>
+            <!-- <td>
+               <button type="button" class="btn btn-outline-warning" (click)="cancelTable(idTable)">Hủy bàn</button>
+             </td>-->
+            <td>
+              <button type="button" data-toggle="modal" [attr.data-target]="'#cancelTable' + idTable"
+                      class="btn btn-outline-warning">Hủy bàn
+              </button>
+            </td>
+            <!-- Modal -->
+            <div class="modal" [id]="'cancelTable' + idTable" tabindex="-1" aria-labelledby="exampleModalLabel"
+                 aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Xác nhận</h5>
+                    <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    Bạn có muốn hủy bàn {{codeTable}} hay không?
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Không</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="cancelTable(idTable)">Có
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <td>
+            </td>
+            <td>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+ </div>
+
+
