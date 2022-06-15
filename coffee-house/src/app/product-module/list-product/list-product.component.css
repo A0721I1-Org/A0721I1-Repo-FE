@@ -82,6 +82,7 @@ a{
   font-weight: 500;
   text-shadow: 1px 0px 2px black;
   border-bottom: 1px solid #fff;
+
 }
 
 .header {
@@ -325,6 +326,10 @@ a{
 .menu .box-container .box button:hover{
   background-color: #ffffff25;
 }
+.menu .box-container .box button.delete:hover{
+  background-color: red;
+}
+
 
 .menu .box-container .box:hover > * {
   color: var(--black);

@@ -13,16 +13,21 @@ codeName = '';
 nameProduct = '';
 trangChu: boolean;
 message: string;
+page = 0;
+pageSearch = 0;
+totalPage: number;
+totalPageSearch = 0;
   constructor(private service: ProductService) { }
   productList: Product[];
-
   ngOnInit(): void {
-    this.findByAll();
+    this.page = 0;
+    this.service.findByAll().subscribe( data => this.totalPage = Math.ceil(data.length / 4), () => {}, () => {}, );
+    this.findByAllPage();
   }
-  findByAll(){
-    this.service.findByAll().subscribe(
-      data => this.productList = data,
-    () => {},
+  findByAllPage(){
+    this.service.findByAllPaginng(0).subscribe(
+      (data: Product[]) => { this.productList = data['content'] ; this.trangChu = true; },
+      () => {},
       () => {},
     );
   }
@@ -35,26 +40,82 @@ message: string;
     }
     );
   }
-
-  search() {
-    this.service.search(this.codeName, this.nameProduct).subscribe(
+  searchPage() {
+    this.pageSearch = 0 ;
+    this.service.search(this.codeName, this.nameProduct).subscribe(data => this.totalPageSearch = Math.ceil(data.length / 4) );
+    this.service.searchPage(this.codeName, this.nameProduct, 0).subscribe(
       (data: Product[]) => {
         if (data != null){
-          this.productList = data ;
+          this.productList = data['content'] ;
           this.trangChu = false;
           this.message = ''; }
         else {
           this.ngOnInit();
           this.message = 'Không Tồn Tại Xin Vui Lòng Nhập Lại';
         }
-        },
+      },
       () => {},
       () => {},
     );
   }
-
   trangchu() {
     this.ngOnInit();
     this.trangChu = true;
+  }
+
+
+  next() {
+    this.page = this.page + 1;
+    this.service.findByAllPaginng(this.page).subscribe(
+      data => this.productList = data['content'],
+      () => {},
+      () => {},
+    );
+
+  }
+
+  previod() {
+    this.page = this.page - 1;
+    if (this.page >= 0){
+      this.service.findByAllPaginng(this.page).subscribe(
+        data => this.productList = data['content'],
+        () => {},
+        () => {},
+      );
+    }
+    }
+
+  previodPage() {
+    this.pageSearch = this.pageSearch - 1;
+
+    if (this.page >= 0){
+      this.service.searchPage(this.codeName, this.nameProduct, this.pageSearch).subscribe(
+        (data: Product[]) => {
+          if (data != null){
+            this.productList = data['content'] ;
+            this.trangChu = false;
+          }
+        },
+        () => {},
+        () => {},
+      );
+    }
+  }
+
+  nextPage() {
+    this.pageSearch = this.pageSearch + 1;
+
+    if (this.page >= 0){
+      this.service.searchPage(this.codeName, this.nameProduct, this.pageSearch).subscribe(
+        (data: Product[]) => {
+          if (data != null){
+            this.productList = data['content'] ;
+            this.trangChu = false;
+          }
+        },
+        () => {},
+        () => {},
+      );
+    }
   }
 }
