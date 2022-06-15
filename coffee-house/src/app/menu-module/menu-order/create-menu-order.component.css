@@ -1,6 +1,11 @@
 :root{
   --main-color: #fa8c16;
 }
+
+* {
+  box-sizing: inherit;
+}
+
 .flex-custum {
   flex-direction: column;
 }
@@ -16,10 +21,8 @@
   height: 30px;
 }
 .btn-custom {
-  background-color: #fa8c16!important;
-  border: none!important;
-* {
-  box-sizing: inherit;
+  background-color: #fa8c16 !important;
+  border: none !important;
 }
 
 html {

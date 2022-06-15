@@ -1,4 +1,124 @@
-<h1>Code Tuấn</h1>
+<div class="menu__container">
+  <div class="row w-100 h-100">
+    <div class="col-2">
+      <ul class="navbar__menu-list">
+        <li (click)="getTypeOfGet(0)" [ngClass]="checkGetAll==true?'active':null">Tất cả</li>
+        <li (click)="getTypeOfGet(productType.idTypeProduct)"
+          [ngClass]="checkGetAll == false && idTypeProduct == productType.idTypeProduct?'active':null"
+          *ngFor="let productType of typeProducts">{{productType.nameTypeProduct}}</li>
+      </ul>
+    </div>
+
+    <div class="col-10">
+      <div class="row">
+        <div class="col-4">
+          <div class="row">
+            <div class="col-6" *ngFor="let product of products">
+              <div class="menu__item">
+                <div class="menu__item-img-group">
+                  <img src="./assets/img/coffee.jpg" alt="">
+                </div>
+
+                <div class="menu__item-body">
+                  <div class="info">
+                    <span class="name">{{product.nameProduct}}</span>
+                    <span class="price">
+                      {{product.priceProduct | number: '1.0-0'}}đ
+                    </span>
+                  </div>
+
+                  <div class="button btn-buy">
+                    <i class="fa-solid fa-plus"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <ul class="pagination justify-content-center">
+            <li (click)="prevPage(true)" *ngIf="currentPage != 0">
+              <i class="fa-solid fa-angle-left"></i>
+            </li>
+            <li (click)="redirectPagination(tg+1 ,true)"
+              *ngFor="let tg of totalPageArray" [ngClass]="activedButton==tg+1?'active':null">{{tg + 1}}</li>
+            <li (click)="nextPage(true)" *ngIf="this.activedButton != this.totalPageArray.length">
+              <i class="fa-solid fa-angle-right"></i>
+            </li>
+          </ul>
+        </div>
+
+        <div class="col-8">
+          <div class="menu__item-left-area">
+            <table class="table__order-item">
+              <tr>
+                <th></th>
+                <th>STT</th>
+                <th>Tên món</th>
+                <th>Số lượng</th>
+                <th>Giá</th>
+                <th>Tổng tiền</th>
+                <th>Thời gian chờ</th>
+              </tr>
+
+              <tr *ngFor="let menuOrderDTO of menuOrderDTOs;let i = index">
+                <td>
+                  <input type="checkbox">
+                </td>
+                <td>{{i + 1}}</td>
+                <td>{{menuOrderDTO.nameProduct}}</td>
+                <td>{{menuOrderDTO.quantity}}</td>
+                <td>{{menuOrderDTO.price |number:'1.0'}} đ</td>
+                <td>{{menuOrderDTO.totalPrice| number:'1.0'}}đ</td>
+                <td>05:00</td>
+              </tr>
+            </table>
+
+            <ul class="pagination justify-content-center">
+              <li (click)="prevPage(false)" *ngIf="currentPageTable != 0">
+                <i class="fa-solid fa-angle-left"></i>
+              </li>
+              <li (click)="redirectPagination(tg+1 , false)"
+                *ngFor="let tg of totalPageTableArray" [ngClass]="activedButtonTable==tg+1?'active':null">{{tg + 1}}</li>
+              <li (click)="nextPage(false)" *ngIf="this.activedButtonTable != this.totalPageTableArray.length">
+                <i class="fa-solid fa-angle-right"></i>
+              </li>
+            </ul>
+
+            <div class="menu__item-function row">
+              <div class="col-4 d-flex justify-content-center">
+                <button class="button">Xoá món</button>
+              </div>
+              <div class="col-4 d-flex justify-content-center">
+                <button class="button">Gọi món</button>
+              </div>
+              <div class="col-4 d-flex justify-content-center">
+                <button class="button">Tính tiền</button>
+              </div>
+            </div>
+
+            <div class="footer">
+              <div class="info">
+                <p>
+                  <span>Số bàn: TB001</span>
+                </p>
+
+                <p>
+                  <span>Ngày: 10/10/2021</span>
+                </p>
+              </div>
+
+              <div class="d-flex align-items-center">
+                <button class="button mr-3">Gọi phục vụ</button>
+                <button class="button">Phản hồi</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <a (click)="getProductById(1)" type="button" class="btn" data-toggle="modal" data-target="#modal1">
   Thêm món
 </a>
@@ -8,11 +128,11 @@
   <!-- Button to Open the Modal -->
   <!-- The Modal -->
   <div class="modal fade" id="modal1">
-      <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <!-- Modal Header -->
         <div class="modal-header">
-          <h4 class="modal-title" >{{product?.nameProduct}}</h4>
+          <h4 class="modal-title">{{product?.nameProduct}}</h4>
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         <!-- Modal body -->
@@ -34,14 +154,16 @@
                   <span class="font-weight-bold">{{product?.priceProduct * quatity}}đ</span>
                   <div class="d-flex justify-content-between align-items-center">
                     <a class="px-2" (click)="subQuatity()" *ngIf="quatity === 1">
-                      <i  class='bx bx-minus-circle bx-md' style='color:#fa8c16'></i>
+                      <i class='bx bx-minus-circle bx-md' style='color:#fa8c16'></i>
                     </a>
                     <a class="px-2" (click)="subQuatity()" *ngIf="quatity > 1">
                       <i class='bx bxs-minus-circle bx-md' style='color:#fa8c16'></i>
                     </a>
-                    <span >{{quatity}}</span>
-                    <a class="px-2" (click)="addQuality()" ><i class='bx bxs-plus-circle bx-md'
-                                                style='color:#fa8c16'></i></a>
+                    <span>{{quatity}}</span>
+                    <a class="px-2" (click)="addQuality()" >
+                      <i class='bx bxs-plus-circle bx-md'
+                         style='color:#fa8c16'></i>
+                    </a>
                   </div>
                 </div>
                 <!--<div class="input-group mb-3 my-2">
@@ -150,133 +272,22 @@
 
             <!-- Modal footer -->
             <div class="modal-footer">
-              <button type="button" class="btn btn-primary btn-lg btn-block btn-custom" (click)="addOrderDetail()">{{product?.priceProduct * quatity}} - Thêm vào
+              <button type="button"
+                      class="btn btn-primary btn-lg btn-block btn-custom" (click)="addOrderDetail()">{{product?.priceProduct * quatity}}
+                - Thêm vào
                 giỏ
                 hàng
               </button>
-<div class="menu__container">
-  <div class="row w-100 h-100">
-    <div class="col-2">
-      <ul class="navbar__menu-list">
-        <li (click)="getTypeOfGet(0)" [ngClass]="checkGetAll==true?'active':null">Tất cả</li>
-        <li (click)="getTypeOfGet(productType.idTypeProduct)"
-          [ngClass]="checkGetAll == false && idTypeProduct == productType.idTypeProduct?'active':null"
-          *ngFor="let productType of typeProducts">{{productType.nameTypeProduct}}</li>
-      </ul>
-    </div>
-
-    <div class="col-10">
-      <div class="row">
-        <div class="col-4">
-          <div class="row">
-            <div class="col-6" *ngFor="let product of products">
-              <div class="menu__item">
-                <div class="menu__item-img-group">
-                  <img src="./assets/img/coffee.jpg" alt="">
-                </div>
-
-                <div class="menu__item-body">
-                  <div class="info">
-                    <span class="name">{{product.nameProduct}}</span>
-                    <span class="price">
-                      {{product.priceProduct | number: '1.0-0'}}đ
-                    </span>
-                  </div>
-
-                  <div class="button btn-buy">
-                    <i class="fa-solid fa-plus"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <ul class="pagination justify-content-center">
-            <li (click)="prevPage(true)" *ngIf="currentPage != 0">
-              <i class="fa-solid fa-angle-left"></i>
-            </li>
-            <li (click)="redirectPagination(tg+1 ,true)"
-              *ngFor="let tg of totalPageArray" [ngClass]="activedButton==tg+1?'active':null">{{tg+1}}</li>
-            <li (click)="nextPage(true)" *ngIf="this.activedButton != this.totalPageArray.length">
-              <i class="fa-solid fa-angle-right"></i>
-            </li>
-          </ul>
-        </div>
-
-        <div class="col-8">
-          <div class="menu__item-left-area">
-            <table class="table__order-item">
-              <tr>
-                <th></th>
-                <th>STT</th>
-                <th>Tên món</th>
-                <th>Số lượng</th>
-                <th>Giá</th>
-                <th>Tổng tiền</th>
-                <th>Thời gian chờ</th>
-              </tr>
-
-              <tr *ngFor="let menuOrderDTO of menuOrderDTOs;let i = index">
-                <td>
-                  <input type="checkbox">
-                </td>
-                <td>{{i+1}}</td>
-                <td>{{menuOrderDTO.nameProduct}}</td>
-                <td>{{menuOrderDTO.quantity}}</td>
-                <td>{{menuOrderDTO.price |number:'1.0'}} đ</td>
-                <td>{{menuOrderDTO.totalPrice| number:'1.0'}}đ</td>
-                <td>{{menuOrderDTO.totalPageDTO}}</td>
-                <td>05:00</td>
-              </tr>
-            </table>
-
-            <ul class="pagination justify-content-center">
-              <li (click)="prevPage(false)" *ngIf="currentPageTable != 0">
-                <i class="fa-solid fa-angle-left"></i>
-              </li>
-              <li (click)="redirectPagination(tg+1 , false)"
-                *ngFor="let tg of totalPageTableArray" [ngClass]="activedButtonTable==tg+1?'active':null">{{tg+1}}</li>
-              <li (click)="nextPage(false)" *ngIf="this.activedButtonTable != this.totalPageTableArray.length">
-                <i class="fa-solid fa-angle-right"></i>
-              </li>
-            </ul>
-
-            <div class="menu__item-function row">
-              <div class="col-4 d-flex justify-content-center">
-                <button class="button">Xoá món</button>
-              </div>
-              <div class="col-4 d-flex justify-content-center">
-                <button class="button">Gọi món</button>
-              </div>
-              <div class="col-4 d-flex justify-content-center">
-                <button class="button">Tính tiền</button>
-              </div>
-            </div>
-
-            <div class="footer">
-              <div class="info">
-                <p>
-                  <span>Số bàn: TB001</span>
-                </p>
-
-                <p>
-                  <span>Ngày: 10/10/2021</span>
-                </p>
-              </div>
-
-              <div class="d-flex align-items-center">
-                <button class="button mr-3">Gọi phục vụ</button>
-                <button class="button">Phản hồi</button>
-              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-        </div>
+</div>
 <script>
   function a() {
     var a = 0;
     a = a + 1;
   }
-              </script>
+</script>
