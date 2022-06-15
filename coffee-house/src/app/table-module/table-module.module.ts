@@ -5,14 +5,15 @@ import { TableModuleRoutingModule } from './table-module-routing.module';
 import { ListTableComponent } from './list-table/list-table.component';
 import { CreateTableComponent } from './create-table/create-table.component';
 import { DetailTableComponent } from './detail-table/detail-table.component';
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-
+import { ListTableActiveComponent } from './list-table-active/list-table-active.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
     ListTableComponent,
     CreateTableComponent,
-    DetailTableComponent
+    DetailTableComponent,
+    ListTableActiveComponent,
   ],
   imports: [
     CommonModule,
