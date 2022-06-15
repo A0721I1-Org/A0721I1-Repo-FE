@@ -61,7 +61,8 @@ export class TableService {
     return this._httpClient.post<Table>(API_URL + '/createTable', table);
   }
 
-  checkId(id: String): Observable<Boolean> {
-    return this._httpClient.get<Boolean>(API_URL + '/checkId?id=' +id);
+  checkId(id: String): Observable<Table[]> {
+    return this._httpClient.get<Table[]>(API_URL + '/checkId?id=' +id);
   }
+
 }
