@@ -11,3 +11,6 @@ document.querySelector('#search-btn').onclick = () =>{
   searchForm.classList.toggle('active');
   navbar.classList.remove('active');
 }
+function hamDropdown() {
+  document.querySelector(".noidung_dropdown").classList.toggle("hienThi");
+}
