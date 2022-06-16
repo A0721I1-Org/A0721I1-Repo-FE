@@ -9,7 +9,8 @@
             <img class="card-img-top" alt="Card image cap" src="../../../assets/img/table.jpeg">
             <div class="card-body">
               <h5 class="card-title">Bàn {{tab.codeTable}}</h5>
-              <p class="card-text">Trạng thái : <a class="text-danger" *ngIf="tab.emptyTable == false">Đã đặt</a>
+              <p class="card-text">Trạng thái :
+                <a class="text-danger" *ngIf="tab.emptyTable == false">Đã đặt</a>
                 <a class="status" *ngIf="tab.emptyTable == true">Còn</a>
               </p>
               <a href="#" class="btn btn-warning" [routerLink]="['../detail',tab.idTable]" *ngIf="!tab.emptyTable">Chi

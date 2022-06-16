@@ -230,3 +230,25 @@ audio,canvas,progress,video{display:inline-block;vertical-align:baseline}audio:n
     margin-left: 0px;
   }
 }
+
+/*Noti*/
+/*Noti*/
+@keyframes noti{
+  from{
+    transform: translateY(-140px);
+    opacity: 0;
+  }
+  to{
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+#noti{
+  position: absolute;
+  z-index: 100;
+  top: 44%;
+  right: 15%;
+  left: 15%;
+  animation-name: noti;
+  animation-duration: 1s;
+}

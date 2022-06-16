@@ -36,6 +36,7 @@ export class EditTableComponent implements OnInit {
     );
     this.subscription = this._service.getTableById(id).subscribe(data => {
       this.table = data;
+      console.log(data);
       this.statusTableDefault = data.status.nameStatus;
       this.updateForm = new FormGroup(
         {
@@ -60,10 +61,15 @@ export class EditTableComponent implements OnInit {
     }
     console.log(this.updateForm.value);
     this._service.updateTable(this.table.idTable, this.updateForm.value).subscribe(() => {
-      alert('update thanh công');
+      this._service.message = 'Cập nhật bàn thành công!';
       this._router.navigateByUrl('/table/list');
     }, error => {
       console.log('error');
     });
+  }
+
+  return() {
+    this._service.message = 'Cập nhật bàn thất bại!';
+    this._router.navigateByUrl('/table/list');
   }
 }
