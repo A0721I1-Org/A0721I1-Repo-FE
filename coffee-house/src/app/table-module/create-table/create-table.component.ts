@@ -66,7 +66,7 @@ export class CreateTableComponent implements OnInit {
       }
       this._service.createTable(this.tableCreate).subscribe(() => {
         console.log("success");
-        this._service.mesage = "Tạo mới thành công!"
+        this._service.message = "Tạo mới thành công!"
         this._router.navigateByUrl('/table/list');
       }, err => {
         console.log("err");
@@ -76,7 +76,7 @@ export class CreateTableComponent implements OnInit {
   }
 
   returnList() {
-    this._service.mesage = "Tạo mới thất bại!"
+    this._service.message = "Tạo mới thất bại!"
     this._router.navigateByUrl('/table/list');
   }
 
