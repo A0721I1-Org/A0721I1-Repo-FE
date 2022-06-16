@@ -61,6 +61,7 @@ export class EditTableComponent implements OnInit {
     console.log(this.updateForm.value);
     this._service.updateTable(this.table.idTable, this.updateForm.value).subscribe(() => {
       alert('update thanh công');
+      this._router.navigateByUrl('/table/list');
     }, error => {
       console.log('error');
     });
