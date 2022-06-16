@@ -7,6 +7,16 @@
 /*  --border:.1rem solid rgba(255,255,255,.3);*/
 /*}*/
 
+#username{
+  color: white;
+  font-size: 17px;
+}
+
+.noidung_dropdown a{
+  background-color: black;
+  color: rgb(236, 155, 68);
+}
+
 *{
   font-family: 'Roboto', sans-serif;
   margin:0;
