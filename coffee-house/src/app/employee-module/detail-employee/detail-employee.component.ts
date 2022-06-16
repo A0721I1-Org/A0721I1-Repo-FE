@@ -24,10 +24,10 @@ export class DetailEmployeeComponent implements OnInit {
           this.employee = data;
           console.log(this.employee);
         },
-      () => {},
-      () => {
+        () => {},
+        () => {
           // console.log(this.employee);
-      }
+        }
       );
     });
   }

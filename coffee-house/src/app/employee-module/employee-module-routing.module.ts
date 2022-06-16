@@ -8,11 +8,11 @@ import {DetailEmployeeComponent} from './detail-employee/detail-employee.compone
 
 const routes: Routes = [
   {
-    path: 'create/:id',
+    path: 'create',
     component: CreateEmployeeComponent
   },
   {
-    path: 'edit',
+    path: 'edit/:id',
     component: EditEmployeeComponent
   },
   {
