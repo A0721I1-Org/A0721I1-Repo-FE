@@ -11,7 +11,7 @@ import {Router} from '@angular/router';
 export class ListTableComponent implements OnInit {
   tables: any;
   table: any;
-  p: number = 0;
+  p = 0;
   formSearch: FormGroup;
   message: String = null;
 
@@ -24,28 +24,27 @@ export class ListTableComponent implements OnInit {
       tableNumber: new FormControl(),
       status: new FormControl(),
       emptyTable: new FormControl()
-    })
-    this.message = this.tableService.messsge;
-    console.log(this.message)
+    });
+    this.message = this.tableService.message;
     if (this.message != null) {
-      document.getElementById("noti").hidden = false;
+      document.getElementById('noti').hidden = false;
     }
   }
 
   findAllTable() {
     this.tableService.findAllTable().subscribe((tables: any) => {
       this.tables = tables;
-    })
+    });
   }
 
   deleteTable(id: number) {
     this.table = this.findTableById(id);
-    if (this.formSearch.value.tableNumber != '' && this.formSearch.value.tableNumber!= null) {
-      this.formSearch.controls['status'].enable();
-      this.formSearch.controls['emptyTable'].enable();
+    if (this.formSearch.value.tableNumber != '' && this.formSearch.value.tableNumber != null) {
+      this.formSearch.controls.status.enable();
+      this.formSearch.controls.emptyTable.enable();
     }
     this.tableService.deleteTable(id).subscribe(() => {}, () => {}, () => {
-      this.tableService.message = "Xoá bàn thành công!";
+      this.tableService.message = 'Xoá bàn thành công!';
       this.ngOnInit();
     });
   }
@@ -58,52 +57,53 @@ export class ListTableComponent implements OnInit {
 
   changeEmptyTable(id: number) {
     this.table = this.findTableById(id);
-    if (this.formSearch.value.tableNumber != '' && this.formSearch.value.tableNumber!= null) {
-      this.formSearch.controls['status'].enable();
-      this.formSearch.controls['emptyTable'].enable();
+    if (this.formSearch.value.tableNumber != '' && this.formSearch.value.tableNumber != null) {
+      this.formSearch.controls.status.enable();
+      this.formSearch.controls.emptyTable.enable();
     }
     this.tableService.updateEmptyTable(id, this.table).subscribe(() => {}, () => {}, () => {
+      this.tableService.message = 'Cập nhật bàn  thành công!';
       this.ngOnInit();
-    })
+    });
   }
 
   changeTableNumber(value) {
     if (value != '') {
-      this.formSearch.controls['status'].disable();
-      this.formSearch.controls['emptyTable'].disable();
+      this.formSearch.controls.status.disable();
+      this.formSearch.controls.emptyTable.disable();
     } else {
-      this.formSearch.controls['status'].enable();
-      this.formSearch.controls['emptyTable'].enable();
+      this.formSearch.controls.status.enable();
+      this.formSearch.controls.emptyTable.enable();
     }
   }
 
   submitFormSearch() {
-    let codeTable = this.formSearch.value.tableNumber;
-    let idStatus = this.formSearch.value.status;
-    let emptyTable = this.formSearch.value.emptyTable;
+    const codeTable = this.formSearch.value.tableNumber;
+    const idStatus = this.formSearch.value.status;
+    const emptyTable = this.formSearch.value.emptyTable;
     console.log(codeTable);
     if (codeTable != '' && codeTable !== null) {
       this.tableService.findAllTableByCodeTable(codeTable).subscribe((tables: any) => {
         this.tables = tables;
       });
-    } else if (idStatus !== null && idStatus !== "null" && emptyTable !== null && emptyTable !== "null") {
+    } else if (idStatus !== null && idStatus !== 'null' && emptyTable !== null && emptyTable !== 'null') {
       this.tables = this.tableService.findAllTableByIdStatusAndEmptyTable(idStatus, emptyTable).subscribe((tables: any) => {
         this.tables = tables;
-      })
-    } else if (idStatus !== null && idStatus !== "null") {
+      });
+    } else if (idStatus !== null && idStatus !== 'null') {
       this.tables = this.tableService.findAllTableByIdStatus(idStatus).subscribe((tables: any) => {
         this.tables = tables;
-      })
-    } else if (emptyTable !== null && emptyTable !== "null"){
+      });
+    } else if (emptyTable !== null && emptyTable !== 'null'){
       this.tables = this.tableService.findAllTableByEmptyTable(emptyTable).subscribe((tables: any) => {
         this.tables = tables;
-      })
+      });
     } else {
       this.ngOnInit();
     }
   }
 
   hide() {
-    document.getElementById("noti").hidden = true;
+    document.getElementById('noti').hidden = true;
   }
 }

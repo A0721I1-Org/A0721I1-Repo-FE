@@ -1,10 +1,11 @@
-import {OrderDetailMenuDTO} from '../../model/OrderDetailMenuDTO';
-import {Oder} from '../../model/oder';
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Status} from '../../model/status';
+// @ts-ignore
 import {Table} from '../../model/table';
+import {OrderDetailMenuDTO} from '../../model/OrderDetailMenuDTO';
+import {Oder} from '../../model/oder';
 import {environment} from '../../../environments/environment';
 
 const API_URL = `${environment.apiUrl}`;
@@ -15,11 +16,13 @@ const API_URL = `${environment.apiUrl}`;
 
 export class TableService {
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {
+  }
 
-  private _message:String;
+  private _message: String;
 
-  get messsge(): String {
+
+  get message(): String {
     return this._message;
   }
 
@@ -27,7 +30,9 @@ export class TableService {
     this._message = value;
   }
 
-  //HuyNN findAllTableWithSearch, updateEmptyTable, deleteTable, findTableById method
+  /*
+  HuyNN findAllTableWithSearch, updateEmptyTable, deleteTable, findTableById method
+*/
   findAllTable(): Observable<Table[]> {
     return this.httpClient.get<Table[]>(API_URL + '/manager/findAllTableWithSearch');
   }
@@ -52,11 +57,11 @@ export class TableService {
     return this.httpClient.put<Table>(API_URL + '/manager/updateEmptyTable/' + id, table);
   }
 
-  deleteTable(id: number):Observable<Table> {
+  deleteTable(id: number): Observable<Table> {
     return this.httpClient.delete<Table>(API_URL + '/manager/deleteTable/' + id);
   }
 
-  findTableById(id: number):Observable<Table> {
+  findTableById(id: number): Observable<Table> {
     return this.httpClient.get<Table>(API_URL + '/manager/findTableById/' + id);
   }
 
@@ -90,11 +95,19 @@ export class TableService {
     return this.httpClient.get<Table[]>(API_URL + '/manager/findAllTable');
   }
 
+  getTableById(id): Observable<Table> {
+    return this.httpClient.get<Table>(`${API_URL}/manager/findTableById/${id}`);
+  }
+
+  updateTable(id, table: Table): Observable<Table> {
+    return this.httpClient.put<Table>(`${API_URL}/manager/updateTable/${id}`, table);
+  }
+
   createTable(table: Table): Observable<Table> {
     return this.httpClient.post<Table>(API_URL + '/manager/createTable', table);
   }
 
   checkId(id: String): Observable<Table[]> {
-    return this.httpClient.get<Table[]>(API_URL + '/manager/checkId?id=' +id);
+    return this.httpClient.get<Table[]>(API_URL + '/manager/checkId?id=' + id);
   }
 }
