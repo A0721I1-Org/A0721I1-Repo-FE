@@ -100,6 +100,10 @@
               && createEmployeeForm.get('phoneEmployee').touched)">
                     <i>Không được để trống!</i>
                   </p>
+                  <p style="color: red" *ngIf="(createEmployeeForm.get('phoneEmployee').hasError('pattern')
+              && createEmployeeForm.get('phoneEmployee').touched)">
+                    <i>số điện thoại không đúng!</i>
+                  </p>
                 </div>
               </div>
             </div>

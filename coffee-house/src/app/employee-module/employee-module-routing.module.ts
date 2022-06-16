@@ -8,7 +8,7 @@ import {DetailEmployeeComponent} from './detail-employee/detail-employee.compone
 
 const routes: Routes = [
   {
-    path: 'create',
+    path: 'create/:id',
     component: CreateEmployeeComponent
   },
   {

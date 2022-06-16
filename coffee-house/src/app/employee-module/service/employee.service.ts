@@ -23,7 +23,7 @@ export class EmployeeService {
 
   updateEmployee(employee: Employee): Observable<void> {
     // @ts-ignore
-    return this.httpClient.patch(URL_API + '/update-employee/' + employee.idEmployee,employee);
+    return this.httpClient.put(URL_API + '/update-employee/' + employee.idEmployee,employee);
   }
 
   getPosition():Observable<Position[]>{
