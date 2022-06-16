@@ -42,17 +42,17 @@ export class EditEmployeeComponent implements OnInit {
       });
 
       this.editEmployeeForm = this.formBuilder.group({
-        nameEmployee: ['', [Validators.required,Validators.pattern(/^([a-vxyỳọáầảấờễàạằệếýộậốũứĩõúữịỗìềểẩớặòùồợãụủíỹắẫựỉỏừỷởóéửỵẳẹèẽổẵẻỡơôưăêâđ]+)((\s{1}[a-vxyỳọáầảấờễàạằệếýộậốũứĩõúữịỗìềểẩớặòùồợãụủíỹắẫựỉỏừỷởóéửỵẳẹèẽổẵẻỡơôưăêâđ]+){1,})$/)]],
+        nameEmployee: ['', [Validators.required, Validators.pattern(/^([a-vxyỳọáầảấờễàạằệếýộậốũứĩõúữịỗìềểẩớặòùồợãụủíỹắẫựỉỏừỷởóéửỵẳẹèẽổẵẻỡơôưăêâđ]+)((\s{1}[a-vxyỳọáầảấờễàạằệếýộậốũứĩõúữịỗìềểẩớặòùồợãụủíỹắẫựỉỏừỷởóéửỵẳẹèẽổẵẻỡơôưăêâđ]+){1,})$/)]],
         addressEmployee:  ['', Validators.required],
-        phoneEmployee: ['', [Validators.required,Validators.pattern(/^(0?)(3[2-9]|5[6|8|9]|7[0|6-9]|8[0-6|8|9]|9[0-4|6-9])[0-9]{7}$/)]],
+        phoneEmployee: ['', [Validators.required, Validators.pattern(/^(0?)(3[2-9]|5[6|8|9]|7[0|6-9]|8[0-6|8|9]|9[0-4|6-9])[0-9]{7}$/)]],
         genderEmployee:  ['', Validators.required],
         dateOfBirthEmployee:  ['', Validators.required],
-        salaryEmployee: ['', [Validators.required,Validators.min(100000)]],
+        salaryEmployee: ['', [Validators.required, Validators.min(100000)]],
         position:  ['', Validators.required],
-        user:  ['', [Validators.required,Validators.pattern(/^[a-zA-Z0-9]+$/)]],
-      })
+        user:  ['', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]+$/)]],
+      });
 
-    this.getAllPosition();
+      this.getAllPosition();
   }
 
   getAllPosition() {
@@ -61,7 +61,7 @@ export class EditEmployeeComponent implements OnInit {
         this.positions = next;
         console.log(this.positions);
       }
-    )
+    );
   }
 
   editSubmit() {
@@ -69,7 +69,7 @@ export class EditEmployeeComponent implements OnInit {
       this.employee = this.editEmployeeForm.value;
       let user = {
         username: this.employee.user,
-        password: "123456",
+        password: '123456',
       };
       this.employee.user = user;
       console.log(this.employee);
@@ -85,7 +85,7 @@ export class EditEmployeeComponent implements OnInit {
 
           },
           () => {
-            this.router.navigateByUrl('')
+            this.router.navigateByUrl('');
           },
         );
       }
