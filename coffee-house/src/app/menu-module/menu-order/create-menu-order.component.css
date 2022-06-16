@@ -67,7 +67,7 @@ button:active , button:focus {
 
 /* Navbar Menu */
 .menu__container {
-  height: 100vh;
+  height: 180vh;
   background-color: rgba(var(--b3f,250,250,250),1);
 }
 
@@ -253,4 +253,108 @@ button:active , button:focus {
 .pagination .active {
   background-color: var(--primary-color) !important;
   color: #fff !important;
+}
+
+/* Navbar menu list for phone */
+.navbar__menu-list-on-phone {
+  height: 50px;
+  background-color: var(--primary-color);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.navbar__menu-list-on-phone h3 {
+  font-size: 1.2rem;
+  margin: 0 0 0 15px;
+}
+
+.navbar__menu-list-on-phone li i {
+  font-size: 1.6rem;
+  padding: 12px 15px;
+}
+
+.navbar__menu-list-child .active {
+  background-color: #fff;
+  color: var(--primary-color);
+}
+
+.navbar__menu-list-child {
+  position: absolute;
+  top: 100%;
+  color: #000;
+  background-color: #dadada;
+  width: 100%;
+  z-index: 11;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  transition: all 0.3s;
+  transform-origin: top right;
+  animation: fadeIn 0.3s;
+}
+
+.navbar__menu-list-child li {
+  font-size: 1rem;
+  padding: 12px 15px;
+}
+
+/* Responsive */
+/* Phone */
+@media (max-width: 739px) {
+  .navbar__menu-list {
+    display: none;
+  }
+
+  .d-mb-block {
+    display: block !important;
+  }
+
+  .m-mb-0 {
+    margin: 0 !important;
+  }
+
+  .p-mb-0 {
+    padding: 0 !important;
+  }
+
+  .table__order-item {
+    font-size: 0.7rem;
+  }
+}
+
+/* Mobile and Tablet */
+@media (max-width: 1023px) {
+  .menu__item .menu__item-body .name ,
+  .menu__item .menu__item-body .price ,
+  .menu__item-left-area .footer .info span {
+    font-size: 1rem;
+  }
+
+  .menu__item-function button ,
+  .menu__item-left-area .footer button{
+    height: 40px !important;
+    font-size: 0.8rem !important;
+  }
+
+  .menu__item .menu__item-body .btn-buy {
+    height: 37px;
+    width: 37px;
+    font-size: 1.2rem;
+    margin-top: 4px;
+  }
+}
+
+
+/* Tablet */
+@media (min-width: 740px) and (max-width: 1023px) {
+  .menu__item .menu__item-body {
+    display: flex;
+    flex-direction: column;
+    align-items: unset;
+  }
+
+  .menu__item-left-area .table__order-item {
+    font-size: 0.9rem;
+  }
 }
