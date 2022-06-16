@@ -26,7 +26,7 @@
     <div class="dropdown">
       <button  onclick="hamDropdown()" class =" bx bxs-user-account bx-lg"></button>
       <div class="noidung_dropdown" *ngIf="tokenStorageService.getUser()">
-        <a [routerLink]="['/employee/detail/'] + tokenStorageService.getUser().username">{{tokenStorageService.getUser().username}}</a>
+        <a [routerLink]="['/employee/detail/'] + tokenStorageService.getUser().id">Chi tiết tài khoản</a>
         <a (click)="logout()">Đăng xuất</a>
       </div>
     </div>

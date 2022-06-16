@@ -33,6 +33,9 @@
   display: flex;
   justify-content: center;
 }
+.table-wrapper {
+  margin-top: 150px;
+}
 .informationCss {
   display: flex;
   justify-content: center;
@@ -84,6 +87,7 @@ h4 span:hover {
 .modal-header {
   border-color: var(--main-color);
   /*padding: 0.4rem;*/
+  padding: 10px 0;
 }
 .modal-footer {
   border-color: var(--main-color);
@@ -114,6 +118,9 @@ h4 span:hover {
   }
   .button:last-child {
     margin-bottom: 10px;
+  }
+  .modal-header {
+    padding-bottom: 20px;
   }
 }
 @media only screen and (min-width: 577px) and (max-width: 692px){
