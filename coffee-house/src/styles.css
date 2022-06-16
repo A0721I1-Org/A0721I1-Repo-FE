@@ -11,6 +11,7 @@
   --black:#13131a;
   --bg:#010103;
   --border:.1rem solid rgba(255,255,255,.3);
+  --color-content: rgb(236, 155, 68);
 }
 
 *{
@@ -551,21 +552,6 @@ section{
 .footer .links a:hover{
   background:var(--main-color);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* media queries  */
 @media (max-width:991px){
 
