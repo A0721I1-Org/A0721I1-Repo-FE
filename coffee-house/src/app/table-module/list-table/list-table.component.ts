@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {TableService} from '../service/table.service';
 import {FormControl, FormGroup} from '@angular/forms';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-list-table',
@@ -12,19 +13,23 @@ export class ListTableComponent implements OnInit {
   table: any;
   p: number = 0;
   formSearch: FormGroup;
-  // message:String;
+  message: String = null;
 
 
-  constructor(private tableService: TableService) { }
+  constructor(private tableService: TableService, private router: Router) { }
 
   ngOnInit(): void {
     this.findAllTable();
-    // this.message = this.tableService.message;
     this.formSearch = new FormGroup({
       tableNumber: new FormControl(),
       status: new FormControl(),
       emptyTable: new FormControl()
     })
+    this.message = this.tableService.messsge;
+    console.log(this.message)
+    if (this.message != null) {
+      document.getElementById("noti").hidden = false;
+    }
   }
 
   findAllTable() {
@@ -34,7 +39,13 @@ export class ListTableComponent implements OnInit {
   }
 
   deleteTable(id: number) {
+    this.table = this.findTableById(id);
+    if (this.formSearch.value.tableNumber != '' && this.formSearch.value.tableNumber!= null) {
+      this.formSearch.controls['status'].enable();
+      this.formSearch.controls['emptyTable'].enable();
+    }
     this.tableService.deleteTable(id).subscribe(() => {}, () => {}, () => {
+      this.tableService.message = "Xoá bàn thành công!";
       this.ngOnInit();
     });
   }
@@ -47,7 +58,12 @@ export class ListTableComponent implements OnInit {
 
   changeEmptyTable(id: number) {
     this.table = this.findTableById(id);
+    if (this.formSearch.value.tableNumber != '' && this.formSearch.value.tableNumber!= null) {
+      this.formSearch.controls['status'].enable();
+      this.formSearch.controls['emptyTable'].enable();
+    }
     this.tableService.updateEmptyTable(id, this.table).subscribe(() => {}, () => {}, () => {
+      this.ngOnInit();
     })
   }
 
@@ -65,11 +81,11 @@ export class ListTableComponent implements OnInit {
     let codeTable = this.formSearch.value.tableNumber;
     let idStatus = this.formSearch.value.status;
     let emptyTable = this.formSearch.value.emptyTable;
+    console.log(codeTable);
     if (codeTable != '' && codeTable !== null) {
       this.tableService.findAllTableByCodeTable(codeTable).subscribe((tables: any) => {
         this.tables = tables;
       });
-
     } else if (idStatus !== null && idStatus !== "null" && emptyTable !== null && emptyTable !== "null") {
       this.tables = this.tableService.findAllTableByIdStatusAndEmptyTable(idStatus, emptyTable).subscribe((tables: any) => {
         this.tables = tables;
@@ -85,5 +101,9 @@ export class ListTableComponent implements OnInit {
     } else {
       this.ngOnInit();
     }
+  }
+
+  hide() {
+    document.getElementById("noti").hidden = true;
   }
 }
