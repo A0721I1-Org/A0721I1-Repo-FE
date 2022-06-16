@@ -1,3 +1,4 @@
+
 <!-- header section starts  -->
 <header class="header">
 
@@ -24,9 +25,9 @@
 <!--        <a class='bx bxs-user-account bx-lg'></a>-->
     <div class="dropdown">
       <button  onclick="hamDropdown()" class =" bx bxs-user-account bx-lg"></button>
-      <div class="noidung_dropdown">
-        <a href="#">Đường Dẫn </a>
-        <a href="#">Đăng xuất</a>
+      <div class="noidung_dropdown" *ngIf="tokenStorageService.getUser()">
+        <a [routerLink]="['/employee/detail/'] + tokenStorageService.getUser().id">Chi tiết tài khoản</a>
+        <a (click)="logout()">Đăng xuất</a>
       </div>
     </div>
         </div>
@@ -366,3 +367,4 @@
 </section>
 
 
+>>>>>>> 8c30816157309917291b24941dd787c4e521dc9e

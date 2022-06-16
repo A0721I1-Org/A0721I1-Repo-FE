@@ -20,6 +20,7 @@ export class DetailEmployeeComponent implements OnInit {
       this.employee = this.employeeService.findByIdUser(this.idUser).subscribe(
         (data) => {
           this.employee = data;
+          // console.log(this.employee);
         },
       () => {},
       () => {
