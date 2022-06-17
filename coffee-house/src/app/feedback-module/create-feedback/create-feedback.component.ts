@@ -1,3 +1,4 @@
+
 import {Component, Inject, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {FeedbackService} from "../service/feedback.service";
@@ -6,12 +7,14 @@ import {formatDate} from "@angular/common";
 import {AngularFireStorage} from "@angular/fire/storage";
 import {finalize} from "rxjs/operators";
 
+
 @Component({
   selector: 'app-create-feedback',
   templateUrl: './create-feedback.component.html',
   styleUrls: ['./create-feedback.component.css']
 })
 export class CreateFeedbackComponent implements OnInit {
+
 
 
   selectImg: any;
@@ -80,6 +83,5 @@ export class CreateFeedbackComponent implements OnInit {
   getCurrentDateTime(): string {
     return formatDate(new Date(), 'dd-MM-yyyy-hh-mm-ssa', 'en-US');
   }
-
 
 }

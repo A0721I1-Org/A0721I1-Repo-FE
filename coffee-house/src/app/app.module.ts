@@ -1,8 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import {HttpClientModule} from '@angular/common/http';
 import {FeedbackModuleModule} from "./feedback-module/feedback-module.module";
 
 @NgModule({
@@ -12,6 +12,7 @@ import {FeedbackModuleModule} from "./feedback-module/feedback-module.module";
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     FeedbackModuleModule
   ],
   providers: [],
