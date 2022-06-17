@@ -4,9 +4,6 @@ import {Product} from '../../model/product';
 import {MenuService} from '../service/menu.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Router} from "@angular/router";
-import {Component, OnInit} from '@angular/core';
-import {MenuService} from "../service/menu.service";
-import {Product} from "../../model/product";
 import {TypeProduct} from "../../model/typeProduct";
 import {ActivatedRoute} from "@angular/router";
 import {MenuOrderDTO} from "../../model/MenuOrderDTO";
@@ -51,9 +48,6 @@ export class MenuOrderComponent implements OnInit {
   /* Check active click */
   idTypeProduct = 0;
   checkGetAll = true;
-
-  constructor(private menuService: MenuService, private activatedRoute: ActivatedRoute) {
-  }
 
   ngOnInit(): void {
     this.getAll();
@@ -141,6 +135,7 @@ export class MenuOrderComponent implements OnInit {
       (data) => {
         if (data){
           this.product = data;
+          console.log(this.product);
         }
       }, (e) => {
         console.log(e);
