@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+
 import {Position} from '../../model/position';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {EmployeeService} from '../service/employee.service';
 import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 import {Employee} from '../../model/employee';
 import {User} from '../../model/user';
+
 
 @Component({
   selector: 'app-edit-employee',
@@ -43,23 +45,22 @@ export class EditEmployeeComponent implements OnInit {
           dateOfBirthEmployee:  this.employee.dateOfBirthEmployee,
           salaryEmployee: this.employee.salaryEmployee,
           position:  this.employee.position.namePosition,
-          user:  this.employee.user.username,
         });
       });
     });
 
     this.editEmployeeForm = this.formBuilder.group({
-      idEmployee: ['',],
-      nameEmployee: ['', [Validators.required, Validators.pattern(/^([a-vxyỳọáầảấờễàạằệếýộậốũứĩõúữịỗìềểẩớặòùồợãụủíỹắẫựỉỏừỷởóéửỵẳẹèẽổẵẻỡơôưăêâđ]+)((\s{1}[a-vxyỳọáầảấờễàạằệếýộậốũứĩõúữịỗìềểẩớặòùồợãụủíỹắẫựỉỏừỷởóéửỵẳẹèẽổẵẻỡơôưăêâđ]+){1,})$/)]],
+      idEmployee: ['', ],
+
+      nameEmployee: ['', [Validators.required,Validators.pattern(/^([a-vxyỳọáầảấờễàạằệếýộậốũứĩõúữịỗìềểẩớặòùồợãụủíỹắẫựỉỏừỷởóéửỵẳẹèẽổẵẻỡơôưăêâđ]+)((\s{1}[a-vxyỳọáầảấờễàạằệếýộậốũứĩõúữịỗìềểẩớặòùồợãụủíỹắẫựỉỏừỷởóéửỵẳẹèẽổẵẻỡơôưăêâđ]+){1,})$/)]],
       addressEmployee:  ['', Validators.required],
-      phoneEmployee: ['', [Validators.required, Validators.pattern(/^(0?)(3[2-9]|5[6|8|9]|7[0|6-9]|8[0-6|8|9]|9[0-4|6-9])[0-9]{7}$/)]],
+      phoneEmployee: ['', [Validators.required,Validators.pattern(/^(0?)(3[2-9]|5[6|8|9]|7[0|6-9]|8[0-6|8|9]|9[0-4|6-9])[0-9]{7}$/)]],
       genderEmployee:  ['', Validators.required],
       dateOfBirthEmployee:  ['', Validators.required],
-      salaryEmployee: ['', [Validators.required, Validators.min(100000)]],
+      salaryEmployee: ['', [Validators.required,Validators.min(100000)]],
       position:  ['', Validators.required],
-      user:  ['', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]+$/)]],
+      user:  ['', [Validators.required,Validators.pattern(/^[a-zA-Z0-9]+$/)]],
     });
-
     this.getAllPosition();
   }
 
@@ -69,7 +70,7 @@ export class EditEmployeeComponent implements OnInit {
         this.positions = next;
         console.log(this.positions);
       }
-    );
+    )
   }
 
   editSubmit() {
