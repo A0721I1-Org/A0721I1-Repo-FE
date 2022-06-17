@@ -1,7 +1,8 @@
-<div class="container-sm">
-  <div class="container-fluid" style="height:191px; margin-bottom: 70px">
-    <div style="background-color: #FA8C16; height: 243px; width: 1275px; position: absolute; opacity: 30%"></div>
-    <img src="/assets/images/1.jpg" class="img-fluid"/>
+
+<div class="container-lg">
+  <div class="container-fluid" style="height:191px; margin-bottom: 70px; width: 1000px">
+    <div style="background-color: #FA8C16; height:191px;width: 970px; position: absolute; opacity: 30%"></div>
+    <img src="/assets/images/1.jpg" style="height:191px" class="img-fluid"/>
   </div>
 
 
@@ -113,7 +114,7 @@
               </div>
               <div class="row">
                 <div class="col-12">Hình ảnh</div>
-                <div>(hình ảnh)></div>
+                <div class="col-4"><img id="myImg" class="demo cursor" src="{{feedbackDetail.imageFeedback}}" style="width:100%" alt="image"></div>
               </div>
             </div>
           </div>
@@ -122,6 +123,17 @@
           </div>
         </div>
     </div>
+  </div>
+  <div id="myModal" class="modal1">
+
+    <!-- The Close Button -->
+    <span class="close">&times;</span>
+
+    <!-- Modal Content (The Image) -->
+    <img class="modal1-content" id="img01">
+
+    <!-- Modal Caption (Image Text) -->
+    <div id="caption"></div>
   </div>
   <div class="footer">Copyright @2022</div>
 </div>

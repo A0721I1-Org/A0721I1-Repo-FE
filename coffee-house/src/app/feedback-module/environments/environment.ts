@@ -4,6 +4,16 @@
 
 export const environment = {
   production: false,
+  firebase: {
+    apiKey: "AIzaSyDNJfSGs2AHmZHoU9CnXhUwFvP1rxpt13E",
+    authDomain: "coffee-house-e59a6.firebaseapp.com",
+    databaseURL: "https://coffee-house-e59a6-default-rtdb.firebaseio.com",
+    projectId: "coffee-house-e59a6",
+    storageBucket: "coffee-house-e59a6.appspot.com",
+    messagingSenderId: "583756560054",
+    appId: "1:583756560054:web:c1662807fb455b227fd817",
+    measurementId: "G-CVWX4K9KLD"
+  }
 };
 
 /*

@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
+
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../../environments/environment';
 import {Observable} from 'rxjs';
 import {Feedback} from '../../model/feedback';
+const API_URL = 'http://localhost:8080'
 
-const  API_URL = `${environment.apiUrl}`;
 @Injectable({
   providedIn: 'root'
 })
@@ -30,5 +31,10 @@ export class FeedbackService {
 
   getFeedbackByDateNotPagination(date: String): Observable<Feedback[]> {
     return this.http.get<Feedback[]>(`${API_URL}/manager/api/feedback/search-not-pagination?date=` + date);
+  }
+
+  saveFeedback(feedBack) {
+    return this.http.post<Feedback>(API_URL + "/api/feedback/createFeedback", feedBack);
+
   }
 }

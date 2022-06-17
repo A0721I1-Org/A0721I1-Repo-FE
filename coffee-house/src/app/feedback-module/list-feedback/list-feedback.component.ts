@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+
 import {Feedback} from '../../model/feedback';
 import {FeedbackService} from '../service/feedback.service';
 import {ActivatedRoute} from '@angular/router';
 import {FormBuilder, FormGroup} from '@angular/forms';
+
 
 @Component({
   selector: 'app-list-feedback',
@@ -10,6 +12,7 @@ import {FormBuilder, FormGroup} from '@angular/forms';
   styleUrls: ['./list-feedback.component.css']
 })
 export class ListFeedbackComponent implements OnInit {
+
   feedbackList: Feedback[] = [];
   feedbackDetail: Feedback = {
     idFeedback: 0,
