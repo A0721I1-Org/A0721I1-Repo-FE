@@ -52,30 +52,14 @@ export class CreateFeedbackComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  showPreview(event: any) {
-
-    if (event.target.file) {
-      var reader = new FileReader();
-      reader.readAsDataURL(event.target.file[0]);
-      reader.onload = (e) => {
-        this.imgVip = e.target.result as string;
-      }
-    }
-    // this.selectImg = event.target.file[0];
-    // const reader = new FileReader();
-    // reader.readAsDataURL(this.selectImg);
-    // reader.onload = e => {
-    //   this.imgVip = reader.result as string;
-    // }
-  }
-
   onSubmit() {
-    const nameImg = this.getCurrentDateTime() + this.createFeedbackForm.get('imageFeedback').value;
+    console.log(this.createFeedbackForm.value);
+    const nameImg = this.getCurrentDateTime() + this.selectImg.name;
     const fileRef = this.storage.ref(nameImg);
     this.storage.upload(nameImg, this.selectImg).snapshotChanges().pipe(
       finalize(() => {
         fileRef.getDownloadURL().subscribe((url) => {
-          this.createFeedbackForm.patchValue({imgFeedback: url});
+          this.createFeedbackForm.patchValue({imageFeedback: url});
 
 
           this.feedBackService.saveFeedback(this.createFeedbackForm.value).subscribe(() => {
@@ -87,6 +71,15 @@ export class CreateFeedbackComponent implements OnInit {
 
   }
 
+  showPreview(event: any) {
+    this.selectImg = event.target.files[0];
+    const reader = new FileReader();
+    reader.readAsDataURL(this.selectImg);
+    reader.onload = e => {
+      console.log(e);
+      this.imgVip = reader.result as string;
+    };
+  }
   getCurrentDateTime(): string {
     return formatDate(new Date(), 'dd-MM-yyyy-hh-mm-ssa', 'en-US');
   }
