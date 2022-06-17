@@ -214,6 +214,7 @@ button:active , button:focus {
   border-radius: 2px;
   border: 1px solid #dbdbdb;
   margin-top: 24px;
+  background-color: #Fff !important;
 }
 
 .menu__item-left-area .footer .info span {
