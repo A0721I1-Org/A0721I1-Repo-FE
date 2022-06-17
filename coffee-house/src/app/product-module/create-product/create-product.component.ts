@@ -13,13 +13,13 @@ import {TypeProduct} from '../../model/typeProduct';
 export class CreateProductComponent implements OnInit {
   typeProduct: TypeProduct[];
   createForm: FormGroup = new FormGroup({
-      idProduct: new FormControl(['', Validators.required]),
-      codeProduct: new FormControl(['', Validators.required]),
-      nameProduct: new FormControl(['', Validators.required]),
-      priceProduct: new FormControl(['', Validators.required]),
-      imageProduct: new FormControl(['', Validators.required]),
-      descriptionProduct: new FormControl(['', Validators.required]),
-      typeProduct: new FormControl(['', Validators.required]),
+      idProduct: new FormControl('', Validators.required),
+      codeProduct: new FormControl('', Validators.required),
+      nameProduct: new FormControl('', Validators.required),
+      priceProduct: new FormControl('', Validators.required),
+      imageProduct: new FormControl('', Validators.required),
+      descriptionProduct: new FormControl('', Validators.required),
+      typeProduct: new FormControl('', Validators.required),
     });
 
 

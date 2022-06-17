@@ -12,31 +12,38 @@ import {TypeProduct} from '../../model/typeProduct';
 })
 export class EditProductComponent implements OnInit {
 
-  editForm: FormGroup;
   product: Product;
   typeProduct: TypeProduct[];
   constructor(private fb: FormBuilder, private service: ProductService,
               private router: Router, private activatedRoute: ActivatedRoute) {
   }
-
+  editForm = this.fb.group({
+    idProduct: ['', Validators.required],
+    codeProduct: ['', Validators.required],
+    nameProduct: ['', Validators.required],
+    priceProduct: ['', Validators.required],
+    imageProduct: ['', Validators.required],
+    descriptionProduct: ['', Validators.required],
+    typeProduct: ['', [Validators.required]]
+  });
+  compareById( optionOne, optionTwo ): boolean {
+    return optionOne.id === optionTwo.id;
+  }
   ngOnInit(): void {
-   this.service.findType().subscribe((data => this.typeProduct = data));
-   this.activatedRoute.paramMap.subscribe((paramMap: ParamMap) => {
-      const id = Number(paramMap.get('id'));
-      this.service.findById(id).subscribe(next => {
-        console.log(next);
-        this.editForm.patchValue(next);
-      });
-    });
-   this.editForm = this.fb.group({
-      idProduct: ['', Validators.required],
-      codeProduct: ['', Validators.required],
-      nameProduct: ['', Validators.required],
-      priceProduct: ['', Validators.required],
-      imageProduct: ['', Validators.required],
-      descriptionProduct: ['', Validators.required],
-      typeProduct: ['', [Validators.required]]
-    });
+   this.service.findType().subscribe((data => {
+     this.typeProduct = data;
+     console.log(this.typeProduct);
+     this.activatedRoute.paramMap.subscribe((paramMap: ParamMap) => {
+       const id = Number(paramMap.get('id'));
+       this.service.findById(id).subscribe(next => {
+         console.log(next);
+         this.editForm.setValue(next);
+         console.log(this.editForm);
+
+       });
+     });
+   }));
+
   }
 
   onSubmit(): void {
