@@ -44,6 +44,7 @@ export class MenuOrderComponent implements OnInit, OnDestroy {
 
   /* Lấy table của a Bin */
   idTable: number = 1;
+  idOrder: number = 22;
 
   /* Define size page and current page */
   sizePage: number = this.menuService.sizePage;
@@ -149,7 +150,7 @@ export class MenuOrderComponent implements OnInit, OnDestroy {
   // Cộng số lượng sản phẩm
   addQuality() {
     if (this.quatity === this.product.quatityProduct) {
-      alert('Vui lòng đặt tối thiểu 10 sản phẩm');
+      alert('Vui lòng đặt tối thiểu 5 sản phẩm');
     } else {
       this.quatity = this.quatity + 1;
     }
@@ -198,7 +199,8 @@ export class MenuOrderComponent implements OnInit, OnDestroy {
     const orderDetail = {
       numberProduct: this.quatity,
       totalProduct: this.totalPrice(),
-      order: {idOrder: 18},
+      /* Dữ liệu cứng */
+      order: {idOrder: this.idOrder},
       product: {idProduct: idProduct}
     };
     console.log(orderDetail);
@@ -346,12 +348,11 @@ export class MenuOrderComponent implements OnInit, OnDestroy {
       }
       this.activedButton = Math.round(currentPage / this.sizePage) + 1;
     } else {
-      console.log(currentPage)
       this.activedButtonTable = Math.round(currentPage / this.sizePageTable) + 1;
     }
   }
 
-  /* Get data DTO for table */
+  /* Get data DTO for tab`le */
   getDataDTOForTable() {
     this.menuService.getDataDTOForTable(1).subscribe(data => {
       this.menuOrderDTOs = data;
@@ -363,7 +364,7 @@ export class MenuOrderComponent implements OnInit, OnDestroy {
 
   /* Check data DTO existing */
   checkDataDTO() {
-    this.menuService.getDataDTOForTable(1).subscribe(data => {
+    this.menuService.getDataDTOForTable(this.idTable).subscribe(data => {
       if (data[0].quantity == 0) {
         this.dataDTOExisting = false;
       } else {
@@ -387,8 +388,7 @@ export class MenuOrderComponent implements OnInit, OnDestroy {
     if (this.activeTimeWait) {
       if (this.listIdOrderDetails.length > 0) {
         for (let i = 0; i < this.listIdOrderDetails.length; i++) {
-          this.menuService.deleteOrderDetail(this.listIdOrderDetails[i]).subscribe( () => {
-            this.menuService.handleDeleteFood(this.listIdOrderDetails[i]);
+          this.menuService.handleDeleteFood(this.listIdOrderDetails[i] , this.idOrder).subscribe(data=> {
             this.ngOnInit();
           });
         }
