@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
+    <list default="true" id="3a3925d4-fb4b-4c68-a667-9ecec32557b4" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+=======
 
     <list default="true" id="17545742-62f2-45e3-9df0-e76d6d9ee38d" name="Default Changelist" comment="" />
       <change afterPath="$PROJECT_DIR$/coffee-house/src/app/table-module/detail-table/img/login-background.jpeg" afterDir="false" />
@@ -25,6 +29,7 @@
       <change beforePath="$PROJECT_DIR$/coffee-house/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/src/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/coffee-house/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/src/styles.css" afterDir="false" />
 
+>>>>>>> eba76ca43e93abb19ee49367b34b1baa2ffbabe4
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,10 +46,14 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+<<<<<<< HEAD
+  <component name="ProjectId" id="2AgIdk2Q4Rf44vjMRphIoAKEjmq" />
+=======
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2AD8XG61sGB1LKYggKw3Eq5v7Ho" />
+>>>>>>> eba76ca43e93abb19ee49367b34b1baa2ffbabe4
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -67,13 +76,21 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+<<<<<<< HEAD
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+=======
     <property name="last_opened_file_path" value="$PROJECT_DIR$/coffee-house/src/app/table-module/create-table/img" />
+>>>>>>> eba76ca43e93abb19ee49367b34b1baa2ffbabe4
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+<<<<<<< HEAD
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="ts.external.directory.path" value="D:\A0321I1-HuynhBaDan\project_coffee\A0721I1-Repo-FE\coffee-house\node_modules\typescript\lib" />
+=======
     <property name="ts.external.directory.path" value="E:\A0721I1-Repo-FE\coffee-house\node_modules\typescript\lib" />
   </component>
   <component name="RecentsManager">
@@ -84,16 +101,23 @@
       <recent name="E:\A0721I1-Repo-FE\coffee-house\src\app\table-module\create-table\img" />
       <recent name="E:\A0721I1-Repo-FE\coffee-house\src\app\table-module\create-table" />
     </key>
+>>>>>>> eba76ca43e93abb19ee49367b34b1baa2ffbabe4
   </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="17545742-62f2-45e3-9df0-e76d6d9ee38d" name="Default Changelist" comment="" />
-      <created>1654532833012</created>
+      <changelist id="3a3925d4-fb4b-4c68-a667-9ecec32557b4" name="Default Changelist" comment="" />
+      <created>1655399150044</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
+<<<<<<< HEAD
+      <updated>1655399150044</updated>
+      <workItem from="1655399154698" duration="862000" />
+      <workItem from="1655424894282" duration="476000" />
+      <workItem from="1655429812501" duration="4681000" />
+=======
       <updated>1654532833012</updated>
       <workItem from="1654532845616" duration="33000" />
       <workItem from="1655290314495" duration="495000" />
@@ -111,10 +135,20 @@
       <workItem from="1655209637464" duration="13198000" />
       <workItem from="1655224080691" duration="5348000" />
       <workItem from="1655268300941" duration="2839000" />
+>>>>>>> eba76ca43e93abb19ee49367b34b1baa2ffbabe4
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
+<<<<<<< HEAD
+    <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="261" y="94" key="Vcs.Push.Dialog.v2" timestamp="1655434218327">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="261" y="94" key="Vcs.Push.Dialog.v2/0.0.1536.864@0.0.1536.864" timestamp="1655434218327" />
+=======
     <option name="version" value="3" />
     <option name="version" value="2" />
   </component>
@@ -140,5 +174,6 @@
     </state>
     <state x="441" y="107" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1654791066803" />
     <state x="496" y="127" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1654532884916" />
+>>>>>>> eba76ca43e93abb19ee49367b34b1baa2ffbabe4
   </component>
 </project>
