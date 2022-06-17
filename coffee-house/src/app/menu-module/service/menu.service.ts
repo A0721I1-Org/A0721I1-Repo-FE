@@ -39,9 +39,10 @@ export class MenuService {
     return this.httpClient.get<OderDetail>(this.API_URL_ORDER_DETAIL + '/' + id);
   }
 
-  // save OrdeDetail
+  // save Order Detail
   saveOrderDetail(orderDetail: OderDetail): Observable<OderDetail> {
-    return this.httpClient.post<OderDetail>(this.API_URL_ORDER_DETAIL, orderDetail);
+    console.log(this.API_URL_ORDER_DETAIL + '/add-to-cart/' + orderDetail.order.idOrder)
+    return this.httpClient.post<OderDetail>(this.API_URL_ORDER_DETAIL + '/add-to-cart/' + orderDetail.order.idOrder, orderDetail);
   }
 
   // edit OrderDetail
@@ -119,6 +120,7 @@ export class MenuService {
 
   /* Get data DTO for table */
   getDataDTOForTable(idTable: number): Observable<MenuOrderDTO[]> {
+    console.log("service" + idTable)
     return this.httpClient.get<MenuOrderDTO[]>(`${API_URL}/table/${idTable}/${this.currentPageTable}&${this.sizePageTable}`);
   }
 
@@ -129,7 +131,7 @@ export class MenuService {
   }
 
   /* Delete food */
-  handleDeleteFood(idOrderDetail: any):Observable<OderDetail> {
-    return this.httpClient.delete<OderDetail>(`${API_URL}/table/delete/${idOrderDetail}`);
+  handleDeleteFood(idOrderDetail: any , idOrder: any):Observable<OderDetail> {
+    return this.httpClient.delete<OderDetail>(`${API_URL}/table/delete/${idOrderDetail}/${idOrder}`);
   }
 }

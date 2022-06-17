@@ -264,6 +264,7 @@ button:active , button:focus {
   align-items: center;
   justify-content: space-between;
   position: relative;
+  display: none;
 }
 
 .navbar__menu-list-on-phone h3 {
@@ -304,6 +305,10 @@ button:active , button:focus {
 @media (max-width: 739px) {
   .navbar__menu-list {
     display: none;
+  }
+
+  .navbar__menu-list-on-phone {
+    display: block;
   }
 
   .d-mb-block {

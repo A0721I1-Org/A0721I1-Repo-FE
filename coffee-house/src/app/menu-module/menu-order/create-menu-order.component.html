@@ -42,7 +42,8 @@
                       {{product.priceProduct | number: '1.0-0'}}đ
                     </span>
                   </div>
-                  <div (click)="getProductById(product.idProduct)" class="btn button btn-buy" data-toggle="modal" data-target="#modal1">
+                  <div (click)="getProductById(product.idProduct)" class="btn button btn-buy" data-toggle="modal"
+                                                                   data-target="#modal1">
                     <i class="fa-solid fa-plus"></i>
                   </div>
                 </div>
@@ -104,7 +105,7 @@
 
             <div class="menu__item-function row">
               <div class="col-4 col-md-4 col-lg-4 d-flex justify-content-center">
-                <button class="button"  data-toggle="modal" data-target="#deleteModal">Xoá món</button>
+                <button class="button" data-toggle="modal" data-target="#deleteModal">Xoá món</button>
               </div>
               <div class="col-4 col-md-4 col-lg-4 d-flex justify-content-center">
                 <button type="button" class="button" data-toggle="modal" data-target="#orderModal">Gọi món</button>
@@ -154,7 +155,9 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
-        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="handleOrder()" style="background: #fa8c16">Đồng ý</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="handleOrder()"
+                style="background: #fa8c16">Đồng ý
+        </button>
       </div>
     </div>
   </div>
@@ -175,7 +178,9 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
-        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="handleDeleteFood()" style="background: #fa8c16">Đồng ý</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="handleDeleteFood()"
+                style="background: #fa8c16">Đồng ý
+        </button>
       </div>
     </div>
   </div>
@@ -196,7 +201,9 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
-        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="handlePayment()" style="background: #fa8c16">Tính tiền</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="handlePayment()"
+                style="background: #fa8c16">Tính tiền
+        </button>
       </div>
     </div>
   </div>
@@ -246,119 +253,17 @@
                     </a>
                   </div>
                 </div>
-                <!--<div class="input-group mb-3 my-2">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="basic-addon1"><i class='bx bx-notepad'
-                                                                            style='color:#fa8c16'></i></span>
-                    </div>
-                    <input type="text" class="form-control" placeholder="Ghi chú thêm cho món này"
-                           aria-label="Username" aria-describedby="basic-addon1">
-                </div>-->
               </div>
             </div>
-            <!--                       <div>
-                                       <div class="product-option mb-2">
-                                           <span>CHỌN SIZE (BẮT BUỘC)</span>
-                                       </div>
-                                       <div class="form-check ml-5">
-                                           <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1"
-                                                  value="option1" checked>
-                                           <label class="form-check-label" for="exampleRadios1">
-                                               Vừa <br>
-                                               +0đ
-                                           </label>
-                                       </div>
-                                   </div>
-                                   <div>
-                                       <div class="product-option mb-2">
-                                           <span>chọn topping (tùy chọn)</span>
-                                       </div>
-                                       <div class="ml-5">
-                                           <div class="d-flex justify-content-between align-items-center">
-                                               <label>Kem Phô Mai Macchiato <br>
-                                                   + 10.000đ
-                                               </label>
-                                               <div class="d-flex justify-content-between">
-                                                   <a class="px-2" href="#"><i class='bx bx-minus-circle bx-sm'
-                                                                               style='color:#fa8c16'></i></a>
-                                                   <span>0</span>
-                                                   <a class="px-2" href="#"><i class='bx bxs-plus-circle bx-sm'
-                                                                               style='color:#fa8c16'></i></a>
-                                               </div>
-                                           </div>
-                                           <hr>
-                                           <div class="d-flex justify-content-between align-items-center">
-                                               <label>Miếng Đào <br>
-                                                   + 10.000đ
-                                               </label>
-                                               <div class="d-flex justify-content-between">
-                                                   <a class="px-2" href="#"><i class='bx bx-minus-circle bx-sm'
-                                                                               style='color:#fa8c16'></i></a>
-                                                   <span>0</span>
-                                                   <a class="px-2" href="#"><i class='bx bxs-plus-circle bx-sm'
-                                                                               style='color:#fa8c16'></i></a>
-                                               </div>
-                                           </div>
-                                           <hr>
-                                           <div class="d-flex justify-content-between align-items-center">
-                                               <label>Kem Phô Mai Macchiato <br>
-                                                   + 10.000đ
-                                               </label>
-                                               <div class="d-flex justify-content-between">
-                                                   <a class="px-2" href="#"><i class='bx bx-minus-circle bx-sm'
-                                                                               style='color:#fa8c16'></i></a>
-                                                   <span>0</span>
-                                                   <a class="px-2" href="#"><i class='bx bxs-plus-circle bx-sm'
-                                                                               style='color:#fa8c16'></i></a>
-                                               </div>
-                                           </div>
-                                           <hr>
-                                           <div class="d-flex justify-content-between align-items-center">
-                                               <label>Kem Phô Mai Macchiato <br>
-                                                   + 10.000đ
-                                               </label>
-                                               <div class="d-flex justify-content-between">
-                                                   <a class="px-2" href="#"><i class='bx bx-minus-circle bx-sm'
-                                                                               style='color:#fa8c16'></i></a>
-                                                   <span>0</span>
-                                                   <a class="px-2" href="#"><i class='bx bxs-plus-circle bx-sm'
-                                                                               style='color:#fa8c16'></i></a>
-                                               </div>
-                                           </div>
-                                       </div>
-                                   </div>
-                                   &lt;!&ndash;                  <div class="row">
-                                                         <div class="col-xs-6">
-                                                             <ul type="none">
-                                                                 <li class="left">Order number:</li>
-                                                                 <li class="left">Date:</li>
-                                                                 <li class="left">Price:</li>
-                                                                 <li class="left">Shipping:</li>
-                                                                 <li class="left">Total Price:</li>
-                                                             </ul>
-                                                         </div>
-                                                         <div class="col-xs-6">
-                                                             <ul class="right" type="none">
-                                                                 <li class="right">#BBRT-3456981</li>
-                                                                 <li class="right">19-03-2020</li>
-                                                                 <li class="right">$690</li>
-                                                                 <li class="right">$30</li>
-                                                                 <li class="right">$720</li>
-                                                             </ul>
-                                                         </div>
-                                                     </div>&ndash;&gt;
-                               </div>
-                           </div>-->
-
-            <!-- Modal footer -->
-            <div class="modal-footer">
-              <button type="submit"
-                      class="btn btn-primary btn-lg btn-block btn-custom" (click)="addOrderDetail(product?.idProduct)">{{product?.priceProduct * quatity}}
-                - Thêm vào
-                giỏ
-                hàng
-              </button>
-            </div>
+          </div>
+          <!-- Modal footer -->
+          <div class="modal-footer">
+            <button type="submit"
+                    class="btn btn-primary btn-lg btn-block btn-custom" data-dismiss="modal" (click)="addOrderDetail(product?.idProduct)">{{product?.priceProduct * quatity}}
+              - Thêm vào
+              giỏ
+              hàng
+            </button>
           </div>
         </div>
       </div>
