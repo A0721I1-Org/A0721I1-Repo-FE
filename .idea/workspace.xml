@@ -1,152 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="17545742-62f2-45e3-9df0-e76d6d9ee38d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/project_coffee.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/.browserslistrc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/.vscode/extensions.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/.vscode/launch.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/.vscode/tasks.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/angular.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/karma.conf.js" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/karma.conf.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/src/app/app-routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/src/app/app.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/app.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/src/app/app.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/src/app/app.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/employee-module/create-employee/create-employee.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/employee-module/create-employee/create-employee.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/employee-module/create-employee/create-employee.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/employee-module/create-employee/create-employee.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/employee-module/detail-employee/detail-employee.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/employee-module/detail-employee/detail-employee.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/employee-module/detail-employee/detail-employee.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/employee-module/detail-employee/detail-employee.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/employee-module/edit-employee/edit-employee.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/employee-module/edit-employee/edit-employee.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/employee-module/edit-employee/edit-employee.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/employee-module/edit-employee/edit-employee.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/employee-module/employee-module-routing.module.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/employee-module/employee-module.module.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/employee-module/list-employee/list-employee.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/employee-module/list-employee/list-employee.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/employee-module/list-employee/list-employee.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/employee-module/list-employee/list-employee.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/employee-module/service/employee.service.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/employee-module/service/employee.service.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/feedback-module/create-feedback/create-feedback.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/feedback-module/create-feedback/create-feedback.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/feedback-module/create-feedback/create-feedback.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/feedback-module/create-feedback/create-feedback.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/feedback-module/detail-feedback/detail-feedback.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/feedback-module/detail-feedback/detail-feedback.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/feedback-module/detail-feedback/detail-feedback.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/feedback-module/detail-feedback/detail-feedback.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/feedback-module/feedback-module-routing.module.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/feedback-module/feedback-module.module.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/feedback-module/list-feedback/list-feedback.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/feedback-module/list-feedback/list-feedback.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/feedback-module/list-feedback/list-feedback.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/feedback-module/list-feedback/list-feedback.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/feedback-module/service/feedback.service.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/feedback-module/service/feedback.service.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/forgetpass-module/forget-password/forget-password.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/forgetpass-module/forget-password/forget-password.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/forgetpass-module/forget-password/forget-password.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/forgetpass-module/forget-password/forget-password.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/forgetpass-module/forgetpass-module-routing.module.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/forgetpass-module/forgetpass-module.module.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/forgetpass-module/service/forget-password.service.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/forgetpass-module/service/forget-password.service.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/income-module/income-module-routing.module.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/income-module/income-module.module.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/income-module/income/income.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/income-module/income/income.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/income-module/income/income.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/income-module/income/income.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/income-module/service/income.service.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/income-module/service/income.service.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/login-module/login-module-routing.module.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/login-module/login-module.module.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/login-module/login/login.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/login-module/login/login.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/login-module/login/login.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/login-module/login/login.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/login-module/service/login.service.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/login-module/service/login.service.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/menu-module/menu-module-routing.module.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/menu-module/menu-module.module.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/menu-module/menu-order/create-menu-order.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/menu-module/menu-order/create-menu-order.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/menu-module/menu-order/create-menu-order.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/menu-module/menu-order/create-menu-order.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/menu-module/service/menu.service.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/menu-module/service/menu.service.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/model/employee.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/model/feedback.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/model/oder.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/model/oderDetail.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/model/position.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/model/product.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/model/status.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/model/table.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/model/typeProduct.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/model/user.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/order-module/order-module-routing.module.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/order-module/order-module.module.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/order-module/order/order.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/order-module/order/order.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/order-module/order/order.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/order-module/order/order.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/order-module/service/oder.service.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/order-module/service/oder.service.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/product-module/create-product/create-product.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/product-module/create-product/create-product.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/product-module/create-product/create-product.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/product-module/create-product/create-product.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/product-module/edit-product/edit-product.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/product-module/edit-product/edit-product.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/product-module/edit-product/edit-product.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/product-module/edit-product/edit-product.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/product-module/list-product/list-product.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/product-module/list-product/list-product.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/product-module/list-product/list-product.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/product-module/list-product/list-product.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/product-module/product-module-routing.module.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/product-module/product-module.module.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/product-module/service/product.service.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/product-module/service/product.service.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/table-module/create-table/create-table.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/table-module/create-table/create-table.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/table-module/create-table/create-table.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/table-module/create-table/create-table.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/table-module/detail-table/detail-table.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/table-module/detail-table/detail-table.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/table-module/detail-table/detail-table.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/table-module/detail-table/detail-table.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/table-module/list-table/list-table.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/table-module/list-table/list-table.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/table-module/list-table/list-table.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/table-module/list-table/list-table.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/table-module/service/table.service.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/table-module/service/table.service.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/table-module/table-module-routing.module.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/table-module/table-module.module.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/environments/environment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/src/environments/environment.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/src/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/polyfills.ts" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/src/polyfills.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/src/test.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/tsconfig.app.json" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/tsconfig.app.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/tsconfig.spec.json" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/tsconfig.spec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/feedback-module/create-feedback/create-feedback.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/src/app/feedback-module/create-feedback/create-feedback.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/feedback-module/create-feedback/create-feedback.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/src/app/feedback-module/create-feedback/create-feedback.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -156,18 +17,33 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectId" id="2AD8XG61sGB1LKYggKw3Eq5v7Ho" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/coffee-house" />
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;F:/A0421I1-NguyenCuuQuocHuy/module5/thi&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;F:\\A0421I1-NguyenCuuQuocHuy\\module 6\\coding\\angular\\A0721I1-Repo-FE\\coffee-house\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\A0421I1-NguyenCuuQuocHuy\module 6\coding\angular\A0721I1-Repo-FE\coffee-house\src\app\feedback-module" />
+    </key>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -179,13 +55,31 @@
       <option name="presentableId" value="Default" />
       <updated>1654532833012</updated>
       <workItem from="1654532845616" duration="33000" />
+      <workItem from="1654686858383" duration="5270000" />
+      <workItem from="1654860522623" duration="4625000" />
+      <workItem from="1655117708354" duration="3444000" />
+      <workItem from="1655122665694" duration="7169000" />
+      <workItem from="1655187705005" duration="2313000" />
+      <workItem from="1655260882436" duration="3851000" />
+      <workItem from="1655291081136" duration="11314000" />
+      <workItem from="1655351754424" duration="3236000" />
+      <workItem from="1655458157643" duration="312000" />
+      <workItem from="1655463289530" duration="5003000" />
     </task>
     <servers />
   </component>
-  <component name="WindowStateProjectService">
-    <state x="496" y="127" key="FileChooserDialogImpl" timestamp="1654532884916">
-      <screen x="0" y="0" width="1536" height="864" />
-    </state>
-    <state x="496" y="127" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1654532884916" />
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
