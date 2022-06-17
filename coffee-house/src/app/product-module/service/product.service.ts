@@ -45,4 +45,9 @@ export class ProductService {
   updateProduct(product1: Product): Observable<void> {
     return this.http.patch<void>(this.URLPRODUCT + '/edit', product1);
   }
+
+  createProduct(product: Product): Observable<Product>{
+    console.log(ProductService);
+    return this.http.post<Product>(this.URLPRODUCT, product);
+  }
 }

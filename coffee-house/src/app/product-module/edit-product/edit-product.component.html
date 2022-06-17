@@ -53,7 +53,7 @@
                 <div class="form-group">
                   <span class="form-label">Nhóm Món<a style="color: red"> (*)</a> :</span>
                   <select class="form-control" formControlName="typeProduct" >
-                    <option *ngFor="let index of typeProduct" [ngValue]="index" [selected]="index.idTypeProduct == editForm.controls.typeProduct.value.idTypeProduct">{{index.nameTypeProduct}}</option>
+                    <option *ngFor="let index of typeProduct" [ngValue]="index" [selected]="index.idTypeProduct === editForm.controls.typeProduct.value.idTypeProduct">{{index.nameTypeProduct}}</option>
 
                   </select>
                   <div class="select-dropdown"></div>
