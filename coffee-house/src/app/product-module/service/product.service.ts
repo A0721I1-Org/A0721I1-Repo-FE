@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Product} from '../../model/product';
+import {TypeProduct} from '../../model/typeProduct';
 
 
 @Injectable({
@@ -31,5 +32,22 @@ export class ProductService {
 
   searchPage(code: string, name: string, page1: number): Observable<Product[]> {
     return this.http.get<Product[]>(this.URLPRODUCT + '/searchPage?code=' + code + '&name=' + name + '&page1=' + page1);
+  }
+
+  findById(id: any): Observable<Product>{
+    return this.http.get<Product>(this.URLPRODUCT + '/find/' + id );
+  }
+
+  findType(): Observable<TypeProduct[]> {
+    return this.http.get<TypeProduct[]>(this.URLPRODUCT + '/type');
+  }
+
+  updateProduct(product1: Product): Observable<void> {
+    return this.http.patch<void>(this.URLPRODUCT + '/edit', product1);
+  }
+
+  createProduct(product: Product): Observable<Product>{
+    console.log(product);
+    return this.http.post<Product>(this.URLPRODUCT + '/create', product);
   }
 }

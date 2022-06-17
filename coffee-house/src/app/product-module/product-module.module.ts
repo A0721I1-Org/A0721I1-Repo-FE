@@ -6,7 +6,8 @@ import { CreateProductComponent } from './create-product/create-product.componen
 import { ListProductComponent } from './list-product/list-product.component';
 import { EditProductComponent } from './edit-product/edit-product.component';
 import {MatDialogModule} from '@angular/material/dialog';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+
 
 
 @NgModule({
@@ -15,11 +16,12 @@ import {FormsModule} from '@angular/forms';
     ListProductComponent,
     EditProductComponent
   ],
-  imports: [
-    CommonModule,
-    ProductModuleRoutingModule,
-    MatDialogModule,
-    FormsModule
-  ]
+    imports: [
+        CommonModule,
+        ProductModuleRoutingModule,
+        MatDialogModule,
+        FormsModule,
+        ReactiveFormsModule
+    ]
 })
 export class ProductModuleModule { }
