@@ -22,6 +22,8 @@ export class MenuOrderComponent implements OnInit, OnDestroy {
   quatity = 1;
 
   // tslint:disable-next-line:variable-name
+  private currentTemp: number;
+
   constructor(private menuService: MenuService, private _formBuilder: FormBuilder, private router: Router) {
   }
 
@@ -214,12 +216,6 @@ export class MenuOrderComponent implements OnInit, OnDestroy {
     return this.sum = this.quatity * this.product.priceProduct;
   }
 
-  // // lay id khi click vao san pham
-  /*  setId(id: number) {
-      this.id = id;
-    }*/
-
-
   /* Pagination for home page
   * if pageCheck == true => pagination for products
   * if pageCheck == false => pagination for table dto*/
@@ -264,7 +260,6 @@ export class MenuOrderComponent implements OnInit, OnDestroy {
       this.getDataDTOForTable();
 
       /* Check location current page */
-      console.log(this.currentPageTable)
       this.checkActiveButton(this.currentPageTable, 1, false);
     }
   }
@@ -287,7 +282,7 @@ export class MenuOrderComponent implements OnInit, OnDestroy {
       this.getDataDTOForTable();
 
       /* Check location current page */
-      this.checkActiveButton(this.currentPageTable+1, 1, false);
+      this.checkActiveButton(this.currentPageTable, 1, false);
     }
   }
 
@@ -301,7 +296,7 @@ export class MenuOrderComponent implements OnInit, OnDestroy {
         this.currentPage = 1;
 
         /* Handle redirect page */
-        if(tg == 1) {
+        if (tg == 1) {
           this.currentPage = 0;
         } else {
           tg -= 1;
@@ -323,15 +318,9 @@ export class MenuOrderComponent implements OnInit, OnDestroy {
       /* Code pagination for pagable */
       this.menuService.getDataDTOForTable(1).subscribe(data => {
         /* Get amounts of all products */
-        this.currentPageTable = 1;
+        tg -= 1;
+        this.currentPageTable = tg;
 
-        /* Handle redirect page */
-        if(tg == 1) {
-          this.currentPageTable = 0;
-        } else {
-          tg -= 1;
-          this.currentPageTable = tg;
-        }
         this.menuService.redirectPagination(this.currentPageTable, false);
 
         /* Check location current page */
@@ -355,7 +344,7 @@ export class MenuOrderComponent implements OnInit, OnDestroy {
       }
       this.activedButton = Math.round(currentPage / this.sizePage) + 1;
     } else {
-      console.log(this.currentPageTable)
+      console.log(currentPage)
       this.activedButtonTable = Math.round(currentPage / this.sizePageTable) + 1;
     }
   }
