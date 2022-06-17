@@ -1,11 +1,16 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import {
+  AuthGuardService as AuthGuard
+} from './login-module/service/auth-guard.service';
+import {HomeComponent} from './home/home.component';
 
 
 const routes: Routes = [
   {
     path: 'employee',
-    loadChildren: () => import('./employee-module/employee-module.module').then(module => module.EmployeeModuleModule)
+    loadChildren: () => import('./employee-module/employee-module.module').then(module => module.EmployeeModuleModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'feedback',
@@ -21,7 +26,8 @@ const routes: Routes = [
   },
   {
     path: 'table',
-    loadChildren: () => import('./table-module/table-module.module').then(module => module.TableModuleModule)
+    loadChildren: () => import('./table-module/table-module.module').then(module => module.TableModuleModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'menu',
@@ -39,6 +45,10 @@ const routes: Routes = [
     path: 'order',
     loadChildren: () => import('./order-module/order-module.module').then(module => module.OrderModuleModule)
   },
+  {
+    path: 'home', component: HomeComponent
+  },
+  { path: '**', redirectTo: '/login/authentication' }
 ];
 
 @NgModule({

@@ -1,13 +1,16 @@
+
 import {Component, OnDestroy, OnInit, Pipe, PipeTransform, ViewChild} from '@angular/core';
 import {OderDetail} from '../../model/oderDetail';
 import {Product} from '../../model/product';
 import {MenuService} from '../service/menu.service';
-import {Router} from "@angular/router";
+import {Router} from '@angular/router';
 import {TypeProduct} from "../../model/typeProduct";
 import {MenuOrderDTO} from "../../model/MenuOrderDTO";
 import {FormBuilder} from "@angular/forms";
 import {Observable, Subscription, timer} from "rxjs";
 import {map, take} from "rxjs/operators";
+import {TokenStorageService} from '../../login-module/service/token-storage.service';
+
 
 @Component({
   selector: 'app-create-menu-oder',
@@ -243,6 +246,7 @@ export class MenuOrderComponent implements OnInit, OnDestroy {
     }
   }
 
+
   /* Check button next and prev
   * if pageCheck == true => pagination for products
   * if pageCheck == false => pagination for table dto */
@@ -423,6 +427,7 @@ export class MenuOrderComponent implements OnInit, OnDestroy {
   showMenuOnPhone() {
     this.showMenuPhone = !this.showMenuPhone;
   }
+
 }
 
 /* Format for time */
