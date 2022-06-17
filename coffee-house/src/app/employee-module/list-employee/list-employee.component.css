@@ -169,8 +169,7 @@ button:hover .button-text {
   color: #fff;
 }
 
-.pagination li a.active {
+.pagination li .active {
   background-color: var(--main-color) !important;
   color: #fff !important;
 }
-

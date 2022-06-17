@@ -72,15 +72,13 @@
     </table>
     <div class="clearfix">
       <ul class="pagination">
-        <li class="page-item"><a href="#" class="page-link"><i class="fa-solid fa-angle-left"></i></a></li>
-        <li class="page-item"><a href="#" class="page-link">1</a></li>
-        <li class="page-item"><a href="#" class="page-link">2</a></li>
-        <li class="page-item"><a href="#" class="page-link">3</a></li>
-        <li><a href="#" class="page-link active">4</a></li>
-        <li class="page-item"><a href="#" class="page-link">5</a></li>
-        <li class="page-item"><a href="#" class="page-link">6</a></li>
-        <li class="page-item"><a href="#" class="page-link">7</a></li>
-        <li class="page-item"><a href="#" class="page-link"><i class="fa-solid fa-angle-right"></i></a>
+        <li (click)="prevPage()" *ngIf="currentPage != 0" class="btn btn-primary">
+          <i class="fa-solid fa-angle-left"></i>
+        </li>
+        <li (click)="redirectPagination(tg+1)" class="btn btn-primary"
+            *ngFor="let tg of totalPageArray" [ngClass]="activatedButton==tg+1?'active':null">{{tg + 1}}</li>
+        <li (click)="nextPage()" *ngIf="this.activatedButton != this.totalPageArray.length" class="btn btn-primary">
+          <i class="fa-solid fa-angle-right"></i>
         </li>
       </ul>
     </div>
