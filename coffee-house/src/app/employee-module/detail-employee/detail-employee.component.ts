@@ -14,18 +14,21 @@ export class DetailEmployeeComponent implements OnInit {
   idUser: number;
   employee: Employee;
   ngOnInit(): void {
+    console.log("aaaaaaaa");
     this.activatedRoute.paramMap.subscribe((param) => {
       this.idUser = +param.get('userRoutes');
+      console.log(this.idUser);
       // @ts-ignore
       this.employee = this.employeeService.findByIdUser(this.idUser).subscribe(
         (data) => {
           this.employee = data;
           // console.log(this.employee);
+          console.log(this.employee);
         },
-      () => {},
-      () => {
+        () => {},
+        () => {
           // console.log(this.employee);
-      }
+        }
       );
     });
   }
