@@ -7,4 +7,5 @@ export class MenuOrderDTO {
   totalProduct: number;
   totalPrice: number;
   totalPageDTO: number;
+  orderDetailId: number;
 }

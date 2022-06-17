@@ -21,10 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="17545742-62f2-45e3-9df0-e76d6d9ee38d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/menu-module/menu-order/create-menu-order.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/src/app/menu-module/menu-order/create-menu-order.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/menu-module/menu-order/create-menu-order.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/src/app/menu-module/menu-order/create-menu-order.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/menu-module/service/menu.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/src/app/menu-module/service/menu.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/menu-module/menu-order/create-menu-order.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/src/app/menu-module/menu-order/create-menu-order.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,7 +76,12 @@
       <workItem from="1655155890291" duration="7547000" />
       <workItem from="1655164239768" duration="2098000" />
       <workItem from="1655189737300" duration="5125000" />
-      <workItem from="1655282716885" duration="3410000" />
+      <workItem from="1655282716885" duration="5453000" />
+      <workItem from="1655290708867" duration="9795000" />
+      <workItem from="1655303350463" duration="2359000" />
+      <workItem from="1655341913735" duration="5044000" />
+      <workItem from="1655360772280" duration="5037000" />
+      <workItem from="1655438507961" duration="2119000" />
     </task>
     <servers />
   </component>

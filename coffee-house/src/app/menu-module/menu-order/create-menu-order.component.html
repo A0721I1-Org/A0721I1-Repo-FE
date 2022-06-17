@@ -1,19 +1,35 @@
 <div class="menu__container">
-  <div class="row w-100 h-100">
-    <div class="col-2">
+  <div class="row w-100 h-100 m-mb-0 d-mb-block">
+    <div class="col-sm-3 col-md-4 col-lg-3 p-mb-0">
       <ul class="navbar__menu-list">
         <li (click)="getTypeOfGet(0)" [ngClass]="checkGetAll==true?'active':null">Tất cả</li>
         <li (click)="getTypeOfGet(productType.idTypeProduct)"
           [ngClass]="checkGetAll == false && idTypeProduct == productType.idTypeProduct?'active':null"
           *ngFor="let productType of typeProducts">{{productType.nameTypeProduct}}</li>
       </ul>
+
+      <ul (click)="showMenuOnPhone()" class="navbar__menu-list-on-phone">
+        <li>
+          <h3>Menu</h3>
+        </li>
+        <li>
+          <i class="fa-solid fa-list"></i>
+        </li>
+
+        <ul *ngIf="showMenuPhone" class="navbar__menu-list-child">
+          <li (click)="getTypeOfGet(0)" [ngClass]="checkGetAll==true?'active':null">Tất cả</li>
+          <li (click)="getTypeOfGet(productType.idTypeProduct)"
+            [ngClass]="checkGetAll == false && idTypeProduct == productType.idTypeProduct?'active':null"
+            *ngFor="let productType of typeProducts">{{productType.nameTypeProduct}}</li>
+        </ul>
+      </ul>
     </div>
 
-    <div class="col-10">
+    <div class="col-sm-9 col-md-8 col-lg-9">
       <div class="row">
-        <div class="col-4">
+        <div class="col-md-12 col-lg-12">
           <div class="row">
-            <div class="col-6" *ngFor="let product of products">
+            <div class="col-md-6" *ngFor="let product of products">
               <div class="menu__item">
                 <div class="menu__item-img-group">
                   <img src="./assets/img/coffee.jpg" alt="">
@@ -26,8 +42,7 @@
                       {{product.priceProduct | number: '1.0-0'}}đ
                     </span>
                   </div>
-
-                  <div class="button btn-buy">
+                  <div (click)="getProductById(product.idProduct)" class="btn button btn-buy" data-toggle="modal" data-target="#modal1">
                     <i class="fa-solid fa-plus"></i>
                   </div>
                 </div>
@@ -46,7 +61,7 @@
           </ul>
         </div>
 
-        <div class="col-8">
+        <div class="col-md-12 col-lg-12">
           <div class="menu__item-left-area">
             <table class="table__order-item">
               <tr>
@@ -59,39 +74,45 @@
                 <th>Thời gian chờ</th>
               </tr>
 
-              <tr *ngFor="let menuOrderDTO of menuOrderDTOs;let i = index">
-                <td>
-                  <input type="checkbox">
-                </td>
-                <td>{{i + 1}}</td>
-                <td>{{menuOrderDTO.nameProduct}}</td>
-                <td>{{menuOrderDTO.quantity}}</td>
-                <td>{{menuOrderDTO.price |number:'1.0'}} đ</td>
-                <td>{{menuOrderDTO.totalPrice| number:'1.0'}}đ</td>
-                <td>05:00</td>
-              </tr>
+              <ng-container *ngIf="dataDTOExisting">
+                <tr *ngFor="let menuOrderDTO of menuOrderDTOs;let i = index">
+                  <td>
+                    <input type="checkbox" (change)="checkFoodChosen(menuOrderDTO.orderDetailId)">
+                  </td>
+                  <td>{{i + 1}}</td>
+                  <td>{{menuOrderDTO.nameProduct}}</td>
+                  <td>{{menuOrderDTO.quantity}}</td>
+                  <td>{{menuOrderDTO.price |number:'1.0'}} đ</td>
+                  <td>{{menuOrderDTO.totalPrice| number:'1.0'}}đ</td>
+                  <td>{{counter | formatTime}}</td>
+                </tr>
+              </ng-container>
             </table>
 
-            <ul class="pagination justify-content-center">
-              <li (click)="prevPage(false)" *ngIf="currentPageTable != 0">
-                <i class="fa-solid fa-angle-left"></i>
-              </li>
-              <li (click)="redirectPagination(tg+1 , false)"
-                *ngFor="let tg of totalPageTableArray" [ngClass]="activedButtonTable==tg+1?'active':null">{{tg + 1}}</li>
-              <li (click)="nextPage(false)" *ngIf="this.activedButtonTable != this.totalPageTableArray.length">
-                <i class="fa-solid fa-angle-right"></i>
-              </li>
-            </ul>
+            <ng-container *ngIf="dataDTOExisting">
+              <ul class="pagination justify-content-center">
+                <li (click)="prevPage(false)" *ngIf="currentPageTable != 0">
+                  <i class="fa-solid fa-angle-left"></i>
+                </li>
+                <li (click)="redirectPagination(tg+1, false)"
+                  *ngFor="let tg of totalPageTableArray" [ngClass]="activedButtonTable==tg+1?'active':null">{{tg + 1}}</li>
+                <li (click)="nextPage(false)" *ngIf="this.activedButtonTable != this.totalPageTableArray.length">
+                  <i class="fa-solid fa-angle-right"></i>
+                </li>
+              </ul>
+            </ng-container>
 
             <div class="menu__item-function row">
-              <div class="col-4 d-flex justify-content-center">
-                <button class="button">Xoá món</button>
+              <div class="col-4 col-md-4 col-lg-4 d-flex justify-content-center">
+                <button class="button"  data-toggle="modal" data-target="#deleteModal">Xoá món</button>
               </div>
-              <div class="col-4 d-flex justify-content-center">
-                <button class="button">Gọi món</button>
+              <div class="col-4 col-md-4 col-lg-4 d-flex justify-content-center">
+                <button type="button" class="button" data-toggle="modal" data-target="#orderModal">Gọi món</button>
               </div>
-              <div class="col-4 d-flex justify-content-center">
-                <button class="button">Tính tiền</button>
+              <div class="col-4 col-md-4 col-lg-4 d-flex justify-content-center">
+                <button type="button" class="button" data-toggle="modal" data-target="#paymentModal">
+                  Tính tiền
+                </button>
               </div>
             </div>
 
@@ -118,12 +139,71 @@
   </div>
 </div>
 
+<!-- Modal Order -->
+<div class="modal fade" id="orderModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Gọi món</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Bạn có muốn gọi món không?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="handleOrder()" style="background: #fa8c16">Đồng ý</button>
+      </div>
+    </div>
+  </div>
+</div>
 
-<a (click)="getProductById(1)" type="button" class="btn" data-toggle="modal" data-target="#modal1">
-  Thêm món
-</a>
+<!-- Modal Delete -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Xoá món</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Bạn có muốn xóa những món này không?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="handleDeleteFood()" style="background: #fa8c16">Đồng ý</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Payment -->
+<div class="modal fade" id="paymentModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Thanh toán</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Bạn có muốn tính tiền không?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="handlePayment()" style="background: #fa8c16">Tính tiền</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 
+<!-- Modal PopUP Order-->
 <div class="container d-flex justify-content-center mt-100">
   <!-- Button to Open the Modal -->
   <!-- The Modal -->
@@ -272,8 +352,8 @@
 
             <!-- Modal footer -->
             <div class="modal-footer">
-              <button type="button"
-                      class="btn btn-primary btn-lg btn-block btn-custom" (click)="addOrderDetail()">{{product?.priceProduct * quatity}}
+              <button type="submit"
+                      class="btn btn-primary btn-lg btn-block btn-custom" (click)="addOrderDetail(product?.idProduct)">{{product?.priceProduct * quatity}}
                 - Thêm vào
                 giỏ
                 hàng
