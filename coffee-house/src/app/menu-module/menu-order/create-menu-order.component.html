@@ -232,23 +232,23 @@
                 </div>
                 <div class="col-xs-7 flex-custum" style="padding-top: 2vh;">
                   <ul type="none">
-                    <li class="font-weight-bold">{{product?.nameProduct}}</li>
-                    <li class="font-weight-light">{{product?.descriptionProduct}}
+                    <li class="font-weight-bold" style="font-size: 1.4rem">{{product?.nameProduct}}</li>
+                    <li class="font-weight-light" style="font-size: 1.4rem">{{product?.descriptionProduct}}
                     </li>
                   </ul>
                 </div>
                 <div class="d-flex justify-content-around align-items-center">
-                  <span class="font-weight-bold">{{product?.priceProduct * quatity}}đ</span>
+                  <span class="font-weight-bold" style="font-size: 1.4rem">{{product?.priceProduct * quatity}}đ</span>
                   <div class="d-flex justify-content-between align-items-center">
                     <a class="px-2" (click)="subQuatity()" *ngIf="quatity === 1">
-                      <i class='bx bx-minus-circle bx-md' style='color:#fa8c16'></i>
+                      <i class='bx bx-minus-circle bx-lg' style='color:#fa8c16 ; font-size: 1.5rem'></i>
                     </a>
                     <a class="px-2" (click)="subQuatity()" *ngIf="quatity > 1">
-                      <i class='bx bxs-minus-circle bx-md' style='color:#fa8c16'></i>
+                      <i class='bx bxs-minus-circle bx-lg' style='color:#fa8c16; font-size: 1.5rem'></i>
                     </a>
                     <span>{{quatity}}</span>
-                    <a class="px-2" (click)="addQuality()" >
-                      <i class='bx bxs-plus-circle bx-md'
+                    <a class="px-2" (click)="addQuality()"  >
+                      <i class='bx bxs-plus-circle bx-lg'
                          style='color:#fa8c16'></i>
                     </a>
                   </div>

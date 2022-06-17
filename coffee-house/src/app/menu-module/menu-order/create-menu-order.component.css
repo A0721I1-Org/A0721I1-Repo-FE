@@ -83,7 +83,7 @@ button:active , button:focus {
   padding: 12px 12px 12px 24px;
   color: var(--primary-color);
   transition: all 0.2s;
-  font-size: 1.1rem;
+  font-size: 1.4rem;
 }
 
 .navbar__menu-list .active {
@@ -130,12 +130,12 @@ button:active , button:focus {
 }
 
 .menu__item .name {
-  font-size: 1.1rem;
+  font-size: 1.5rem;
   font-weight: 600;
 }
 
 .menu__item .price {
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   color: #888;
 }
 
@@ -162,7 +162,7 @@ button:active , button:focus {
 /* table */
 .table__order-item {
   width: 100%;
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   margin-top: 24px;
   border-collapse: collapse;
 }
@@ -203,7 +203,7 @@ button:active , button:focus {
   height: 50px;
   padding: 12px;
   border-radius: 3px;
-  font-size: 1.1rem;
+  font-size: 1.3rem;
 }
 
 .menu__item-left-area .footer {

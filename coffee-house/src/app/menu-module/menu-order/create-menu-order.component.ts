@@ -245,6 +245,7 @@ export class MenuOrderComponent implements OnInit, OnDestroy {
     }
   }
 
+
   /* Check button next and prev
   * if pageCheck == true => pagination for products
   * if pageCheck == false => pagination for table dto */

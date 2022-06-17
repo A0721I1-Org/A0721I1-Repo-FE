@@ -2,6 +2,8 @@
 import {BrowserModule} from '@angular/platform-browser';
 // @ts-ignore
 import {NgModule} from '@angular/core';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
 import {LoginModuleModule} from './login-module/login-module.module';
 // @ts-ignore
 import {ToastrModule} from 'ngx-toastr';
@@ -15,8 +17,7 @@ import { HomeComponent } from './home/home.component';
 import {HttpClientModule} from '@angular/common/http';
 // @ts-ignore
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {AppComponent} from "./app.component";
-import {AppRoutingModule} from "./app-routing.module";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,8 +39,6 @@ import {AppRoutingModule} from "./app-routing.module";
   providers: [
     { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
     JwtHelperService,
-    HttpClientModule,
-    ReactiveFormsModule
   ],
   bootstrap: [AppComponent]
 })
