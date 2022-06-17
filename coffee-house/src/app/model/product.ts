@@ -8,4 +8,3 @@ export interface Product {
   descriptionProduct?: string;
   typeProduct?: any;
 }
-
