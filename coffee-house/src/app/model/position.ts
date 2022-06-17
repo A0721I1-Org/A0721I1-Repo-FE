@@ -1,4 +1,4 @@
 export interface Position {
-  idPosition: number,
-  namePosition: string,
+  idPosition: number;
+  namePosition: string;
 }
