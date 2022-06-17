@@ -14,6 +14,14 @@ export class ListEmployeeComponent implements OnInit {
   employee: Employee;
   searchForm: FormGroup;
 
+  /* Define size for pagination */
+  currentPage = 0;
+  sizePage = this.employeeService.sizePage;
+  totalPageArray: Array<any>;
+  activatedButton: number;
+  private totalPage: number;
+  private totalPageSurplus: number;
+
   constructor(private employeeService: EmployeeService, private activatedRoute: ActivatedRoute, private router: Router) {
     this.searchForm = new FormGroup({
       username: new FormControl(''),
@@ -28,7 +36,11 @@ export class ListEmployeeComponent implements OnInit {
 
   getListEmployee() {
     this.employeeService.getAllEmployee().subscribe(data => {
-      this.employeeList = data;
+      this.employeeList = data
+    })
+
+    this.employeeService.getLengthOfEmployees().subscribe(data => {
+      this.pagination(data);
     })
   }
 
@@ -60,5 +72,56 @@ export class ListEmployeeComponent implements OnInit {
     this.employeeService.searchEmployee(username, name, phone).subscribe(data => {
       this.employeeList = data;
     })
+  }
+
+  /* Pagination */
+  pagination(lengthEmployee: number) {
+    this.totalPage = Math.floor(lengthEmployee / this.sizePage);
+    this.totalPageSurplus = Math.floor(lengthEmployee % this.sizePage);
+    if (this.totalPageSurplus != 0) {
+      this.totalPageArray = Array(this.totalPage + 1).fill(1).map((x, i) => i);
+    } else {
+      this.totalPageArray = Array(this.totalPage).fill(1).map((x, i) => i);
+    }
+  }
+
+
+  redirectPagination(tg: any) {
+    /* Get amounts of all products */
+    tg -= 1;
+    this.currentPage = tg;
+
+    this.employeeService.redirectPagination(this.currentPage);
+
+    /* Check location current page */
+    this.checkActiveButton(this.currentPage * this.sizePage);
+
+    /* Set default value for next and prev */
+    this.currentPage = tg * this.sizePage;
+    this.getListEmployee();
+  }
+
+  prevPage() {
+    this.currentPage -= this.sizePage;
+    this.employeeService.prevPage();
+    this.getListEmployee();
+
+    /* Check location current page */
+    this.checkActiveButton(this.currentPage);
+  }
+
+  nextPage() {
+    this.currentPage += this.sizePage;
+    this.employeeService.nextPage();
+    this.getListEmployee();
+
+    /* Check location current page */
+    this.checkActiveButton(this.currentPage);
+  }
+
+  private checkActiveButton(currentPage: number) {
+    console.log(currentPage)
+    this.activatedButton = Math.round(currentPage / this.sizePage) + 1;
+    console.log(this.activatedButton)
   }
 }

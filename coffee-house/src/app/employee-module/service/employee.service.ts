@@ -10,25 +10,49 @@ const URL_API = 'http://localhost:8080/manager/api/employee';
 })
 export class EmployeeService {
 
+  /* Define size for pagination */
+  currentPage = 0;
+  sizePage = 3;
+
   constructor(private httpClient: HttpClient) {
   }
 
   // HauLST
   findByIdUser(idUser: number): Observable<Employee> {
     // @ts-ignore
-    return this.httpClient.get(URL_API + '/detail/' + idUser);
+    return this.httpClient.get(URL_API + '/find-id-employee/' + idUser);
   }
   //VinhTQ
   getAllEmployee(): Observable<Employee[]> {
-    return this.httpClient.get<Employee[]>(URL_API+'/list');
+    return this.httpClient.get<Employee[]>(URL_API+'/list/page='+this.currentPage+'&size='+this.sizePage);
   }
   //VinhTQ
   deleteEmployee(idUser: number): Observable<Employee> {
-    console.log(URL_API+'/delete/'+idUser)
     return this.httpClient.delete<Employee>(URL_API+'/delete/'+idUser);
   }
   //VinhTQ
   searchEmployee(username: string, name : string, phone : string): Observable<Employee[]> {
-    return this.httpClient.get<Employee[]>(URL_API+'/search/'+username+'/'+name+'/'+phone);
+    return this.httpClient.get<Employee[]>(URL_API+'/search/'+username+'/'+name+'/'+phone+'/page='+this.currentPage+'&size='+this.sizePage);
+  }
+
+  /* VinhTQ */
+  getLengthOfEmployees(): Observable<number> {
+    return this.httpClient.get<number>(URL_API + '/length/list');
+  }
+  /* VinhTQ */
+  getLengthOfEmployeeSearch(username: string, name : string, phone : string): Observable<number> {
+    return this.httpClient.get<number>(URL_API + '/length/search/'+username+'/'+name+'/'+phone);
+  }
+
+  redirectPagination(currentPage: any) {
+    this.currentPage = currentPage;
+  }
+
+  prevPage() {
+    this.currentPage -= 1;
+  }
+
+  nextPage() {
+    this.currentPage += 1;
   }
 }
