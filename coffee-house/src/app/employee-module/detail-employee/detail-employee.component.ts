@@ -31,7 +31,7 @@ export class DetailEmployeeComponent implements OnInit {
   }
 
   back() {
-    this.router.navigateByUrl('');
+    this.router.navigateByUrl('/home');
   }
 
   showPassword() {
