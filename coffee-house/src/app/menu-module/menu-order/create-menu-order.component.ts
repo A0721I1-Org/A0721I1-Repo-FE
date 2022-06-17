@@ -74,6 +74,7 @@ export class MenuOrderComponent implements OnInit, OnDestroy {
   /* Hide and show Menu */
   showMenuPhone = false;
 
+ // origin/menu-management
   ngOnInit(): void {
     this.getAll();
     /* Set value type default is get all */
@@ -193,18 +194,19 @@ export class MenuOrderComponent implements OnInit, OnDestroy {
     }
   }
 
-  addOrderDetail() {
+  addOrderDetail(idProduct) {
     const orderDetail = {
       numberProduct: this.quatity,
-      totalPrice: this.totalPrice(),
-      order: {idOrder: 1},
-      product: {idProduct: 1}
+      totalProduct: this.totalPrice(),
+      order: {idOrder: 18},
+      product: {idProduct: idProduct}
     };
     console.log(orderDetail);
     if (orderDetail) {
       this.menuService.saveOrderDetail(orderDetail).subscribe(
         data => {
           alert('Thêm món thành công');
+          this.ngOnInit();
         }, error => {
           console.log(error);
         }
@@ -385,7 +387,8 @@ export class MenuOrderComponent implements OnInit, OnDestroy {
     if (this.activeTimeWait) {
       if (this.listIdOrderDetails.length > 0) {
         for (let i = 0; i < this.listIdOrderDetails.length; i++) {
-          this.menuService.handleDeleteFood(this.listIdOrderDetails[i]).subscribe(() => {
+          this.menuService.deleteOrderDetail(this.listIdOrderDetails[i]).subscribe( () => {
+            this.menuService.handleDeleteFood(this.listIdOrderDetails[i]);
             this.ngOnInit();
           });
         }

@@ -42,8 +42,7 @@
                       {{product.priceProduct | number: '1.0-0'}}đ
                     </span>
                   </div>
-
-                  <div class="button btn-buy">
+                  <div (click)="getProductById(product.idProduct)" class="btn button btn-buy" data-toggle="modal" data-target="#modal1">
                     <i class="fa-solid fa-plus"></i>
                   </div>
                 </div>
@@ -203,11 +202,8 @@
   </div>
 </div>
 
-<a (click)="getProductById(1)" type="button" class="btn" data-toggle="modal" data-target="#modal1">
-  Thêm món
-</a>
 
-
+<!-- Modal PopUP Order-->
 <div class="container d-flex justify-content-center mt-100">
   <!-- Button to Open the Modal -->
   <!-- The Modal -->
@@ -356,8 +352,8 @@
 
             <!-- Modal footer -->
             <div class="modal-footer">
-              <button type="button"
-                      class="btn btn-primary btn-lg btn-block btn-custom" (click)="addOrderDetail()">{{product?.priceProduct * quatity}}
+              <button type="submit"
+                      class="btn btn-primary btn-lg btn-block btn-custom" (click)="addOrderDetail(product?.idProduct)">{{product?.priceProduct * quatity}}
                 - Thêm vào
                 giỏ
                 hàng
