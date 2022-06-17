@@ -44,8 +44,11 @@ export class EditEmployeeComponent implements OnInit {
           genderEmployee:  this.employee.genderEmployee,
           dateOfBirthEmployee:  this.employee.dateOfBirthEmployee,
           salaryEmployee: this.employee.salaryEmployee,
-          position:  this.employee.position.namePosition,
-        });
+          // position: this.employee.position.namePosition,
+          user:  this.employee.user.username,
+        })
+        this.editEmployeeForm.get('position').setValue(this.employee.position.idPosition , {onlySelf: true});
+
       });
     });
 
