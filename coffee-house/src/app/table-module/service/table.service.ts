@@ -53,10 +53,6 @@ export class TableService {
     return this.httpClient.get<Table[]>(API_URL + '/manager/findAllTableWithSearch?emptyTable=' + emptyTable);
   }
 
-  updateEmptyTable(id: number, table: Table): Observable<Table> {
-    return this.httpClient.put<Table>(API_URL + '/manager/updateEmptyTable/' + id, table);
-  }
-
   deleteTable(id: number): Observable<Table> {
     return this.httpClient.delete<Table>(API_URL + '/manager/deleteTable/' + id);
   }
@@ -79,7 +75,7 @@ export class TableService {
   addNewOrder(idEmployee: number, idTable: number, dateOrder: string): Observable<any> {
     // return this.httpClient.post(this.URL_API + '/saveOrderInTable/', idEmployee + '/' + idTable);
     // @ts-ignore
-    return this.httpClient.post<any>(`${API_URL}/manager/emptyTable/saveOrderInTable/${idEmployee}/${idTable}/${dateOrder}`);
+    return this.httpClient.post<any>(`${API_URL}/manager/emptyTable/saveOrderInTable?idUser=${idEmployee}&idTable=${idTable}`);
   }
 
   cancelTable(idTable: number): Observable<Oder> {
@@ -89,10 +85,6 @@ export class TableService {
   /* //Quang code getAllStatus*/
   getAllStatus(): Observable<Status[]> {
     return this.httpClient.get<Status[]>(API_URL + '/manager/findAllStatus');
-  }
-
-  getAllTable(): Observable<Table[]> {
-    return this.httpClient.get<Table[]>(API_URL + '/manager/findAllTable');
   }
 
   getTableById(id): Observable<Table> {
