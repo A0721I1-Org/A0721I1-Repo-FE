@@ -15,7 +15,7 @@
               </p>
               <a href="#" class="btn btn-warning" [routerLink]="['../detail',tab.idTable]" *ngIf="!tab.emptyTable">Chi
                 tiết</a>
-              <a class="btn btn-outline-warning" *ngIf="tab.emptyTable" (click)="addOrderBeNull(idEmployee,tab.idTable,dateOrder)">Đặt bàn</a>
+              <a class="btn btn-outline-warning" *ngIf="tab.emptyTable" (click)="addOrderBeNull(tab.idTable)">Đặt bàn</a>
             </div>
           </div>
         </div>

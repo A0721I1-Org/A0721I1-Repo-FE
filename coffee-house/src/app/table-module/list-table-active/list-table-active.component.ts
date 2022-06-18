@@ -3,6 +3,8 @@ import {Table} from '../../model/table';
 import {TableService} from '../service/table.service';
 import {Oder} from '../../model/oder';
 import {Router} from '@angular/router';
+import {Employee} from '../../model/employee';
+import {TokenStorageService} from '../../login-module/service/token-storage.service';
 
 @Component({
   selector: 'app-list-table-active',
@@ -11,10 +13,12 @@ import {Router} from '@angular/router';
 })
 export class ListTableActiveComponent implements OnInit {
   tables: Table[];
-  idEmployee = 1; // dữ liệu cứng  . chờ a hoàng code để lấy idEmployee
+  employee: Employee; // dữ liệu cứng  . chờ a hoàng code để lấy idEmployee
   dateOrder: string;
+
   constructor(private tableService: TableService,
-              private router: Router) {
+              private router: Router,
+              private  tokenStorageService: TokenStorageService) {
   }
 
   ngOnInit(): void {
@@ -23,12 +27,16 @@ export class ListTableActiveComponent implements OnInit {
     });
   }
 
-  addOrderBeNull(idEmployee: number, idTable: number, dateOrder: string) {
-    this.tableService.addNewOrder(this.idEmployee, idTable, dateOrder).subscribe(() => {
-    }, () => {
-    }, () => {
-      this.router.navigateByUrl('/menu/menu-order-child');
-    });
+  addOrderBeNull(idTable: number) {
+    this.tableService.addNewOrder(this.tokenStorageService.getUser().id, idTable, this.dateOrder).subscribe(() => {
+
+      },
+      () => {
+      }, () => {
+        this.router.navigateByUrl('/menu/menu-order-child');
+      }
+    )
+    ;
   }
 
 }
