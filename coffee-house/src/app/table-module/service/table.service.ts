@@ -75,7 +75,7 @@ export class TableService {
   addNewOrder(idEmployee: number, idTable: number, dateOrder: string): Observable<any> {
     // return this.httpClient.post(this.URL_API + '/saveOrderInTable/', idEmployee + '/' + idTable);
     // @ts-ignore
-    return this.httpClient.post<any>(`${API_URL}/manager/emptyTable/saveOrderInTable/${idEmployee}/${idTable}/${dateOrder}`);
+    return this.httpClient.post<any>(`${API_URL}/manager/emptyTable/saveOrderInTable?idUser=${idEmployee}&idTable=${idTable}`);
   }
 
   cancelTable(idTable: number): Observable<Oder> {
