@@ -120,7 +120,6 @@ export class MenuService {
 
   /* Get data DTO for table */
   getDataDTOForTable(idTable: number): Observable<MenuOrderDTO[]> {
-    console.log("service" + idTable)
     return this.httpClient.get<MenuOrderDTO[]>(`${API_URL}/table/${idTable}/${this.currentPageTable}&${this.sizePageTable}`);
   }
 

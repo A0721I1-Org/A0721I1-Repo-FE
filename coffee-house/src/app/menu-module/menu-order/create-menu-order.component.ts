@@ -3,7 +3,7 @@ import {OderDetail} from '../../model/oderDetail';
 import {Product} from '../../model/product';
 import {MenuService} from '../service/menu.service';
 // @ts-ignore
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {TypeProduct} from "../../model/typeProduct";
 import {MenuOrderDTO} from "../../model/MenuOrderDTO";
 import {FormBuilder} from "@angular/forms";
@@ -23,10 +23,8 @@ export class MenuOrderComponent implements OnInit, OnDestroy {
   sum = 0;
   quatity = 1;
 
-  // tslint:disable-next-line:variable-name
-  private currentTemp: number;
-
-  constructor(private menuService: MenuService, private _formBuilder: FormBuilder, private router: Router) {
+  constructor(private menuService: MenuService, private _formBuilder: FormBuilder, private router: Router
+  ,private activatedRoute: ActivatedRoute) {
   }
 
   /* Count down time for food */
@@ -45,8 +43,8 @@ export class MenuOrderComponent implements OnInit, OnDestroy {
   menuOrderDTOs: MenuOrderDTO[];
 
   /* Lấy table của a Bin */
-  idTable: number = 1;
-  idOrder: number = 22;
+  idTable: number = 0;
+  idOrder: number = 0;
 
   /* Define size page and current page */
   sizePage: number = this.menuService.sizePage;
@@ -79,9 +77,14 @@ export class MenuOrderComponent implements OnInit, OnDestroy {
 
  // origin/menu-management
   ngOnInit(): void {
-    this.getAll();
+    this.getAll()
     /* Set value type default is get all */
     this.getTypeOfGet(0);
+
+
+    /* Get id table and id order from url */
+    this.idTable = this.activatedRoute.snapshot.params['idTable'];
+    this.idOrder = this.activatedRoute.snapshot.params['idOrder'];
 
     /* Show data DTO */
     this.getDataDTOForTable();
@@ -323,7 +326,7 @@ export class MenuOrderComponent implements OnInit, OnDestroy {
       });
     } else {
       /* Code pagination for pagable */
-      this.menuService.getDataDTOForTable(1).subscribe(data => {
+      this.menuService.getDataDTOForTable(this.idTable).subscribe(data => {
         /* Get amounts of all products */
         tg -= 1;
         this.currentPageTable = tg;
@@ -355,9 +358,10 @@ export class MenuOrderComponent implements OnInit, OnDestroy {
     }
   }
 
-  /* Get data DTO for tab`le */
+  /* Get data DTO for table */
   getDataDTOForTable() {
-    this.menuService.getDataDTOForTable(1).subscribe(data => {
+    this.menuService.getDataDTOForTable(this.idTable).subscribe(data => {
+      console.log(this.idTable)
       this.menuOrderDTOs = data;
       this.pagination(this.menuOrderDTOs[data.length - 1].totalPageDTO, false);
     })
@@ -379,7 +383,7 @@ export class MenuOrderComponent implements OnInit, OnDestroy {
   /* Payment */
   handlePayment() {
     this.menuService.handlePaymentForOrder(this.idTable).subscribe(() => {
-      this.router.navigateByUrl("");
+      this.router.navigateByUrl("/table/active");
     })
   }
 

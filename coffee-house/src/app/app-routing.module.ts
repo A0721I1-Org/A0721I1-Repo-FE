@@ -17,7 +17,7 @@ const routes: Routes = [
     loadChildren: () => import('./feedback-module/feedback-module.module').then(module => module.FeedbackModuleModule)
   },
   {
-    path: 'incomef',
+    path: 'income',
     loadChildren: () => import('./income-module/income-module.module').then(module => module.IncomeModuleModule)
   },
   {
