@@ -57,7 +57,7 @@
       </tr>
       <tr *ngFor="let table of tables | paginate: {itemsPerPage: 5, currentPage: p}; index as i">
         <td>{{i+1}}</td>
-        <td><a href="#">{{table.codeTable}}</a></td>
+        <td><a [routerLink]="['../detail/',table.idTable]">{{table.codeTable}}</a></td>
         <td>
           <div *ngIf="table.status.idStatus == 1; then good else bad"></div>
           <ng-template #good>Tốt</ng-template>
@@ -67,13 +67,13 @@
           <div *ngIf="table.emptyTable; then empty else notEmpty"></div>
           <ng-template #empty>
             <label class="switch">
-              <input type="checkbox" checked="1" (click)="changeEmptyTable(table.idTable)">
+              <input type="checkbox" checked="1" disabled>
               <span class="slider round"></span>
             </label>
           </ng-template>
           <ng-template #notEmpty>
             <label class="switch">
-              <input type="checkbox" (click)="changeEmptyTable(table.idTable)">
+              <input type="checkbox" disabled>
               <span class="slider round"></span>
             </label>
           </ng-template>
