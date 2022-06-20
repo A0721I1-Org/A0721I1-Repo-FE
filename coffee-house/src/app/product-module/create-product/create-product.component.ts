@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {ProductService} from '../service/product.service';
 import {Router} from '@angular/router';
 import {TypeProduct} from '../../model/typeProduct';
-
+import {finalize} from 'rxjs/operators';
+import {AngularFireStorage} from '@angular/fire/storage';
 
 @Component({
   selector: 'app-create-product',
@@ -12,6 +13,9 @@ import {TypeProduct} from '../../model/typeProduct';
 })
 export class CreateProductComponent implements OnInit {
   typeProduct: TypeProduct[];
+  selectedImage: any;
+  errorImage: string;
+  imgVip = 'https://accounts.viblo.asia/assets/webpack/profile_default.0bca52a.png';
   createForm: FormGroup = new FormGroup({
       idProduct: new FormControl('', Validators.required),
       codeProduct: new FormControl('', Validators.required),
@@ -24,21 +28,45 @@ export class CreateProductComponent implements OnInit {
 
 
   constructor(private fb: FormBuilder, private service: ProductService,
-              private router: Router) {
+              private router: Router,
+              @Inject(AngularFireStorage) private storage: AngularFireStorage) {
   }
 
   ngOnInit(): void {
     this.service.findType().subscribe((data => this.typeProduct = data));
   }
 
-  onSubmit(): void {
-    this.service.createProduct(this.createForm.value).subscribe(
-      () => {},
-      (e) => {console.log(e); },
-      () => {
-        alert('Them thanh cong');
-        this.router.navigateByUrl('/product/list');
-      });
-    console.log(this.createForm);
+
+  submit() {
+    console.log(this.createForm.value);
+    const nameImg = '/A0721I1-' + this.selectedImage.name;
+    const fileRef = this.storage.ref(nameImg);
+    this.storage.upload(nameImg, this.selectedImage).snapshotChanges().pipe(
+      finalize
+      (() => {
+        fileRef.getDownloadURL().subscribe((url) => {
+          this.createForm.patchValue({imageProduct: url});
+          this.service.createProduct(this.createForm.value).subscribe(
+            () => {},
+            error => {
+            this.errorImage = error.error.errorMap.image;
+          }, () => {
+              alert('Them thanh cong');
+              this.router.navigateByUrl('/product/list');
+            });
+        });
+      })
+    ).subscribe();
   }
+
+    showPreview(event: any) {
+    this.selectedImage = event.target.files[0];
+    const reader = new FileReader();
+    reader.readAsDataURL(this.selectedImage);
+    reader.onload = e => {
+      console.log(e);
+      this.imgVip = reader.result as string;
+    };
+  }
+
 }

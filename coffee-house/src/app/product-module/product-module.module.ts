@@ -7,6 +7,8 @@ import { ListProductComponent } from './list-product/list-product.component';
 import { EditProductComponent } from './edit-product/edit-product.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {AngularFireModule} from '@angular/fire';
+import {environment} from '../../environments/environment';
 
 
 
@@ -21,7 +23,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
         ProductModuleRoutingModule,
         MatDialogModule,
         FormsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        AngularFireModule.initializeApp(environment.firebaseConfig)
     ]
 })
 export class ProductModuleModule { }
