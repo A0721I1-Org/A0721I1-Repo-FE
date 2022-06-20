@@ -26,7 +26,9 @@ export class IncomeService {
     return this.httpClient.get<number>(this.URL_API + '/year');
   }
 
-  // sumTotalOrderDayToDay(): Observable<number>{
-  //   return  this.httpClient.get<number>(this.URL_API + 'daytoday');
-  // }
+  sumTotalOrderDayToDay(startDay: string, endDay: string): Observable<number>{
+    return  this.httpClient.get<number>(this.URL_API + '/daytoday?startDay=' + startDay + '&endDay=' + endDay);
+  }
+
+
 }

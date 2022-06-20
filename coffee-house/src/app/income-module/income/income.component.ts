@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {IncomeService} from '../service/income.service';
 import {ActivatedRoute, Router} from '@angular/router';
-
+import {FormBuilder, FormGroup} from '@angular/forms';
+import {DatePipe} from '@angular/common';
 
 @Component({
   selector: 'app-income',
@@ -9,19 +10,38 @@ import {ActivatedRoute, Router} from '@angular/router';
   styleUrls: ['./income.component.css']
 })
 export class IncomeComponent implements OnInit {
+  constructor(
+    private incomeService: IncomeService,
+    private fb: FormBuilder ,
+    private activatedRoute: ActivatedRoute,
+    private datePipe: DatePipe ,
+    private router: Router) {
+  }
+
   totalOrderToDay: number;
   totalOrderToWeek: number;
   totalOrderToMonth: number;
   totalOrderToYear: number;
   totalOrderDayToDay: number;
-  constructor(
-    private incomeService: IncomeService,
-    private activatedRoute: ActivatedRoute,
-    private router: Router) { }
 
+  formSumInCome: FormGroup;
+
+  startDay: any;
+  endDay: any;
+  sumDaytoDay: number;
+
+  message: string = null;
   ngOnInit(): void {
     this.getAll();
+
+    /* Define form sum day today */
+    this.formSumInCome = this.fb.group({
+      startDayForm: [''] ,
+      endDayForm: ['']
+    });
   }
+
+
 
   /* Get all */
   getAll() {
@@ -37,29 +57,47 @@ export class IncomeComponent implements OnInit {
       this.totalOrderToDay = data;
     });
   }
+
   /* Get income Week */
-  getIncomeToWeek(){
+  getIncomeToWeek() {
     this.incomeService.sumTotalOrderWeek().subscribe(data => {
       this.totalOrderToWeek = data;
     });
   }
 
   /* Get income Month */
-  getIncomeToMonth(){
+  getIncomeToMonth() {
     this.incomeService.sumTotalOrderMonth().subscribe(data => {
       this.totalOrderToMonth = data;
     });
   }
-
   /* Get income Year */
-  getIncomeToYear(){
+  getIncomeToYear() {
     this.incomeService.sumTotalOrderYear().subscribe(data => {
       this.totalOrderToYear = data;
     });
   }
-
   /* Get income day to day */
-  // getIncomeDayToDay(){
-  //
-  // }
+  submitSumIncome() {
+    this.startDay = new Date(this.formSumInCome.get('startDayForm').value);
+    this.endDay = new Date(this.formSumInCome.get('endDayForm').value);
+    console.log(this.datePipe.transform(this.startDay, 'yyyy-MM-dd'));
+    console.log(this.datePipe.transform(this.endDay, 'yyyy-MM-dd'));
+    if (this.datePipe.transform(this.startDay, 'yyyy-MM-dd') <= this.datePipe.transform(this.endDay, 'yyyy-MM-dd')){
+      this.incomeService.sumTotalOrderDayToDay(this.datePipe.transform(this.startDay, 'yyyy-MM-dd'),
+        this.datePipe.transform(this.endDay, 'yyyy-MM-dd')).subscribe(data => {
+        this.totalOrderDayToDay = data;
+        console.log(data);
+      });
+    }else {
+        this.message = 'Ngày đầu phải nhỏ hơn ngày sau';
+    }
+  }
+
+  hide() {
+    document.getElementById('noti').hidden = true;
+    this.message = null;
+  }
+
+
 }
