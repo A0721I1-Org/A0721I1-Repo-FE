@@ -51,4 +51,10 @@ export class DetailTableComponent implements OnInit {
       this.router.navigateByUrl('table/active');
     });
   }
+
+  handlePayment(idTable: number) {
+    this.tableService.payment(idTable).subscribe(()=> {
+      this.router.navigateByUrl('table/active');
+    })
+  }
 }
