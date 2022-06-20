@@ -18,7 +18,7 @@ export class ListTableActiveComponent implements OnInit {
 
   constructor(private tableService: TableService,
               private router: Router,
-              private  tokenStorageService: TokenStorageService) {
+              private tokenStorageService: TokenStorageService) {
   }
 
   ngOnInit(): void {

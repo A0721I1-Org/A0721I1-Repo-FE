@@ -89,6 +89,7 @@ export class ListTableComponent implements OnInit {
     } else {
       this.ngOnInit();
     }
+    this.tableService.message = null;
   }
 
   hide() {
