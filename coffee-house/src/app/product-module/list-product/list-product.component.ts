@@ -21,7 +21,7 @@ totalPageSearch = 0;
   productList: Product[];
   ngOnInit(): void {
     this.page = 0;
-    this.service.findByAll().subscribe( data => this.totalPage = Math.ceil(data.length / 4), () => {}, () => {}, );
+    this.service.findByAll().subscribe( data => this.totalPage = Math.ceil(data.length / 6), () => {}, () => {}, );
     this.findByAllPage();
   }
   findByAllPage(){
@@ -42,7 +42,7 @@ totalPageSearch = 0;
   }
   searchPage() {
     this.pageSearch = 0 ;
-    this.service.search(this.codeName, this.nameProduct).subscribe(data => this.totalPageSearch = Math.ceil(data.length / 4) );
+    this.service.search(this.codeName, this.nameProduct).subscribe(data => this.totalPageSearch = Math.ceil(data.length / 6) );
     this.service.searchPage(this.codeName, this.nameProduct, 0).subscribe(
       (data: Product[]) => {
         if (data != null){
