@@ -60,9 +60,6 @@
                 <div class="col-md-12">
                   <div class="form-group">
                     <span class="form-label" for="imageFeedback">Hình ảnh<span class="text-danger">(*):</span></span>
-<!--                    <label for="imageFeedback">Hình Ảnh <span class="text-danger">(*):</span></label>-->
-<!--                    <input name="imageFeedback" id="imageFeedback" type="file" class="file__input" (change)="showPreview($event)">-->
-<!--                    <img class="avatar rounded-circle" style="height: 160px; width: 160px;" src="{{imgVip}}">-->
                     <input class="form-control-file" type="file" name="imageFeedback" id="imageFeedback" (change)="showPreview($event)">
                     <img [src]="imgVip" height="200" alt="Image preview...">
                     <div class="text-danger" *ngFor="let validation of validation_messages.namePeopleFeedback">
