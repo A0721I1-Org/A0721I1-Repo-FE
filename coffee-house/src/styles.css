@@ -1,6 +1,10 @@
 
 /* You can add global styles to this file, and also import other style files */
 
+/*HauLST - đặt biến global cho css*/
+/*:root {*/
+/*  --main-color : rgb(236, 155, 68);*/
+/*}*/
 @import '~ngx-toastr/toastr';
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap');
 
@@ -621,9 +625,3 @@ section{
 body {
   margin: 0;
 }
-
-:root {
-  --primary-color: rgb(236, 155, 68);
-  --color-content: rgb(236, 155, 68);
-}
-
