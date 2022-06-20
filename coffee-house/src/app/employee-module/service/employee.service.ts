@@ -18,20 +18,20 @@ export class EmployeeService {
 
   createEmployee(employee: Employee): Observable<void> {
     // @ts-ignore
-    return this.httpClient.post(URL_API + '/create-employee',employee);
+    return this.httpClient.post(URL_API + '/create-employee', employee);
   }
 
   updateEmployee(employee: Employee): Observable<void> {
     // @ts-ignore
-    return this.httpClient.put(URL_API + '/update-employee/' + employee.idEmployee,employee);
+    return this.httpClient.patch(URL_API + '/update-employee/' + employee.idEmployee, employee);
   }
 
-  getPosition():Observable<Position[]>{
+  getPosition(): Observable<Position[]>{
     // @ts-ignore
     return this.httpClient.get(URL_API + '/position');
   }
 
-  findByIdEmployee(id:number):Observable<Employee>{
+  findByIdEmployee(id: number): Observable<Employee>{
     // @ts-ignore
     return this.httpClient.get(URL_API + '/find-id-employee/' + id);
   }

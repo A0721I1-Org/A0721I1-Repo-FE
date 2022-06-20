@@ -100,10 +100,6 @@
               && editEmployeeForm.get('phoneEmployee').touched)">
                     <i>Không được để trống!</i>
                   </p>
-                  <p style="color: red" *ngIf="(editEmployeeForm.get('phoneEmployee').hasError('pattern')
-              && editEmployeeForm.get('phoneEmployee').touched)">
-                    <i>số điện thoại không đúng!</i>
-                  </p>
                 </div>
               </div>
             </div>
@@ -120,7 +116,7 @@
             </div>
             <div class="row">
               <div class="form-btn col-md-6">
-                <a routerLink='/home'><button class="submit-btn" type="button">Trở về</button></a>
+                <a routerLink=''><button class="submit-btn" type="button">Trở về</button></a>
               </div>
               <div class="form-btn col-md-6">
                 <button class="submit-btn" type="submit">Chỉnh sửa</button>

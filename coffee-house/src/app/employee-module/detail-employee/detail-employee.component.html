@@ -26,7 +26,7 @@
                         </tr>
                         <tr>
                           <td >Mật khẩu:</td>
-                          <!--                          <td>{{employee.user1?.password}} </td>-->
+<!--                          <td>{{employee.user1?.password}} </td>-->
                           <td><input id="inputPassword" type="password" value="{{employee.user?.password}}" disabled>
                             <span  id="iconPassword" (click)="showPassword()"><i class='bx bx-show'></i></span>
                           </td>
@@ -67,7 +67,11 @@
                   </div>
                   <div class="modal-footer row">
                     <button class="button btn col-7 col-md-3 col-sm-3" (click)="back()"> << Quay lại</button>
-                    <button class="button btn col-7 col-md-4 col-sm-4" [disabled]="employee.position?.namePosition=='Nhân viên' " [routerLink]="['/employee/edit' , employee.idEmployee]">Cập nhập thông tin</button>
+
+<!--                    <button class="button btn col-7 col-md-4 col-sm-4" [disabled]="employee.position?.namePosition=='Nhân viên' " routerLink="/employee/edit">Cập nhập thông tin</button>-->
+
+                    <button class="button btn col-7 col-md-4 col-sm-4" [disabled]="employee.position?.namePosition=='Nhân viên' " [routerLink]="['/employee/edit']">Cập nhập thông tin</button>
+
 <!--                    <button class="button btn col-7 col-md-4 col-sm-4" [disabled]="employee.role?.nameRole=='MEMBER'" >Cập nhập thông tin</button>-->
                     <button class="button btn col-7 col-md-4 col-sm-4" [routerLink]="['']">Thay đổi mật khẩu</button>
                   </div>

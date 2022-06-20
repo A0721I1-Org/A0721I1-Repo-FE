@@ -1,7 +1,4 @@
-import {Component, OnInit} from '@angular/core';
-import {Oder} from '../../model/oder';
-import {OderService} from '../service/oder.service';
-import {ActivatedRoute} from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-oder',
@@ -9,11 +6,8 @@ import {ActivatedRoute} from '@angular/router';
   styleUrls: ['./order.component.css']
 })
 export class OrderComponent implements OnInit {
-  order: Oder;
 
-  constructor(private oderService: OderService,
-              private activatedRoute: ActivatedRoute) {
-  }
+  constructor() { }
 
   ngOnInit(): void {
   }

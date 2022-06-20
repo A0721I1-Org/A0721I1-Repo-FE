@@ -3,6 +3,7 @@ import {EmployeeService} from '../service/employee.service';
 import {Router} from '@angular/router';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Position} from '../../model/position';
+import {User} from '../../model/user';
 
 @Component({
   selector: 'app-create-employee',
@@ -18,7 +19,7 @@ export class CreateEmployeeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.createEmployeeForm = new FormGroup({
+   this.createEmployeeForm = new FormGroup({
       nameEmployee: new FormControl('', [Validators.required, Validators.pattern(/^([a-vxyỳọáầảấờễàạằệếýộậốũứĩõúữịỗìềểẩớặòùồợãụủíỹắẫựỉỏừỷởóéửỵẳẹèẽổẵẻỡơôưăêâđ]+)((\s{1}[a-vxyỳọáầảấờễàạằệếýộậốũứĩõúữịỗìềểẩớặòùồợãụủíỹắẫựỉỏừỷởóéửỵẳẹèẽổẵẻỡơôưăêâđ]+){1,})$/)]),
       addressEmployee: new FormControl('', Validators.required),
       phoneEmployee: new FormControl('', [Validators.required, Validators.pattern(/^(0?)(3[2-9]|5[6|8|9]|7[0|6-9]|8[0-6|8|9]|9[0-4|6-9])[0-9]{7}$/)]),
@@ -29,7 +30,7 @@ export class CreateEmployeeComponent implements OnInit {
       user: new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]+$/)]),
     });
 
-    this.getAllPosition();
+   this.getAllPosition();
   }
 
 
@@ -44,10 +45,10 @@ export class CreateEmployeeComponent implements OnInit {
 
   createSubmit() {
     console.log('aaaaaa');
-    if (this.createEmployeeForm.valid) {
+    if (this.createEmployeeForm.invalid) {
       console.log('bbbbbbbbb');
       const employee = this.createEmployeeForm.value;
-      const user = {
+      let user = {
         username: employee.user,
         password: '123456',
       };
@@ -59,18 +60,18 @@ export class CreateEmployeeComponent implements OnInit {
         if ((employee.position) == (this.positions[i].idPosition)) {
           employee.position = this.positions[i];
         }
+        this.employeeService.createEmployee(employee).subscribe(
+          () => {
+
+          },
+          () => {
+
+          },
+          () => {
+            this.router.navigateByUrl('');
+          },
+        );
       }
-      this.employeeService.createEmployee(employee).subscribe(
-        () => {
-
-        },
-        () => {
-
-        },
-        () => {
-          this.router.navigateByUrl('/home');
-        },
-      );
     }
   }
 }
