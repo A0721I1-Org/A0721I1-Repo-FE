@@ -26,8 +26,8 @@ export class EditProductComponent implements OnInit {
     descriptionProduct: ['', Validators.required],
     typeProduct: ['', [Validators.required]]
   });
-  compareById( optionOne, optionTwo ): boolean {
-    return optionOne.id === optionTwo.id;
+  compareById( optionOne , optionTwo ): boolean {
+    return optionOne && optionTwo ? optionOne.id === optionTwo.id : optionOne === optionTwo ;
   }
   ngOnInit(): void {
    this.service.findType().subscribe((data => {
