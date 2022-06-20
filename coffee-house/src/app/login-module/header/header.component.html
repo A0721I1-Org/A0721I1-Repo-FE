@@ -1,0 +1,3 @@
+<div class="header" *ngIf="tokenStorageService.getUser()">
+  <button><a (click)="logout()">Đăng xuất</a></button>
+</div>
