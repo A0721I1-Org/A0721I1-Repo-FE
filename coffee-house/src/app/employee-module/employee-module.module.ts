@@ -9,6 +9,7 @@ import { ListEmployeeComponent } from './list-employee/list-employee.component';
 import { DetailEmployeeComponent } from './detail-employee/detail-employee.component';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {NgxPaginationModule} from "ngx-pagination";
 
 
 @NgModule({
@@ -18,12 +19,13 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     ListEmployeeComponent,
     DetailEmployeeComponent
   ],
-  imports: [
-    CommonModule,
-    FormsModule,
-    EmployeeModuleRoutingModule,
-    // HttpClientModule,
-    ReactiveFormsModule,
-  ]
+    imports: [
+        CommonModule,
+        FormsModule,
+        EmployeeModuleRoutingModule,
+        // HttpClientModule,
+        ReactiveFormsModule,
+        NgxPaginationModule,
+    ]
 })
 export class EmployeeModuleModule { }

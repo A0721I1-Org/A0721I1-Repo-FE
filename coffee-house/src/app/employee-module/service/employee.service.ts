@@ -12,10 +12,6 @@ const URL_API = 'http://localhost:8080/manager/api/employee';
 })
 export class EmployeeService {
 
-  /* Define size for pagination */
-  currentPage = 0;
-  sizePage = 3;
-
   constructor(private httpClient: HttpClient) {
   }
 
@@ -25,19 +21,19 @@ export class EmployeeService {
     return this.httpClient.get(URL_API + '/find-id-employee/' + idUser);
   }
 
-  //VinhTQ
+  // VinhTQ
   getAllEmployee(): Observable<Employee[]> {
-    return this.httpClient.get<Employee[]>(URL_API + '/list/page=' + this.currentPage + '&size=' + this.sizePage);
+    return this.httpClient.get<Employee[]>(URL_API + '/list');
   }
 
-  //VinhTQ
+  // VinhTQ
   deleteEmployee(idUser: number): Observable<Employee> {
     return this.httpClient.delete<Employee>(URL_API + '/delete/' + idUser);
   }
 
-  //VinhTQ
+  // // VinhTQ
   searchEmployee(username: string, name: string, phone: string): Observable<Employee[]> {
-    return this.httpClient.get<Employee[]>(URL_API + '/search/' + username + '/' + name + '/' + phone + '/page=' + this.currentPage + '&size=' + this.sizePage);
+    return this.httpClient.get<Employee[]>(URL_API + '/search/' + username + '/' + name + '/' + phone);
   }
 
   /* VinhTQ */
@@ -48,18 +44,6 @@ export class EmployeeService {
   /* VinhTQ */
   getLengthOfEmployeeSearch(username: string, name: string, phone: string): Observable<number> {
     return this.httpClient.get<number>(URL_API + '/length/search/' + username + '/' + name + '/' + phone);
-  }
-
-  redirectPagination(currentPage: any) {
-    this.currentPage = currentPage;
-  }
-
-  prevPage() {
-    this.currentPage -= 1;
-  }
-
-  nextPage() {
-    this.currentPage += 1;
   }
 
   createEmployee(employee: Employee): Observable<void> {
