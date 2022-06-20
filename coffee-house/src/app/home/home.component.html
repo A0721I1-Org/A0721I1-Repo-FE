@@ -5,7 +5,6 @@
   <a href="#" class="logo">
     <img style="height: 75px" src="assets/images/logo.png" alt="">
   </a>
-
   <nav class="navbar">
     <a href="/home#home">Trang chủ</a>
     <a href="/home#about">Giới thiệu</a>
@@ -27,7 +26,7 @@
     <div class="dropdown">
       <button  onclick="hamDropdown()" class =" bx bxs-user-account bx-lg"></button>
       <div class="noidung_dropdown" *ngIf="tokenStorageService.getUser()">
-        <a [routerLink]="['/employee/detail/'] + tokenStorageService.getUser().id">Chi tiết tài khoản</a>
+        <a [routerLink]="['/employee/detail/'] + tokenStorageService.getUser().id" (click)="getPositionById()" >Chi tiết tài khoản</a>
         <a (click)="logout()">Đăng xuất</a>
       </div>
     </div>
@@ -366,3 +365,6 @@
   </div>
 
 </section>
+
+
+>>>>>>> 8c30816157309917291b24941dd787c4e521dc9e
