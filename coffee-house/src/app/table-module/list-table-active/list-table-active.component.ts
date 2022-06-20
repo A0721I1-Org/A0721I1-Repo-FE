@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Table} from '../../model/table';
 import {TableService} from '../service/table.service';
 import {Router} from '@angular/router';
+import {TokenStorageService} from '../../login-module/service/token-storage.service';
 
 @Component({
   selector: 'app-list-table-active',
@@ -17,7 +18,8 @@ export class ListTableActiveComponent implements OnInit {
   idOrder: number;
 
   constructor(private tableService: TableService,
-              private router: Router) {
+              private router: Router,
+              private tokenStoreService: TokenStorageService) {
   }
 
   ngOnInit(): void {
@@ -27,7 +29,7 @@ export class ListTableActiveComponent implements OnInit {
   }
 
   addOrderBeNull(idEmployee: number, idTable: number, dateOrder: string) {
-    this.tableService.addNewOrder(this.idEmployee, idTable, dateOrder).subscribe(data => {
+    this.tableService.addNewOrder(this.tokenStoreService.getUser().id, idTable, dateOrder).subscribe(data => {
       this.idOrder = data.idOrder;
       this.router.navigate(['/menu/menu-order-child', idTable, this.idOrder]);
     }, () => {
