@@ -34,11 +34,6 @@ export class EditProductComponent implements OnInit {
               private router: Router, private activatedRoute: ActivatedRoute,
               @Inject(AngularFireStorage) private storage: AngularFireStorage) {
   }
-
-  compareById(optionOne, optionTwo): boolean {
-    return optionOne && optionTwo ? optionOne.id === optionTwo.id : optionOne === optionTwo;
-  }
-
   ngOnInit(): void {
     this.service.findType().subscribe((data => {
       this.typeProduct = data;

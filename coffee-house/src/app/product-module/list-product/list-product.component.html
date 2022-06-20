@@ -1,14 +1,12 @@
 
 <div class="box-container" style="font-family: 'Times New Roman';background-color: #13131a;color: rgb(236, 155, 68) ">
   <div class="row">
-<!--    style="background-image:url('https://bonjourcoffee.vn/Uploads/Images/Hat_ca_phe_rang_xay.jpg'); background-repeat: no-repeat; background-position: center; background-size: cover;height: 100px"-->
     <div class="col-3 magin-top">
-<!--      <button class="btn">Trang chủ</button>-->
     </div>
     <div class="col-3">
-      <input class="form-control me-2 inputsearch" [(ngModel)]="codeName" type="search" placeholder="CodeName" aria-label="Search">
+      <input class="form-control me-2 inputsearch" [(ngModel)]="codeName" type="search" placeholder="Mã Món" aria-label="Search">
     </div>
-    <div class="col-3 "><input class="form-control me-2 inputsearch" [(ngModel)]="nameProduct" type="search" placeholder="NameProduct" aria-label="Search">
+    <div class="col-3 "><input class="form-control me-2 inputsearch" [(ngModel)]="nameProduct" type="search" placeholder="Tên Món" aria-label="Search">
     </div>
     <div class="col-3 ">
       <button class="btn-outline-info search" type="button"(click)="searchPage()" >
@@ -37,33 +35,33 @@
       <div class="box" *ngFor="let product of productList">
         <img [src]="product.imageProduct" alt="">
         <h3 hidden>{{product.idProduct}}</h3>
-        <h3>Code:{{product.codeProduct}}</h3>
-        <h3>Name:{{product.nameProduct}}</h3>
-        <h3>TypeName:{{product.typeProduct.nameTypeProduct}}</h3>
-        <div class="price">Gía: {{product.priceProduct}} <span>{{product.priceProduct + 20 / 100}}</span></div>
-        <b>{{product.descriptionProduct}}</b>
+        <h3>Mã Món:{{product.codeProduct}}</h3>
+        <h3>Tên Món Ăn:{{product.nameProduct}}</h3>
+        <h3>Loại:{{product.typeProduct.nameTypeProduct}}</h3>
+        <div class="price">Giá: {{product.priceProduct}} <span> {{product.priceProduct + 20 / 100}}</span></div>
+        <b>Mô Tả : {{product.descriptionProduct}}</b>
         <div>
 <!--          Edit-->
 
           <a [routerLink]="'/product/edit/' + product.idProduct"><button class="btn edit" >Edit</button></a>
-          <a class="delete"  data-toggle="modal" [attr.data-target]="'#exampleModalCenter'+product.idProduct">
-            <button class="btn" style="background: #13131a;color: white;width: 50px;height: 25px;font-size: small" >Delete</button>
+          <a   data-toggle="modal" [attr.data-target]="'#exampleModalCenter'+product.idProduct">
+            <button class="btn edit"  >Delete</button>
           </a>
           <!-- Modal -->
-          <div class="modal fade" [attr.id]="'exampleModalCenter'+product.idProduct" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="margin-left: 35%">
+          <div class="modal fade" [attr.id]="'exampleModalCenter'+product.idProduct" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="margin-left: 50px">
             <div class="modal-dialog modal-dialog-centered" role="document">
-              <div class="modal-content">
-                <div class="modal-header" style="background-color: gray;color: black;font-size: medium">
+              <div class="modal-content" style="border: 2px lightgoldenrodyellow solid">
+                <div class="modal-header" style="background-color: gray;">
                   <h5 class="modal-title modaltextdelete" id="exampleModalLongTitle" >Delete</h5>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="background-color: transparent">
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
                 <div class="modal-body" style="background: #13131a;color: white">
-                  <div>Bạn có muốn xoá {{product.nameProduct}}</div>
+                  <div>Bạn có muốn xoá : {{product.nameProduct}}</div>
                   <div> <img [src]="product.imageProduct" alt=""></div>
                 </div>
-                <div class="modal-footer"  style="background: #13131a">
+                <div class="modal-footer"  style="background: #13131a;color: white">
                   <button type="button" class="btn btn-secondary delete" data-dismiss="modal" >Close</button>
                   <button type="button" class="btn btn-primary delete"data-dismiss="modal" (click)="delete(product.idProduct)" >Delete</button>
                 </div>
