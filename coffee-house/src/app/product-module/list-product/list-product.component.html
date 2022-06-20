@@ -24,16 +24,12 @@
     </div>
     <div class="col-2">
 
-      <a [routerLink]="'/product/create'"><button class="btn text-center" style="background-color: #d3ad7f;color:white">
-
-      <button class="btn text-center create">
-
+      <a [routerLink]="'/product/create'"><button class="btn text-center create">
         Thêm Món
-      </button></a>
+      </button> </a>
     </div>
   </div>
   <section class="menu" id="menu">
-
     <h1 class="heading"> Danh Sách<span style="color: #d3ad7f"> Món Ăn</span></h1>
 
     <div class="box-container">
@@ -49,11 +45,7 @@
         <div>
 <!--          Edit-->
 
-          <a [routerLink]="'/product/edit/' + product.idProduct"><button class="btn" style="background: #13131a;color: white;width: 50px;height: 25px;font-size: small" >Edit</button></a>
-
-          <a><button class="btn edit" >Edit</button></a>
-
-
+          <a [routerLink]="'/product/edit/' + product.idProduct"><button class="btn edit" >Edit</button></a>
           <a class="delete"  data-toggle="modal" [attr.data-target]="'#exampleModalCenter'+product.idProduct">
             <button class="btn" style="background: #13131a;color: white;width: 50px;height: 25px;font-size: small" >Delete</button>
           </a>
