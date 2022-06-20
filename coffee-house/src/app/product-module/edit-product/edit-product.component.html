@@ -24,7 +24,7 @@
               <p>Một tách cà phê uống vào buổi sáng mang lại sự hưng phấn tuyệt vời mà không một tách cà phê nào khác dù là buổi chiều hay buổi tối có thể tạo ra được</p>
             </div>
           </div>
-          <form (submit)="onSubmit()" [formGroup]="editForm">
+          <form (ngSubmit)="onSubmit()" [formGroup]="editForm">
             <div class="header-content">
               <h2>Thêm Món</h2>
             </div>
@@ -51,22 +51,36 @@
               </div>
               <div class="col-md-6">
                 <div class="form-group">
+                  <span class="form-label">Mô tả :</span>
+                  <input class="form-control" formControlName="descriptionProduct" type="text">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
                   <span class="form-label">Nhóm Món<a style="color: red"> (*)</a> :</span>
-                  <select class="form-control" formControlName="typeProduct" [compareWith]="compareById">
-                    <option *ngFor="let index of typeProduct" [ngValue]="index" [selected]="index.idTypeProduct == editForm.controls.typeProduct.value.idTypeProduct">{{index.nameTypeProduct}}</option>
-
+                  <select class="form-control" formControlName="typeProduct" >
+                    <option *ngFor="let index of typeProduct" [ngValue]="index" [selected]="index.idTypeProduct === editForm.controls.typeProduct.value.idTypeProduct">{{index.nameTypeProduct}}</option>
                   </select>
                   <div class="select-dropdown"></div>
                 </div>
               </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <span class="form-label">Hình ảnh <a style="color: red"> (*)</a> :</span>
+                </div>
+                <input name="imageProduct" id="imageProduct" type="file" class="file__input" (change)="showPreview($event)"
+                       required="required" >
+                <img style="height: 160px; width: 160px;" src="{{imgVip}}">
+                <label for="imageProduct" class="file__label">
+                  <i class="fa fa-upload"></i>
+                </label>
+                <div>
+                  <p style="color: red" *ngIf=" errorImage!= ''">{{errorImage}}</p>
+                </div>
+              </div>
             </div>
-            <div class="form-group" style="text-align: center">
-              <span class="form-label">Hình ảnh <a style="color: red"> (*)</a> :</span>
-              <br><img [src]="editForm.controls.imageProduct.value" style="width: 40%; height: 40%">
-              <input class="form-control" formControlName="imageProduct" type="file">
-
-            </div>
-            <!-- Upload  -->
 
 
             <div class="row">

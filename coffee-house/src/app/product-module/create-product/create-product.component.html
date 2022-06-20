@@ -23,7 +23,7 @@
               <p>Một tách cà phê uống vào buổi sáng mang lại sự hưng phấn tuyệt vời mà không một tách cà phê nào khác dù là buổi chiều hay buổi tối có thể tạo ra được</p>
             </div>
           </div>
-          <form (submit)="onSubmit()" [formGroup]="createForm">
+          <form (ngSubmit)="submit()" [formGroup]="createForm">
             <div class="header-content">
               <h2>Thêm Món</h2>
             </div>
@@ -31,13 +31,13 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <span class="form-label">Mã Số Món<a style="color: red"> (*)</a> :</span>
-                  <input class="form-control" type="text" placeholder="Mã Số Món">
+                  <input class="form-control" formControlName="idProduct" readonly type="text" id="exampleFormControlInput1">
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-group">
                   <span class="form-label">Tên Món<a style="color: red"> (*)</a> :</span>
-                  <input class="form-control" type="text"  placeholder="Tên Món" >
+                  <input class="form-control" formControlName="nameProduct" type="text" >
                 </div>
               </div>
             </div>
@@ -45,24 +45,41 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <span class="form-label">Giá (VNĐ)<a style="color: red"> (*)</a> :</span>
-                  <input class="form-control" type="text"  placeholder="Giá">
+                  <input class="form-control" formControlName="priceProduct" type="text">
                 </div>
               </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <span class="form-label">Mô tả :</span>
+                  <input class="form-control" formControlName="descriptionProduct" type="text">
+                </div>
+              </div>
+            </div>
+            <div class="row">
               <div class="col-md-6">
                 <div class="form-group">
                   <span class="form-label">Nhóm Món<a style="color: red"> (*)</a> :</span>
                   <select class="form-control" formControlName="typeProduct" >
                     <option *ngFor="let index of typeProduct" [ngValue]="index" [selected]="index.idTypeProduct === createForm.controls.typeProduct.value.idTypeProduct">{{index.nameTypeProduct}}</option>
-
                   </select>
                   <div class="select-dropdown"></div>
                 </div>
               </div>
-            </div>
-            <div class="form-group">
-              <span class="form-label">Hình ảnh <a style="color: red"> (*)</a> :</span>
-            </div>
-            <!-- Upload  -->
+                <div class="col-md-6">
+                <div class="form-group">
+                  <span class="form-label">Hình ảnh <a style="color: red"> (*)</a> :</span>
+                </div>
+                <input name="image" id="image" type="file" class="file__input" (change)="showPreview($event)"
+                       required="required">
+                <img class="avatar" style="height: 160px; width: 160px;" src="{{imgVip}}">
+                <label for="image" class="file__label">
+                  <i class="fa fa-upload"></i>
+                </label>
+                <div>
+                  <p style="color: red" *ngIf=" errorImage!= ''">{{errorImage}}</p>
+                </div>
+                </div>
+              </div>
 
 
             <div class="row">
