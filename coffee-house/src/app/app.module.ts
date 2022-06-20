@@ -7,6 +7,7 @@ import {AppComponent} from './app.component';
 
 
 import {LoginModuleModule} from './login-module/login-module.module';
+
 // @ts-ignore
 import {ToastrModule} from 'ngx-toastr';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
