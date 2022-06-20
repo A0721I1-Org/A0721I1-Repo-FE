@@ -76,14 +76,24 @@ export class TableService {
     return this.httpClient.get<OrderDetailMenuDTO[]>(`${API_URL}/manager/emptyTable/detailTable/${id}`);
   }
 
-  addNewOrder(idEmployee: number, idTable: number, dateOrder: string): Observable<any> {
+  addNewOrder(idEmployee: number, idTable: number, dateOrder: string): Observable<Oder> {
     // return this.httpClient.post(this.URL_API + '/saveOrderInTable/', idEmployee + '/' + idTable);
+    /* Tuan va Dong */
     // @ts-ignore
-    return this.httpClient.post<any>(`${API_URL}/manager/emptyTable/saveOrderInTable/${idEmployee}/${idTable}/${dateOrder}`);
+    return this.httpClient.post<Oder>(`${API_URL}/manager/emptyTable/saveOrderInTable/${idEmployee}/${idTable}`);
+
+    /* Bin */
+    // return this.httpClient.post<Oder>(`${API_URL}/manager/emptyTable/saveOrderInTable/${idEmployee}/${idTable}/${dateOrder}`);
   }
 
   cancelTable(idTable: number): Observable<Oder> {
     return this.httpClient.delete<Oder>(API_URL + '/manager/emptyTable/deleteOrderInTable/' + idTable);
+  }
+
+  /* Bin TK */
+  payment(idTable: number): Observable<any> {
+    // @ts-ignore
+    return this.httpClient.patch<any>(`${API_URL}/menu/table/${idTable}/payment`);
   }
 
   /* //Quang code getAllStatus*/
