@@ -1,10 +1,10 @@
 import {Component, Inject, OnInit} from '@angular/core';
-import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {FeedbackService} from "../service/feedback.service";
-import {Router} from "@angular/router";
-import {formatDate} from "@angular/common";
-import {AngularFireStorage} from "@angular/fire/storage";
-import {finalize} from "rxjs/operators";
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {FeedbackService} from '../service/feedback.service';
+import {Router} from '@angular/router';
+import {formatDate} from '@angular/common';
+import {AngularFireStorage} from '@angular/fire/storage';
+import {finalize} from 'rxjs/operators';
 
 @Component({
   selector: 'app-create-feedback',
@@ -15,7 +15,7 @@ export class CreateFeedbackComponent implements OnInit {
 
 
   selectImg: any;
-  imgVip = "https://accounts.viblo.asia/assets/webpack/profile_default.0bca52a.png";
+  imgVip = 'https://accounts.viblo.asia/assets/webpack/profile_default.0bca52a.png';
 
   createFeedbackForm: FormGroup = new FormGroup({
     contentFeedback: new FormControl('',[Validators.required]),
@@ -44,7 +44,7 @@ export class CreateFeedbackComponent implements OnInit {
       {type: 'required', message: 'Hình ảnh không được để trống'}
     ]
 
-  }
+  };
 
   ngOnInit(): void {
   }
@@ -60,8 +60,8 @@ export class CreateFeedbackComponent implements OnInit {
 
 
           this.feedBackService.saveFeedback(this.createFeedbackForm.value).subscribe(() => {
-            this.router.navigateByUrl('/').then(r => alert("Thêm mới phản hồi thành công!"));
-          })
+            this.router.navigateByUrl('/').then(r => alert('Thêm mới phản hồi thành công!'));
+          });
         });
       })
     ).subscribe();
@@ -80,6 +80,5 @@ export class CreateFeedbackComponent implements OnInit {
   getCurrentDateTime(): string {
     return formatDate(new Date(), 'dd-MM-yyyy-hh-mm-ssa', 'en-US');
   }
-
 
 }
