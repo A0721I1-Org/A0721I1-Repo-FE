@@ -28,21 +28,13 @@ export class ListTableActiveComponent implements OnInit {
     });
   }
 
-  // addOrderBeNull(idEmployee: number, idTable: number, dateOrder: string) {
-  //   this.tableService.addNewOrder(this.idEmployee, idTable, dateOrder).subscribe(data => {
-  //     this.router.navigate(['/menu/menu-order-child', idTable, this.idOrder]);
-  //   }, () => {
-  //   }, () => {
-  //   });
-  // }
-
   addOrderBeNull(idTable: number) {
-    console.log(this.tokenStorageService.getUser().id);
     this.tableService.addNewOrder(this.tokenStorageService.getUser().id, idTable).subscribe(data => {
-        this.idOrder = data.idOrder;
-        this.router.navigate(['/menu/menu-order-child', idTable, this.idOrder , {mode: 'test'}]);
-      }
-    );
+      this.idOrder = data.idOrder;
+      this.router.navigate(['../menu/menu-order-child', idTable, this.idOrder]);
+    }, () => {
+    }, () => {
+    });
   }
 
 }
