@@ -24,6 +24,7 @@
   font-size: 18px;
   box-sizing: border-box;
 }
+
 .modal-footer {
   display: flex;
   justify-content: center;
@@ -32,6 +33,9 @@
 .modal-header {
   display: flex;
   justify-content: center;
+}
+.table-wrapper {
+  margin-top: 150px;
 }
 .informationCss {
   display: flex;
@@ -43,12 +47,26 @@ h4 span {
 h4 span:hover {
   color: orange;
 }
+#inputPassword {
+  border: 0px;
+  background-color: #F6F1F1;
+  padding-left: 0;
+  width: 30%;
+  position: relative;
+}
+#iconPassword{
+  position: absolute;
+}
+
+
 .button {
   background-color: var(--main-color);
   color: #fff;
   border-radius: 20px;
   box-shadow: 1px 2px 2px 2px #a09a9a;
   font-size: 15px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .table-title {
@@ -70,6 +88,7 @@ h4 span:hover {
 .modal-header {
   border-color: var(--main-color);
   /*padding: 0.4rem;*/
+  padding: 10px 0;
 }
 .modal-footer {
   border-color: var(--main-color);
@@ -83,11 +102,15 @@ h4 span:hover {
     font-size: 15px;
     padding: 1px;
   }
+  #iconPassword{
+    position: absolute;
+    top: 8%;
+  }
 
   .button {
     display: block;
-    /*margin-top: 5px;*/
-    /*margin-bottom: 5px;*/
+    margin-top: 5px;
+    margin-bottom: 5px;
     width: 70%;
     /*box-shadow: 5px 5px 5px #DBD9D9;*/
   }
@@ -96,6 +119,9 @@ h4 span:hover {
   }
   .button:last-child {
     margin-bottom: 10px;
+  }
+  .modal-header {
+    padding-bottom: 20px;
   }
 }
 @media only screen and (min-width: 577px) and (max-width: 692px){
