@@ -1,3 +1,4 @@
+
 <!-- header section starts  -->
 <header class="header">
 
@@ -5,12 +6,13 @@
     <img style="height: 75px" src="assets/images/logo.png" alt="">
   </a>
 
-  <nav class="navbar">
-    <a href="#home">Trang chủ</a>
-    <a href="#about">Giới thiệu</a>
-    <a href="#menu">Sản phẩm</a>
-    <a href="#review">Đánh giá</a>
-    <a href="#contact">Liên hệ</a>
+  <nav class="navbar" >
+    <a href="/home#home">Trang chủ</a>
+    <a href="/home#about">Giới thiệu</a>
+    <a href="/home#menu">Sản phẩm</a>
+    <a href="/home#review">Đánh giá</a>
+    <a href="/home#contact">Liên hệ</a>
+    <a routerLink="/"><span *ngIf="employee.position?.namePosition == 'Quản lý'">Quản lý</span></a>
   </nav>
 
   <div class="icons">
@@ -22,9 +24,9 @@
     </div>
     <div class="dropdown">
       <button  onclick="hamDropdown()" class =" bx bxs-user-account bx-lg"></button>
-      <div class="noidung_dropdown">
-        <a href="#">Đường Dẫn </a>
-        <a href="#">Đăng xuất</a>
+      <div class="noidung_dropdown" *ngIf="tokenStorageService.getUser()">
+        <a [routerLink]="['/employee/detail/'] + tokenStorageService.getUser().id">Chi tiết tài khoản</a>
+        <a (click)="logout()">Đăng xuất</a>
       </div>
     </div>
         </div>
@@ -355,5 +357,3 @@
   </div>
 
 </section>
-
-

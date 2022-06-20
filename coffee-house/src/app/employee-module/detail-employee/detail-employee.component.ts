@@ -16,21 +16,24 @@ export class DetailEmployeeComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe((param) => {
       this.idUser = +param.get('userRoutes');
+      // console.log(this.idUser);
       // @ts-ignore
       this.employee = this.employeeService.findByIdUser(this.idUser).subscribe(
         (data) => {
           this.employee = data;
-        },
-      () => {},
-      () => {
           // console.log(this.employee);
-      }
+          // console.log(this.employee);
+        },
+        () => {},
+        () => {
+          // console.log(this.employee);
+        }
       );
     });
   }
 
   back() {
-    this.router.navigateByUrl('');
+    this.router.navigateByUrl('/home');
   }
 
   showPassword() {

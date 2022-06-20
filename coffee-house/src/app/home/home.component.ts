@@ -1,7 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import {Subscription} from 'rxjs';
-import {Product} from "../model/product";
+import {Product} from '../model/product';
 import { ProductService } from '../product-module/service/product.service';
+import {TokenStorageService} from '../login-module/service/token-storage.service';
+import {Router} from '@angular/router';
+import {EmployeeService} from '../employee-module/service/employee.service';
+import {Position} from '../model/position';
+import {Employee} from '../model/employee';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -12,15 +17,21 @@ export class HomeComponent implements OnInit {
   private subscription: Subscription | undefined;
   products: Product[];
   productsCart: Product[];
+  employee: Employee;
+  idUser: number;
 
   constructor(
     private service: ProductService,
+    public tokenStorageService: TokenStorageService,
+    private employeeService: EmployeeService,
+    private router: Router
   ) {
   }
 
   ngOnInit(): void {
     this.findAllNew();
     this.findAllCart();
+    this.getPositionById();
   }
 
   findAllNew() {
@@ -49,4 +60,18 @@ export class HomeComponent implements OnInit {
     );
   }
 
+  logout() {
+    this.tokenStorageService.signOut();
+    this.router.navigateByUrl('/login/authentication');
+  }
+  // HauLST - làm menu quản lí nhân viên
+  getPositionById() {
+    this.idUser = this.tokenStorageService.getUser().id;
+    console.log(this.idUser);
+    this.employeeService.findByIdUser(this.idUser).subscribe(
+      (data) => {
+        this.employee = data;
+      }
+    );
+  }
 }
