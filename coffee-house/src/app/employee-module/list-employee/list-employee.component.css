@@ -168,8 +168,3 @@ button:hover .circle .icon.arrow {
 button:hover .button-text {
   color: #fff;
 }
-
-.pagination li .active {
-  background-color: var(--main-color) !important;
-  color: #fff !important;
-}
