@@ -1,21 +1,22 @@
+// @ts-ignore
 import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
-import {AppRoutingModule} from './app-routing.module';
-import {AppComponent} from './app.component';
-
-
-
-
+// @ts-ignore
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import {HttpClientModule} from '@angular/common/http';
+import {FeedbackModuleModule} from './feedback-module/feedback-module.module';
 import {LoginModuleModule} from './login-module/login-module.module';
 // @ts-ignore
 import {ToastrModule} from 'ngx-toastr';
+// @ts-ignore
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 // @ts-ignore
 import {JWT_OPTIONS, JwtHelperService, JwtModule} from '@auth0/angular-jwt';
 
 import { HomeComponent } from './home/home.component';
-import {HttpClientModule} from '@angular/common/http';
-
+// @ts-ignore
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {EmployeeModuleModule} from './employee-module/employee-module.module';
 
@@ -27,22 +28,20 @@ import {EmployeeModuleModule} from './employee-module/employee-module.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
+    FeedbackModuleModule,
+    FormsModule ,
     LoginModuleModule,
     ToastrModule.forRoot({
       positionClass : 'toast-top-right',
     }),
     BrowserAnimationsModule,
     JwtModule,
-    FormsModule,
     ReactiveFormsModule,
-    AppRoutingModule,
-    HttpClientModule
   ],
   providers: [
     { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
     JwtHelperService,
-    HttpClientModule,
-    ReactiveFormsModule
   ],
   bootstrap: [AppComponent]
 })

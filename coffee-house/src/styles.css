@@ -1,6 +1,10 @@
 
 /* You can add global styles to this file, and also import other style files */
-
+/* color */
+:root {
+  --primary-color:rgb(236, 155, 68);
+  --color-content: rgb(236, 155, 68);
+}
 @import '~ngx-toastr/toastr';
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap');
 
@@ -452,8 +456,8 @@ section{
 
 .blogs .box-container{
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
-  gap:1.5rem;
+  /*grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));*/
+  /*gap:1.5rem;*/
 }
 
 .blogs .box-container .box{
@@ -497,12 +501,12 @@ section{
   font-size: 2rem;
 }
 
-.blogs .box-container .box .content p{
-  font-size: 1.6rem;
-  line-height: 1.8;
-  color:#ccc;
-  padding:1rem 0;
-}
+/*.blogs .box-container .box .content p{*/
+/*  font-size: 1.6rem;*/
+/*  line-height: 1.8;*/
+/*  color:#ccc;*/
+/*  padding:1rem 0;*/
+/*}*/
 
 .footer{
   background:var(--black);
@@ -621,9 +625,3 @@ section{
 body {
   margin: 0;
 }
-
-:root {
-  --primary-color: rgb(236, 155, 68);
-  --color-content: rgb(236, 155, 68);
-}
-
