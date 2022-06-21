@@ -1,22 +1,16 @@
-// @ts-ignore
-import {BrowserModule} from '@angular/platform-browser';
-// @ts-ignore
-import {NgModule} from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {LoginModuleModule} from './login-module/login-module.module';
-// @ts-ignore
-import {ToastrModule} from 'ngx-toastr';
-// @ts-ignore
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-// @ts-ignore
-import {JWT_OPTIONS, JwtHelperService, JwtModule} from '@auth0/angular-jwt';
 
+import {ToastrModule} from 'ngx-toastr';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {JWT_OPTIONS, JwtHelperService, JwtModule} from '@auth0/angular-jwt';
 import { HomeComponent } from './home/home.component';
-// @ts-ignore
 import {HttpClientModule} from '@angular/common/http';
-// @ts-ignore
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {FeedbackModuleModule} from './feedback-module/feedback-module.module';
 
 @NgModule({
   declarations: [
@@ -27,6 +21,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FeedbackModuleModule,
     FormsModule ,
     LoginModuleModule,
     ToastrModule.forRoot({
@@ -42,5 +37,4 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {
-}
+export class AppModule { }
