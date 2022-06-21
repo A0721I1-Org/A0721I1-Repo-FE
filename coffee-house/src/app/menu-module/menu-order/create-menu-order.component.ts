@@ -3,13 +3,14 @@ import {OderDetail} from '../../model/oderDetail';
 import {Product} from '../../model/product';
 import {MenuService} from '../service/menu.service';
 // @ts-ignore
-import {ActivatedRoute, Router} from "@angular/router";
-import {TypeProduct} from "../../model/typeProduct";
-import {MenuOrderDTO} from "../../model/MenuOrderDTO";
-import {FormBuilder} from "@angular/forms";
-import {Observable, Subscription, timer} from "rxjs";
-import {map, take} from "rxjs/operators";
+import {ActivatedRoute, Router} from '@angular/router';
+import {TypeProduct} from '../../model/typeProduct';
+import {MenuOrderDTO} from '../../model/MenuOrderDTO';
+import {FormBuilder} from '@angular/forms';
+import {Observable, Subscription, timer} from 'rxjs';
+import {map, take} from 'rxjs/operators';
 import {TokenStorageService} from '../../login-module/service/token-storage.service';
+import {Table} from '../../model/table';
 
 @Component({
   selector: 'app-create-menu-oder',
@@ -19,12 +20,13 @@ import {TokenStorageService} from '../../login-module/service/token-storage.serv
 export class MenuOrderComponent implements OnInit, OnDestroy {
   oderDetail: OderDetail;
   product: Product;
+  table: Table;
   id: number;
   sum = 0;
   quatity = 1;
 
   constructor(private menuService: MenuService, private _formBuilder: FormBuilder, private router: Router
-  ,private activatedRoute: ActivatedRoute) {
+    , private activatedRoute: ActivatedRoute) {
   }
 
   /* Count down time for food */
@@ -75,9 +77,9 @@ export class MenuOrderComponent implements OnInit, OnDestroy {
   /* Hide and show Menu */
   showMenuPhone = false;
 
- // origin/menu-management
+  // origin/menu-management
   ngOnInit(): void {
-    this.getAll()
+    this.getAll();
     /* Set value type default is get all */
     this.getTypeOfGet(0);
 
@@ -98,13 +100,13 @@ export class MenuOrderComponent implements OnInit, OnDestroy {
   getProducts() {
     this.menuService.getProducts().subscribe(data => {
       this.products = data;
-    })
+    });
 
     /* Get amount of products */
     this.menuService.getAmountOfProducts().subscribe(data => {
       this.amountProducts = data;
       this.pagination(data, true);
-    })
+    });
   }
 
   /* get products By Type Id and pagination */
@@ -117,18 +119,18 @@ export class MenuOrderComponent implements OnInit, OnDestroy {
     this.menuService.getAmountOfProductsByIdType(idTypeProduct).subscribe(data => {
       this.amountProducts = data;
       this.pagination(data, true);
-    })
+    });
   }
 
   /* Get list products */
   getAll() {
     this.menuService.getProducts().subscribe(data => {
       this.products = data;
-    })
+    });
 
     this.menuService.getTypeProducts().subscribe(data => {
       this.typeProducts = data;
-    })
+    });
   }
 
   /* Check which category has clicked  */
@@ -361,10 +363,10 @@ export class MenuOrderComponent implements OnInit, OnDestroy {
   /* Get data DTO for table */
   getDataDTOForTable() {
     this.menuService.getDataDTOForTable(this.idTable).subscribe(data => {
-      console.log(this.idTable)
+      console.log(this.idTable);
       this.menuOrderDTOs = data;
       this.pagination(this.menuOrderDTOs[data.length - 1].totalPageDTO, false);
-    })
+    });
 
     this.checkDataDTO();
   }
@@ -377,14 +379,14 @@ export class MenuOrderComponent implements OnInit, OnDestroy {
       } else {
         this.dataDTOExisting = true;
       }
-    })
+    });
   }
 
   /* Payment */
   handlePayment() {
     this.menuService.handlePaymentForOrder(this.idTable).subscribe(() => {
-      this.router.navigateByUrl("/table/active");
-    })
+      this.router.navigateByUrl('/table/active');
+    });
   }
 
   checkFoodChosen(idOrderDetail: number) {
@@ -395,15 +397,15 @@ export class MenuOrderComponent implements OnInit, OnDestroy {
     if (this.activeTimeWait) {
       if (this.listIdOrderDetails.length > 0) {
         for (let i = 0; i < this.listIdOrderDetails.length; i++) {
-          this.menuService.handleDeleteFood(this.listIdOrderDetails[i] , this.idOrder).subscribe(data=> {
+          this.menuService.handleDeleteFood(this.listIdOrderDetails[i], this.idOrder).subscribe(data => {
             this.ngOnInit();
           });
         }
       } else {
-        alert("Bạn phải chọn món trước khi xóa!");
+        alert('Bạn phải chọn món trước khi xóa!');
       }
     } else {
-      alert("Hết thời gian xóa món");
+      alert('Hết thời gian xóa món');
     }
   }
 
@@ -434,15 +436,15 @@ export class MenuOrderComponent implements OnInit, OnDestroy {
 
 /* Format for time */
 @Pipe({
-  name: "formatTime"
+  name: 'formatTime'
 })
 export class FormatTimePipe implements PipeTransform {
   transform(value: number): string {
     const minutes: number = Math.floor(value / 60);
     return (
-      ("00" + minutes).slice(-2) +
-      ":" +
-      ("00" + Math.floor(value - minutes * 60)).slice(-2)
+      ('00' + minutes).slice(-2) +
+      ':' +
+      ('00' + Math.floor(value - minutes * 60)).slice(-2)
     );
   }
 }

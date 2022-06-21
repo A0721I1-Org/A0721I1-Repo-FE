@@ -73,9 +73,7 @@ export class TableService {
   }
 
   addNewOrder(idEmployee: number, idTable: number): Observable<Oder> {
-    // @ts-ignore
-    return this.httpClient.post<Oder>(`${API_URL}/manager/emptyTable/saveOrderInTable/${idEmployee}/${idTable}`);
-
+    return this.httpClient.post<Oder>(`${API_URL}/manager/emptyTable/saveOrderInTable/${idEmployee}/${idTable}` , {});
   }
 
   cancelTable(idTable: number): Observable<Oder> {

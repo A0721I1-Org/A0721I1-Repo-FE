@@ -27,9 +27,34 @@
           </tr>
         </ng-template>
         <tr>
-          <td>
+         <!-- <td>
             <button type="button" class="btn btn-warning" (click)="handlePayment(idTable)">Tính Tiền</button>
+          </td>-->
+          <td>
+            <button type="button" data-toggle="modal" [attr.data-target]="'#handlePayment' + idTable"
+                    class="btn btn-warning">Tính tiền
+            </button>
           </td>
+          <!-- Modal -->
+          <div class="modal" [id]="'handlePayment' + idTable" tabindex="-1" aria-labelledby="exampleModalLabel"
+               aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Thanh toán</h5>
+                  <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  Bạn có muốn thanh toán bàn {{codeTable}} hay không?
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Không</button>
+                  <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="handlePayment(idTable)">Có
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
           <td></td>
           <!-- <td>
              <button type="button" class="btn btn-outline-warning" (click)="cancelTable(idTable)">Hủy bàn</button>
