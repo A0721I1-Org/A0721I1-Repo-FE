@@ -5,14 +5,13 @@
   <a href="#" class="logo">
     <img style="height: 75px" src="assets/images/logo.png" alt="">
   </a>
-
-  <nav class="navbar" >
-    <a href="#home">Trang chủ</a>
-    <a href="#about">Giới thiệu</a>
-    <a href="#menu">Sản phẩm</a>
-    <a href="#review">Đánh giá</a>
-    <a href="#contact">Liên hệ</a>
-    <a href="/employee/list"><span *ngIf="employee.position?.namePosition =='Quản lý'">Quản lý Nhân viên</span></a>
+  <nav class="navbar">
+    <a href="/home#home">Trang chủ</a>
+    <a href="/home#about">Giới thiệu</a>
+    <a href="/home#menu">Sản phẩm</a>
+    <a href="/home#review">Đánh giá</a>
+    <a href="/home#contact">Liên hệ</a>
+    <a href="/employee/list" *ngIf="employee.position?.namePosition =='Quản lý'"><span>Quản lý Nhân viên</span></a>
   </nav>
 
   <div class="icons">
@@ -366,3 +365,6 @@
   </div>
 
 </section>
+
+
+>>>>>>> 8c30816157309917291b24941dd787c4e521dc9e
