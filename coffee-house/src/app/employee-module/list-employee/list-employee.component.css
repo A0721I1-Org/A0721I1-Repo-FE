@@ -3,7 +3,6 @@
 }
 
 .main {
-  background-color: rgba(var(--b3f, 250, 250, 250), 1);
   padding: 15px 20px;
 }
 
@@ -39,8 +38,8 @@
   position: relative;
   font-weight: 1000;
   font-size: 17px;
-  -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
-  box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+  -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
   transition: all 250ms;
   overflow: hidden;
 }
@@ -167,4 +166,27 @@ button:hover .circle .icon.arrow {
 
 button:hover .button-text {
   color: #fff;
+}
+
+.button-2{
+  background-color: rgba(51, 51, 51, 0.05)!important;
+  border-radius: 8px!important;
+  border-width: 0!important;
+  color: #333333!important;
+  cursor: pointer!important;
+  display: inline-block!important;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif!important;
+  font-size: 14px!important;
+  font-weight: 500!important;
+  line-height: 20px!important;
+  list-style: none!important;
+  margin: 0!important;
+  padding: 10px 12px!important;
+  text-align: center!important;
+  transition: all 200ms!important;
+  vertical-align: baseline!important;
+  white-space: nowrap!important;
+  user-select: none!important;
+  -webkit-user-select: none!important;
+  touch-action: manipulation!important;
 }

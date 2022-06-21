@@ -62,7 +62,6 @@ export class EmployeeService {
   }
 
   findByIdEmployee(id: number): Observable<Employee> {
-    // @ts-ignore
-    return this.httpClient.get(URL_API + '/find-id-employee/' + id);
+    return this.httpClient.get<Employee>(URL_API + '/find-id-employee/' + '15');
   }
 }

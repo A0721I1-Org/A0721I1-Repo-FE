@@ -20,7 +20,7 @@
           <input type="text" class="form-control" placeholder="Tên tài khoản" formControlName="username">
           <input type="text" class="form-control ml-3" placeholder="Họ và tên" formControlName="name">
           <input type="text" class="form-control ml-3" placeholder="Số điện thoại" formControlName="phone">
-          <button class="ml-3 button__1" data-target="#exampleModal2" (click)="searchEmployee()"><i
+          <button class="ml-3 button__1" data-target="#searchError" data-toggle="modal" (click)="searchEmployee()"><i
             class="fa-solid fa-magnifying-glass"></i>
           </button>
         </form>
@@ -70,33 +70,35 @@
         </td>
       </tr>
     </table>
-    <pagination-controls (pageChange)="p = $event" previousLabel="Trang trước" nextLabel="Trang sau "></pagination-controls>
+    <pagination-controls (pageChange)="p = $event" previousLabel="Trang trước"
+                         nextLabel="Trang sau"></pagination-controls>
   </div>
 </div>
 <!-- Modal -->
 <div class="modal fade" id="deleteModel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-     aria-hidden="true" *ngIf="employee">
+     aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel"><b>Xoá nhân viên</b></h5>
+        <h5 class="modal-title" id="exampleModalLabel1"><b>Xoá nhân viên</b></h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        Tên tài khoản : {{employee.user.username}}<br>
-        Họ và tên : {{employee.nameEmployee}}<br>
-        Địa chỉ : {{employee.addressEmployee}}<br>
-        Số điện thoại : {{employee.phoneEmployee}}<br>
-        Giới tính : {{employee.genderEmployee}}<br>
-        Ngày sinh : {{employee.dateOfBirthEmployee}}<br>
-        Lương(VND) : {{employee.salaryEmployee}}<br>
-        Vị trí : {{employee.position.namePosition}}
+        Tên tài khoản : {{employee?.user.username}}<br>
+        Họ và tên : {{employee?.nameEmployee}}<br>
+        Địa chỉ : {{employee?.addressEmployee}}<br>
+        Số điện thoại : {{employee?.phoneEmployee}}<br>
+        Giới tính : {{employee?.genderEmployee}}<br>
+        Ngày sinh : {{employee?.dateOfBirthEmployee}}<br>
+        Lương(VND) : {{employee?.salaryEmployee}}<br>
+        Vị trí : {{employee?.position.namePosition}}
       </div>
       <div class="modal-footer">
         <div type="button" class="btn btn-secondary" data-dismiss="modal">Thoát</div>
-        <div type="button" class="btn btn-danger" data-dismiss="modal" (click)="deteleEmployee(employee.idEmployee)">
+        <div type="button" class="btn btn-danger" data-dismiss="modal" data-target="#deleteSuccess" data-target="#deleteError" data-toggle="modal"
+             (click)="deteleEmployee(employee.idEmployee)">
           Xoá
         </div>
       </div>
@@ -104,18 +106,18 @@
   </div>
 </div>
 
-<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-     aria-hidden="true">
+<div class="modal fade" id="searchError" tabindex="-1" *ngIf="emptyForm" role="dialog"
+     aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel2"><b>Tìm kiếm thất bại</b></h5>
+        <h5 class="modal-title" id="exampleModalLabel">Tìm kiếm thất bại</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        Bạn cần phải điền ít nhất 1 thông tin để tìm kiếm
+        Bạn cần phải điền ít nhất một thông tin để tìm kiếm
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Thoát</button>
@@ -124,8 +126,8 @@
   </div>
 </div>
 
-<div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-     aria-hidden="true">
+<div class="modal fade" id="deleteError" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true" *ngIf="checkEmployee==false">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -144,8 +146,8 @@
   </div>
 </div>
 
-<div class="modal fade" id="exampleModal4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-     aria-hidden="true">
+<div class="modal fade" id="deleteSuccess" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true" *ngIf="checkEmployee">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -153,8 +155,6 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-      </div>
-      <div class="modal-body">
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Thoát</button>

@@ -13,6 +13,8 @@ export class ListEmployeeComponent implements OnInit {
   employeeList: Employee[] = [];
   employee: Employee;
   searchForm: FormGroup;
+  emptyForm = false;
+  checkEmployee = false;
   p = 0;
 
   constructor(private employeeService: EmployeeService, private activatedRoute: ActivatedRoute, private router: Router) {
@@ -34,9 +36,17 @@ export class ListEmployeeComponent implements OnInit {
   }
 
   deteleEmployee(idEmployee: number) {
-    this.employeeService.deleteEmployee(idEmployee).subscribe(data => {
-      this.ngOnInit();
+    this.employeeService.findByIdEmployee(idEmployee).subscribe(data => {
+      if (data.idEmployee === idEmployee){
+        this.checkEmployee = true;
+        this.employeeService.deleteEmployee(idEmployee).subscribe(next => {
+          this.ngOnInit();
+        });
+      }else{
+        this.checkEmployee = false;
+      }
     });
+    console.log(this.checkEmployee);
   }
 
   getEmployeeById(idEmployee: number) {
@@ -58,8 +68,13 @@ export class ListEmployeeComponent implements OnInit {
     if (phone === '') {
       phone = 'null';
     }
-    this.employeeService.searchEmployee(username, name, phone).subscribe(data => {
-      this.employeeList = data;
-    });
+    if (username === 'null' && name === 'null' && phone === 'null') {
+      this.emptyForm = true;
+    } else {
+      this.emptyForm = false;
+      this.employeeService.searchEmployee(username, name, phone).subscribe(data => {
+        this.employeeList = data;
+      });
+    }
   }
 }
