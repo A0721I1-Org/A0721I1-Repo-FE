@@ -37,11 +37,6 @@ export class EmployeeService {
   }
 
   /* VinhTQ */
-  getLengthOfEmployees(): Observable<number> {
-    return this.httpClient.get<number>(URL_API + '/length/list');
-  }
-
-  /* VinhTQ */
   getLengthOfEmployeeSearch(username: string, name: string, phone: string): Observable<number> {
     return this.httpClient.get<number>(URL_API + '/length/search/' + username + '/' + name + '/' + phone);
   }
@@ -58,7 +53,7 @@ export class EmployeeService {
 
   getPosition(): Observable<Position[]> {
     // @ts-ignore
-    return this.httpClient.get(URL_API + '/position');
+    return this.httpClient.patch(URL_API + '/update-employee/' + employee.idEmployee, employee);
   }
 
   findByIdEmployee(id: number): Observable<Employee> {
