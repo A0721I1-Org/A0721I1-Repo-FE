@@ -4,7 +4,7 @@ import {HttpClient} from '@angular/common/http';
 import {environment} from '../../../environments/environment';
 import {Observable} from 'rxjs';
 import {Feedback} from '../../model/feedback';
-const API_URL = 'http://localhost:8080'
+const API_URL = 'http://localhost:8080';
 
 @Injectable({
   providedIn: 'root'
