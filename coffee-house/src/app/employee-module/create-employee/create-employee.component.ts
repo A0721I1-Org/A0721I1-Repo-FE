@@ -68,7 +68,7 @@ export class CreateEmployeeComponent implements OnInit {
 
         },
         () => {
-          this.router.navigateByUrl('/home');
+          this.router.navigateByUrl('/employee/list');
         },
       );
     }

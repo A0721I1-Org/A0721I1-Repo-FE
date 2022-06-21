@@ -32,8 +32,6 @@ export class EditEmployeeComponent implements OnInit {
       const id = Number(paramMap.get('id'));
       this.employeeService.findByIdEmployee(id).subscribe(next => {
         this.employee = next;
-        // this.idUser = next.user.idUser;
-        // this.password = next.user.password;
         this.user = next.user;
         console.log(this.employee);
         this.editEmployeeForm.patchValue({
@@ -42,9 +40,9 @@ export class EditEmployeeComponent implements OnInit {
           addressEmployee:  this.employee.addressEmployee,
           phoneEmployee:  this.employee.phoneEmployee,
           genderEmployee:  this.employee.genderEmployee,
+          // position: this.editEmployeeForm.get('position').setValue(this.employee.position.idPosition , {onlySelf: true}),
           dateOfBirthEmployee:  this.employee.dateOfBirthEmployee,
           salaryEmployee: this.employee.salaryEmployee,
-          // position: this.employee.position.namePosition,
           user:  this.employee.user.username,
         })
         this.editEmployeeForm.get('position').setValue(this.employee.position.idPosition , {onlySelf: true});
@@ -77,7 +75,10 @@ export class EditEmployeeComponent implements OnInit {
   }
 
   editSubmit() {
+    console.log(this.employee);
+    console.log(this.editEmployeeForm.valid.valueOf())
     if (this.editEmployeeForm.valid) {
+      console.log("b");
       this.employee = this.editEmployeeForm.value;
       this.user.username = this.employee.user;
       this.employee.user = this.user;
@@ -97,7 +98,7 @@ export class EditEmployeeComponent implements OnInit {
 
         },
         () => {
-          this.router.navigateByUrl('/home');
+          this.router.navigateByUrl('/employee/list');
         },
       );
     }
