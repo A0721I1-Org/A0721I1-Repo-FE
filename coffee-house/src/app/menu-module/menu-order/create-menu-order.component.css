@@ -210,6 +210,15 @@ button:active , button:focus {
   margin-left: 8px;
 }
 
+.menu__item-left-area-left {
+  background-color: #fff;
+  border: 1px solid #dbdbdb;
+  margin-top: 24px;
+  padding: 12px;
+  min-height: 140px;
+  border-radius: 2px;
+}
+
 .menu__item-left-area .footer {
   width: 100%;
 }
@@ -227,6 +236,7 @@ button:active , button:focus {
   margin-top: 24px;
   background-color: #Fff !important;
   flex-direction: column;
+  min-height: 140px;
 }
 
 .menu__item-left-area .footer .info span {

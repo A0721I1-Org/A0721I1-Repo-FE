@@ -84,55 +84,57 @@
                 </div>
               </div>
               <div class="col-sm-12 col-md-12 col-lg-8">
-                <div *ngIf="dataDTOExisting">
-                  <table class="table__order-item">
-                    <tr>
-                      <th></th>
-                      <th>STT</th>
-                      <th>Tên món</th>
-                      <th>Số lượng</th>
-                      <th>Giá</th>
-                      <th>Tổng tiền</th>
-                      <th>Thời gian chờ</th>
-                    </tr>
-
-                    <ng-container *ngIf="dataDTOExisting">
-                      <tr *ngFor="let menuOrderDTO of menuOrderDTOs;let i = index">
-                        <td>
-                          <input
-                            type="checkbox" [checked]="menuOrderDTO.checked" (click)="checkFoodChosen(menuOrderDTO.orderDetailId , menuOrderDTO)">
-                        </td>
-                        <td>{{i + 1}}</td>
-                        <td>{{menuOrderDTO.nameProduct}}</td>
-                        <td>{{menuOrderDTO.quantity}}</td>
-                        <td>{{menuOrderDTO.price |number:'1.0'}} Đ</td>
-                        <td>{{menuOrderDTO.totalPrice| number:'1.0'}} Đ</td>
-                        <td>{{counter | formatTime}}</td>
+                <div class="menu__item-left-area-left">
+                  <div *ngIf="dataDTOExisting">
+                    <table class="table__order-item">
+                      <tr>
+                        <th></th>
+                        <th>STT</th>
+                        <th>Tên món</th>
+                        <th>Số lượng</th>
+                        <th>Giá</th>
+                        <th>Tổng tiền</th>
+                        <th>Thời gian chờ</th>
                       </tr>
+
+                      <ng-container *ngIf="dataDTOExisting">
+                        <tr *ngFor="let menuOrderDTO of menuOrderDTOs;let i = index">
+                          <td>
+                            <input
+                              type="checkbox" [checked]="menuOrderDTO.checked" (click)="checkFoodChosen(menuOrderDTO.orderDetailId , menuOrderDTO)">
+                          </td>
+                          <td>{{i + 1}}</td>
+                          <td>{{menuOrderDTO.nameProduct}}</td>
+                          <td>{{menuOrderDTO.quantity}}</td>
+                          <td>{{menuOrderDTO.price |number:'1.0'}} Đ</td>
+                          <td>{{menuOrderDTO.totalPrice| number:'1.0'}} Đ</td>
+                          <td>{{counter | formatTime}}</td>
+                        </tr>
+                      </ng-container>
+                    </table>
+
+                    <ng-container>
+                      <ul class="pagination">
+                        <li (click)="prevPage(false)" *ngIf="currentPageTable != 0">
+                          <i class="fa-solid fa-angle-left"></i>
+                        </li>
+                        <li (click)="redirectPagination(tg+1, false)"
+                          *ngFor="let tg of totalPageTableArray" [ngClass]="activedButtonTable==tg+1?'active':null">{{tg + 1}}</li>
+                        <li (click)="nextPage(false)" *ngIf="this.activedButtonTable != this.totalPageTableArray.length">
+                          <i class="fa-solid fa-angle-right"></i>
+                        </li>
+                      </ul>
                     </ng-container>
-                  </table>
+                  </div>
+                  <div class="menu__item-function">
+                    <button class="button" data-toggle="modal" data-target="#deleteModal">Xoá món</button>
 
-                  <ng-container>
-                    <ul class="pagination">
-                      <li (click)="prevPage(false)" *ngIf="currentPageTable != 0">
-                        <i class="fa-solid fa-angle-left"></i>
-                      </li>
-                      <li (click)="redirectPagination(tg+1, false)"
-                        *ngFor="let tg of totalPageTableArray" [ngClass]="activedButtonTable==tg+1?'active':null">{{tg + 1}}</li>
-                      <li (click)="nextPage(false)" *ngIf="this.activedButtonTable != this.totalPageTableArray.length">
-                        <i class="fa-solid fa-angle-right"></i>
-                      </li>
-                    </ul>
-                  </ng-container>
-                </div>
-                <div class="menu__item-function">
-                  <button class="button" data-toggle="modal" data-target="#deleteModal">Xoá món</button>
+                    <button type="button" class="button" data-toggle="modal" data-target="#orderModal">Gọi món</button>
 
-                  <button type="button" class="button" data-toggle="modal" data-target="#orderModal">Gọi món</button>
-
-                  <button type="button" class="button" data-toggle="modal" data-target="#paymentModal">
-                    Tính tiền
-                  </button>
+                    <button type="button" class="button" data-toggle="modal" data-target="#paymentModal">
+                      Tính tiền
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
