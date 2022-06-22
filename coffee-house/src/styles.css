@@ -49,7 +49,7 @@ html::-webkit-scrollbar-thumb{
 }
 
 body{
-  background: var(--bg);
+  /*background: var(--bg);*/
 }
 
 section{
