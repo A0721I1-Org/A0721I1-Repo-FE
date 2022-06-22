@@ -21,7 +21,7 @@
     <button class="btn1" (click)="ngOnInit()">Hiện tất cả</button>
   </div>
 
-  <div *ngIf="message; else elseBlock">Not Found!</div>
+  <h3 *ngIf="message; else elseBlock">Not Found!</h3>
   <ng-template #elseBlock>
   <table class="table" style="margin-top: 30px">
     <tr style=" box-shadow: 0 2px 5px #FA8C16; font-size: 15px">
@@ -37,7 +37,7 @@
       <div hidden>{{feedback.idFeedback}}</div>
       <td>{{i + 1}}</td>
       <td>{{feedback.codeFeedback}}</td>
-      <td>{{feedback.dateFeedback}}</td>
+      <td >{{feedback.dateFeedback | date: 'dd/MM/yyyy'}}</td>
       <td>{{feedback.namePeopleFeedback}}</td>
       <td>{{feedback.emailPeopleFeedback}}</td>
       <td style="overflow: hidden;
