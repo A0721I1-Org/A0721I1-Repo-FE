@@ -69,7 +69,7 @@ export class EditEmployeeComponent implements OnInit {
         this.positions = next;
         console.log(this.positions);
       }
-    )
+    );
   }
 
   editSubmit() {

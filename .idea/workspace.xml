@@ -2,6 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
 <<<<<<< HEAD
+    <list default="true" id="17545742-62f2-45e3-9df0-e76d6d9ee38d" name="Default Changelist" comment="" />
+=======
+<<<<<<< HEAD
     <list default="true" id="17545742-62f2-45e3-9df0-e76d6d9ee38d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/coffee-house/src/app/employee-module/list-employee/list-employee.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/src/app/employee-module/list-employee/list-employee.component.css" afterDir="false" />
@@ -40,11 +43,14 @@
 >>>>>>> eba76ca43e93abb19ee49367b34b1baa2ffbabe4
 >>>>>>> 4b05b46e53ada75f8b492e2ca804d5ad6be3abc0
     </list>
+>>>>>>> origin/employee-management
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+<<<<<<< HEAD
+=======
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -106,7 +112,9 @@
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+>>>>>>> origin/employee-management
   <component name="PropertiesComponent">
+<<<<<<< HEAD
 <<<<<<< Updated upstream
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
 =======
@@ -128,26 +136,22 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
 <<<<<<< HEAD
-    <property name="nodejs_package_manager_path" value="npm" />
-    <property name="ts.external.directory.path" value="D:\A0321I1-HuynhBaDan\project_coffee\A0721I1-Repo-FE\coffee-house\node_modules\typescript\lib" />
 =======
-    <property name="ts.external.directory.path" value="E:\A0721I1-Repo-FE\coffee-house\node_modules\typescript\lib" />
-  </component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\A0721I1-Repo-FE\coffee-house\src\app\table-module\create-table\validate-table" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\A0721I1-Repo-FE\coffee-house\src\app\table-module\create-table\img" />
-      <recent name="E:\A0721I1-Repo-FE\coffee-house\src\app\table-module\create-table" />
-    </key>
->>>>>>> eba76ca43e93abb19ee49367b34b1baa2ffbabe4
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/coffee-house" />
+>>>>>>> origin/employee-management
+    <property name="nodejs_package_manager_path" value="npm" />
   </component>
 >>>>>>> 4b05b46e53ada75f8b492e2ca804d5ad6be3abc0
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
+<<<<<<< HEAD
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+=======
     <task active="true" id="Default" summary="Default task">
       <changelist id="3a3925d4-fb4b-4c68-a667-9ecec32557b4" name="Default Changelist" comment="" />
       <created>1655399150044</created>
@@ -224,36 +228,44 @@
 =======
     <option name="version" value="3" />
     <option name="version" value="2" />
+>>>>>>> origin/employee-management
   </component>
   <component name="WindowStateProjectService">
-    <state x="488" y="80" key="#com.intellij.ide.util.MemberChooser" timestamp="1655275006772">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="740" y="272" key="FileChooserDialogImpl" timestamp="1655728442288">
+      <screen x="0" y="0" width="1920" height="1032" />
     </state>
-    <state x="488" y="80" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1655275006772" />
-    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1654690181197">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="740" y="272" key="FileChooserDialogImpl/0.0.1920.1032@0.0.1920.1032" timestamp="1655728442288" />
+    <state width="1899" height="279" key="GridCell.Tab.0.bottom" timestamp="1655728443524">
+      <screen x="0" y="0" width="1920" height="1032" />
     </state>
-    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1654690181197" />
-    <state x="496" y="121" key="FileChooserDialogImpl" timestamp="1654692052112">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1899" height="279" key="GridCell.Tab.0.bottom/0.0.1920.1032@0.0.1920.1032" timestamp="1655728443524" />
+    <state width="1899" height="279" key="GridCell.Tab.0.center" timestamp="1655728443524">
+      <screen x="0" y="0" width="1920" height="1032" />
     </state>
-    <state x="496" y="121" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1654692052112" />
-    <state x="413" y="111" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1654916896893">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="1899" height="279" key="GridCell.Tab.0.center/0.0.1920.1032@0.0.1920.1032" timestamp="1655728443524" />
+    <state width="1899" height="279" key="GridCell.Tab.0.left" timestamp="1655728443524">
+      <screen x="0" y="0" width="1920" height="1032" />
     </state>
-    <state x="413" y="111" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1654916896893" />
-    <state x="441" y="107" key="FileChooserDialogImpl" timestamp="1654791066803">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="1899" height="279" key="GridCell.Tab.0.left/0.0.1920.1032@0.0.1920.1032" timestamp="1655728443524" />
+    <state width="1899" height="279" key="GridCell.Tab.0.right" timestamp="1655728443524">
+      <screen x="0" y="0" width="1920" height="1032" />
     </state>
+<<<<<<< HEAD
+    <state width="1899" height="279" key="GridCell.Tab.0.right/0.0.1920.1032@0.0.1920.1032" timestamp="1655728443524" />
+=======
     <state x="441" y="107" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1654791066803" />
     <state x="496" y="127" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1654532884916" />
 >>>>>>> eba76ca43e93abb19ee49367b34b1baa2ffbabe4
 <<<<<<< HEAD
 >>>>>>> 4b05b46e53ada75f8b492e2ca804d5ad6be3abc0
+<<<<<<< HEAD
 =======
 =======
     <state x="261" y="94" key="Vcs.Push.Dialog.v2/0.0.1536.864@0.0.1536.864" timestamp="1655434753718" />
 >>>>>>> Stashed changes
 >>>>>>> b19c912 (DanHB)
+=======
+>>>>>>> origin/employee-management
+>>>>>>> origin/employee-management
   </component>
 </project>

@@ -19,7 +19,7 @@ export class EmployeeService {
   // HauLST
   findByIdUser(idUser: number): Observable<Employee> {
     // @ts-ignore
-    return this.httpClient.get(URL_API + '/find-id-employee/' + idUser);
+    return this.httpClient.get(URL_API + '/detail/' + idUser);
   }
 
   // VinhTQ
@@ -54,15 +54,16 @@ export class EmployeeService {
 
   updateEmployee(employee: Employee): Observable<void> {
     // @ts-ignore
-    return this.httpClient.put(URL_API + '/update-employee/' + employee.idEmployee, employee);
+    return this.httpClient.patch(URL_API + '/update-employee/' + employee.idEmployee, employee);
   }
 
-  getPosition(): Observable<Position[]> {
+  getPosition(): Observable<Position[]>{
     // @ts-ignore
     return this.httpClient.get(URL_API + '/position');
   }
 
-  findByIdEmployee(id: number): Observable<Employee> {
+
+  findByIdEmployee(id: number): Observable<Employee>{
     // @ts-ignore
     return this.httpClient.get(URL_API + '/find-id-employee/' + id);
   }
