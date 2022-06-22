@@ -7,25 +7,23 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="ProjectId" id="2AD8XG61sGB1LKYggKw3Eq5v7Ho" />
-  <component name="ProjectViewState">
-    <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showLibraryContents" value="true" />
-  </component>
   <component name="PropertiesComponent">
+<<<<<<< HEAD
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../My-Project/GUI_coffee/angular-coffee-management" />
+=======
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/coffee-house" />
+    <property name="nodejs_package_manager_path" value="npm" />
+>>>>>>> 7a28bab5cb1c991ae1bf9de0d14ff72fafb90d4e
   </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
+<<<<<<< HEAD
     <task active="true" id="Default" summary="Default task">
       <changelist id="17545742-62f2-45e3-9df0-e76d6d9ee38d" name="Default Changelist" comment="" />
       <created>1654532833012</created>
@@ -35,13 +33,41 @@
       <workItem from="1654532845616" duration="33000" />
       <workItem from="1655437653734" duration="25000" />
     </task>
+=======
+>>>>>>> 7a28bab5cb1c991ae1bf9de0d14ff72fafb90d4e
     <servers />
   </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
   <component name="WindowStateProjectService">
+<<<<<<< HEAD
     <state x="441" y="107" key="FileChooserDialogImpl" timestamp="1655437673960">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="441" y="107" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1655437673960" />
     <state x="496" y="127" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1654532884916" />
+=======
+    <state x="740" y="272" key="FileChooserDialogImpl" timestamp="1655728442288">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state x="740" y="272" key="FileChooserDialogImpl/0.0.1920.1032@0.0.1920.1032" timestamp="1655728442288" />
+    <state width="1899" height="279" key="GridCell.Tab.0.bottom" timestamp="1655728443524">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state width="1899" height="279" key="GridCell.Tab.0.bottom/0.0.1920.1032@0.0.1920.1032" timestamp="1655728443524" />
+    <state width="1899" height="279" key="GridCell.Tab.0.center" timestamp="1655728443524">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state width="1899" height="279" key="GridCell.Tab.0.center/0.0.1920.1032@0.0.1920.1032" timestamp="1655728443524" />
+    <state width="1899" height="279" key="GridCell.Tab.0.left" timestamp="1655728443524">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state width="1899" height="279" key="GridCell.Tab.0.left/0.0.1920.1032@0.0.1920.1032" timestamp="1655728443524" />
+    <state width="1899" height="279" key="GridCell.Tab.0.right" timestamp="1655728443524">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state width="1899" height="279" key="GridCell.Tab.0.right/0.0.1920.1032@0.0.1920.1032" timestamp="1655728443524" />
+>>>>>>> 7a28bab5cb1c991ae1bf9de0d14ff72fafb90d4e
   </component>
 </project>
