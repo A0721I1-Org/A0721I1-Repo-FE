@@ -13,9 +13,10 @@
     <a href="/home#menu">Sản phẩm</a>
     <a href="/home#review">Đánh giá</a>
     <a href="/home#contact">Liên hệ</a>
-    <div class="dropdown">
+    <div class="dropdown" *ngIf="tokenStorageService.getUser()">
       <button style="font-size: 1.6em; background: black; margin-left: 1.2rem;color: white" onclick="noiDropdown()" >Quản lý</button>
       <div class="noi_dropdown">
+        <a href="/employee/list" *ngIf="employee.position?.namePosition =='Quản lý'"><span>EMPLOYEE</span></a>
         <a href="#">PRODUCT</a>
         <a href="#">TABLE</a>
         <a href="#">SERVICE</a>
@@ -25,9 +26,6 @@
       </div>
     </div>
 
-
-<!--    <a routerLink="/"><span *ngIf="employee.position?.namePosition == 'Quản lý'">Quản lý</span></a>-->
-<!--    <a href="/employee/list" *ngIf="employee.position?.namePosition =='Quản lý'"><span>Quản lý Nhân viên</span></a>-->
   </nav>
 
   <div class="icons">
@@ -372,3 +370,8 @@
   </div>
 
 </section>
+<<<<<<< HEAD
+
+
+=======
+>>>>>>> a48849f71de9f196c0a3c1e2d0869916e301c335
