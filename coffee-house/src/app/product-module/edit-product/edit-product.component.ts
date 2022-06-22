@@ -42,6 +42,7 @@ export class EditProductComponent implements OnInit {
         const id = Number(paramMap.get('id'));
         this.service.findById(id).subscribe(next => {
           console.log(next);
+          this.imgVip = next.imageProduct;
           this.editForm.setValue(next);
           console.log(this.editForm);
 
@@ -59,7 +60,6 @@ export class EditProductComponent implements OnInit {
         finalize(() => {
           fileRef.getDownloadURL().subscribe((url) => {
             this.editForm.patchValue({imageProduct: url});
-            const employee = this.editForm.value;
             this.service.updateProduct(this.editForm.value).subscribe(() => {
               console.log(this.editForm.value);
               this.product = this.editForm.value;
@@ -80,7 +80,6 @@ export class EditProductComponent implements OnInit {
       });
     }
   }
-
   showPreview(event: any) {
     this.selectedImage = event.target.files[0];
     const reader = new FileReader();
