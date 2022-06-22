@@ -9,7 +9,7 @@ import { ListEmployeeComponent } from './list-employee/list-employee.component';
 import { DetailEmployeeComponent } from './detail-employee/detail-employee.component';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {NgxPaginationModule} from "ngx-pagination";
+import {NgxPaginationModule} from 'ngx-pagination';
 
 
 @NgModule({
