@@ -10,6 +10,8 @@ import {FormBuilder} from "@angular/forms";
 import {Observable, Subscription, timer} from "rxjs";
 import {map, take} from "rxjs/operators";
 import {TokenStorageService} from '../../login-module/service/token-storage.service';
+import {Table} from "../../model/table";
+import {Oder} from "../../model/oder";
 
 @Component({
   selector: 'app-create-menu-oder',
@@ -75,12 +77,15 @@ export class MenuOrderComponent implements OnInit, OnDestroy {
   /* Hide and show Menu */
   showMenuPhone = false;
 
+  /* Get table and get order */
+  table: Table;
+  order: Oder;
+
  // origin/menu-management
   ngOnInit(): void {
     this.getAll()
     /* Set value type default is get all */
     this.getTypeOfGet(0);
-
 
     /* Get id table and id order from url */
     this.idTable = this.activatedRoute.snapshot.params['idTable'];
@@ -88,6 +93,16 @@ export class MenuOrderComponent implements OnInit, OnDestroy {
 
     /* Show data DTO */
     this.getDataDTOForTable();
+
+    /* Get table by id */
+    this.menuService.getTableById(this.idTable).subscribe(data=> {
+      this.table = data;
+    })
+
+    /* Get order by id */
+    this.menuService.getOrderById(this.idOrder).subscribe(data=> {
+      this.order = data;
+    })
   }
 
   ngOnDestroy() {
@@ -382,13 +397,23 @@ export class MenuOrderComponent implements OnInit, OnDestroy {
 
   /* Payment */
   handlePayment() {
-    this.menuService.handlePaymentForOrder(this.idTable).subscribe(() => {
-      this.router.navigateByUrl("/table/active");
-    })
+    if(!this.dataDTOExisting) {
+      alert('Vui lòng chọn món trước khi thanh toán')
+    } else {
+      this.menuService.handlePaymentForOrder(this.idTable).subscribe(() => {
+        this.router.navigateByUrl("/table/active");
+      })
+    }
   }
 
-  checkFoodChosen(idOrderDetail: number) {
-    this.listIdOrderDetails.push(idOrderDetail);
+  checkFoodChosen(idOrderDetail: number , data: MenuOrderDTO) {
+   data.checked = !data.checked;
+   console.log(data.checked);
+   if(data.checked) {
+     this.listIdOrderDetails.push(idOrderDetail);
+   } else {
+     this.listIdOrderDetails.splice(this.listIdOrderDetails.indexOf(idOrderDetail), 1);
+   }
   }
 
   handleDeleteFood() {
@@ -409,8 +434,12 @@ export class MenuOrderComponent implements OnInit, OnDestroy {
 
   /* Button gọi món */
   handleOrder() {
-    /* Count down time */
-    this.activatedCountDown();
+    if(!this.dataDTOExisting) {
+      alert('Vui lòng chọn món trước khi gọi');
+    } else {
+      /* Count down time */
+      this.activatedCountDown();
+    }
   }
 
   /* Run count down

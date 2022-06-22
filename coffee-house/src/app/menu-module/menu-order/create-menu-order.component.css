@@ -195,6 +195,9 @@ button:active , button:focus {
 
 .menu__item-function {
   margin-top: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
 
 .menu__item-function .button ,
@@ -204,17 +207,26 @@ button:active , button:focus {
   padding: 12px;
   border-radius: 3px;
   font-size: 1.3rem;
+  margin-left: 8px;
+}
+
+.menu__item-left-area .footer {
+  width: 100%;
+}
+
+.menu__item-left-area .footer .info {
+  text-align: left;
 }
 
 .menu__item-left-area .footer {
   display: flex;
-  align-items: center;
   justify-content: space-evenly;
   padding: 12px;
   border-radius: 2px;
   border: 1px solid #dbdbdb;
   margin-top: 24px;
   background-color: #Fff !important;
+  flex-direction: column;
 }
 
 .menu__item-left-area .footer .info span {
@@ -339,8 +351,9 @@ button:active , button:focus {
 
   .menu__item-function button ,
   .menu__item-left-area .footer button{
-    height: 40px !important;
-    font-size: 0.8rem !important;
+    height: 35px !important;
+    font-size: 1rem !important;
+    min-width: 70px !important;
   }
 
   .menu__item .menu__item-body .btn-buy {
@@ -348,6 +361,10 @@ button:active , button:focus {
     width: 37px;
     font-size: 1.2rem;
     margin-top: 4px;
+  }
+
+  .menu__item-left-area .footer .info {
+    text-align: center;
   }
 }
 
