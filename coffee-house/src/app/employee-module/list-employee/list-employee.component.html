@@ -1,4 +1,4 @@
-<div class="main">
+<div class="main" >
   <div class="container-flutter">
     <div class="table-title">
       <h2>Danh sách nhân viên</h2>
@@ -6,7 +6,7 @@
 
     <div class="row justify-content-between align-items-center">
       <div class="col-2">
-        <button class="learn-more">
+        <button class="learn-more button">
                     <span class="circle" aria-hidden="true">
                     <span class="icon arrow">
                     </span>
@@ -15,13 +15,13 @@
         </button>
       </div>
       <div class="col-10">
-        <form method="post" class="d-flex align-items-center form__search justify-content-end "
+        <form method="post" class="d-flex align-items-center form__search justify-content-end"
               (ngSubmit)="searchEmployee()" [formGroup]="searchForm">
           <input type="text" class="form-control" placeholder="Tên tài khoản" formControlName="username">
           <input type="text" class="form-control ml-3" placeholder="Họ và tên" formControlName="name">
           <input type="text" class="form-control ml-3" placeholder="Số điện thoại" formControlName="phone">
-          <button class="ml-3 button__1" data-target="#searchError" data-toggle="modal" (click)="searchEmployee()"><i
-            class="fa-solid fa-magnifying-glass"></i>
+          <button class="ml-3 button__1" data-target="#searchError" data-toggle="modal" (click)="searchEmployee()">
+            <i class="fa-solid fa-magnifying-glass"></i>
           </button>
         </form>
       </div>
@@ -39,13 +39,14 @@
         <th>Vị trí</th>
         <td></td>
       </tr>
-      <tr *ngFor="let employee of employeeList | paginate: { itemsPerPage: 5, currentPage: p };let i = index">
+      <tr *ngFor="let employee of employeeList | paginate: { itemsPerPage: 10, currentPage: p };let i = index">
         <td>{{i + 1}}</td>
         <td>{{employee.user.username}}</td>
         <td>{{employee.nameEmployee}}</td>
         <td>{{employee.addressEmployee}}</td>
         <td>{{employee.phoneEmployee}}</td>
-        <td>{{employee.genderEmployee}}</td>
+        <td *ngIf="employee.genderEmployee">Nam</td>
+        <td *ngIf="!employee.genderEmployee">Nữ</td>
         <td>{{employee.dateOfBirthEmployee}}</td>
         <td>{{employee.salaryEmployee}}</td>
         <td>{{employee.position.namePosition}}</td>
@@ -70,8 +71,9 @@
         </td>
       </tr>
     </table>
+    <button class="btn btn1-primary" (click)="resetPage()" >Đặt lại</button>
     <pagination-controls (pageChange)="p = $event" previousLabel="Trang trước"
-                         nextLabel="Trang sau"></pagination-controls>
+                         nextLabel="Trang sau" class="float-lg-right"></pagination-controls>
   </div>
 </div>
 <!-- Modal -->
@@ -90,15 +92,16 @@
         Họ và tên : {{employee?.nameEmployee}}<br>
         Địa chỉ : {{employee?.addressEmployee}}<br>
         Số điện thoại : {{employee?.phoneEmployee}}<br>
-        Giới tính : {{employee?.genderEmployee}}<br>
+        Giới tính: <span *ngIf="employee?.genderEmployee">Nam</span>
+        <span *ngIf="!employee?.genderEmployee">Nữ</span><br/>
         Ngày sinh : {{employee?.dateOfBirthEmployee}}<br>
         Lương(VND) : {{employee?.salaryEmployee}}<br>
         Vị trí : {{employee?.position.namePosition}}
       </div>
       <div class="modal-footer">
         <div type="button" class="btn btn-secondary" data-dismiss="modal">Thoát</div>
-        <div type="button" class="btn btn-danger" data-dismiss="modal" data-target="#deleteSuccess" data-target="#deleteError" data-toggle="modal"
-             (click)="deteleEmployee(employee.idEmployee)">
+        <div type="button" class="btn btn-danger" data-dismiss="modal" data-target="#deleteSuccess"  data-toggle="modal"
+             (click)="deleteEmployee(employee.idEmployee)">
           Xoá
         </div>
       </div>
@@ -126,28 +129,8 @@
   </div>
 </div>
 
-<div class="modal fade" id="deleteError" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-     aria-hidden="true" *ngIf="checkEmployee==false">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel3"><b>Xoá thất bại</b></h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        Lỗi không tìm thấy nhân viên này
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal" data-target="#exampleModal4">Thoát</button>
-      </div>
-    </div>
-  </div>
-</div>
-
 <div class="modal fade" id="deleteSuccess" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-     aria-hidden="true" *ngIf="checkEmployee">
+     aria-hidden="true" >
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">

@@ -14,19 +14,20 @@ export class ListEmployeeComponent implements OnInit {
   employee: Employee;
   searchForm: FormGroup;
   emptyForm = false;
-  checkEmployee = false;
+  allow = false;
   p = 0;
+  dataTarget: string;
 
   constructor(private employeeService: EmployeeService, private activatedRoute: ActivatedRoute, private router: Router) {
+  }
+
+  ngOnInit(): void {
+    this.getListEmployee();
     this.searchForm = new FormGroup({
       username: new FormControl(''),
       name: new FormControl(''),
       phone: new FormControl('')
     });
-  }
-
-  ngOnInit(): void {
-    this.getListEmployee();
   }
 
   getListEmployee() {
@@ -35,22 +36,19 @@ export class ListEmployeeComponent implements OnInit {
     });
   }
 
-  deteleEmployee(idEmployee: number) {
+  deleteEmployee(idEmployee: number) {
     this.employeeService.findByIdEmployee(idEmployee).subscribe(data => {
       if (data.idEmployee === idEmployee){
-        this.checkEmployee = true;
+        this.dataTarget = 'deleteSuccess';
         this.employeeService.deleteEmployee(idEmployee).subscribe(next => {
           this.ngOnInit();
         });
-      }else{
-        this.checkEmployee = false;
       }
-    });
-    console.log(this.checkEmployee);
+    })
   }
 
   getEmployeeById(idEmployee: number) {
-    this.employeeService.findByIdUser(idEmployee).subscribe(data => {
+    this.employeeService.findByIdEmployee(idEmployee).subscribe(data => {
       this.employee = data;
     });
   }
@@ -76,5 +74,10 @@ export class ListEmployeeComponent implements OnInit {
         this.employeeList = data;
       });
     }
+  }
+
+  resetPage(){
+    this.ngOnInit();
+
   }
 }
