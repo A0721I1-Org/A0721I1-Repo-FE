@@ -75,7 +75,7 @@ export class LoginComponent implements OnInit {
       err => {
         // this.errorMessage = err.error.message;
         this.loginServer.isLoggedIn = false;
-        this.toast.error('Sai tên đăng nhập hoặc mật khẩu hoặc tài khoản chưa được kích hoạt', 'Đăng nhập thất bại: ', {
+        this.toast.error('Sai tên đăng nhập hoặc mật khẩu', 'Đăng nhập thất bại: ', {
           timeOut: 3000,
           extendedTimeOut: 1500
         });
