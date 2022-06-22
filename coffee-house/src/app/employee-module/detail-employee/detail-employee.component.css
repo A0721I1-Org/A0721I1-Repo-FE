@@ -1,14 +1,16 @@
 /*.modal-footer button:hover {*/
 /*  background-color: orange;*/
 /*}*/
-.body-1::before{
+
+.body-1{
   content: ' ';
   display: block;
-  position: absolute;
+  position: relative;
   width: 100%;
-  height: 100%;
-  opacity: 0.7;
-  background-image: url("./image/login-background.jpeg");
+  min-height: 100vh;
+  /*opacity: 0.7;*/
+  /*background-image: url("./image/login-background.jpeg");*/
+  background-image: linear-gradient(45deg, rgba(255,255,255,0.3), rgba(0,0,0,0.3)), url("./image/login-background.jpeg");
   background-repeat: no-repeat;
   background-position: 50% 0;
   background-size: cover;
