@@ -19,7 +19,7 @@ export class CreateProductComponent implements OnInit {
   createForm: FormGroup = new FormGroup({
       idProduct: new FormControl('', Validators.required),
       codeProduct: new FormControl('', Validators.required),
-      nameProduct: new FormControl('', Validators.required),
+      nameProduct: new FormControl('', [Validators.required, Validators.maxLength(100)]),
       priceProduct: new FormControl('', Validators.required),
       imageProduct: new FormControl('', Validators.required),
       descriptionProduct: new FormControl('', Validators.required),
@@ -59,6 +59,24 @@ export class CreateProductComponent implements OnInit {
     ).subscribe();
   }
 
+  numberCheck(args) {
+    if (args.key === 'e' || args.key === '+' || args.key === '-') {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
+  checkValidatePrice(input: any) {
+    // tslint:disable-next-line:triple-equals
+    if (input.target.value != '') {
+      this.createForm.controls.price.setErrors({empty: null});
+      this.createForm.controls.categoryDto.updateValueAndValidity();
+    } else {
+      this.createForm.controls.price.setErrors({empty: 'Empty! Please input!'});
+    }
+  }
+
     showPreview(event: any) {
     this.selectedImage = event.target.files[0];
     const reader = new FileReader();
@@ -67,6 +85,10 @@ export class CreateProductComponent implements OnInit {
       console.log(e);
       this.imgVip = reader.result as string;
     };
+  }
+
+  get nameProduct() {
+    return this.createForm.get('nameProduct');
   }
 
 }

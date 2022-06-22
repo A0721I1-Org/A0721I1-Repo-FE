@@ -31,13 +31,18 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <span class="form-label">Mã Số Món<a style="color: red"> (*)</a> :</span>
-                  <input class="form-control" formControlName="idProduct" readonly type="text" id="exampleFormControlInput1">
+                  <input class="form-control" formControlName="codeProduct" type="text" id="exampleFormControlInput1">
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-group">
                   <span class="form-label">Tên Món<a style="color: red"> (*)</a> :</span>
                   <input class="form-control" formControlName="nameProduct" type="text" >
+<!--                  <div *ngIf="createForm.controls.name.invalid && (createForm.controls.name.dirty || createForm.controls.name.touched|| createForm.controls.name.errors?.empty)">-->
+<!--                    <small *ngIf="nameProduct.errors?.maxlength" class="text-form text-danger">Tên món phải ngắn hơn 100 kí tự</small>-->
+<!--                    <small *ngIf="createForm.controls.name.hasError('required') || createForm.controls.name.errors.empty"-->
+<!--                      class="form-text text-danger">Vui lòng nhập tên món.</small>-->
+<!--                  </div>-->
                 </div>
               </div>
             </div>
