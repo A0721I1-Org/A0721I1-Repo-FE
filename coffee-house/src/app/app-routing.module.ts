@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import {ResetPasswordComponent} from './forgotpass-module/reset-password/reset-password.component';
 
 
 const routes: Routes = [
@@ -32,8 +33,8 @@ const routes: Routes = [
     loadChildren: () => import('./login-module/login-module.module').then(module => module.LoginModuleModule)
   },
   {
-    path: 'forget-password',
-    loadChildren: () => import('./forgetpass-module/forgetpass-module.module').then(module => module.ForgetpassModuleModule)
+    path: 'forgot-password',
+    loadChildren: () => import('./forgotpass-module/forgotpass-module.module').then(module => module.ForgotpassModuleModule)
   },
   {
     path: 'order',
