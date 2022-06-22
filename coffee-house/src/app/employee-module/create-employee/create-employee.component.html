@@ -19,11 +19,17 @@
               <span class="form-label">Tên tài khoản<i class="text-danger">(*)</i></span>
               <input class="form-control" formControlName="user" type="text">
               <span class="select-arrow"></span>
-              <p style="color: red" *ngIf="(createEmployeeForm.get('user').hasError('required') && createEmployeeForm.get('user').touched)">
+              <p style="color: red" *ngIf="(createEmployeeForm.get('user').hasError('required')
+               && createEmployeeForm.get('user').touched)">
                 <i>Không được để trống!</i>
               </p>
-              <p style="color: red" *ngIf="(createEmployeeForm.get('user').hasError('pattern') && createEmployeeForm.get('user').touched)">
-                <i>không được chứa các kí tự đặc biệt!</i>
+              <p style="color: red" *ngIf="(createEmployeeForm.get('user').hasError('minlength')
+              && createEmployeeForm.get('user').touched)">
+                <i>tên đăng nhập phải lớn hơn 6 kí tự!</i>
+              </p>
+              <p style="color: red" *ngIf="(createEmployeeForm.get('user').hasError('pattern')
+              && createEmployeeForm.get('user').touched)">
+                <i>tên đăng nhập không được chứa admin hoặc root!</i>
               </p>
             </div>
             <div class="form-group">
@@ -34,7 +40,8 @@
               && createEmployeeForm.get('nameEmployee').touched)">
                 <i>Không được để trống!</i>
               </p>
-              <p style="color: red" *ngIf="(createEmployeeForm.get('nameEmployee').hasError('pattern') && createEmployeeForm.get('user').touched)">
+              <p style="color: red" *ngIf="(createEmployeeForm.get('nameEmployee').hasError('pattern')
+              && createEmployeeForm.get('nameEmployee').touched)">
                 <i>sai định dạng!</i>
               </p>
             </div>
@@ -79,15 +86,15 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <span class="form-label">Lương<i class="text-danger">(*)</i></span>
-                  <input class="form-control" type="text"  formControlName="salaryEmployee">
+                  <input class="form-control" type="number"  formControlName="salaryEmployee">
                   <span class="select-arrow"></span>
                   <p style="color: red" *ngIf="(createEmployeeForm.get('salaryEmployee').hasError('required')
               && createEmployeeForm.get('salaryEmployee').touched)">
                     <i>Không được để trống!</i>
                   </p>
-                  <p style="color: red" *ngIf="(createEmployeeForm.get('salaryEmployee').hasError('min')
+                  <p style="color: red" *ngIf="(createEmployeeForm.get('salaryEmployee').hasError('pattern')
               && createEmployeeForm.get('salaryEmployee').touched)">
-                    <i>lương thấp nhất là 100,000!</i>
+                    <i>lương phải là bội số của 100000!</i>
                   </p>
                 </div>
               </div>
@@ -120,7 +127,30 @@
             </div>
             <div class="row">
               <div class="form-btn col-md-6">
-               <button routerLink='/employee/list' class="submit-btn" type="button">Trở về</button>
+               <button routerLink="/employee/list" data-toggle="modal" data-target="#deleteModel" class="submit-btn" type="button">Trở về</button>
+                <!-- Modal -->
+<!--                <div class="modal fade" id="deleteModel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"-->
+<!--                     aria-hidden="true">-->
+<!--                  <div class="modal-dialog" role="document">-->
+<!--                    <div class="modal-content">-->
+<!--                      <div class="modal-header">-->
+<!--                        <h5 class="modal-title" id="exampleModalLabel"><b>Xoá nhân viên</b></h5>-->
+<!--                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
+<!--                          <span aria-hidden="true">&times;</span>-->
+<!--                        </button>-->
+<!--                      </div>-->
+<!--                      <div class="modal-body">-->
+<!--                        bạn có chắc chắn quay lại-->
+<!--                      </div>-->
+<!--                      <div class="modal-footer">-->
+<!--                        <div type="button" class="btn btn-secondary" data-dismiss="modal">Thoát</div>-->
+<!--                        <div type="button" class="btn btn-danger" data-dismiss="modal">-->
+<!--                          Xoá-->
+<!--                        </div>-->
+<!--                      </div>-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                </div>-->
               </div>
               <div class="form-btn col-md-6">
                 <button class="submit-btn" type="submit">Tạo mới</button>

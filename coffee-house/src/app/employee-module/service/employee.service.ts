@@ -11,6 +11,7 @@ const URL_API = 'http://localhost:8080/manager/api/employee';
   providedIn: 'root'
 })
 export class EmployeeService {
+  message: string;
 
   constructor(private httpClient: HttpClient) {
   }

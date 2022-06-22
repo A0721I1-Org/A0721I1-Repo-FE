@@ -17,8 +17,6 @@ export class EditEmployeeComponent implements OnInit {
   positions: Position[] = [];
   editEmployeeForm: FormGroup;
   employee: Employee;
-  // idUser: number;
-  // password:string;
   user: User;
 
   constructor(private employeeService: EmployeeService,
@@ -40,7 +38,7 @@ export class EditEmployeeComponent implements OnInit {
           addressEmployee:  this.employee.addressEmployee,
           phoneEmployee:  this.employee.phoneEmployee,
           genderEmployee:  this.employee.genderEmployee,
-          // position: this.editEmployeeForm.get('position').setValue(this.employee.position.idPosition , {onlySelf: true}),
+          position: this.employee.position.idPosition,
           dateOfBirthEmployee:  this.employee.dateOfBirthEmployee,
           salaryEmployee: this.employee.salaryEmployee,
           user:  this.employee.user.username,
@@ -58,9 +56,9 @@ export class EditEmployeeComponent implements OnInit {
       phoneEmployee: ['', [Validators.required,Validators.pattern(/^(0?)(3[2-9]|5[6|8|9]|7[0|6-9]|8[0-6|8|9]|9[0-4|6-9])[0-9]{7}$/)]],
       genderEmployee:  ['', Validators.required],
       dateOfBirthEmployee:  ['', Validators.required],
-      salaryEmployee: ['', [Validators.required,Validators.min(100000)]],
+      salaryEmployee: ['', [Validators.required,Validators.pattern(/^[0-9]+0{5}$/)]],
       position:  ['', Validators.required],
-      user:  ['', [Validators.required,Validators.pattern(/^[a-zA-Z0-9]+$/)]],
+      user:  ['', [Validators.required,Validators.minLength(6 ), Validators.pattern(/^(?!.*admin)+(?!.*root).*$/)]],
     });
     this.getAllPosition();
   }
@@ -75,10 +73,7 @@ export class EditEmployeeComponent implements OnInit {
   }
 
   editSubmit() {
-    console.log(this.employee);
-    console.log(this.editEmployeeForm.valid.valueOf())
     if (this.editEmployeeForm.valid) {
-      console.log("b");
       this.employee = this.editEmployeeForm.value;
       this.user.username = this.employee.user;
       this.employee.user = this.user;
@@ -92,12 +87,11 @@ export class EditEmployeeComponent implements OnInit {
       }
       this.employeeService.updateEmployee(this.employee).subscribe(
         () => {
-
         },
         () => {
-
         },
         () => {
+          this.employeeService.message = 'chỉnh sửa thành công ' + this.employee.nameEmployee;
           this.router.navigateByUrl('/employee/list');
         },
       );

@@ -34,7 +34,7 @@
               && editEmployeeForm.get('nameEmployee').touched)">
                 <i>Không được để trống!</i>
               </p>
-              <p style="color: red" *ngIf="(editEmployeeForm.get('nameEmployee').hasError('pattern') && editEmployeeForm.get('user').touched)">
+              <p style="color: red" *ngIf="(editEmployeeForm.get('nameEmployee').hasError('pattern') && editEmployeeForm.get('nameEmployee').touched)">
                 <i>sai định dạng!</i>
               </p>
             </div>
