@@ -1,6 +1,6 @@
 export interface Table {
-  idTable: number,
-  codeTable: string,
-  emptyTable: boolean,
-  status: any,
+  idTable: number;
+  codeTable: string;
+  emptyTable: boolean;
+  status: any;
 }
