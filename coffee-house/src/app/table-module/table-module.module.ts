@@ -8,7 +8,6 @@ import {ListTableComponent} from './list-table/list-table.component';
 import {HttpClientModule} from '@angular/common/http';
 import {ListTableActiveComponent} from './list-table-active/list-table-active.component';
 import {ReactiveFormsModule} from '@angular/forms';
-// @ts-ignore
 import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
