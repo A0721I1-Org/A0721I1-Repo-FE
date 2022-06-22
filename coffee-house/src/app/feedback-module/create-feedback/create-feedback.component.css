@@ -16,3 +16,10 @@
   background-color: #fa8c16!important;
   border: none!important;
 }
+
+.form {
+  position: absolute;
+  left: 12%;
+  right: 12%;
+}
+
