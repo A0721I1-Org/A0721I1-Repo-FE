@@ -35,7 +35,7 @@
                   <div class="form-group">
                     <span class="form-label" for="namePeopleFeedback">Họ và tên</span>
                     <input class="form-control" type="text" formControlName="namePeopleFeedback">
-                    <div class="text-danger" *ngFor="let validation of validation_messages.namePeopleFeedback">
+                    <div class="text-danger" *ngFor="let validation of VALIDATE_MESSAGES.namePeopleFeedback">
                       <div class="error-message"
                            *ngIf="createFeedbackForm.get('namePeopleFeedback').hasError(validation.type) && (createFeedbackForm.get('namePeopleFeedback').dirty ||
                             createFeedbackForm.get('namePeopleFeedback').touched)">
@@ -47,7 +47,7 @@
                   <div class="form-group">
                     <span class="form-label" for="emailPeopleFeedback">Email</span>
                     <input class="form-control" type="email" formControlName="emailPeopleFeedback">
-                    <div class="text-danger" *ngFor="let validation of validation_messages.emailPeopleFeedback">
+                    <div class="text-danger" *ngFor="let validation of VALIDATE_MESSAGES.emailPeopleFeedback">
                       <div class="error-message"
                            *ngIf="createFeedbackForm.get('emailPeopleFeedback').hasError(validation.type) && (createFeedbackForm.get('emailPeopleFeedback').dirty ||
                             createFeedbackForm.get('emailPeopleFeedback').touched)">
@@ -62,7 +62,7 @@
                     <span class="form-label" for="imageFeedback">Hình ảnh<span class="text-danger">(*):</span></span>
                     <input class="form-control-file" type="file" name="imageFeedback" id="imageFeedback" (change)="showPreview($event)">
                     <img [src]="imgVip" height="200" alt="Image preview...">
-                    <div class="text-danger" *ngFor="let validation of validation_messages.namePeopleFeedback">
+                    <div class="text-danger" *ngFor="let validation of VALIDATE_MESSAGES.imageFeedback">
                       <div class="error-message"
                            *ngIf="createFeedbackForm.get('imageFeedback').hasError(validation.type) && (createFeedbackForm.get('imageFeedback').dirty ||
                             createFeedbackForm.get('imageFeedback').touched)">
@@ -74,7 +74,7 @@
                   <div class="form-group">
                     <span class="form-label" for="contentFeedback">Phản hồi</span>
                     <textarea class="form-control" type="text" style="height: 200px" formControlName="contentFeedback"></textarea>
-                    <div class="text-danger" *ngFor="let validation of validation_messages.namePeopleFeedback">
+                    <div class="text-danger" *ngFor="let validation of VALIDATE_MESSAGES.contentFeedback">
                       <div class="error-message"
                            *ngIf="createFeedbackForm.get('contentFeedback').hasError(validation.type) && (createFeedbackForm.get('contentFeedback').dirty ||
                             createFeedbackForm.get('contentFeedback').touched)">
