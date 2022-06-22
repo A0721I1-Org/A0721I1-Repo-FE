@@ -56,7 +56,7 @@ export class EditEmployeeComponent implements OnInit {
       phoneEmployee: ['', [Validators.required,Validators.pattern(/^(0?)(3[2-9]|5[6|8|9]|7[0|6-9]|8[0-6|8|9]|9[0-4|6-9])[0-9]{7}$/)]],
       genderEmployee:  ['', Validators.required],
       dateOfBirthEmployee:  ['', Validators.required],
-      salaryEmployee: ['', [Validators.required,Validators.pattern(/^[0-9]+0{5}$/)]],
+      salaryEmployee: ['', [Validators.required]],
       position:  ['', Validators.required],
       user:  ['', [Validators.required,Validators.minLength(6 ), Validators.pattern(/^(?!.*admin)+(?!.*root).*$/)]],
     });
@@ -73,7 +73,10 @@ export class EditEmployeeComponent implements OnInit {
   }
 
   editSubmit() {
+    console.log("aaa")
     if (this.editEmployeeForm.valid) {
+      console.log("bbbb")
+
       this.employee = this.editEmployeeForm.value;
       this.user.username = this.employee.user;
       this.employee.user = this.user;
