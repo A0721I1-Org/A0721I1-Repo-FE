@@ -7,7 +7,7 @@ import {DetailFeedbackComponent} from './detail-feedback/detail-feedback.compone
 
 const routes: Routes = [
   {
-    path: 'create',
+    path: 'feedback/create',
     component: CreateFeedbackComponent
   },
   {

@@ -1,11 +1,11 @@
 
 import {Component, Inject, OnInit} from '@angular/core';
-import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {FeedbackService} from "../service/feedback.service";
-import {Router} from "@angular/router";
-import {formatDate} from "@angular/common";
-import {AngularFireStorage} from "@angular/fire/storage";
-import {finalize} from "rxjs/operators";
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {FeedbackService} from '../service/feedback.service';
+import {Router} from '@angular/router';
+import {formatDate} from '@angular/common';
+import {AngularFireStorage} from '@angular/fire/storage';
+import {finalize} from 'rxjs/operators';
 
 
 @Component({
@@ -18,20 +18,20 @@ export class CreateFeedbackComponent implements OnInit {
 
 
   selectImg: any;
-  imgVip = "https://accounts.viblo.asia/assets/webpack/profile_default.0bca52a.png";
+  imgVip = 'https://accounts.viblo.asia/assets/webpack/profile_default.0bca52a.png';
 
   createFeedbackForm: FormGroup = new FormGroup({
     contentFeedback: new FormControl('',[Validators.required]),
     namePeopleFeedback: new FormControl('', [Validators.required, Validators.pattern("^[a-zA-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂẾưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\\s\\W|_]+")]),
     emailPeopleFeedback: new FormControl('', [Validators.required, Validators.email]),
     imageFeedback: new FormControl('', [Validators.required])
-  })
+  });
 
   constructor(private feedBackService: FeedbackService,
               private router: Router,
               @Inject(AngularFireStorage) private storage: AngularFireStorage) { }
 
-  validation_messages = {
+  VALIDATE_MESSAGES = {
     contentFeedback: [
       {type: 'required', message: 'Phản hồi không được để trống'}
     ],
@@ -47,7 +47,7 @@ export class CreateFeedbackComponent implements OnInit {
       {type: 'required', message: 'Hình ảnh không được để trống'}
     ]
 
-  }
+  };
 
   ngOnInit(): void {
   }
@@ -63,8 +63,8 @@ export class CreateFeedbackComponent implements OnInit {
 
 
           this.feedBackService.saveFeedback(this.createFeedbackForm.value).subscribe(() => {
-            this.router.navigateByUrl('/').then(r => alert("Thêm mới phản hồi thành công!"));
-          })
+            this.router.navigateByUrl('/').then(r => alert('Thêm mới phản hồi thành công!'));
+          });
         });
       })
     ).subscribe();
