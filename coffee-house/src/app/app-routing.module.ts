@@ -20,11 +20,13 @@ const routes: Routes = [
   },
   {
     path: 'incomef',
-    loadChildren: () => import('./income-module/income-module.module').then(module => module.IncomeModuleModule)
+    loadChildren: () => import('./income-module/income-module.module').then(module => module.IncomeModuleModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'product',
-    loadChildren: () => import('./product-module/product-module.module').then(module => module.ProductModuleModule)
+    loadChildren: () => import('./product-module/product-module.module').then(module => module.ProductModuleModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'table',
@@ -33,7 +35,8 @@ const routes: Routes = [
   },
   {
     path: 'menu',
-    loadChildren: () => import('./menu-module/menu-module.module').then(module => module.MenuModuleModule)
+    loadChildren: () => import('./menu-module/menu-module.module').then(module => module.MenuModuleModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'login',
@@ -45,12 +48,14 @@ const routes: Routes = [
   },
   {
     path: 'order',
-    loadChildren: () => import('./order-module/order-module.module').then(module => module.OrderModuleModule)
+    loadChildren: () => import('./order-module/order-module.module').then(module => module.OrderModuleModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'home', component: HomeComponent
   },
-  {path: '**', redirectTo: '/login/authentication'}
+  {path: '**', redirectTo: '/login/authentication'},
+  {path: '**', redirectTo: '/home'}
 ];
 
 @NgModule({

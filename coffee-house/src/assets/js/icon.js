@@ -6,4 +6,8 @@ document.querySelector('#search-btn').onclick = () =>{
 };
 function hamDropdown() {
   document.querySelector(".noidung_dropdown").classList.toggle("hienThi");
+};
+function noiDropdown() {
+  document.querySelector(".noi_dropdown").classList.toggle("inRa");
 }
+

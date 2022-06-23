@@ -5,7 +5,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {User} from '../../model/user';
 import {LoginServiceService} from '../service/login.service';
 import {TokenStorageService} from '../service/token-storage.service';
-// @ts-ignore
+
 import {ToastrService} from 'ngx-toastr';
 
 
@@ -22,16 +22,21 @@ export class LoginComponent implements OnInit {
   roles: string[] = [];
   show = false;
   rememberMeToken: string;
+  isLoggedIn = false;
 
   constructor(private formBuilder: FormBuilder,
               private router: Router, private loginServer: LoginServiceService,
               private activatedRoute: ActivatedRoute,
               private tokenStorageService: TokenStorageService,
               private toast: ToastrService) {
-
   }
 
   ngOnInit(): void {
+    this.isLoggedIn = this.tokenStorageService.getUser() ? true : false;
+    console.log(this.isLoggedIn);
+    if (this.isLoggedIn){
+      this.router.navigateByUrl('/home');
+    }
     this.formLogin = this.formBuilder.group({
         username: [''],
         password: [''],
@@ -75,7 +80,7 @@ export class LoginComponent implements OnInit {
       err => {
         // this.errorMessage = err.error.message;
         this.loginServer.isLoggedIn = false;
-        this.toast.error('Sai tên đăng nhập hoặc mật khẩu hoặc tài khoản chưa được kích hoạt', 'Đăng nhập thất bại: ', {
+        this.toast.error('Sai tên đăng nhập hoặc mật khẩu', 'Đăng nhập thất bại: ', {
           timeOut: 3000,
           extendedTimeOut: 1500
         });
