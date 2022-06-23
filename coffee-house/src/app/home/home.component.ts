@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Subscription} from 'rxjs';
 import {Product} from '../model/product';
-import { ProductService } from '../product-module/service/product.service';
+import {ProductService} from '../product-module/service/product.service';
 import {TokenStorageService} from '../login-module/service/token-storage.service';
 import {Router} from '@angular/router';
 import {Employee} from '../model/employee';
@@ -27,7 +27,7 @@ export class HomeComponent implements OnInit {
     private service: ProductService,
     public tokenStorageService: TokenStorageService,
     private router: Router,
-    private employeeService: EmployeeService
+    private employeeService: EmployeeService,
   ) {
   }
 
@@ -69,6 +69,7 @@ export class HomeComponent implements OnInit {
     this.tokenStorageService.signOut();
     this.router.navigateByUrl('/login/authentication');
   }
+
 // HauLST - làm menu quản lí nhân viên
   getPositionById() {
     this.idUser = this.tokenStorageService.getUser().id;

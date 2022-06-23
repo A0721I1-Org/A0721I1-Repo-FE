@@ -14,19 +14,22 @@ export class ListEmployeeComponent implements OnInit {
   employeeList: Employee[] = [];
   employee: Employee;
   searchForm: FormGroup;
+  emptyForm = false;
+  allow = false;
   message = this.employeeService.message;
   p = 0;
+  dataTarget: string;
 
   constructor(private employeeService: EmployeeService, private activatedRoute: ActivatedRoute, private router: Router) {
+  }
+
+  ngOnInit(): void {
+    this.getListEmployee();
     this.searchForm = new FormGroup({
       username: new FormControl(''),
       name: new FormControl(''),
       phone: new FormControl('')
     });
-  }
-
-  ngOnInit(): void {
-    this.getListEmployee();
   }
 
   getListEmployee() {
@@ -35,14 +38,19 @@ export class ListEmployeeComponent implements OnInit {
     });
   }
 
-  deteleEmployee(idEmployee: number) {
-    this.employeeService.deleteEmployee(idEmployee).subscribe(data => {
-      this.ngOnInit();
-    });
+  deleteEmployee(idEmployee: number) {
+    this.employeeService.findByIdEmployee(idEmployee).subscribe(data => {
+      if (data.idEmployee === idEmployee){
+        this.dataTarget = 'deleteSuccess';
+        this.employeeService.deleteEmployee(idEmployee).subscribe(next => {
+          this.ngOnInit();
+        });
+      }
+    })
   }
 
   getEmployeeById(idEmployee: number) {
-    this.employeeService.findByIdUser(idEmployee).subscribe(data => {
+    this.employeeService.findByIdEmployee(idEmployee).subscribe(data => {
       this.employee = data;
     });
   }
@@ -60,8 +68,18 @@ export class ListEmployeeComponent implements OnInit {
     if (phone === '') {
       phone = 'null';
     }
-    this.employeeService.searchEmployee(username, name, phone).subscribe(data => {
-      this.employeeList = data;
-    });
+    if (username === 'null' && name === 'null' && phone === 'null') {
+      this.emptyForm = true;
+    } else {
+      this.emptyForm = false;
+      this.employeeService.searchEmployee(username, name, phone).subscribe(data => {
+        this.employeeList = data;
+      });
+    }
+  }
+
+  resetPage(){
+    this.ngOnInit();
+
   }
 }
