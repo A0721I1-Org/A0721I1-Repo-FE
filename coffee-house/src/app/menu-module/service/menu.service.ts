@@ -16,6 +16,7 @@ const API_URL = "http://localhost:8080/menu"
 export class MenuService {
   /* Get url api */
   private API_URL = 'http://localhost:8080/api/products';
+  private API_URL_1 = 'http://localhost:8080/product';
   private API_URL_ORDER_DETAIL = 'http://localhost:8080/api/order-detail';
 
 
@@ -32,7 +33,7 @@ export class MenuService {
 
   // Lay product theo id
   findByIdProduct(id: number): Observable<Product> {
-    return this.httpClient.get<Product>(this.API_URL + '/' + id);
+    return this.httpClient.get<Product>(this.API_URL_1 + '/find/' + id);
   }
 
   // get OrderDetail by id
