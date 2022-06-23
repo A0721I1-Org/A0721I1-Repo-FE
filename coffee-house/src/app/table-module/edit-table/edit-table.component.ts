@@ -51,14 +51,21 @@ export class EditTableComponent implements OnInit {
   }
 
   update() {
+    // console.log(this.updateForm.value);
     console.log(this.updateForm.value);
+
     // tslint:disable-next-line:prefer-for-of
-    for ( let i = 0; i < this.status.length; i++) {
-      console.log(this.updateForm.value.status);
+    for (let i = 0; i < this.status.length; i++) {
+      // console.log(this.updateForm.value.status);
+      // tslint:disable-next-line:triple-equals
       if ((this.updateForm.value.status) == (this.status[i].idStatus)) {
         this.updateForm.value.status = this.status[i];
       }
     }
+    // if( this.updateForm.value == null){
+    //   this._service.message = 'Khong tim thay trang thai';
+    //   document.getElementById('noti').hidden = false;
+    // }else {
     console.log(this.updateForm.value);
     this._service.updateTable(this.table.idTable, this.updateForm.value).subscribe(() => {
       this._service.message = 'Cập nhật bàn thành công!';
@@ -69,7 +76,17 @@ export class EditTableComponent implements OnInit {
   }
 
   return() {
-    this._service.message = 'Cập nhật bàn thất bại!';
+    // this._service.message = 'Cập nhật bàn thất bại!';
     this._router.navigateByUrl('/table/list');
+  }
+
+  check() {
+    const id = this._activatedRoute.snapshot.params.id;
+    this.subscription = this._service.getTableById(id).subscribe(data => {
+      this.table = data;
+      if (this.table.emptyTable === true) {
+        this._service.message = 'Không đươc phép!';
+      }
+    });
   }
 }
