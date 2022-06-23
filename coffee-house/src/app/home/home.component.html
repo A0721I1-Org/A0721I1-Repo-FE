@@ -1,49 +1,45 @@
-<header class="header">
 
-  <a href="#" class="logo">
-    <img style="height: 75px" src="assets/images/logo.png" alt="">
-  </a>
+<!-- header section starts  -->
 
+<!--<header class="header">-->
 
-  <nav class="navbar" >
-    <a href="/home#home">Trang chủ</a>
-    <a href="/home#about">Giới thiệu</a>
-    <a href="/home#menu">Sản phẩm</a>
-    <a href="/home#review">Đánh giá</a>
-    <a href="/home#contact">Liên hệ</a>
-    <div class="dropdown" *ngIf="tokenStorageService.getUser()">
-      <button style="font-size: 1.6em; background: black; margin-left: 1.2rem;color: white" onclick="noiDropdown()" >Quản lý</button>
-      <div class="noi_dropdown">
-        <a href="/employee/list" *ngIf="employee.position?.namePosition =='Quản lý'"><span>EMPLOYEE</span></a>
-        <a href="#">PRODUCT</a>
-        <a href="#">TABLE</a>
-        <a href="#">SERVICE</a>
-        <a href="#">ORDER</a>
-        <a href="#">BILL</a>
-        <a href="#">FEEDBACK</a>
-      </div>
-    </div>
+<!--  <a href="#" class="logo">-->
+<!--    <img style="height: 75px" src="assets/images/logo.png" alt="">-->
+<!--  </a>-->
+<!--  <nav class="navbar">-->
+<!--    <a href="/home#home">Trang chủ</a>-->
+<!--    <a href="/home#about">Giới thiệu</a>-->
+<!--    <a href="/home#menu">Sản phẩm</a>-->
+<!--    <a href="/home#review">Đánh giá</a>-->
+<!--    <a href="/home#contact">Liên hệ</a>-->
+<!--    <a href="/employee/list" *ngIf="employee.position?.namePosition == 'Quản lý'"><span>Quản lý Nhân viên</span></a>-->
+<!--  </nav>-->
 
-  </nav>
-
-  <div class="icons">
+<!--  <div class="icons">-->
 <!--    <input style="width: 250px; height: 35px; font-size: 40px;" name="keywork" type="text" />-->
 <!--    <div class='bx bx-search-alt-2 bx-lg' id="search-btn">-->
 <!--  </div>-->
 
-    <div class='bx bxs-cart bx-lg' id="cart-btn">
-    </div>
-    <div class="dropdown">
-      <button  onclick="hamDropdown()" class =" bx bxs-user-account bx-lg"></button>
-      <div class="noidung_dropdown" *ngIf="tokenStorageService.getUser()" routerLink="/login/authentication">
-        <a [routerLink]="['/employee/detail/'] + tokenStorageService.getUser().id">Chi tiết tài khoản</a>
-        <a (click)="logout()">Đăng xuất</a>
-      </div>
-    </div>
-  </div>
+<!--    <div class='bx bxs-cart bx-lg' id="cart-btn">-->
+<!--    </div>-->
+<!--&lt;!&ndash;    <div class="nav-item dropdown show">&ndash;&gt;-->
+<!--&lt;!&ndash;        <a class='bx bxs-user-account bx-lg'></a>&ndash;&gt;-->
+<!--    <div class="dropdown">-->
+<!--      <div style="margin: 0; display: table;" *ngIf="!isLogin">-->
+<!--        <a routerLink="/login/authentication" class="btn-login"> Đăng nhập</a>-->
+<!--      </div>-->
+<!--      <button onclick="hamDropdown()" class =" bx bxs-user-account bx-lg" *ngIf="isLogin"></button>-->
+<!--      <div class="noidung_dropdown">-->
+<!--        <a [routerLink]="['/employee/detail/'] + tokenStorageService.getUser().id" (click)="getPositionById()" >Chi tiết tài khoản</a>-->
+<!--        <a (click)="logout()">Đăng xuất</a>-->
+<!--      </div>-->
+<!--    </div>-->
 
 
-</header>
+<!-- <header class="header">
+
+home section starts  -->
+
 <!-- home section starts  -->
 <section class="home" id="home">
 
@@ -373,4 +369,8 @@
 <<<<<<< HEAD
 =======
 
+<<<<<<< HEAD
+
+=======
 >>>>>>> origin/employee-management
+>>>>>>> 841646832d658ac13273ea81015a5521b456a2d7
