@@ -1,11 +1,9 @@
-
 import {Component, Inject, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {FeedbackService} from '../service/feedback.service';
 import {Router} from '@angular/router';
 import {formatDate} from '@angular/common';
-// @ts-ignore
-import {AngularFireStorage} from '@angular/fire/storage';
+import {AngularFireStorage} from "@angular/fire/storage";
 import {finalize} from 'rxjs/operators';
 
 
