@@ -59,12 +59,13 @@ html::-webkit-scrollbar-thumb{
   border-radius: 5rem;
 }
 
-body{
-  background: var(--bg);
-}
+/*body{*/
+/*  background-color: #010103;*/
+/*}*/
 
 section{
   padding:2rem 7%;
+  background-color: #010103;
 }
 
 
