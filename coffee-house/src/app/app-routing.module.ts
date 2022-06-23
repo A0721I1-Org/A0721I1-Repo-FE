@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {Routes, RouterModule} from '@angular/router';
 import {ResetPasswordComponent} from './forgotpass-module/reset-password/reset-password.component';
 
 import {
@@ -50,11 +50,12 @@ const routes: Routes = [
   {
     path: 'home', component: HomeComponent
   },
-  { path: '**', redirectTo: '/login/authentication' }
+  {path: '**', redirectTo: '/login/authentication'}
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}
