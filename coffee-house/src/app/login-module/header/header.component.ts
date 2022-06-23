@@ -14,7 +14,7 @@ export class HeaderComponent implements OnInit {
 
   employee: Employee;
   idUser: number;
-  isLogin = false;
+  isLogin: boolean;
 
   constructor(
     private service: ProductService,
@@ -25,8 +25,8 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.isLogin = this.tokenStorageService.getUser().id ? true : false;
-    console.log(this.isLogin);
+    this.isLogin = this.tokenStorageService.getUser() ? true : false;
+    console.log('isLogin = ' + this.isLogin);
     this.getPositionById();
   }
 

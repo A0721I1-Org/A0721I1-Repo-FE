@@ -32,8 +32,8 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.isLogin = this.tokenStorageService.getUser().id ? true : false;
-    console.log(this.isLogin);
+    // this.isLogin = this.tokenStorageService.getUser().id ? true : false;
+    // console.log(this.isLogin);
     this.findAllNew();
     this.findAllCart();
     this.getPositionById();
