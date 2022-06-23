@@ -17,7 +17,7 @@
             </div>
             <div class="form-group">
               <span class="form-label">Tên tài khoản<i class="text-danger">(*)</i></span>
-              <input class="form-control" formControlName="user" type="text">
+              <input class="form-control" formControlName="user" type="text"  >
               <span class="select-arrow"></span>
               <p style="color: red" *ngIf="(createEmployeeForm.get('user').hasError('required')
                && createEmployeeForm.get('user').touched)">
@@ -30,6 +30,13 @@
               <p style="color: red" *ngIf="(createEmployeeForm.get('user').hasError('pattern')
               && createEmployeeForm.get('user').touched)">
                 <i>tên đăng nhập không được chứa admin hoặc root!</i>
+              </p>
+<!--              <p style="color: red" *ngIf="(createEmployeeForm.get('user').hasError('checkUser')-->
+<!--              && createEmployeeForm.get('user').touched)">-->
+<!--                <i>tên đăng nhập đã tồn tại!</i>-->
+<!--              </p>-->
+              <p style="color:red;" >
+                <i>{{message}}</i>
               </p>
             </div>
             <div class="form-group">
@@ -58,11 +65,15 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <span class="form-label">Ngày sinh<i class="text-danger">(*)</i></span>
-                  <input class="form-control" type="date"  formControlName="dateOfBirthEmployee">
+                  <input class="form-control" type="date" name="dateOfBirthEmployee"  formControlName="dateOfBirthEmployee">
                   <span class="select-arrow"></span>
                   <p style="color: red" *ngIf="(createEmployeeForm.get('dateOfBirthEmployee').hasError('required')
               && createEmployeeForm.get('dateOfBirthEmployee').touched)">
                     <i>ngày sinh Không được để trống!</i>
+                  </p>
+                  <p style="color: red" *ngIf="(createEmployeeForm.get('dateOfBirthEmployee').hasError('check')
+              && createEmployeeForm.get('dateOfBirthEmployee').touched)">
+                    <i>nhân viên phải trên 18 tuổi!</i>
                   </p>
                 </div>
               </div>
@@ -92,10 +103,10 @@
               && createEmployeeForm.get('salaryEmployee').touched)">
                     <i>lương không được để trống!</i>
                   </p>
-<!--                  <p style="color: red" *ngIf="(createEmployeeForm.get('salaryEmployee').hasError('pattern')-->
-<!--              && createEmployeeForm.get('salaryEmployee').touched)">-->
-<!--                    <i>lương phải là bội số của 100000!</i>-->
-<!--                  </p>-->
+                  <p style="color: red" *ngIf="(createEmployeeForm.get('salaryEmployee').hasError('min')
+              && createEmployeeForm.get('salaryEmployee').touched)">
+                    <i>lương phải lớn hơn 100000!</i>
+                  </p>
                 </div>
               </div>
               <div class="col-md-6">

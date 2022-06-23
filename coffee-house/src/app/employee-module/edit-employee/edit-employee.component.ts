@@ -6,6 +6,7 @@ import {EmployeeService} from '../service/employee.service';
 import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 import {Employee} from '../../model/employee';
 import {User} from '../../model/user';
+import {checkAgeEdit} from "./validate/checkAgeEdit";
 
 
 @Component({
