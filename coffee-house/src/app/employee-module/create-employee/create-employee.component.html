@@ -20,7 +20,7 @@
               <input class="form-control" formControlName="user" type="text"  >
               <span class="select-arrow"></span>
               <p style="color: red" *ngIf="(createEmployeeForm.get('user').hasError('required')
-               && createEmployeeForm.get('user').enabled)">
+               && createEmployeeForm.get('user').touched)">
                 <i>tên đăng nhập Không được để trống!</i>
               </p>
               <p style="color: red" *ngIf="(createEmployeeForm.get('user').hasError('minlength')
@@ -31,10 +31,6 @@
               && createEmployeeForm.get('user').touched)">
                 <i>tên đăng nhập không được chứa admin hoặc root!</i>
               </p>
-<!--              <p style="color: red" *ngIf="(createEmployeeForm.get('user').hasError('checkUser')-->
-<!--              && createEmployeeForm.get('user').touched)">-->
-<!--                <i>tên đăng nhập đã tồn tại!</i>-->
-<!--              </p>-->
               <p style="color:red;" >
                 <i>{{message}}</i>
               </p>
@@ -44,7 +40,7 @@
               <input class="form-control" type="text" formControlName="nameEmployee">
               <span class="select-arrow"></span>
               <p style="color: red" *ngIf="(createEmployeeForm.get('nameEmployee').hasError('required')
-              && createEmployeeForm.get('nameEmployee').enabled)">
+              && createEmployeeForm.get('nameEmployee').touched)">
                 <i>họ và tên Không được để trống!</i>
               </p>
               <p style="color: red" *ngIf="(createEmployeeForm.get('nameEmployee').hasError('pattern')
@@ -57,7 +53,7 @@
               <input class="form-control" type="text"  formControlName="addressEmployee">
               <span class="select-arrow"></span>
               <p style="color: red" *ngIf="(createEmployeeForm.get('addressEmployee').hasError('required')
-              && createEmployeeForm.get('addressEmployee').enabled)">
+              && createEmployeeForm.get('addressEmployee').touched)">
                 <i>địa chỉ Không được để trống!</i>
               </p>
             </div>
@@ -68,7 +64,7 @@
                   <input class="form-control" type="date" name="dateOfBirthEmployee"  formControlName="dateOfBirthEmployee">
                   <span class="select-arrow"></span>
                   <p style="color: red" *ngIf="(createEmployeeForm.get('dateOfBirthEmployee').hasError('required')
-              && createEmployeeForm.get('dateOfBirthEmployee').enabled)">
+              && createEmployeeForm.get('dateOfBirthEmployee').touched)">
                     <i>ngày sinh Không được để trống!</i>
                   </p>
                   <p style="color: red" *ngIf="(createEmployeeForm.get('dateOfBirthEmployee').hasError('check')
@@ -87,7 +83,7 @@
                   </select>
                   <span class="select-arrow"></span>
                   <p style="color: red" *ngIf="(createEmployeeForm.get('genderEmployee').hasError('required')
-              && createEmployeeForm.get('genderEmployee').enabled)">
+              && createEmployeeForm.get('genderEmployee').touched)">
                     <i>giới tính Không được để trống!</i>
                   </p>
                 </div>
@@ -100,7 +96,7 @@
                   <input class="form-control" type="number"  formControlName="salaryEmployee">
                   <span class="select-arrow"></span>
                   <p style="color: red" *ngIf="(createEmployeeForm.get('salaryEmployee').hasError('required')
-              && createEmployeeForm.get('salaryEmployee').enabled)">
+              && createEmployeeForm.get('salaryEmployee').touched)">
                     <i>lương không được để trống!</i>
                   </p>
                   <p style="color: red" *ngIf="(createEmployeeForm.get('salaryEmployee').hasError('min')
@@ -115,7 +111,7 @@
                   <input class="form-control" type="text"  formControlName="phoneEmployee">
                   <span class="select-arrow"></span>
                   <p style="color: red" *ngIf="(createEmployeeForm.get('phoneEmployee').hasError('required')
-              && createEmployeeForm.get('phoneEmployee').enabled)">
+              && createEmployeeForm.get('phoneEmployee').touched)">
                     <i>số điện thoại Không được để trống!</i>
                   </p>
                   <p style="color: red" *ngIf="(createEmployeeForm.get('phoneEmployee').hasError('pattern')
@@ -132,39 +128,17 @@
               </select>
               <span class="select-arrow"></span>
               <p style="color: red" *ngIf="(createEmployeeForm.get('position').hasError('required')
-              && createEmployeeForm.get('position').enabled)">
+              && createEmployeeForm.get('position').touched)">
                 <i>vị trí Không được để trống!</i>
               </p>
             </div>
             <div class="row">
               <div class="form-btn col-md-6">
                <button routerLink="/employee/list" data-toggle="modal" data-target="#deleteModel" class="submit-btn" type="button">Trở về</button>
-                <!-- Modal -->
-<!--                <div class="modal fade" id="deleteModel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"-->
-<!--                     aria-hidden="true">-->
-<!--                  <div class="modal-dialog" role="document">-->
-<!--                    <div class="modal-content">-->
-<!--                      <div class="modal-header">-->
-<!--                        <h5 class="modal-title" id="exampleModalLabel"><b>Xoá nhân viên</b></h5>-->
-<!--                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
-<!--                          <span aria-hidden="true">&times;</span>-->
-<!--                        </button>-->
-<!--                      </div>-->
-<!--                      <div class="modal-body">-->
-<!--                        bạn có chắc chắn quay lại-->
-<!--                      </div>-->
-<!--                      <div class="modal-footer">-->
-<!--                        <div type="button" class="btn btn-secondary" data-dismiss="modal">Thoát</div>-->
-<!--                        <div type="button" class="btn btn-danger" data-dismiss="modal">-->
-<!--                          Xoá-->
-<!--                        </div>-->
-<!--                      </div>-->
-<!--                    </div>-->
-<!--                  </div>-->
-<!--                </div>-->
               </div>
               <div class="form-btn col-md-6">
-                <button class="submit-btn" type="submit">Tạo mới</button>
+                <button *ngIf="createEmployeeForm.valid" class="submit-btn" type="submit">Tạo mới</button>
+                <button *ngIf="!createEmployeeForm.valid" class="invalid-btn" type="button" disabled>Tạo mới</button>
               </div>
             </div>
           </form>
