@@ -50,7 +50,7 @@
         <td *ngIf="employee.genderEmployee">Nam</td>
         <td *ngIf="!employee.genderEmployee">Nữ</td>
         <td>{{employee.dateOfBirthEmployee}}</td>
-        <td>{{employee.salaryEmployee}}</td>
+        <td>{{employee.salaryEmployee | number :'1.0-3'}}</td>
         <td>{{employee.position.namePosition}}</td>
         <td><a [routerLink]="['/employee/edit/',employee.idEmployee]">
           <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
@@ -97,7 +97,7 @@
         Giới tính: <span *ngIf="employee?.genderEmployee">Nam</span>
         <span *ngIf="!employee?.genderEmployee">Nữ</span><br/>
         Ngày sinh : {{employee?.dateOfBirthEmployee}}<br>
-        Lương(VND) : {{employee?.salaryEmployee}}<br>
+        Lương(VND) : {{employee?.salaryEmployee | number :'1.0-3'}}<br>
         Vị trí : {{employee?.position.namePosition}}
       </div>
       <div class="modal-footer">
