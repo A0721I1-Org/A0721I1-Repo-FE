@@ -1,8 +1,9 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Employee} from '../../model/employee';
 import {EmployeeService} from '../service/employee.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {FormControl, FormGroup} from '@angular/forms';
+
 
 @Component({
   selector: 'app-list-employee',
