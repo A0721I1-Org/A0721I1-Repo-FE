@@ -12,11 +12,11 @@
     <div>
       <a  onclick="noiDropdown()" *ngIf="tokenStorageService.getUser()">Quản lý</a>
       <div class="noi_dropdown">
-        <a href="/employee/list" *ngIf="employee.position?.namePosition == 'Quản lý'"><span>EMPLOYEE</span></a>
-        <a href="#">PRODUCT</a>
-        <a href="#">TABLE</a>
+        <a href="/employee/list" *ngIf="employee.position?.namePosition == 'Quản lý'"><span>Nhân viên</span></a>
+        <a href="#">Sản phẩm</a>
+        <a href="/table/list">Bàn</a>
         <a href="#">SERVICE</a>
-        <a href="#">ORDER</a>
+        <a href="/table/active">ORDER</a>
         <a href="#">BILL</a>
         <a href="feedback/list">FEEDBACK</a>
       </div>
