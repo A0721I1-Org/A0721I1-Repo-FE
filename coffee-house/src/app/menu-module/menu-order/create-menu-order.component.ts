@@ -3,13 +3,15 @@ import {OderDetail} from '../../model/oderDetail';
 import {Product} from '../../model/product';
 import {MenuService} from '../service/menu.service';
 // @ts-ignore
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {TypeProduct} from "../../model/typeProduct";
 import {MenuOrderDTO} from "../../model/MenuOrderDTO";
 import {FormBuilder} from "@angular/forms";
 import {Observable, Subscription, timer} from "rxjs";
 import {map, take} from "rxjs/operators";
 import {TokenStorageService} from '../../login-module/service/token-storage.service';
+import {Table} from "../../model/table";
+import {Oder} from "../../model/oder";
 
 @Component({
   selector: 'app-create-menu-oder',
@@ -22,11 +24,11 @@ export class MenuOrderComponent implements OnInit, OnDestroy {
   id: number;
   sum = 0;
   quatity = 1;
+  checkProductEx = true;
+  message = '';
 
-  // tslint:disable-next-line:variable-name
-  private currentTemp: number;
-
-  constructor(private menuService: MenuService, private _formBuilder: FormBuilder, private router: Router) {
+  constructor(private menuService: MenuService, private _formBuilder: FormBuilder, private router: Router
+    ,private activatedRoute: ActivatedRoute) {
   }
 
   /* Count down time for food */
@@ -45,8 +47,8 @@ export class MenuOrderComponent implements OnInit, OnDestroy {
   menuOrderDTOs: MenuOrderDTO[];
 
   /* Lấy table của a Bin */
-  idTable: number = 1;
-  idOrder: number = 22;
+  idTable: number = 0;
+  idOrder: number = 0;
 
   /* Define size page and current page */
   sizePage: number = this.menuService.sizePage;
@@ -77,14 +79,32 @@ export class MenuOrderComponent implements OnInit, OnDestroy {
   /* Hide and show Menu */
   showMenuPhone = false;
 
- // origin/menu-management
+  /* Get table and get order */
+  table: Table;
+  order: Oder;
+
+  // origin/menu-management
   ngOnInit(): void {
-    this.getAll();
+    this.getAll()
     /* Set value type default is get all */
     this.getTypeOfGet(0);
 
+    /* Get id table and id order from url */
+    this.idTable = this.activatedRoute.snapshot.params['idTable'];
+    this.idOrder = this.activatedRoute.snapshot.params['idOrder'];
+
     /* Show data DTO */
     this.getDataDTOForTable();
+
+    /* Get table by id */
+    this.menuService.getTableById(this.idTable).subscribe(data=> {
+      this.table = data;
+    });
+
+    /* Get order by id */
+    this.menuService.getOrderById(this.idOrder).subscribe(data=> {
+      this.order = data;
+    });
   }
 
   ngOnDestroy() {
@@ -95,13 +115,13 @@ export class MenuOrderComponent implements OnInit, OnDestroy {
   getProducts() {
     this.menuService.getProducts().subscribe(data => {
       this.products = data;
-    })
+    });
 
     /* Get amount of products */
     this.menuService.getAmountOfProducts().subscribe(data => {
       this.amountProducts = data;
       this.pagination(data, true);
-    })
+    });
   }
 
   /* get products By Type Id and pagination */
@@ -114,18 +134,18 @@ export class MenuOrderComponent implements OnInit, OnDestroy {
     this.menuService.getAmountOfProductsByIdType(idTypeProduct).subscribe(data => {
       this.amountProducts = data;
       this.pagination(data, true);
-    })
+    });
   }
 
   /* Get list products */
   getAll() {
     this.menuService.getProducts().subscribe(data => {
       this.products = data;
-    })
+    });
 
     this.menuService.getTypeProducts().subscribe(data => {
       this.typeProducts = data;
-    })
+    });
   }
 
   /* Check which category has clicked  */
@@ -151,10 +171,18 @@ export class MenuOrderComponent implements OnInit, OnDestroy {
 
   // Cộng số lượng sản phẩm
   addQuality() {
-    if (this.quatity === this.product.quatityProduct) {
-      alert('Vui lòng đặt tối thiểu 5 sản phẩm');
+    if(this.checkProductEx) {
+      if (this.quatity === this.product.quatityProduct) {
+        this.message = 'Vui lòng đặt tối thiểu ' + this.product.quatityProduct + ' sản phẩm';
+        document.getElementById('noti').hidden = false;
+        this.checkProductEx = true;
+      } else {
+        this.quatity = this.quatity + 1;
+      }
     } else {
-      this.quatity = this.quatity + 1;
+      this.message = 'Sản phẩm đã hết vui lòng chọn món khác';
+      document.getElementById('noti').hidden = false;
+      this.checkProductEx = false;
     }
   }
 
@@ -167,10 +195,16 @@ export class MenuOrderComponent implements OnInit, OnDestroy {
 
   // Get product by ID
   getProductById(id: number) {
+    this.quatity = 1;
     this.menuService.findByIdProduct(id).subscribe(
       (data) => {
         if (data) {
           this.product = data;
+          if (this.product.quatityProduct <= 0){
+            this.checkProductEx = false;
+          }else{
+            this.checkProductEx = true;
+          }
         }
       }, (e) => {
         console.log(e);
@@ -205,16 +239,20 @@ export class MenuOrderComponent implements OnInit, OnDestroy {
       order: {idOrder: this.idOrder},
       product: {idProduct: idProduct}
     };
-    console.log(orderDetail);
-    if (orderDetail) {
-      this.menuService.saveOrderDetail(orderDetail).subscribe(
-        data => {
-          alert('Thêm món thành công');
-          this.ngOnInit();
-        }, error => {
-          console.log(error);
-        }
-      );
+    if(this.product.quatityProduct > 0) {
+      if (orderDetail) {
+        this.menuService.saveOrderDetail(orderDetail).subscribe(
+          data => {
+            this.ngOnInit();
+          }, error => {
+            console.log(error);
+          }
+        );
+      }
+    } else {
+      this.message = 'Sản phẩm đã hết vui lòng chọn món khác';
+      document.getElementById('noti').hidden = false;
+      this.checkProductEx = false;
     }
   }
 
@@ -323,7 +361,7 @@ export class MenuOrderComponent implements OnInit, OnDestroy {
       });
     } else {
       /* Code pagination for pagable */
-      this.menuService.getDataDTOForTable(1).subscribe(data => {
+      this.menuService.getDataDTOForTable(this.idTable).subscribe(data => {
         /* Get amounts of all products */
         tg -= 1;
         this.currentPageTable = tg;
@@ -355,9 +393,10 @@ export class MenuOrderComponent implements OnInit, OnDestroy {
     }
   }
 
-  /* Get data DTO for tab`le */
+  /* Get data DTO for table */
   getDataDTOForTable() {
-    this.menuService.getDataDTOForTable(1).subscribe(data => {
+    this.menuService.getDataDTOForTable(this.idTable).subscribe(data => {
+      console.log(this.idTable)
       this.menuOrderDTOs = data;
       this.pagination(this.menuOrderDTOs[data.length - 1].totalPageDTO, false);
     })
@@ -378,13 +417,23 @@ export class MenuOrderComponent implements OnInit, OnDestroy {
 
   /* Payment */
   handlePayment() {
-    this.menuService.handlePaymentForOrder(this.idTable).subscribe(() => {
-      this.router.navigateByUrl("");
-    })
+    if(!this.dataDTOExisting) {
+      alert('Vui lòng chọn món trước khi thanh toán')
+    } else {
+      this.menuService.handlePaymentForOrder(this.idTable).subscribe(() => {
+        this.router.navigateByUrl("/table/active");
+      })
+    }
   }
 
-  checkFoodChosen(idOrderDetail: number) {
-    this.listIdOrderDetails.push(idOrderDetail);
+  checkFoodChosen(idOrderDetail: number , data: MenuOrderDTO) {
+    data.checked = !data.checked;
+    console.log(data.checked);
+    if(data.checked) {
+      this.listIdOrderDetails.push(idOrderDetail);
+    } else {
+      this.listIdOrderDetails.splice(this.listIdOrderDetails.indexOf(idOrderDetail), 1);
+    }
   }
 
   handleDeleteFood() {
@@ -405,8 +454,12 @@ export class MenuOrderComponent implements OnInit, OnDestroy {
 
   /* Button gọi món */
   handleOrder() {
-    /* Count down time */
-    this.activatedCountDown();
+    if(!this.dataDTOExisting) {
+      alert('Vui lòng chọn món trước khi gọi');
+    } else {
+      /* Count down time */
+      this.activatedCountDown();
+    }
   }
 
   /* Run count down
@@ -426,6 +479,10 @@ export class MenuOrderComponent implements OnInit, OnDestroy {
   showMenuOnPhone() {
     this.showMenuPhone = !this.showMenuPhone;
   }
+
+  hide() {
+    document.getElementById('noti').hidden = true;
+  }
 }
 
 /* Format for time */
@@ -442,4 +499,3 @@ export class FormatTimePipe implements PipeTransform {
     );
   }
 }
-

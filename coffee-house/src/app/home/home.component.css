@@ -1,20 +1,12 @@
+@import '~ngx-toastr/toastr';
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap');
 
-/*:root{*/
-/*  --main-color: rgb(236, 155, 68);*/
-/*  --black:#13131a;*/
-/*  --bg:#010103;*/
-/*  --border:.1rem solid rgba(255,255,255,.3);*/
-/*}*/
-
-#username{
-  color: white;
-  font-size: 17px;
-}
-
-.noidung_dropdown a{
-  background-color: black;
-  color: rgb(236, 155, 68);
+:root{
+  --main-color: rgb(236, 155, 68);
+  --black:#13131a;
+  --bg:#010103;
+  --border:.1rem solid rgba(255,255,255,.3);
+  --color-content: rgb(236, 155, 68);
 }
 
 *{
@@ -194,6 +186,64 @@ section{
   padding-top: 4px;
   color: #fff;
 }
+/* Nút Dropdown*/
+.nut_dropdown {
+  background-color: #0080ff;
+  /*color: white;*/
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+/* Thiết lập vị trí cho thẻ div với class dropdown*/
+.dropdown {
+  position: relative;
+  display: inline-block;
+  color:var(--main-color);
+  border-bottom: .1rem solid var(--main-color);
+  padding-bottom: .5rem;
+
+}
+/* Nội dung Dropdown */
+.noidung_dropdown {
+  /*Ẩn nội dụng các đường dẫn*/
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+/* Thiết kế style cho các đường dẫn tronng Dropdown */
+.noidung_dropdown a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+.hienThi{
+  display:block;
+}
+/* Thiết lập vị trí cho thẻ div với class dropdown*/
+/* Nội dung Dropdown */
+.noi_dropdown {
+  /*Ẩn nội dụng các đường dẫn*/
+  display: none;
+  position: absolute;
+  background-color: black;
+  min-width: 160px;
+  /*box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);*/
+  z-index: 1;
+}
+/* Thiết kế style cho các đường dẫn tronng Dropdown */
+.noi_dropdown a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+.inRa{
+  display:block;
+}
 
 .home .content p{
   font-size: 1.7rem;
@@ -276,9 +326,7 @@ section{
 .menu .box-container .box:hover > *{
   color:var(--black);
 }
-body{
-  background: var(--bg);
-}
+
 .products .box-container{
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
@@ -426,8 +474,8 @@ body{
 
 .blogs .box-container{
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
-  gap:1.5rem;
+  /*grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));*/
+  /*gap:1.5rem;*/
 }
 
 .blogs .box-container .box{
@@ -471,12 +519,12 @@ body{
   font-size: 2rem;
 }
 
-.blogs .box-container .box .content p{
-  font-size: 1.6rem;
-  line-height: 1.8;
-  color:#ccc;
-  padding:1rem 0;
-}
+/*.blogs .box-container .box .content p{*/
+/*  font-size: 1.6rem;*/
+/*  line-height: 1.8;*/
+/*  color:#ccc;*/
+/*  padding:1rem 0;*/
+/*}*/
 
 .footer{
   background:var(--black);
@@ -520,21 +568,6 @@ body{
 .footer .links a:hover{
   background:var(--main-color);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* media queries  */
 @media (max-width:991px){
 
@@ -605,4 +638,8 @@ body{
     font-size: 50%;
   }
 
+}
+
+body {
+  margin: 0;
 }
