@@ -60,10 +60,6 @@ html::-webkit-scrollbar-thumb{
   border-radius: 5rem;
 }
 
-/*body{*/
-/*  background: var(--bg);*/
-/*}*/
-
 section{
   padding:2rem 7%;
 }
