@@ -57,7 +57,6 @@ export class EditTableComponent implements OnInit {
     // tslint:disable-next-line:prefer-for-of
     for (let i = 0; i < this.status.length; i++) {
       // console.log(this.updateForm.value.status);
-      // tslint:disable-next-line:triple-equals
       if ((this.updateForm.value.status) == (this.status[i].idStatus)) {
         this.updateForm.value.status = this.status[i];
       }
