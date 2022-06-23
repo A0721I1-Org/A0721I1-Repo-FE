@@ -60,11 +60,15 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <span class="form-label">Nhóm Món<a style="color: red"> (*)</a> :</span>
-
-                  <select class="form-control" formControlName="typeProduct" >
-                    <option *ngFor="let index of typeProduct" [ngValue]="index" [selected]="index.idTypeProduct === editForm.controls.typeProduct.value.idTypeProduct">{{index.nameTypeProduct}}</option>
+                  <select class="form-control" formControlName="typeProduct" id="val-skill" name="val-skill" [ngClass]="{ 'is-invalid': submitted && valueSelect.typeProduct.errors }">
+                    <option *ngFor="let index of typeProduct" [ngValue]="index"
+                            [selected]="index.idTypeProduct === editForm.controls.typeProduct.value.idTypeProduct">{{index.nameTypeProduct}}</option>
                   </select>
-                  <div class="select-dropdown"></div>
+                  <div class="invalid-feedback" *ngIf="submitted && valueSelect.typeProduct.errors">
+                    <div *ngIf="valueSelect.typeProduct.errors.required">
+                      Vui lòng chọn nhóm món.
+                    </div>
+                  </div>
                 </div>
               </div>
               <div class="col-md-6">
@@ -75,7 +79,7 @@
                        required="required" >
                 <img style="height: 160px; width: 160px;" src="{{imgVip}}">
                 <label for="imageProduct" class="file__label">
-                  <i class="fa fa-upload"></i>
+                  
                 </label>
                 <div>
                   <p style="color: red" *ngIf=" errorImage!= ''">{{errorImage}}</p>

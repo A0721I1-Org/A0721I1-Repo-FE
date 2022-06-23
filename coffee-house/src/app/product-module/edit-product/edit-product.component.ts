@@ -6,6 +6,7 @@ import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 import {TypeProduct} from '../../model/typeProduct';
 import {AngularFireStorage} from '@angular/fire/storage';
 import {finalize} from 'rxjs/operators';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-edit-product',
@@ -20,6 +21,7 @@ export class EditProductComponent implements OnInit {
   selectedImage: any;
   errorImage: string;
   imgVip = 'https://accounts.viblo.asia/assets/webpack/profile_default.0bca52a.png';
+  submitted = false;
   editForm = this.fb.group({
     idProduct: ['', Validators.required],
     codeProduct: ['', Validators.required],
@@ -32,6 +34,7 @@ export class EditProductComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private service: ProductService,
               private router: Router, private activatedRoute: ActivatedRoute,
+              private remind: ToastrService,
               @Inject(AngularFireStorage) private storage: AngularFireStorage) {
   }
   ngOnInit(): void {
@@ -64,7 +67,7 @@ export class EditProductComponent implements OnInit {
             this.service.updateProduct(this.editForm.value).subscribe(() => {
               console.log(this.editForm.value);
               this.product = this.editForm.value;
-              alert('Sua thanh cong');
+              this.remind.success('Sửa món thành công!', 'Thông báo:');
               this.service.updateProduct(this.product).subscribe(next => this.router.navigateByUrl('/product/list'));
             }, error => {
             });
@@ -76,10 +79,16 @@ export class EditProductComponent implements OnInit {
       this.service.updateProduct(this.editForm.value).subscribe(() => {
         console.log(this.editForm.value);
         this.product = this.editForm.value;
-        alert('Sua thanh cong');
+        this.remind.success('Sửa món thành công!', 'Thông báo:');
         this.service.updateProduct(this.product).subscribe(next => this.router.navigateByUrl('/product/list'));
       });
     }
+    this.submitted = true;
+    // stop here if form is invalid
+    if (this.editForm.invalid) {
+      return;
+    }
+    console.log(this.editForm.value);
   }
 
   showPreview(event: any) {
@@ -90,6 +99,10 @@ export class EditProductComponent implements OnInit {
       console.log(e);
       this.imgVip = reader.result as string;
     };
+  }
+
+  get valueSelect() {
+    return this.editForm.controls;
   }
 
 }
