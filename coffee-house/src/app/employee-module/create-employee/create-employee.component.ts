@@ -3,8 +3,8 @@ import {EmployeeService} from '../service/employee.service';
 import {Router} from '@angular/router';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Position} from '../../model/position';
-import {Employee} from "../../model/employee";
-import {checkAge} from "./validate/checkAge";
+import {Employee} from '../../model/employee';
+import {checkAge} from './validate/checkAge';
 
 @Component({
   selector: 'app-create-employee',
