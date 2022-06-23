@@ -1,3 +1,12 @@
+<div [hidden]="true" id="noti" class="alert alert-warning alert-dismissible fade show" role="alert">
+  <h4 class="alert-heading text-warning">Thông báo!!</h4>
+  <strong>Xin chào!</strong>
+  <p>{{message}}</p>
+  <button type="button" class="close" (click)="hide()" aria-label="Close">
+    <span>&times;</span>
+  </button>
+  <hr>
+</div>
 <div class="menu__container">
   <div class="row w-100 h-100 m-mb-0 d-mb-block">
     <div class="col-sm-3 col-md-4 col-lg-3 p-mb-0">
@@ -42,7 +51,7 @@
                       {{product.priceProduct | number: '1.0-0'}}đ
                     </span>
                   </div>
-                  <div (click)="getProductById(product.idProduct)" class="btn button btn-buy" data-toggle="modal"
+                  <div  (click)="getProductById(product.idProduct)" class="btn button btn-buy" data-toggle="modal"
                                                                    data-target="#modal1">
                     <i class="fa-solid fa-plus"></i>
                   </div>

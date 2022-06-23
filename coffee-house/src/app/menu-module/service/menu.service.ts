@@ -42,7 +42,7 @@ export class MenuService {
 
   // save Order Detail
   saveOrderDetail(orderDetail: OderDetail): Observable<OderDetail> {
-    console.log(this.API_URL_ORDER_DETAIL + '/add-to-cart/' + orderDetail.order.idOrder)
+    console.log(this.API_URL_ORDER_DETAIL + '/add-to-cart/' + orderDetail.order.idOrder);
     return this.httpClient.post<OderDetail>(this.API_URL_ORDER_DETAIL + '/add-to-cart/' + orderDetail.order.idOrder, orderDetail);
   }
 
@@ -130,7 +130,7 @@ export class MenuService {
   }
 
   /* Delete food */
-  handleDeleteFood(idOrderDetail: any , idOrder: any):Observable<OderDetail> {
+  handleDeleteFood(idOrderDetail: any , idOrder: any): Observable<OderDetail> {
     return this.httpClient.delete<OderDetail>(`${API_URL}/table/delete/${idOrderDetail}/${idOrder}`);
   }
 
