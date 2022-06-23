@@ -1,12 +1,4 @@
-<div [hidden]="true" id="noti" class="alert alert-warning alert-dismissible fade show" role="alert">
-  <h4 class="alert-heading text-warning">Thông báo!!</h4>
-  <strong>Xin chào!</strong>
-  <p>{{message}}</p>
-  <button type="button" class="close" (click)="hide()" aria-label="Close">
-    <span>&times;</span>
-  </button>
-  <hr>
-</div>
+
 <div class="menu__container">
   <div class="row w-100 h-100 m-mb-0 d-mb-block">
     <div class="col-sm-3 col-md-4 col-lg-3 p-mb-0">
@@ -48,13 +40,13 @@
                   <div class="info">
                     <span class="name">{{product.nameProduct}}</span>
                     <span class="price">
-                      {{product.priceProduct | number: '1.0-0'}}đ
+                      {{product.priceProduct | number: '1.0-0'}} VND
                     </span>
                   </div>
-                  <div  (click)="getProductById(product.idProduct)" class="btn button btn-buy" data-toggle="modal"
+                  <button [disabled]="product.quatityProduct <= 0" (click)="getProductById(product.idProduct)" class="btn button btn-buy" data-toggle="modal"
                                                                    data-target="#modal1">
                     <i class="fa-solid fa-plus"></i>
-                  </div>
+                  </button>
                 </div>
               </div>
             </div>
@@ -115,8 +107,8 @@
                           <td>{{i + 1}}</td>
                           <td>{{menuOrderDTO.nameProduct}}</td>
                           <td>{{menuOrderDTO.quantity}}</td>
-                          <td>{{menuOrderDTO.price |number:'1.0'}} Đ</td>
-                          <td>{{menuOrderDTO.totalPrice| number:'1.0'}} Đ</td>
+                          <td>{{menuOrderDTO.price |number:'1.0'}} VND</td>
+                          <td>{{menuOrderDTO.totalPrice| number:'1.0'}} VND</td>
                           <td>{{counter | formatTime}}</td>
                         </tr>
                       </ng-container>
@@ -138,7 +130,7 @@
 
                   <div *ngIf="order.totalOrder" class="total-price">
                     <span>Tổng tiền: </span>
-                    <h3>{{order.totalOrder| number:'1.0'}} Đ</h3>
+                    <h3>{{order.totalOrder| number:'1.0'}} VND</h3>
                   </div>
 
                   <div class="menu__item-function">
@@ -263,7 +255,17 @@
   <!-- The Modal -->
   <div class="modal fade" id="modal1">
     <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
+      <div class="modal-content position-relative">
+        <!-- Modal notification -->
+        <div [hidden]="true" id="noti" class="alert alert-warning alert-dismissible fade show" role="alert">
+          <h4 class="alert-heading text-warning">Thông báo!!</h4>
+          <strong>Xin chào!</strong>
+          <p>{{message}}</p>
+          <button type="button" class="close" (click)="hide()" aria-label="Close">
+            <span>&times;</span>
+          </button>
+          <hr>
+        </div>
         <!-- Modal Header -->
         <div class="modal-header">
           <h4 class="modal-title">{{product?.nameProduct}}</h4>
@@ -285,7 +287,7 @@
                   </ul>
                 </div>
                 <div class="d-flex justify-content-around align-items-center">
-                  <span class="font-weight-bold" style="font-size: 1.4rem">{{product?.priceProduct * quatity}}đ</span>
+                  <span class="font-weight-bold" style="font-size: 1.4rem">{{product?.priceProduct * quatity}} VND</span>
                   <div class="d-flex justify-content-between align-items-center">
                     <a class="px-2" (click)="subQuatity()" *ngIf="quatity === 1">
                       <i class='bx bx-minus-circle bx-lg' style='color:#fa8c16 ; font-size: 1.5rem'></i>
@@ -294,7 +296,7 @@
                       <i class='bx bxs-minus-circle bx-lg' style='color:#fa8c16; font-size: 1.5rem'></i>
                     </a>
                     <span>{{quatity}}</span>
-                    <a class="px-2" (click)="addQuality()"  >
+                    <a class="px-2" (click)="addQuality()">
                       <i class='bx bxs-plus-circle bx-lg'
                          style='color:#fa8c16'></i>
                     </a>

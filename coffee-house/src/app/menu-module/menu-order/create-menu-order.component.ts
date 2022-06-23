@@ -171,11 +171,18 @@ export class MenuOrderComponent implements OnInit, OnDestroy {
 
   // Cộng số lượng sản phẩm
   addQuality() {
-    if (this.quatity === this.product.quatityProduct) {
-      this.message = 'Vui lòng đặt tối thiểu ' + this.product.quatityProduct + ' sản phẩm';
-      document.getElementById('noti').hidden = false;
+    if(this.checkProductEx) {
+      if (this.quatity === this.product.quatityProduct) {
+        this.message = 'Vui lòng đặt tối thiểu ' + this.product.quatityProduct + ' sản phẩm';
+        document.getElementById('noti').hidden = false;
+        this.checkProductEx = true;
+      } else {
+        this.quatity = this.quatity + 1;
+      }
     } else {
-      this.quatity = this.quatity + 1;
+      this.message = 'Sản phẩm đã hết vui lòng chọn món khác';
+      document.getElementById('noti').hidden = false;
+      this.checkProductEx = false;
     }
   }
 
@@ -188,6 +195,7 @@ export class MenuOrderComponent implements OnInit, OnDestroy {
 
   // Get product by ID
   getProductById(id: number) {
+    this.quatity = 1;
     this.menuService.findByIdProduct(id).subscribe(
       (data) => {
         if (data) {
@@ -231,16 +239,20 @@ export class MenuOrderComponent implements OnInit, OnDestroy {
       order: {idOrder: this.idOrder},
       product: {idProduct: idProduct}
     };
-    console.log(orderDetail);
-    if (orderDetail) {
-      this.menuService.saveOrderDetail(orderDetail).subscribe(
-        data => {
-          alert('Thêm món thành công');
-          this.ngOnInit();
-        }, error => {
-          console.log(error);
-        }
-      );
+    if(this.product.quatityProduct > 0) {
+      if (orderDetail) {
+        this.menuService.saveOrderDetail(orderDetail).subscribe(
+          data => {
+            this.ngOnInit();
+          }, error => {
+            console.log(error);
+          }
+        );
+      }
+    } else {
+      this.message = 'Sản phẩm đã hết vui lòng chọn món khác';
+      document.getElementById('noti').hidden = false;
+      this.checkProductEx = false;
     }
   }
 

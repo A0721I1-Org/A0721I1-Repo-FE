@@ -345,6 +345,18 @@ button:active , button:focus {
   font-weight: 600;
 }
 
+#noti{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.5rem;
+  width: 450px;
+  animation-name: noti;
+  animation-duration: 1s;
+  z-index: 100000;
+}
+
 /* Responsive */
 /* Phone */
 @media (max-width: 739px) {
@@ -397,17 +409,6 @@ button:active , button:focus {
 
   .menu__item-left-area .footer .info {
     text-align: center;
-  }
-  #noti{
-    position: absolute;
-    margin-left: auto;
-    margin-right: auto;
-    left: 0;
-    right: 0;
-    text-align: center;
-    animation-name: noti;
-    animation-duration: 1s;
-    z-index: 100000;
   }
 }
 
