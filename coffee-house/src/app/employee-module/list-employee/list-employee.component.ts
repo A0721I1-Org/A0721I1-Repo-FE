@@ -13,6 +13,7 @@ export class ListEmployeeComponent implements OnInit {
   employeeList: Employee[] = [];
   employee: Employee;
   searchForm: FormGroup;
+  message = this.employeeService.message;
   p = 0;
 
   constructor(private employeeService: EmployeeService, private activatedRoute: ActivatedRoute, private router: Router) {
