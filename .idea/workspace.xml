@@ -114,7 +114,31 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
 >>>>>>> origin/employee-management
   <component name="PropertiesComponent">
+<<<<<<< HEAD
+<<<<<<< Updated upstream
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+=======
+    <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
+>>>>>>> Stashed changes
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+<<<<<<< HEAD
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+=======
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/coffee-house/src/app/table-module/create-table/img" />
+>>>>>>> eba76ca43e93abb19ee49367b34b1baa2ffbabe4
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+<<<<<<< HEAD
+=======
     <property name="last_opened_file_path" value="$PROJECT_DIR$/coffee-house" />
+>>>>>>> origin/employee-management
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
 >>>>>>> 4b05b46e53ada75f8b492e2ca804d5ad6be3abc0
@@ -137,6 +161,7 @@
       <updated>1655399150044</updated>
       <workItem from="1655399154698" duration="862000" />
       <workItem from="1655424894282" duration="476000" />
+<<<<<<< Updated upstream
       <workItem from="1655429812501" duration="4681000" />
 =======
       <updated>1654532833012</updated>
@@ -168,7 +193,13 @@
       <workItem from="1655224080691" duration="5348000" />
       <workItem from="1655268300941" duration="2839000" />
 >>>>>>> eba76ca43e93abb19ee49367b34b1baa2ffbabe4
+<<<<<<< HEAD
 >>>>>>> 4b05b46e53ada75f8b492e2ca804d5ad6be3abc0
+=======
+=======
+      <workItem from="1655429812501" duration="5104000" />
+>>>>>>> Stashed changes
+>>>>>>> b19c912 (DanHB)
     </task>
     <servers />
   </component>
@@ -189,9 +220,10 @@
     </option>
 =======
   <component name="WindowStateProjectService">
-    <state x="261" y="94" key="Vcs.Push.Dialog.v2" timestamp="1655434218327">
+    <state x="261" y="94" key="Vcs.Push.Dialog.v2" timestamp="1655434753718">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
+<<<<<<< Updated upstream
     <state x="261" y="94" key="Vcs.Push.Dialog.v2/0.0.1536.864@0.0.1536.864" timestamp="1655434218327" />
 =======
     <option name="version" value="3" />
@@ -224,7 +256,16 @@
     <state x="441" y="107" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1654791066803" />
     <state x="496" y="127" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1654532884916" />
 >>>>>>> eba76ca43e93abb19ee49367b34b1baa2ffbabe4
+<<<<<<< HEAD
 >>>>>>> 4b05b46e53ada75f8b492e2ca804d5ad6be3abc0
+<<<<<<< HEAD
+=======
+=======
+    <state x="261" y="94" key="Vcs.Push.Dialog.v2/0.0.1536.864@0.0.1536.864" timestamp="1655434753718" />
+>>>>>>> Stashed changes
+>>>>>>> b19c912 (DanHB)
+=======
+>>>>>>> origin/employee-management
 >>>>>>> origin/employee-management
   </component>
 </project>

@@ -32,7 +32,7 @@
             <div class="col-md-6" *ngFor="let product of products">
               <div class="menu__item">
                 <div class="menu__item-img-group">
-                  <img src="./assets/img/coffee.jpg" alt="">
+                  <img src="./assets/img/bac-xiu.jpg" alt="">
                 </div>
 
                 <div class="menu__item-body">
@@ -126,6 +126,12 @@
                       </ul>
                     </ng-container>
                   </div>
+
+                  <div *ngIf="order.totalOrder" class="total-price">
+                    <span>Tổng tiền: </span>
+                    <h3>{{order.totalOrder| number:'1.0'}} Đ</h3>
+                  </div>
+
                   <div class="menu__item-function">
                     <button class="button" data-toggle="modal" data-target="#deleteModal">Xoá món</button>
 
@@ -134,12 +140,39 @@
                     <button type="button" class="button" data-toggle="modal" data-target="#paymentModal">
                       Tính tiền
                     </button>
+
+                    <button type="button" class="button" data-toggle="modal" data-target="#backModal">
+                      Trở lại
+                    </button>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Back -->
+<div class="modal fade" id="backModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Gọi món</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Bạn có muốn trở lại trang trước không?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" routerLink="/table/active"
+                style="background: #fa8c16">Đồng ý
+        </button>
       </div>
     </div>
   </div>
