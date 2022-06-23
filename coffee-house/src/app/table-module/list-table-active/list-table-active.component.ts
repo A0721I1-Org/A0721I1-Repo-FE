@@ -12,7 +12,7 @@ import {TokenStorageService} from '../../login-module/service/token-storage.serv
 })
 export class ListTableActiveComponent implements OnInit {
   tables: Table[];
-  employee: Employee; // dữ liệu cứng  . chờ a hoàng code để lấy idEmployee
+  employee: Employee;
   dateOrder: string;
   /* Lưu giá trị idOrder */
   idOrder: number;

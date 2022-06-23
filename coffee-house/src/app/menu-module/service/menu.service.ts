@@ -125,11 +125,12 @@ export class MenuService {
 
   /* Payment */
   handlePaymentForOrder(idTable: number): Observable<Oder> {
-    return this.httpClient.patch<Oder>(`${API_URL}/table/${idTable}/payment` , {});
+    // @ts-ignore
+    return this.httpClient.patch<any>(`${API_URL}/table/${idTable}/payment`);
   }
 
   /* Delete food */
-  handleDeleteFood(idOrderDetail: any , idOrder: any):Observable<OderDetail> {
+  handleDeleteFood(idOrderDetail: any , idOrder: any): Observable<OderDetail> {
     return this.httpClient.delete<OderDetail>(`${API_URL}/table/delete/${idOrderDetail}/${idOrder}`);
   }
 }

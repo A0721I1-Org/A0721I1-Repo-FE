@@ -27,9 +27,9 @@
           </tr>
         </ng-template>
         <tr>
-         <!-- <td>
-            <button type="button" class="btn btn-warning" (click)="handlePayment(idTable)">Tính Tiền</button>
-          </td>-->
+          <!-- <td>
+             <button type="button" class="btn btn-warning" (click)="handlePayment(idTable)">Tính Tiền</button>
+           </td>-->
           <td>
             <button type="button" data-toggle="modal" [attr.data-target]="'#handlePayment' + idTable"
                     class="btn btn-warning">Tính tiền
@@ -56,9 +56,6 @@
             </div>
           </div>
           <td></td>
-          <!-- <td>
-             <button type="button" class="btn btn-outline-warning" (click)="cancelTable(idTable)">Hủy bàn</button>
-           </td>-->
           <td>
             <button type="button" data-toggle="modal" [attr.data-target]="'#cancelTable' + idTable"
                     class="btn btn-outline-warning">Hủy bàn

@@ -4,6 +4,7 @@ import {TableService} from '../service/table.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {OrderDetailMenuDTO} from '../../model/OrderDetailMenuDTO';
 import {Oder} from '../../model/oder';
+import {TokenStorageService} from '../../login-module/service/token-storage.service';
 
 @Component({
   selector: 'app-detail-table',
@@ -16,12 +17,14 @@ export class DetailTableComponent implements OnInit {
   codeTable: string;
   totalOrder: number;
   table: Table;
+  idOrder: number;
 
   orderDTO: OrderDetailMenuDTO[];
 
   constructor(private tableService: TableService,
               private activatedRouter: ActivatedRoute,
               private router: Router,
+              private  tokenStorageService: TokenStorageService
   ) {
   }
 
@@ -57,4 +60,5 @@ export class DetailTableComponent implements OnInit {
       this.router.navigateByUrl('table/active');
     });
   }
+
 }

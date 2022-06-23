@@ -83,7 +83,7 @@ export class TableService {
   /* Bin TK */
   payment(idTable: number): Observable<any> {
     // @ts-ignore
-    return this.httpClient.put<any>(`${API_URL}/menu/table/${idTable}/payment`);
+    return this.httpClient.patch<any>(`${API_URL}/menu/table/${idTable}/payment`);
   }
 
   /* //Quang code getAllStatus*/
