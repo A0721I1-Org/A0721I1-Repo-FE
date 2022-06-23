@@ -10,6 +10,7 @@
   left: 0;
   right: 0;
   z-index: 1000;
+  padding-right: 200px;
 }
 
 .header .logo img{
@@ -24,10 +25,37 @@
 
 .header .navbar a:hover{
   color:var(--main-color);
-  border-bottom: .1rem solid var(--main-color);
+  /*border-bottom: .1rem solid var(--main-color);*/
   padding-bottom: .5rem;
   text-decoration: underline;
   cursor: pointer;
+}
+
+.adminList:hover{
+  color:var(--main-color);
+  /*border-bottom: .1rem solid var(--main-color);*/
+  padding-bottom: .5rem;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.btn-login{
+  margin-top: 1rem;
+  display: inline-block;
+  padding:.9rem 3rem;
+  font-size: 1.7rem;
+  color:#fff;
+  background: black;
+  cursor: pointer;
+}
+
+.btn-login:hover{
+  background-color: var(--main-color);
+  color: black !important;
+}
+
+.header .icons{
+  display: flex;
 }
 
 .header .icons div{
@@ -45,6 +73,24 @@
   margin: 0;
 }
 
+.icons{
+  align-items: center;
+}
+
+.dropdown a{
+  margin: 0;
+}
+
+.noidung_dropdown {
+  /*Ẩn nội dụng các đường dẫn*/
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
 .noidung_dropdown a{
   background-color: black;
   color: rgb(236, 155, 68);
@@ -55,7 +101,20 @@
 }
 
 .hienThi{
-  display:block;
+  display: flex;
+  font-size: 15px;
+  flex-direction: column;
+  width: 200px;
+}
+
+.hienThi a{
+  font-size: 18px;
+  padding-block: 12px;
+  padding-inline: 14px;
+}
+
+.hienThi a:hover{
+  text-decoration: none;
 }
 
 .noi_dropdown {
@@ -80,6 +139,6 @@
 
 .inRa a:hover{
   color: black;
-  padding: 12px 16px;
   text-decoration: none !important;
+  padding-bottom: 12px !important;
 }

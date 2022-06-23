@@ -12,11 +12,9 @@ import {ReactiveFormsModule} from '@angular/forms';
 @NgModule({
   declarations: [
     LoginComponent,
-    HeaderComponent
   ],
   exports: [
     LoginComponent,
-    HeaderComponent
   ],
     imports: [
         CommonModule,

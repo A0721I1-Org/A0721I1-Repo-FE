@@ -32,8 +32,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.isLogin = this.tokenStorageService.getUser().id ? true : false;
-    console.log(this.isLogin);
+    // this.isLogin = this.tokenStorageService.getUser().id ? true : false;
     this.findAllNew();
     this.findAllCart();
     this.getPositionById();
@@ -71,12 +70,14 @@ export class HomeComponent implements OnInit {
   }
 // HauLST - làm menu quản lí nhân viên
   getPositionById() {
-    this.idUser = this.tokenStorageService.getUser().id;
-    console.log(this.idUser);
-    this.employeeService.findByIdUser(this.idUser).subscribe(
-      (data) => {
-        this.employee = data;
-      }
-    );
+    if (this.tokenStorageService.getUser()){
+      this.idUser = this.tokenStorageService.getUser().id;
+      console.log(this.idUser);
+      this.employeeService.findByIdUser(this.idUser).subscribe(
+        (data) => {
+          this.employee = data;
+        }
+      );
+    }
   }
 }

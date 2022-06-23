@@ -12,12 +12,14 @@ import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {EmployeeModuleModule} from './employee-module/employee-module.module';
 import {FeedbackModuleModule} from './feedback-module/feedback-module.module';
+import {HeaderComponent} from './login-module/header/header.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
