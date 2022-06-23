@@ -25,13 +25,13 @@ export class CreateFeedbackComponent implements OnInit {
     namePeopleFeedback: new FormControl('', [Validators.required, Validators.pattern("^[a-zA-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂẾưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\\s\\W|_]+")]),
     emailPeopleFeedback: new FormControl('', [Validators.required, Validators.email]),
     imageFeedback: new FormControl('', [Validators.required])
-  })
+  });
 
   constructor(private feedBackService: FeedbackService,
               private router: Router,
               @Inject(AngularFireStorage) private storage: AngularFireStorage) { }
 
-  validation_messages = {
+  VALIDATE_MESSAGES = {
     contentFeedback: [
       {type: 'required', message: 'Phản hồi không được để trống'}
     ],

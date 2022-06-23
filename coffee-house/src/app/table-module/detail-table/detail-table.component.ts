@@ -6,6 +6,7 @@ import {OrderDetailMenuDTO} from '../../model/OrderDetailMenuDTO';
 import {Oder} from '../../model/oder';
 import {TokenStorageService} from '../../login-module/service/token-storage.service';
 
+
 @Component({
   selector: 'app-detail-table',
   templateUrl: './detail-table.component.html',
@@ -23,8 +24,8 @@ export class DetailTableComponent implements OnInit {
 
   constructor(private tableService: TableService,
               private activatedRouter: ActivatedRoute,
-              private router: Router,
-              private  tokenStorageService: TokenStorageService
+              private  tokenStorageService: TokenStorageService,
+              private router: Router
   ) {
   }
 
@@ -61,4 +62,10 @@ export class DetailTableComponent implements OnInit {
     });
   }
 
+  redirectOrderPage(idTable: number) {
+    this.tableService.findOrderByTableId(idTable).subscribe(data => {
+      this.idOrder = data.idOrder;
+      this.router.navigate(['../menu/menu-order-child', idTable, this.idOrder]);
+    });
+  }
 }

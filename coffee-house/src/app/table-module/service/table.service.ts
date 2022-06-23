@@ -86,6 +86,9 @@ export class TableService {
     return this.httpClient.patch<any>(`${API_URL}/menu/table/${idTable}/payment`);
   }
 
+  findOrderByTableId(idTable: number): Observable<Oder> {
+    return this.httpClient.get<Oder>(`${API_URL}/manager/order/${idTable}`);
+  }
   /* //Quang code getAllStatus*/
   getAllStatus(): Observable<Status[]> {
     return this.httpClient.get<Status[]>(API_URL + '/manager/findAllStatus');
