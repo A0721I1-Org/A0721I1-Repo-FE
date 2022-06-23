@@ -24,9 +24,9 @@ export class CreateEmployeeComponent implements OnInit {
       phoneEmployee: new FormControl('', [Validators.required, Validators.pattern(/^(0?)(3[2-9]|5[6|8|9]|7[0|6-9]|8[0-6|8|9]|9[0-4|6-9])[0-9]{7}$/)]),
       genderEmployee: new FormControl('', Validators.required),
       dateOfBirthEmployee: new FormControl('', Validators.required),
-      salaryEmployee: new FormControl('', [Validators.required, Validators.min(100000)]),
+      salaryEmployee: new FormControl('', [Validators.required]),
       position: new FormControl('', Validators.required),
-      user: new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]+$/)]),
+      user: new FormControl('', [Validators.required,Validators.minLength(6 ), Validators.pattern(/^(?!.*admin)+(?!.*root).*$/)]),
     });
 
     this.getAllPosition();
@@ -43,9 +43,7 @@ export class CreateEmployeeComponent implements OnInit {
   }
 
   createSubmit() {
-    console.log('aaaaaa');
     if (this.createEmployeeForm.valid) {
-      console.log('bbbbbbbbb');
       const employee = this.createEmployeeForm.value;
       const user = {
         username: employee.user,
@@ -68,7 +66,8 @@ export class CreateEmployeeComponent implements OnInit {
 
         },
         () => {
-          this.router.navigateByUrl('/home');
+          this.employeeService.message = 'thêm mới thành công ' + employee.nameEmployee;
+          this.router.navigateByUrl('/employee/list');
         },
       );
     }
