@@ -10,3 +10,6 @@ function hamDropdown() {
 function noiDropdown() {
   document.querySelector(".noi_dropdown").classList.toggle("inRa");
 }
+function noiDropdown() {
+  document.querySelector(".noi_dropdown").classList.toggle("inRa");
+}

@@ -48,7 +48,7 @@ const routes: Routes = [
   {
     path: '', component: HomeComponent
   },
-  // { path: '**', redirectTo: '/login/authentication' }
+  { path: '**', redirectTo: '/login/authentication' }
 ];
 
 @NgModule({

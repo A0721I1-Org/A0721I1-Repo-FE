@@ -1,4 +1,6 @@
+
 <!-- header section starts  -->
+
 <header class="header">
 
   <a href="#" class="logo">
@@ -7,6 +9,7 @@
 
 
   <nav class="navbar" >
+
     <a href="#home">Trang chủ</a>
     <a href="#about">Giới thiệu</a>
     <a href="#menu">Sản phẩm</a>
@@ -16,7 +19,17 @@
       <a style="font-size: 1.6em; background: black; margin-left: 1.2rem;color: white" onclick="noiDropdown()">Quản
         lý
       </a>
+
+<!--    <a href="/home#home">Trang chủ</a>-->
+<!--    <a href="/home#about">Giới thiệu</a>-->
+<!--    <a href="/home#menu">Sản phẩm</a>-->
+<!--    <a href="/home#review">Đánh giá</a>-->
+<!--    <a href="/home#contact">Liên hệ</a>-->
+    <div class="dropdown" *ngIf="tokenStorageService.getUser()">
+      <button style="font-size: 1.6em; background: black; margin-left: 1.2rem;color: white" onclick="noiDropdown()" >Quản lý</button>
+
       <div class="noi_dropdown">
+        <a href="/employee/list" *ngIf="employee.position?.namePosition =='Quản lý'"><span>EMPLOYEE</span></a>
         <a href="#">PRODUCT</a>
         <a href="#">TABLE</a>
         <a href="#">SERVICE</a>
@@ -25,10 +38,13 @@
         <a href="#">FEEDBACK</a>
       </div>
     </div>
+    </div>
+
 
 
     <!--    <a routerLink="/"><span *ngIf="employee.position?.namePosition == 'Quản lý'">Quản lý</span></a>-->
     <!--    <a href="/employee/list" *ngIf="employee.position?.namePosition =='Quản lý'"><span>Quản lý Nhân viên</span></a>-->
+
   </nav>
 
   <div class="icons">
@@ -45,6 +61,8 @@
       </div>
     </div>
   </div>
+
+
 </header>
 <!-- home section starts  -->
 <section class="home" id="home">
