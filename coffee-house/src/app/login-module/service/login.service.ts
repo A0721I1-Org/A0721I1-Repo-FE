@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {User} from '../../model/user';
 
+// @ts-ignore
 import {JwtHelperService} from '@auth0/angular-jwt';
 
 @Injectable({

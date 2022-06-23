@@ -6,6 +6,7 @@ import {TokenStorageService} from '../login-module/service/token-storage.service
 import {Router} from '@angular/router';
 import {Employee} from '../model/employee';
 import {EmployeeService} from '../employee-module/service/employee.service';
+import {User} from '../model/user';
 
 @Component({
   selector: 'app-home',
@@ -19,6 +20,8 @@ export class HomeComponent implements OnInit {
   productsCart: Product[];
   employee: Employee;
   idUser: number;
+  isLogin = false;
+
 
   constructor(
     private service: ProductService,
@@ -29,6 +32,8 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    // this.isLogin = this.tokenStorageService.getUser().id ? true : false;
+    // console.log(this.isLogin);
     this.findAllNew();
     this.findAllCart();
     this.getPositionById();

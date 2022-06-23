@@ -1,17 +1,17 @@
 <div class="main" >
   <div class="container-flutter">
     <div class="table-title">
-      <h2>Danh sách nhân viên</h2>
+      <h1 style="font-size: 35px !important;">Danh sách nhân viên</h1>
     </div>
 
     <div class="row justify-content-between align-items-center">
       <div class="col-2">
-        <button class="learn-more button">
+        <button class="learn-more button1">
                     <span class="circle" aria-hidden="true">
                     <span class="icon arrow">
                     </span>
                     </span>
-          <span class="button-text" routerLink="/employee/create">Thêm mới nhân viên</span>
+          <span class="button-text button1" routerLink="/employee/create" style="font-size: 18px ! important" >Thêm mới nhân viên</span>
         </button>
       </div>
       <div class="col-10">
@@ -21,11 +21,13 @@
           <input type="text" class="form-control ml-3" placeholder="Họ và tên" formControlName="name">
           <input type="text" class="form-control ml-3" placeholder="Số điện thoại" formControlName="phone">
           <button class="ml-3 button__1" data-target="#searchError" data-toggle="modal" (click)="searchEmployee()">
-            <i class="fa-solid fa-magnifying-glass"></i>
+<!--            <i class="fa-solid fa-magnifying-glass"></i>-->
+            <i class='bx bx-search'></i>
           </button>
         </form>
       </div>
     </div>
+    <p class="text-success">{{message}}</p>
     <table class="table">
       <tr>
         <th>STT</th>
