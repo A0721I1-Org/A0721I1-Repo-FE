@@ -15,27 +15,27 @@
             <div class="header-content">
               <h1>Chỉnh sửa thông tin nhân viên</h1>
             </div>
-            <div class="form-group">
-              <span class="form-label">Tên tài khoản<i class="text-danger">(*)</i></span>
-              <input class="form-control" formControlName="user" type="text">
-              <span class="select-arrow"></span>
-              <p style="color: red" *ngIf="(editEmployeeForm.get('user').hasError('required') && editEmployeeForm.get('user').touched)">
-                <i>Không được để trống!</i>
-              </p>
-              <p style="color: red" *ngIf="(editEmployeeForm.get('user').hasError('pattern') && editEmployeeForm.get('user').touched)">
-                <i>không được chứa các kí tự đặc biệt!</i>
-              </p>
-            </div>
+<!--            <div class="form-group">-->
+<!--              <span class="form-label">Tên tài khoản<i class="text-danger">(*)</i></span>-->
+<!--              <input class="form-control" formControlName="user" type="text">-->
+<!--              <span class="select-arrow"></span>-->
+<!--              <p style="color: red" *ngIf="(editEmployeeForm.get('user').hasError('required') && editEmployeeForm.get('user').touched)">-->
+<!--                <i>Không được để trống!</i>-->
+<!--              </p>-->
+<!--              <p style="color: red" *ngIf="(editEmployeeForm.get('user').hasError('pattern') && editEmployeeForm.get('user').touched)">-->
+<!--                <i>không được chứa các kí tự đặc biệt!</i>-->
+<!--              </p>-->
+<!--            </div>-->
             <div class="form-group">
               <span class="form-label">Họ và tên<i class="text-danger">(*)</i></span>
               <input class="form-control" type="text" formControlName="nameEmployee">
               <span class="select-arrow"></span>
               <p style="color: red" *ngIf="(editEmployeeForm.get('nameEmployee').hasError('required')
               && editEmployeeForm.get('nameEmployee').touched)">
-                <i>Không được để trống!</i>
+                <i>họ và tên Không được để trống!</i>
               </p>
-              <p style="color: red" *ngIf="(editEmployeeForm.get('nameEmployee').hasError('pattern') && editEmployeeForm.get('user').touched)">
-                <i>sai định dạng!</i>
+              <p style="color: red" *ngIf="(editEmployeeForm.get('nameEmployee').hasError('pattern') && editEmployeeForm.get('nameEmployee').touched)">
+                <i>họ và tên sai định dạng!</i>
               </p>
             </div>
             <div class="form-group">
@@ -44,7 +44,7 @@
               <span class="select-arrow"></span>
               <p style="color: red" *ngIf="(editEmployeeForm.get('addressEmployee').hasError('required')
               && editEmployeeForm.get('addressEmployee').touched)">
-                <i>Không được để trống!</i>
+                <i>địa chỉ Không được để trống!</i>
               </p>
             </div>
             <div class="row">
@@ -55,7 +55,7 @@
                   <span class="select-arrow"></span>
                   <p style="color: red" *ngIf="(editEmployeeForm.get('dateOfBirthEmployee').hasError('required')
               && editEmployeeForm.get('dateOfBirthEmployee').touched)">
-                    <i>Không được để trống!</i>
+                    <i>ngày sinh Không được để trống!</i>
                   </p>
                 </div>
               </div>
@@ -70,7 +70,7 @@
                   <span class="select-arrow"></span>
                   <p style="color: red" *ngIf="(editEmployeeForm.get('genderEmployee').hasError('required')
               && editEmployeeForm.get('genderEmployee').touched)">
-                    <i>Không được để trống!</i>
+                    <i>giới tính Không được để trống!</i>
                   </p>
                 </div>
               </div>
@@ -83,12 +83,12 @@
                   <span class="select-arrow"></span>
                   <p style="color: red" *ngIf="(editEmployeeForm.get('salaryEmployee').hasError('required')
               && editEmployeeForm.get('salaryEmployee').touched)">
-                    <i>Không được để trống!</i>
+                    <i>lương Không được để trống!</i>
                   </p>
-                  <p style="color: red" *ngIf="(editEmployeeForm.get('salaryEmployee').hasError('min')
-              && editEmployeeForm.get('salaryEmployee').touched)">
-                    <i>lương thấp nhất là 100,000!</i>
-                  </p>
+<!--                  <p style="color: red" *ngIf="(editEmployeeForm.get('salaryEmployee').hasError('min')-->
+<!--              && editEmployeeForm.get('salaryEmployee').touched)">-->
+<!--                    <i>lương thấp nhất là 100,000!</i>-->
+<!--                  </p>-->
                 </div>
               </div>
               <div class="col-md-6">
@@ -120,7 +120,7 @@
             </div>
             <div class="row">
               <div class="form-btn col-md-6">
-                <a routerLink='/home'><button class="submit-btn" type="button">Trở về</button></a>
+                <button routerLink='/employee/list' class="submit-btn" type="button">Trở về</button>
               </div>
               <div class="form-btn col-md-6">
                 <button class="submit-btn" type="submit">Chỉnh sửa</button>
