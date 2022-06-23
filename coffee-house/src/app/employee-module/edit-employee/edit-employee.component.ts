@@ -6,6 +6,7 @@ import {EmployeeService} from '../service/employee.service';
 import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 import {Employee} from '../../model/employee';
 import {User} from '../../model/user';
+import {checkAgeEdit} from "./validate/checkAgeEdit";
 
 
 @Component({
@@ -55,7 +56,7 @@ export class EditEmployeeComponent implements OnInit {
       addressEmployee:  ['', Validators.required],
       phoneEmployee: ['', [Validators.required,Validators.pattern(/^(0?)(3[2-9]|5[6|8|9]|7[0|6-9]|8[0-6|8|9]|9[0-4|6-9])[0-9]{7}$/)]],
       genderEmployee:  ['', Validators.required],
-      dateOfBirthEmployee:  ['', Validators.required],
+      dateOfBirthEmployee:  ['', [Validators.required,checkAgeEdit]],
       salaryEmployee: ['', [Validators.required]],
       position:  ['', Validators.required],
       user:  ['', [Validators.required,Validators.minLength(6 ), Validators.pattern(/^(?!.*admin)+(?!.*root).*$/)]],
