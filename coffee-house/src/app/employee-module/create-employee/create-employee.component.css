@@ -1,6 +1,6 @@
 .section {
   position: relative;
-  height: 100vh;
+  height: 130vh;
 }
 .section .section-center {
   position: absolute;
@@ -181,6 +181,20 @@
   width: 100%;
   color: #fff;
   background-color: rgba(236, 155, 68, 1);
+  font-weight: 700;
+  font-size: 18px;
+  border: none;
+  border-radius: 40px;
+  height: 55px;
+  -webkit-transition: 0.2s all;
+  transition: 0.2s all;
+}
+
+.invalid-btn{
+  display: block;
+  width: 100%;
+  color: #fff;
+  background-color: rgba(236, 155, 68, 0.7);
   font-weight: 700;
   font-size: 18px;
   border: none;
