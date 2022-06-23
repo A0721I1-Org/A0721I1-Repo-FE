@@ -44,3 +44,8 @@
 /*  animation-name: noti;*/
 /*  animation-duration: 1s;*/
 /*}*/
+body {
+  background: url("src/assets/images/home-img.jpeg") no-repeat;
+  background-size: 100% 600px;
+  height: 600px;
+}

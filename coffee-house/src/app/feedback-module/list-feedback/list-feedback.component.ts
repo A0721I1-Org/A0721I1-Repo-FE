@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 import {Feedback} from '../../model/feedback';
 import {FeedbackService} from '../service/feedback.service';
@@ -16,22 +16,24 @@ export class ListFeedbackComponent implements OnInit {
   feedbackList: Feedback[] = [];
   feedbackDetail: Feedback = {
     idFeedback: 0,
-  codeFeedback: '',
-  dateFeedback: '',
-  contentFeedback: '',
-  namePeopleFeedback: '',
-  emailPeopleFeedback: '',
-  imageFeedback: '',
+    codeFeedback: '',
+    dateFeedback: '',
+    contentFeedback: '',
+    namePeopleFeedback: '',
+    emailPeopleFeedback: '',
+    imageFeedback: '',
   };
   date: String;
-  indexPagination: number = 1;
+  indexPagination = 1;
   totalPagination: number;
   listFeedbackNotPagination: Feedback[] = [];
   public searchFeedback: FormGroup;
-  message: boolean = false;
+  message = false;
+
   constructor(private feedbackService: FeedbackService,
               private activatedRoute: ActivatedRoute,
-              private fb: FormBuilder) { }
+              private fb: FormBuilder) {
+  }
 
   ngOnInit(): void {
     this.getAll();
@@ -54,11 +56,11 @@ export class ListFeedbackComponent implements OnInit {
         console.log(typeof feedbackList);
         console.log(this.indexPagination);
       }
-    })
+    });
   }
 
   getDetailFeedback(id: number) {
-    this.feedbackService.findById(id).subscribe( feedback => {
+    this.feedbackService.findById(id).subscribe(feedback => {
       this.feedbackDetail = feedback;
     });
 
@@ -68,39 +70,40 @@ export class ListFeedbackComponent implements OnInit {
     this.feedbackService.getAllNotPagination().subscribe(feedbackList => {
       this.listFeedbackNotPagination = feedbackList;
       if ((this.listFeedbackNotPagination.length % 10) != 0) {
-        this.totalPagination = (Math.round(this.listFeedbackNotPagination.length /10)) + 1;
+        this.totalPagination = (Math.round(this.listFeedbackNotPagination.length / 10)) + 1;
       }
       console.log(this.totalPagination);
-    })
+    });
   }
 
   search() {
-    this.feedbackService.getFeedbackByDate(this.searchFeedback.value.date,0).subscribe(feedbackList => {
+    this.feedbackService.getFeedbackByDate(this.searchFeedback.value.date, 0).subscribe(feedbackList => {
       if (feedbackList == null) {
         this.message = true;
       } else {
         this.message = false;
         this.feedbackList = feedbackList['content'];
       }
-    })
+    });
     this.feedbackService.getFeedbackByDateNotPagination(this.searchFeedback.value.date).subscribe(feedbackList => {
       if (feedbackList == null) {
         this.message = true;
       } else {
         this.message = false;
         this.listFeedbackNotPagination = feedbackList;
+        // tslint:disable-next-line:triple-equals
         if ((this.listFeedbackNotPagination.length % 10) != 0) {
           this.totalPagination = (Math.round(this.listFeedbackNotPagination.length / 10)) + 1;
         }
         console.log(this.totalPagination);
       }
-    })
+    });
   }
 
   findPagination() {
     this.feedbackService.getAll(this.indexPagination - 1).subscribe(feedbackList => {
       this.feedbackList = feedbackList['content'];
-    })
+    });
   }
 
   indexPaginationChange(value) {
@@ -122,18 +125,18 @@ export class ListFeedbackComponent implements OnInit {
       this.feedbackList = feedbackList['content'];
       console.log(this.indexPagination);
       console.log(this.feedbackList);
-    })
+    });
   }
 
   previousPage() {
-    this.indexPagination = this.indexPagination -1;
+    this.indexPagination = this.indexPagination - 1;
     if (this.indexPagination == 0) {
       this.indexPagination = 1;
       this.ngOnInit();
     } else {
       this.feedbackService.getAll(this.indexPagination - 1).subscribe(feedbackList => {
         this.feedbackList = feedbackList['content'];
-      })
+      });
     }
   }
 
@@ -141,6 +144,6 @@ export class ListFeedbackComponent implements OnInit {
     this.indexPagination = this.totalPagination;
     this.feedbackService.getAll(this.indexPagination - 1).subscribe(feedbackList => {
       this.feedbackList = feedbackList['content'];
-    })
+    });
   }
 }

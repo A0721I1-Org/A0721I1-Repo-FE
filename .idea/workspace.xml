@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+<<<<<<< HEAD
+    <list default="true" id="17545742-62f2-45e3-9df0-e76d6d9ee38d" name="Default Changelist" comment="" />
+=======
+<<<<<<< HEAD
+    <list default="true" id="17545742-62f2-45e3-9df0-e76d6d9ee38d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/employee-module/list-employee/list-employee.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/src/app/employee-module/list-employee/list-employee.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/employee-module/list-employee/list-employee.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/src/app/employee-module/list-employee/list-employee.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/employee-module/list-employee/list-employee.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/src/app/employee-module/list-employee/list-employee.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/employee-module/service/employee.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/src/app/employee-module/service/employee.service.ts" afterDir="false" />
+=======
+<<<<<<< HEAD
+    <list default="true" id="3a3925d4-fb4b-4c68-a667-9ecec32557b4" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+=======
+
+    <list default="true" id="17545742-62f2-45e3-9df0-e76d6d9ee38d" name="Default Changelist" comment="" />
+      <change afterPath="$PROJECT_DIR$/coffee-house/src/app/table-module/detail-table/img/login-background.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coffee-house/src/app/table-module/detail-table/img/table.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee-house/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/table-module/detail-table/detail-table.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/src/app/table-module/detail-table/detail-table.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/table-module/detail-table/detail-table.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/src/app/table-module/detail-table/detail-table.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee-house/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/src/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/coffee-house/src/app/table-module/create-table/img/hinh-anh-ly-cafe-dep-1.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee-house/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/angular.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/table-module/create-table/create-table.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/src/app/table-module/create-table/create-table.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/table-module/create-table/create-table.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/src/app/table-module/create-table/create-table.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/table-module/create-table/create-table.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/src/app/table-module/create-table/create-table.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/table-module/service/table.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/src/app/table-module/service/table.service.ts" afterDir="false" />
+
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+
+      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/table-module/table-module.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/src/app/table-module/table-module.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee-house/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/src/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee-house/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/src/styles.css" afterDir="false" />
+
+>>>>>>> eba76ca43e93abb19ee49367b34b1baa2ffbabe4
+>>>>>>> 4b05b46e53ada75f8b492e2ca804d5ad6be3abc0
+    </list>
+>>>>>>> origin/employee-management
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+<<<<<<< HEAD
+=======
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+<<<<<<< HEAD
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
+  </component>
+=======
+<<<<<<< HEAD
+  <component name="ProjectId" id="2AgIdk2Q4Rf44vjMRphIoAKEjmq" />
+=======
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+>>>>>>> 4b05b46e53ada75f8b492e2ca804d5ad6be3abc0
+  <component name="ProjectId" id="2AD8XG61sGB1LKYggKw3Eq5v7Ho" />
+>>>>>>> eba76ca43e93abb19ee49367b34b1baa2ffbabe4
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+<<<<<<< HEAD
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Git.Branch.Popup.ShowAllRemotes&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Files/A0721I1-TrinhQuangVinh/du-an-1/A0721I1-Repo-FE/coffee-house&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;D:\\Files\\A0721I1-TrinhQuangVinh\\du-an-1\\A0721I1-Repo-FE\\coffee-house\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+=======
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/codegym/A0721I2-NguyenNhatHuy/module6/code_fontend/A0721I1-Repo-FE/coffee-house",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "D:\\codegym\\A0721I2-NguyenNhatHuy\\module6\\code_fontend\\A0721I1-Repo-FE\\coffee-house\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+>>>>>>> origin/employee-management
+  <component name="PropertiesComponent">
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+<<<<<<< Updated upstream
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+=======
+    <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
+>>>>>>> Stashed changes
+>>>>>>> 841646832d658ac13273ea81015a5521b456a2d7
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+<<<<<<< HEAD
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../My-Project/GUI_coffee/angular-coffee-management" />
+=======
+<<<<<<< HEAD
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+=======
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/coffee-house/src/app/table-module/create-table/img" />
+>>>>>>> eba76ca43e93abb19ee49367b34b1baa2ffbabe4
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+<<<<<<< HEAD
+>>>>>>> 841646832d658ac13273ea81015a5521b456a2d7
+=======
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/coffee-house" />
+>>>>>>> origin/employee-management
+    <property name="nodejs_package_manager_path" value="npm" />
+>>>>>>> 7a28bab5cb1c991ae1bf9de0d14ff72fafb90d4e
+  </component>
+>>>>>>> 4b05b46e53ada75f8b492e2ca804d5ad6be3abc0
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+<<<<<<< HEAD
+<<<<<<< HEAD
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="17545742-62f2-45e3-9df0-e76d6d9ee38d" name="Default Changelist" comment="" />
+      <created>1654532833012</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1654532833012</updated>
+      <workItem from="1654532845616" duration="33000" />
+      <workItem from="1655437653734" duration="25000" />
+    </task>
+=======
+>>>>>>> 7a28bab5cb1c991ae1bf9de0d14ff72fafb90d4e
+=======
+>>>>>>> 841646832d658ac13273ea81015a5521b456a2d7
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+=======
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3a3925d4-fb4b-4c68-a667-9ecec32557b4" name="Default Changelist" comment="" />
+      <created>1655399150044</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+<<<<<<< HEAD
+      <updated>1655399150044</updated>
+      <workItem from="1655399154698" duration="862000" />
+      <workItem from="1655424894282" duration="476000" />
+<<<<<<< Updated upstream
+      <workItem from="1655429812501" duration="4681000" />
+=======
+      <updated>1654532833012</updated>
+      <workItem from="1654532845616" duration="33000" />
+<<<<<<< HEAD
+      <workItem from="1654604666598" duration="56000" />
+      <workItem from="1654846788448" duration="7698000" />
+      <workItem from="1654858078702" duration="9823000" />
+      <workItem from="1654916640394" duration="1302000" />
+      <workItem from="1654935173163" duration="376000" />
+      <workItem from="1655299140574" duration="656000" />
+      <workItem from="1655348751231" duration="30000" />
+      <workItem from="1655431764330" duration="5885000" />
+      <workItem from="1655446426408" duration="8604000" />
+=======
+      <workItem from="1655290314495" duration="495000" />
+      <workItem from="1655291278419" duration="756000" />
+      <workItem from="1655295983574" duration="331000" />
+      <workItem from="1654689700500" duration="345000" />
+      <workItem from="1654690078300" duration="217000" />
+      <workItem from="1654692039940" duration="14000" />
+      <workItem from="1654788910201" duration="8186000" />
+      <workItem from="1654858167725" duration="15723000" />
+      <workItem from="1654913411645" duration="6507000" />
+      <workItem from="1655001505129" duration="547000" />
+      <workItem from="1655117131383" duration="2399000" />
+      <workItem from="1655187451489" duration="6048000" />
+      <workItem from="1655209637464" duration="13198000" />
+      <workItem from="1655224080691" duration="5348000" />
+      <workItem from="1655268300941" duration="2839000" />
+>>>>>>> eba76ca43e93abb19ee49367b34b1baa2ffbabe4
+<<<<<<< HEAD
+>>>>>>> 4b05b46e53ada75f8b492e2ca804d5ad6be3abc0
+=======
+=======
+      <workItem from="1655429812501" duration="5104000" />
+>>>>>>> Stashed changes
+>>>>>>> b19c912 (DanHB)
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+<<<<<<< HEAD
+    <option name="version" value="2" />
+  </component>
+<<<<<<< HEAD
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+=======
+  <component name="WindowStateProjectService">
+    <state x="261" y="94" key="Vcs.Push.Dialog.v2" timestamp="1655434753718">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+<<<<<<< Updated upstream
+    <state x="261" y="94" key="Vcs.Push.Dialog.v2/0.0.1536.864@0.0.1536.864" timestamp="1655434218327" />
+=======
+    <option name="version" value="3" />
+    <option name="version" value="2" />
+>>>>>>> origin/employee-management
+  </component>
+  <component name="WindowStateProjectService">
+<<<<<<< HEAD
+    <state x="441" y="107" key="FileChooserDialogImpl" timestamp="1655437673960">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="441" y="107" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1655437673960" />
+    <state x="496" y="127" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1654532884916" />
+=======
+    <state x="740" y="272" key="FileChooserDialogImpl" timestamp="1655728442288">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state x="740" y="272" key="FileChooserDialogImpl/0.0.1920.1032@0.0.1920.1032" timestamp="1655728442288" />
+    <state width="1899" height="279" key="GridCell.Tab.0.bottom" timestamp="1655728443524">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state width="1899" height="279" key="GridCell.Tab.0.bottom/0.0.1920.1032@0.0.1920.1032" timestamp="1655728443524" />
+    <state width="1899" height="279" key="GridCell.Tab.0.center" timestamp="1655728443524">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state width="1899" height="279" key="GridCell.Tab.0.center/0.0.1920.1032@0.0.1920.1032" timestamp="1655728443524" />
+    <state width="1899" height="279" key="GridCell.Tab.0.left" timestamp="1655728443524">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state width="1899" height="279" key="GridCell.Tab.0.left/0.0.1920.1032@0.0.1920.1032" timestamp="1655728443524" />
+    <state width="1899" height="279" key="GridCell.Tab.0.right" timestamp="1655728443524">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+<<<<<<< HEAD
+    <state width="1899" height="279" key="GridCell.Tab.0.right/0.0.1920.1032@0.0.1920.1032" timestamp="1655728443524" />
+<<<<<<< HEAD
+>>>>>>> 7a28bab5cb1c991ae1bf9de0d14ff72fafb90d4e
+=======
+=======
+    <state x="441" y="107" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1654791066803" />
+    <state x="496" y="127" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1654532884916" />
+>>>>>>> eba76ca43e93abb19ee49367b34b1baa2ffbabe4
+<<<<<<< HEAD
+>>>>>>> 4b05b46e53ada75f8b492e2ca804d5ad6be3abc0
+<<<<<<< HEAD
+=======
+=======
+    <state x="261" y="94" key="Vcs.Push.Dialog.v2/0.0.1536.864@0.0.1536.864" timestamp="1655434753718" />
+>>>>>>> Stashed changes
+>>>>>>> b19c912 (DanHB)
+=======
+>>>>>>> origin/employee-management
+>>>>>>> origin/employee-management
+>>>>>>> 841646832d658ac13273ea81015a5521b456a2d7
+  </component>
+</project>

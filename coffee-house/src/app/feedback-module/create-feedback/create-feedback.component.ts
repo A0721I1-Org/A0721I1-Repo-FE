@@ -1,4 +1,3 @@
-
 import {Component, Inject, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {FeedbackService} from '../service/feedback.service';
@@ -72,7 +71,6 @@ export class CreateFeedbackComponent implements OnInit {
         });
       })
     ).subscribe();
-
   }
 
   showPreview(event: any) {
@@ -87,9 +85,4 @@ export class CreateFeedbackComponent implements OnInit {
   getCurrentDateTime(): string {
     return formatDate(new Date(), 'dd-MM-yyyy-hh-mm-ssa', 'en-US');
   }
-
-  // hide() {
-  //   document.getElementById('noti').hidden = true;
-  //   this.message = null;
-  // }
 }
