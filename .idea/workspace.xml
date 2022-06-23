@@ -115,15 +115,21 @@
 >>>>>>> origin/employee-management
   <component name="PropertiesComponent">
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
 <<<<<<< Updated upstream
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
 =======
     <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
 >>>>>>> Stashed changes
+>>>>>>> 841646832d658ac13273ea81015a5521b456a2d7
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+<<<<<<< HEAD
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../My-Project/GUI_coffee/angular-coffee-management" />
+=======
 <<<<<<< HEAD
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
 =======
@@ -136,10 +142,12 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
 <<<<<<< HEAD
+>>>>>>> 841646832d658ac13273ea81015a5521b456a2d7
 =======
     <property name="last_opened_file_path" value="$PROJECT_DIR$/coffee-house" />
 >>>>>>> origin/employee-management
     <property name="nodejs_package_manager_path" value="npm" />
+>>>>>>> 7a28bab5cb1c991ae1bf9de0d14ff72fafb90d4e
   </component>
 >>>>>>> 4b05b46e53ada75f8b492e2ca804d5ad6be3abc0
   <component name="SvnConfiguration">
@@ -147,6 +155,20 @@
   </component>
   <component name="TaskManager">
 <<<<<<< HEAD
+<<<<<<< HEAD
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="17545742-62f2-45e3-9df0-e76d6d9ee38d" name="Default Changelist" comment="" />
+      <created>1654532833012</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1654532833012</updated>
+      <workItem from="1654532845616" duration="33000" />
+      <workItem from="1655437653734" duration="25000" />
+    </task>
+=======
+>>>>>>> 7a28bab5cb1c991ae1bf9de0d14ff72fafb90d4e
+=======
+>>>>>>> 841646832d658ac13273ea81015a5521b456a2d7
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -231,6 +253,13 @@
 >>>>>>> origin/employee-management
   </component>
   <component name="WindowStateProjectService">
+<<<<<<< HEAD
+    <state x="441" y="107" key="FileChooserDialogImpl" timestamp="1655437673960">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="441" y="107" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1655437673960" />
+    <state x="496" y="127" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1654532884916" />
+=======
     <state x="740" y="272" key="FileChooserDialogImpl" timestamp="1655728442288">
       <screen x="0" y="0" width="1920" height="1032" />
     </state>
@@ -252,6 +281,9 @@
     </state>
 <<<<<<< HEAD
     <state width="1899" height="279" key="GridCell.Tab.0.right/0.0.1920.1032@0.0.1920.1032" timestamp="1655728443524" />
+<<<<<<< HEAD
+>>>>>>> 7a28bab5cb1c991ae1bf9de0d14ff72fafb90d4e
+=======
 =======
     <state x="441" y="107" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1654791066803" />
     <state x="496" y="127" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1654532884916" />
@@ -267,5 +299,6 @@
 =======
 >>>>>>> origin/employee-management
 >>>>>>> origin/employee-management
+>>>>>>> 841646832d658ac13273ea81015a5521b456a2d7
   </component>
 </project>
