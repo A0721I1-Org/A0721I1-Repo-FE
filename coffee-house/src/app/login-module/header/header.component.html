@@ -9,15 +9,17 @@
     <a href="/home#menu">Sản phẩm</a>
     <a href="/home#review">Đánh giá</a>
     <a href="/home#contact">Liên hệ</a>
-    <a *ngIf="employee.position?.namePosition == 'Quản lý'" onclick="noiDropdown()">Quản lý Nhân viên</a>
-    <div class="noi_dropdown">
-      <a href="/employee/list"><span>EMPLOYEE</span></a>
-      <a href="#">PRODUCT</a>
-      <a href="#">TABLE</a>
-      <a href="#">SERVICE</a>
-      <a href="#">ORDER</a>
-      <a href="#">BILL</a>
-      <a href="#">FEEDBACK</a>
+    <div>
+      <a *ngIf="employee.position?.namePosition == 'Quản lý'" onclick="noiDropdown()">Quản lý Nhân viên</a>
+      <div class="noi_dropdown">
+        <a href="/employee/list"><span>EMPLOYEE</span></a>
+        <a href="#">PRODUCT</a>
+        <a href="#">TABLE</a>
+        <a href="#">SERVICE</a>
+        <a href="#">ORDER</a>
+        <a href="#">BILL</a>
+        <a href="#">FEEDBACK</a>
+      </div>
     </div>
   </nav>
 
