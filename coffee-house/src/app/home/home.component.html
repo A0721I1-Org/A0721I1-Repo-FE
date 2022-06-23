@@ -15,30 +15,20 @@
     <a href="#menu">Sản phẩm</a>
     <a href="#review">Đánh giá</a>s
     <a href="#contact">Liên hệ</a>
-    <div class="dropdown">
-      <a style="font-size: 1.6em; background: black; margin-left: 1.2rem;color: white" onclick="noiDropdown()">Quản
-        lý
-      </a>
-
-<!--    <a href="/home#home">Trang chủ</a>-->
-<!--    <a href="/home#about">Giới thiệu</a>-->
-<!--    <a href="/home#menu">Sản phẩm</a>-->
-<!--    <a href="/home#review">Đánh giá</a>-->
-<!--    <a href="/home#contact">Liên hệ</a>-->
     <div class="dropdown" *ngIf="tokenStorageService.getUser()">
       <button style="font-size: 1.6em; background: black; margin-left: 1.2rem;color: white" onclick="noiDropdown()" >Quản lý</button>
 
       <div class="noi_dropdown">
         <a href="/employee/list" *ngIf="employee.position?.namePosition =='Quản lý'"><span>EMPLOYEE</span></a>
         <a href="#">PRODUCT</a>
-        <a href="#">TABLE</a>
+        <a href="/table/list">TABLE</a>
         <a href="#">SERVICE</a>
         <a href="#">ORDER</a>
         <a href="#">BILL</a>
-        <a href="#">FEEDBACK</a>
+        <a href="/feedback/list">FEEDBACK</a>
       </div>
     </div>
-    </div>
+
 
 
 

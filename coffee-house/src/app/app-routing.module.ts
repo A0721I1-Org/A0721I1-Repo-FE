@@ -46,7 +46,7 @@ const routes: Routes = [
     loadChildren: () => import('./order-module/order-module.module').then(module => module.OrderModuleModule)
   },
   {
-    path: '', component: HomeComponent
+    path: 'home', component: HomeComponent
   },
   { path: '**', redirectTo: '/login/authentication' }
 ];
