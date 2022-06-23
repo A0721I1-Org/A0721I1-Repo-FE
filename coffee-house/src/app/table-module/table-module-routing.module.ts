@@ -12,7 +12,7 @@ const routes: Routes = [
   {
     path: 'list',
     component: ListTableComponent,
-    canLoad: [AuthGuard]
+    canActivate: [AuthGuard]
   },
   {
     path: 'create',
