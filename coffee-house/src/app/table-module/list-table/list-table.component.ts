@@ -60,18 +60,6 @@ export class ListTableComponent implements OnInit {
     });
   }
 
-  changeEmptyTable(id: number) {
-    this.table = this.findTableById(id);
-    if (this.formSearch.value.tableNumber != '' && this.formSearch.value.tableNumber != null) {
-      this.formSearch.controls.status.enable();
-      this.formSearch.controls.emptyTable.enable();
-    }
-    this.tableService.updateEmptyTable(id, this.table).subscribe(() => {}, () => {}, () => {
-      this.tableService.message = 'Cập nhật bàn  thành công!';
-      this.ngOnInit();
-    });
-  }
-
   changeTableNumber(value) {
     if (value != '') {
       this.formSearch.controls.status.disable();
