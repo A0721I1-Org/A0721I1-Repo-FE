@@ -24,6 +24,8 @@ export class MenuOrderComponent implements OnInit, OnDestroy {
   id: number;
   sum = 0;
   quatity = 1;
+  checkProductEx = true;
+  message = '';
 
   constructor(private menuService: MenuService, private _formBuilder: FormBuilder, private router: Router
   ,private activatedRoute: ActivatedRoute) {
@@ -97,12 +99,12 @@ export class MenuOrderComponent implements OnInit, OnDestroy {
     /* Get table by id */
     this.menuService.getTableById(this.idTable).subscribe(data=> {
       this.table = data;
-    })
+    });
 
     /* Get order by id */
     this.menuService.getOrderById(this.idOrder).subscribe(data=> {
       this.order = data;
-    })
+    });
   }
 
   ngOnDestroy() {
@@ -113,13 +115,13 @@ export class MenuOrderComponent implements OnInit, OnDestroy {
   getProducts() {
     this.menuService.getProducts().subscribe(data => {
       this.products = data;
-    })
+    });
 
     /* Get amount of products */
     this.menuService.getAmountOfProducts().subscribe(data => {
       this.amountProducts = data;
       this.pagination(data, true);
-    })
+    });
   }
 
   /* get products By Type Id and pagination */
@@ -132,18 +134,18 @@ export class MenuOrderComponent implements OnInit, OnDestroy {
     this.menuService.getAmountOfProductsByIdType(idTypeProduct).subscribe(data => {
       this.amountProducts = data;
       this.pagination(data, true);
-    })
+    });
   }
 
   /* Get list products */
   getAll() {
     this.menuService.getProducts().subscribe(data => {
       this.products = data;
-    })
+    });
 
     this.menuService.getTypeProducts().subscribe(data => {
       this.typeProducts = data;
-    })
+    });
   }
 
   /* Check which category has clicked  */
@@ -170,7 +172,8 @@ export class MenuOrderComponent implements OnInit, OnDestroy {
   // Cộng số lượng sản phẩm
   addQuality() {
     if (this.quatity === this.product.quatityProduct) {
-      alert('Vui lòng đặt tối thiểu 5 sản phẩm');
+      this.message = 'Vui lòng đặt tối thiểu ' + this.product.quatityProduct + ' sản phẩm';
+      document.getElementById('noti').hidden = false;
     } else {
       this.quatity = this.quatity + 1;
     }
@@ -189,6 +192,11 @@ export class MenuOrderComponent implements OnInit, OnDestroy {
       (data) => {
         if (data) {
           this.product = data;
+          if (this.product.quatityProduct <= 0){
+            this.checkProductEx = false;
+          }else{
+            this.checkProductEx = true;
+          }
         }
       }, (e) => {
         console.log(e);
@@ -458,6 +466,10 @@ export class MenuOrderComponent implements OnInit, OnDestroy {
 
   showMenuOnPhone() {
     this.showMenuPhone = !this.showMenuPhone;
+  }
+
+  hide() {
+    document.getElementById('noti').hidden = true;
   }
 }
 
