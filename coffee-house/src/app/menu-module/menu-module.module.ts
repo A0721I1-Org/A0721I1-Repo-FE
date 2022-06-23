@@ -5,18 +5,19 @@ import {FormatTimePipe, MenuOrderComponent} from './menu-order/create-menu-order
 import {HttpClient} from '@angular/common/http';
 import {OderDetail} from '../model/oderDetail';
 import {Observable} from "rxjs";
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
     declarations: [
         MenuOrderComponent,
         FormatTimePipe
     ],
-  imports: [
-    CommonModule,
-    MenuModuleRoutingModule,
-    ReactiveFormsModule
-  ]
+    imports: [
+        CommonModule,
+        MenuModuleRoutingModule,
+        ReactiveFormsModule,
+        FormsModule
+    ]
 })
 export class MenuModuleModule {
 }

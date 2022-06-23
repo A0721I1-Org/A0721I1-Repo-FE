@@ -8,4 +8,5 @@ export class MenuOrderDTO {
   totalPrice: number;
   totalPageDTO: number;
   orderDetailId: number;
+  checked: boolean;
 }
