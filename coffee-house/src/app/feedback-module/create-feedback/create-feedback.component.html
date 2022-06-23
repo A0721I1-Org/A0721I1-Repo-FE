@@ -17,7 +17,7 @@
     Phản hồi
   </button>
   <!-- The Modal -->
-  <div class="modal fade" id="modal1">
+  <div class="modal fade" id="modal1" >
     <div class="modal-dialog modal-dialog-centered">
       <form class="form" [formGroup]="createFeedbackForm" (ngSubmit)="onSubmit()">
         <div class="modal-content">
@@ -61,13 +61,7 @@
                   <div class="form-group">
                     <span class="form-label" for="imageFeedback">Hình ảnh<span class="text-danger">(*):</span></span>
                     <input class="form-control-file" type="file" name="imageFeedback" id="imageFeedback" (change)="showPreview($event)">
-                    <img [src]="imgVip" height="200" alt="Image preview...">
-                    <div class="text-danger" *ngFor="let validation of VALIDATE_MESSAGES.imageFeedback">
-                      <div class="error-message"
-                           *ngIf="createFeedbackForm.get('imageFeedback').hasError(validation.type) && (createFeedbackForm.get('imageFeedback').dirty ||
-                            createFeedbackForm.get('imageFeedback').touched)">
-                        {{validation.message}}</div>
-                    </div>
+                    <img [src]="imgVip" height="200" width="300" alt="Image preview...">
                   </div>
                 </div>
                 <div class="col-md-12">
@@ -93,8 +87,8 @@
                     style="margin: 5px 0 0 2.5px;">
               Đóng
             </button>
-            <button type="submit" style="margin: 5px 0 0 2.5px;" class="btn btn-primary btn-lg btn-block btn-custom">
-              Phản hồi
+            <button type="submit"style="margin: 5px 0 0 2.5px;"   class="btn btn-primary btn-lg btn-block btn-custom">
+              <button data-dismiss="modal">Gửi Phản hồi</button>
             </button>
           </div>
         </div>

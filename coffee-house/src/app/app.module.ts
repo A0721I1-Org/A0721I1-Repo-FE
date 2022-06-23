@@ -32,7 +32,7 @@ import {FeedbackModuleModule} from './feedback-module/feedback-module.module';
     ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
-    FeedbackModuleModule
+    FeedbackModuleModule,
   ],
   providers: [
     { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },

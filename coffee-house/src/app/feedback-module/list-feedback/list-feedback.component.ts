@@ -16,12 +16,12 @@ export class ListFeedbackComponent implements OnInit {
   feedbackList: Feedback[] = [];
   feedbackDetail: Feedback = {
     idFeedback: 0,
-  codeFeedback: "",
-  dateFeedback: "",
-  contentFeedback: "",
-  namePeopleFeedback: "",
-  emailPeopleFeedback: "",
-  imageFeedback: "",
+  codeFeedback: '',
+  dateFeedback: '',
+  contentFeedback: '',
+  namePeopleFeedback: '',
+  emailPeopleFeedback: '',
+  imageFeedback: '',
   };
   date: String;
   indexPagination: number = 1;
@@ -60,7 +60,7 @@ export class ListFeedbackComponent implements OnInit {
   getDetailFeedback(id: number) {
     this.feedbackService.findById(id).subscribe( feedback => {
       this.feedbackDetail = feedback;
-    })
+    });
 
   }
 

@@ -16,9 +16,10 @@ import {environment} from './environments/environment';
     ListFeedbackComponent,
     DetailFeedbackComponent
   ],
-  exports: [
-    CreateFeedbackComponent
-  ],
+    exports: [
+        CreateFeedbackComponent,
+        ListFeedbackComponent
+    ],
   imports: [
     CommonModule,
     FeedbackModuleRoutingModule,
