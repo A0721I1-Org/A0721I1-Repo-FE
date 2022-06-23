@@ -1,1 +1,168 @@
-<h1>list-employee</h1>
+<div class="main">
+  <div class="container-flutter">
+    <div class="table-title">
+      <h2>Danh sách nhân viên</h2>
+    </div>
+
+    <div class="row justify-content-between align-items-center">
+      <div class="col-2">
+        <button class="learn-more">
+                    <span class="circle" aria-hidden="true">
+                    <span class="icon arrow">
+                    </span>
+                    </span>
+          <span class="button-text" routerLink="/employee/create">Thêm mới nhân viên</span>
+        </button>
+      </div>
+      <div class="col-10">
+        <form method="post" class="d-flex align-items-center form__search justify-content-end "
+              (ngSubmit)="searchEmployee()" [formGroup]="searchForm">
+          <input type="text" class="form-control" placeholder="Tên tài khoản" formControlName="username">
+          <input type="text" class="form-control ml-3" placeholder="Họ và tên" formControlName="name">
+          <input type="text" class="form-control ml-3" placeholder="Số điện thoại" formControlName="phone">
+          <button class="ml-3 button__1" data-target="#exampleModal2" (click)="searchEmployee()"><i
+            class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+    <p class="text-success">{{message}}</p>
+    <table class="table">
+      <tr>
+        <th>STT</th>
+        <th>Tên tài khoản</th>
+        <th>Họ và tên</th>
+        <th>Địa chỉ</th>
+        <th>Số điện thoại</th>
+        <th>Giới tính</th>
+        <th>Ngày sinh</th>
+        <th>Lương(VND)</th>
+        <th>Vị trí</th>
+        <td></td>
+      </tr>
+      <tr *ngFor="let employee of employeeList | paginate: { itemsPerPage: 5, currentPage: p };let i = index">
+        <td>{{i + 1}}</td>
+        <td>{{employee.user.username}}</td>
+        <td>{{employee.nameEmployee}}</td>
+        <td>{{employee.addressEmployee}}</td>
+        <td>{{employee.phoneEmployee}}</td>
+        <td>{{employee.genderEmployee}}</td>
+        <td>{{employee.dateOfBirthEmployee}}</td>
+        <td>{{employee.salaryEmployee}}</td>
+        <td>{{employee.position.namePosition}}</td>
+        <td><a [routerLink]="['/employee/edit/',employee.idEmployee]">
+          <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+               class="bi bi-pencil-square" viewBox="0 0 16 16">
+            <path
+              d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+            <path fill-rule="evenodd"
+                  d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+          </svg>
+        </a>
+          <a href="#" data-toggle="modal" data-target="#deleteModel" (click)="getEmployeeById(employee.idEmployee)">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="" fill="currentColor"
+                 class="bi bi-trash" viewBox="0 0 16 16">
+              <path
+                d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+              <path fill-rule="evenodd"
+                    d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+            </svg>
+          </a>
+        </td>
+      </tr>
+    </table>
+    <pagination-controls (pageChange)="p = $event" previousLabel="Trang trước" nextLabel="Trang sau "></pagination-controls>
+  </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="deleteModel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true" *ngIf="employee">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"><b>Xoá nhân viên</b></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Tên tài khoản : {{employee.user.username}}<br>
+        Họ và tên : {{employee.nameEmployee}}<br>
+        Địa chỉ : {{employee.addressEmployee}}<br>
+        Số điện thoại : {{employee.phoneEmployee}}<br>
+        Giới tính : {{employee.genderEmployee}}<br>
+        Ngày sinh : {{employee.dateOfBirthEmployee}}<br>
+        Lương(VND) : {{employee.salaryEmployee}}<br>
+        Vị trí : {{employee.position.namePosition}}
+      </div>
+      <div class="modal-footer">
+        <div type="button" class="btn btn-secondary" data-dismiss="modal">Thoát</div>
+        <div type="button" class="btn btn-danger" data-dismiss="modal" (click)="deteleEmployee(employee.idEmployee)">
+          Xoá
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel2"><b>Tìm kiếm thất bại</b></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Bạn cần phải điền ít nhất 1 thông tin để tìm kiếm
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Thoát</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel3"><b>Xoá thất bại</b></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Lỗi không tìm thấy nhân viên này
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" data-target="#exampleModal4">Thoát</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModal4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel4"><b>Xoá thành công</b></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Thoát</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

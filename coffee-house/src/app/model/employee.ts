@@ -1,6 +1,5 @@
 export interface Employee {
   idEmployee: number;
-  codeEmployee: string;
   nameEmployee: string;
   addressEmployee: string;
   phoneEmployee: string;
@@ -8,5 +7,5 @@ export interface Employee {
   dateOfBirthEmployee: string;
   salaryEmployee: number;
   position: any;
-  user: any;
+  user?: any;
 }

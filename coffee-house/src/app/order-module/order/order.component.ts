@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+
 import {OderService} from '../service/oder.service';
 import {Oder} from '../../model/oder';
 import {HttpClient} from '@angular/common/http';
@@ -8,7 +9,6 @@ import {OderDetail} from '../../model/oderDetail';
 
 declare function numPage(n): any;
 
-
 @Component({
   selector: 'app-oder',
   templateUrl: './order.component.html',
@@ -16,6 +16,7 @@ declare function numPage(n): any;
 })
 export class OrderComponent implements OnInit {
   orders: Oder[];
+  order: Oder;
   public searchOrder: FormGroup;
   totalPage: number;
   page = 0;
@@ -24,7 +25,7 @@ export class OrderComponent implements OnInit {
   idOrder: number;
   orderDetail: OderDetail[];
 
-  constructor(private service: OderService, private http: HttpClient, public activatedRoute: ActivatedRoute) {
+  constructor(private oderService: OderService, private http: HttpClient, private activatedRoute: ActivatedRoute) {
   }
 
   ngOnInit(): void {
@@ -43,7 +44,7 @@ export class OrderComponent implements OnInit {
 
   getTotalPage() {
     if (this.searchOrder.value.idOrder === '' && this.searchOrder.value.dateOrder === '') {
-      this.service.getList().subscribe(data => {
+      this.oderService.getList().subscribe(data => {
           this.totalPage = Math.ceil(data.length / 5);
           console.log('day la tong so trang' + this.totalPage);
         }
@@ -53,7 +54,7 @@ export class OrderComponent implements OnInit {
         () => {
         });
     } else {
-      this.service.searchList(this.searchOrder.value.idOrder, this.searchOrder.value.dateOrder).subscribe(data => {
+      this.oderService.searchList(this.searchOrder.value.idOrder, this.searchOrder.value.dateOrder).subscribe(data => {
           this.totalPage = Math.ceil(data.length / 5);
           console.log('day la tong so trang' + this.totalPage);
         }
@@ -65,30 +66,12 @@ export class OrderComponent implements OnInit {
     }
   }
 
-  viewDetail() {
-    this.activatedRoute.paramMap.subscribe((data) => {
-      this.idOrder = +data.get('idOrder');
-      console.log('day la id = ' + this.idOrder);
-      // tslint:disable-next-line:no-shadowed-variable
-      this.service.getOrderDetailById(this.idOrder).subscribe(
-        // tslint:disable-next-line:no-shadowed-variable
-        (data) => {
-          this.orderDetail = data;
-          console.log(this.orderDetail);
-        }
-      );
-
-      // this.getOrderDetail(this.idOrder).subscribe((next: OderDetail) => this.orderDetail = next);
-
-    });
-  }
-
   findAll() {
-    this.service.getPage(0).subscribe((data: Oder[]) => this.orders = data['content']);
+    this.oderService.getPage(0).subscribe((data: Oder[]) => this.orders = data['content']);
   }
 
   search() {
-    this.service.searchPage(this.searchOrder.value.idOrder, this.searchOrder.value.dateOrder, 0).subscribe(
+    this.oderService.searchPage(this.searchOrder.value.idOrder, this.searchOrder.value.dateOrder, 0).subscribe(
       data => {
         if (data != null) {
           this.orders = data['content'];
@@ -105,7 +88,7 @@ export class OrderComponent implements OnInit {
   nextPage() {
     this.page = this.page + 1;
     if (this.searchOrder.value.idOrder === '' && this.searchOrder.value.dateOrder === '') {
-      this.service.getPage(this.page).subscribe(
+      this.oderService.getPage(this.page).subscribe(
         (data) => {
           this.orders = data['content'];
           console.log('day la tong so trang' + this.totalPage);
@@ -115,7 +98,7 @@ export class OrderComponent implements OnInit {
         () => {
         });
     } else {
-      this.service.searchPage(this.searchOrder.value.idOrder, this.searchOrder.value.dateOrder, this.page).subscribe(
+      this.oderService.searchPage(this.searchOrder.value.idOrder, this.searchOrder.value.dateOrder, this.page).subscribe(
         (data) => {
           this.orders = data['content'];
           console.log('day la tong so trang' + this.totalPage);
@@ -132,7 +115,7 @@ export class OrderComponent implements OnInit {
     this.page = this.page - 1;
     if (this.page >= 0) {
       if (this.searchOrder.value.idOrder === '' && this.searchOrder.value.dateOrder === '') {
-        this.service.getPage(this.page).subscribe(
+        this.oderService.getPage(this.page).subscribe(
           (data) => {
             this.orders = data['content'];
             console.log('day la tong so trang' + this.totalPage);
@@ -141,7 +124,7 @@ export class OrderComponent implements OnInit {
           },
         );
       } else {
-        this.service.searchPage(this.searchOrder.value.idOrder, this.searchOrder.value.dateOrder, this.page).subscribe(
+        this.oderService.searchPage(this.searchOrder.value.idOrder, this.searchOrder.value.dateOrder, this.page).subscribe(
           (data) => {
             this.orders = data['content'];
             console.log('day la tong so trang' + this.totalPage);
