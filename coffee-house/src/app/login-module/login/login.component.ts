@@ -22,16 +22,21 @@ export class LoginComponent implements OnInit {
   roles: string[] = [];
   show = false;
   rememberMeToken: string;
+  isLoggedIn = false;
 
   constructor(private formBuilder: FormBuilder,
               private router: Router, private loginServer: LoginServiceService,
               private activatedRoute: ActivatedRoute,
               private tokenStorageService: TokenStorageService,
               private toast: ToastrService) {
-
   }
 
   ngOnInit(): void {
+    this.isLoggedIn = this.tokenStorageService.getUser() ? true : false;
+    console.log(this.isLoggedIn);
+    if (this.isLoggedIn){
+      this.router.navigateByUrl('/home');
+    }
     this.formLogin = this.formBuilder.group({
         username: [''],
         password: [''],
