@@ -6,7 +6,6 @@ import {OrderDetailMenuDTO} from '../../model/OrderDetailMenuDTO';
 import {Oder} from '../../model/oder';
 import {TokenStorageService} from '../../login-module/service/token-storage.service';
 
-
 @Component({
   selector: 'app-detail-table',
   templateUrl: './detail-table.component.html',
@@ -24,7 +23,6 @@ export class DetailTableComponent implements OnInit {
 
   constructor(private tableService: TableService,
               private activatedRouter: ActivatedRoute,
-              private  tokenStorageService: TokenStorageService,
               private router: Router
   ) {
   }

@@ -12,7 +12,7 @@ import {TokenStorageService} from '../../login-module/service/token-storage.serv
 })
 export class ListTableActiveComponent implements OnInit {
   tables: Table[];
-  employee: Employee;
+  employee: Employee; // dữ liệu cứng  . chờ a hoàng code để lấy idEmployee
   dateOrder: string;
   /* Lưu giá trị idOrder */
   idOrder: number;
@@ -29,7 +29,7 @@ export class ListTableActiveComponent implements OnInit {
   }
 
   addOrderBeNull(idTable: number) {
-    this.tableService.addNewOrder(this.tokenStorageService.getUser().id, idTable).subscribe(data => {
+    this.tableService.addNewOrder(1, idTable).subscribe(data => {
       this.idOrder = data.idOrder;
       this.router.navigate(['../menu/menu-order-child', idTable, this.idOrder]);
     }, () => {
