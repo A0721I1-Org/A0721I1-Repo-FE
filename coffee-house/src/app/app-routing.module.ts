@@ -19,8 +19,8 @@ const routes: Routes = [
     loadChildren: () => import('./feedback-module/feedback-module.module').then(module => module.FeedbackModuleModule)
   },
   {
-    path: 'incomef',
-    loadChildren: () => import('./income-module/income-module.module').then(module => module.IncomeModuleModule),
+    path: 'income',
+    loadChildren: () => import('./income-module/income-module.module').then(module => module.IncomeModuleModule) ,
     canActivate: [AuthGuard]
   },
   {
