@@ -5,7 +5,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {User} from '../../model/user';
 import {LoginServiceService} from '../service/login.service';
 import {TokenStorageService} from '../service/token-storage.service';
-// @ts-ignore
+
 import {ToastrService} from 'ngx-toastr';
 
 
