@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Title</title>
+  <title>Phản hồi</title>
   <!--    Bootstrap CSS-->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -10,19 +10,20 @@
   <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
-<div class="container d-flex justify-content-center mt-100">
+<div class="container d-flex justify-content-center mt-100" style="margin-top: 122px">
 
   <!-- Button to Open the Modal -->
-  <button type="button" class="btn openmodal" data-toggle="modal" data-target="#modal1">
+  <button type="button" class="btn openmodal" data-toggle="modal" data-target="#modal1"
+          style="background: #212529; color: white; size: 500px">
     Phản hồi
   </button>
   <!-- The Modal -->
   <div class="modal fade" id="modal1">
     <div class="modal-dialog modal-dialog-centered">
-      <form [formGroup]="createFeedbackForm" (ngSubmit)="onSubmit()">
+      <form class="form" [formGroup]="createFeedbackForm" (ngSubmit)="onSubmit()">
         <div class="modal-content">
           <!-- Modal Header -->
-          <div class="modal-header">
+          <div class="modal-header" style="background: rgb(236, 155, 68)">
             <h4 class="modal-title">Phản Hồi Mới</h4>
             <button type="button" class="close" data-dismiss="modal">&times;</button>
           </div>
@@ -33,9 +34,10 @@
               <div class="row">
                 <div class="col-md-12">
                   <div class="form-group">
-                    <span class="form-label" for="namePeopleFeedback">Họ và tên</span>
+                    <span class="form-label" for="namePeopleFeedback">Họ và tên<span
+                      class="text-danger">(*):</span></span>
                     <input class="form-control" type="text" formControlName="namePeopleFeedback">
-                    <div class="text-danger" *ngFor="let validation of validation_messages.namePeopleFeedback">
+                    <div class="text-danger" *ngFor="let validation of VALIDATE_MESSAGES.namePeopleFeedback">
                       <div class="error-message"
                            *ngIf="createFeedbackForm.get('namePeopleFeedback').hasError(validation.type) && (createFeedbackForm.get('namePeopleFeedback').dirty ||
                             createFeedbackForm.get('namePeopleFeedback').touched)">
@@ -45,9 +47,9 @@
                 </div>
                 <div class="col-md-12">
                   <div class="form-group">
-                    <span class="form-label" for="emailPeopleFeedback">Email</span>
+                    <span class="form-label" for="emailPeopleFeedback">Email<span class="text-danger">(*):</span></span>
                     <input class="form-control" type="email" formControlName="emailPeopleFeedback">
-                    <div class="text-danger" *ngFor="let validation of validation_messages.emailPeopleFeedback">
+                    <div class="text-danger" *ngFor="let validation of VALIDATE_MESSAGES.emailPeopleFeedback">
                       <div class="error-message"
                            *ngIf="createFeedbackForm.get('emailPeopleFeedback').hasError(validation.type) && (createFeedbackForm.get('emailPeopleFeedback').dirty ||
                             createFeedbackForm.get('emailPeopleFeedback').touched)">
@@ -60,24 +62,17 @@
                 <div class="col-md-12">
                   <div class="form-group">
                     <span class="form-label" for="imageFeedback">Hình ảnh<span class="text-danger">(*):</span></span>
-<!--                    <label for="imageFeedback">Hình Ảnh <span class="text-danger">(*):</span></label>-->
-<!--                    <input name="imageFeedback" id="imageFeedback" type="file" class="file__input" (change)="showPreview($event)">-->
-<!--                    <img class="avatar rounded-circle" style="height: 160px; width: 160px;" src="{{imgVip}}">-->
-                    <input class="form-control-file" type="file" name="imageFeedback" id="imageFeedback" (change)="showPreview($event)">
-                    <img [src]="imgVip" height="200" alt="Image preview...">
-                    <div class="text-danger" *ngFor="let validation of validation_messages.namePeopleFeedback">
-                      <div class="error-message"
-                           *ngIf="createFeedbackForm.get('imageFeedback').hasError(validation.type) && (createFeedbackForm.get('imageFeedback').dirty ||
-                            createFeedbackForm.get('imageFeedback').touched)">
-                        {{validation.message}}</div>
-                    </div>
+                    <input class="form-control-file" type="file" name="imageFeedback" id="imageFeedback"
+                           (change)="showPreview($event)">
+                    <img [src]="imgVip" height="200" width="300" alt="Image preview...">
                   </div>
                 </div>
                 <div class="col-md-12">
                   <div class="form-group">
-                    <span class="form-label" for="contentFeedback">Phản hồi</span>
-                    <textarea class="form-control" type="text" style="height: 200px" formControlName="contentFeedback"></textarea>
-                    <div class="text-danger" *ngFor="let validation of validation_messages.namePeopleFeedback">
+                    <span class="form-label" for="contentFeedback">Phản hồi<span class="text-danger">(*):</span></span>
+                    <textarea class="form-control" type="text" style="height: 200px"
+                              formControlName="contentFeedback"></textarea>
+                    <div class="text-danger" *ngFor="let validation of VALIDATE_MESSAGES.contentFeedback">
                       <div class="error-message"
                            *ngIf="createFeedbackForm.get('contentFeedback').hasError(validation.type) && (createFeedbackForm.get('contentFeedback').dirty ||
                             createFeedbackForm.get('contentFeedback').touched)">
@@ -93,11 +88,12 @@
           <!-- Modal footer -->
           <div class="modal-footer">
             <div class="btn btn-primary btn-lg btn-block btn-custom" data-dismiss="modal"
-                    style="margin-top: 8px">
+                 style="margin-top: 8px">
               Đóng
             </div>
-            <button type="submit" (submit)="onSubmit()" class="btn btn-primary btn-lg btn-block btn-custom">
-              Phản hồi
+            <button type="submit" style="margin: 5px 0 0 2.5px;" (click)="onSubmit()" data-dismiss="modal"
+                    class="btn btn-primary btn-lg btn-block btn-custom">
+              Gửi Phản hồi
             </button>
           </div>
         </div>

@@ -15,7 +15,7 @@ const routes: Routes = [
     component: ListFeedbackComponent
   },
   {
-    path: 'detail',
+    path: 'detail/:id',
     component: DetailFeedbackComponent
   },
 ];

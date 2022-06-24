@@ -16,3 +16,36 @@
   background-color: #fa8c16!important;
   border: none!important;
 }
+
+.form {
+  position: absolute;
+  left: 10%;
+  right: 10%;
+}
+
+/*Noti*/
+/*@keyframes noti{*/
+/*  from{*/
+/*    transform: translateY(-140px);*/
+/*    opacity: 0;*/
+/*  }*/
+/*  to{*/
+/*    transform: translateY(0px);*/
+/*    opacity: 1;*/
+/*  }*/
+/*}*/
+/*#noti{*/
+/*  background: antiquewhite;*/
+/*  position: absolute;*/
+/*  z-index: -1;*/
+/*  top: 44%;*/
+/*  right: 15%;*/
+/*  left: 15%;*/
+/*  animation-name: noti;*/
+/*  animation-duration: 1s;*/
+/*}*/
+body {
+  background: url("src/assets/images/home-img.jpeg") no-repeat;
+  background-size: 100% 600px;
+  height: 600px;
+}
