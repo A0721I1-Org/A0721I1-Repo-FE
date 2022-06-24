@@ -1,10 +1,11 @@
-import {OrderDetailMenuDTO} from '../../model/OrderDetailMenuDTO';
-import {Oder} from '../../model/oder';
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Status} from '../../model/status';
+// @ts-ignore
 import {Table} from '../../model/table';
+import {OrderDetailMenuDTO} from '../../model/OrderDetailMenuDTO';
+import {Oder} from '../../model/oder';
 import {environment} from '../../../environments/environment';
 
 const API_URL = `${environment.apiUrl}`;
@@ -15,11 +16,13 @@ const API_URL = `${environment.apiUrl}`;
 
 export class TableService {
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {
+  }
 
-  private _message:String;
+  private _message: String;
 
-  get messsge(): String {
+
+  get message(): String {
     return this._message;
   }
 
@@ -33,7 +36,6 @@ export class TableService {
   findAllTable(pageNumber: number): Observable<Table[]> {
     return this.httpClient.get<Table[]>(API_URL + '/manager/findAllTableWithSearchAndPaging?page=' + pageNumber);
   }
-
 
   findAllTableByCodeTable(codeTable: string, pageNumber: number): Observable<Table[]> {
     return this.httpClient.get<Table[]>(API_URL + '/manager/findAllTableWithSearchAndPaging?codeTable=' + codeTable + '&page=' + pageNumber);
@@ -51,12 +53,8 @@ export class TableService {
     return this.httpClient.get<Table[]>(API_URL + '/manager/findAllTableWithSearchAndPaging?emptyTable=' + emptyTable + '&page=' + pageNumber);
   }
 
-  deleteTable(id: number):Observable<Table> {
+  deleteTable(id: number): Observable<Table> {
     return this.httpClient.delete<Table>(API_URL + '/manager/deleteTable/' + id);
-  }
-
-  findTableById(id: number):Observable<Table> {
-    return this.httpClient.get<Table>(API_URL + '/manager/findTableById/' + id);
   }
 
   /*
@@ -73,7 +71,7 @@ export class TableService {
   addNewOrder(idEmployee: number, idTable: number, dateOrder: string): Observable<any> {
     // return this.httpClient.post(this.URL_API + '/saveOrderInTable/', idEmployee + '/' + idTable);
     // @ts-ignore
-    return this.httpClient.post<any>(`${API_URL}/manager/emptyTable/saveOrderInTable/${idEmployee}/${idTable}/${dateOrder}`);
+    return this.httpClient.post<any>(`${API_URL}/manager/emptyTable/saveOrderInTable?idUser=${idEmployee}&idTable=${idTable}`);
   }
 
   cancelTable(idTable: number): Observable<Oder> {
@@ -85,12 +83,8 @@ export class TableService {
     return this.httpClient.get<Status[]>(API_URL + '/manager/findAllStatus');
   }
 
-  getAllTable(): Observable<Table[]> {
-    return this.httpClient.get<Table[]>(API_URL + '/manager/findAllTable');
-  }
-
   getTableById(id): Observable<Table> {
-      return this.httpClient.get<Table>(`${API_URL}/manager/findTableById/${id}`);
+    return this.httpClient.get<Table>(`${API_URL}/manager/findTableById/${id}`);
   }
 
   updateTable(id, table: Table): Observable<Table> {
@@ -102,6 +96,6 @@ export class TableService {
   }
 
   checkId(id: String): Observable<Table[]> {
-    return this.httpClient.get<Table[]>(API_URL + '/manager/checkId?id=' +id);
+    return this.httpClient.get<Table[]>(API_URL + '/manager/checkId?id=' + id);
   }
 }

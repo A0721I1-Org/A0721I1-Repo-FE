@@ -27,7 +27,6 @@
       </div>
       <div class="col-10">
         <form [formGroup]="formSearch" (ngSubmit)="submitFormSearch(0)" class="d-flex align-items-center form__search justify-content-end">
-
           <input type="text" class="form-control ml-3" placeholder="Số bàn" formControlName="tableNumber" (ngModelChange)="changeTableNumber($event)">
 
           <select class="form-control ml-3" style="width: 25%" formControlName="status">
@@ -41,6 +40,12 @@
               <option value="true">Còn trống</option>
               <option value="false">Đã đặt</option>
             </select>
+
+          <select class="form-control ml-3" style="width: 25%" formControlName="emptyTable">
+            <option value="null" [selected]="true">Trống</option>
+            <option value="true">Còn trống</option>
+            <option value="false">Đã đặt</option>
+          </select>
 
           <button type="submit" class="ml-3 button__1"><i class="fa-solid fa-magnifying-glass"></i></button>
         </form>
@@ -59,6 +64,9 @@
       <tr *ngFor="let table of tables; index as i">
         <td>{{i+1}}</td>
         <td><a (click)="returnTableDetail(table.idTable)">{{table.codeTable}}</a></td>
+      <tr *ngFor="let table of tables | paginate: {itemsPerPage: 5, currentPage: p}; index as i">
+        <td>{{i + 1}}</td>
+        <td><a [routerLink]="['../detail/',table.idTable]">{{table.codeTable}}</a></td>
         <td>
           <div *ngIf="table.status.idStatus == 1; then good else bad"></div>
           <ng-template #good>Tốt</ng-template>
@@ -79,10 +87,11 @@
             </label>
           </ng-template>
         </td>
-        <td><a [routerLink]="['/table/edit',table.idTable]">
+        <td><a [routerLink]="['../edit/',table.idTable]">
           <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
                class="bi bi-pencil-square" viewBox="0 0 16 16">
-            <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+            <path
+              d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
             <path fill-rule="evenodd"
                   d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
           </svg>
@@ -92,7 +101,8 @@
           <a data-toggle="modal" [attr.data-target]="'#deleteModal' + table.idTable">
             <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
                  class="bi bi-trash" viewBox="0 0 16 16">
-              <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+              <path
+                d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
               <path fill-rule="evenodd"
                     d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
             </svg>
@@ -100,7 +110,8 @@
         </td>
 
         <!-- Modal -->
-        <div class="modal fade" [attr.id]="'deleteModal' + table.idTable" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" [attr.id]="'deleteModal' + table.idTable" tabindex="-1" role="dialog"
+             aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
@@ -125,7 +136,9 @@
               </div>
               <div class="modal-footer">
                 <div type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</div>
-                <div type="button" class="btn btn-danger" data-dismiss="modal" (click)="deleteTable(table.idTable)">Xoá</div>
+                <div type="button" class="btn btn-danger" data-dismiss="modal" (click)="deleteTable(table.idTable)">
+                  Xoá
+                </div>
               </div>
             </div>
           </div>
@@ -175,22 +188,6 @@
             </ng-template>
           </ul>
         </nav>
-
-<!--        <div *ngIf="pageNumber <= 0">-->
-<!--          <div disabled>Trang trước</div>-->
-<!--        </div>-->
-<!--        <div *ngIf="pageNumber > 0">-->
-<!--          <div (click)="perviousPage()">Trang trước</div>-->
-<!--        </div>-->
-<!--        <div *ngFor="let page of totalPage; index as i">-->
-<!--          <button (click)="changePageNumber(i)">{{i+1}}</button>-->
-<!--        </div>-->
-<!--        <div *ngIf="pageNumber < totalPage.length">-->
-<!--          <div (click)="nextPage()">Trang sau</div>-->
-<!--        </div>-->
-<!--        <div *ngIf="pageNumber >= totalPage.length">-->
-<!--          <div disabled>Trang sau</div>-->
-<!--        </div>-->
     </div>
   </div>
 </div>

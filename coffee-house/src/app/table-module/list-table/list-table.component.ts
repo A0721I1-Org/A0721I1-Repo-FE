@@ -26,9 +26,9 @@ export class ListTableComponent implements OnInit {
       status: new FormControl(),
       emptyTable: new FormControl()
     })
-    this.message = this.tableService.messsge;
+    this.message = this.tableService.message;
     if (this.message != null) {
-      document.getElementById("noti").hidden = false;
+      document.getElementById('noti').hidden = false;
     }
   }
 
@@ -45,27 +45,21 @@ export class ListTableComponent implements OnInit {
       this.formSearch.controls.status.enable();
       this.formSearch.controls.emptyTable.enable();
     }
-    this.tableService.deleteTable(id).subscribe(() => {
-    }, () => {
-    }, () => {
-      this.tableService.message = "Xoá bàn thành công!";
-      this.ngOnInit();
-    });
-  }
 
-  findTableById(id: number) {
-    this.tableService.findTableById(id).subscribe((table: any) => {
-      return table;
+    this.tableService.deleteTable(id).subscribe(() => {}, () => {}, () => {
+      this.tableService.message = 'Xoá bàn thành công!';
+
+      this.ngOnInit();
     });
   }
 
   changeTableNumber(value) {
     if (value != '') {
-      this.formSearch.controls['status'].disable();
-      this.formSearch.controls['emptyTable'].disable();
+      this.formSearch.controls.status.disable();
+      this.formSearch.controls.emptyTable.disable();
     } else {
-      this.formSearch.controls['status'].enable();
-      this.formSearch.controls['emptyTable'].enable();
+      this.formSearch.controls.status.enable();
+      this.formSearch.controls.emptyTable.enable();
     }
   }
 
@@ -136,7 +130,7 @@ export class ListTableComponent implements OnInit {
   }
 
   hide() {
-    document.getElementById("noti").hidden = true;
+    document.getElementById('noti').hidden = true;
   }
 
   returnTableDetail(idTable: number) {
