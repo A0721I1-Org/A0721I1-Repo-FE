@@ -5,20 +5,18 @@
     <img src="/assets/images/1.jpg" style="height:191px" class="img-fluid"/>
   </div>
 
-
-  <p class="label" style="color: gray; font-size: 12pt; padding-left: 0; margin-top: 10px"><a href="#" style="color: #FA8C16">Quản lý </a> / Quản lý phản hồi </p>
   <div class="container">
     <h2 style="color: #FA8C16; font-size: 24pt; padding: 0; display: flex; justify-content: center" class="label">Quản lý phản hồi</h2>
   </div>
 
 
   <div class="label" style="display: flex;align-items: center; justify-content: center; margin-top: 20px">
-    <p style="color: #FA8C16; font-size: 16px; margin-top: 10px">Ngày phản hồi: </p>
+    <p class="label" style="color: #FA8C16; font-size: 16px; margin-top: 10px">Ngày phản hồi: </p>
     <form [formGroup]="searchFeedback" (ngSubmit)="search()" style="display: flex;align-items: center;">
-      <input type="date" class="form-control" formControlName="date" style="width: 200px; margin-left: 15px">
-      <button class="btn1" style="margin: 0 15px">Tìm kiếm</button>
+      <input type="date" class="form-control" formControlName="date" style="width: 200px; margin-left: 15px; font-family: 'Raleway Bold'">
+      <button class="btn1 label" style="margin: 0 15px">Tìm kiếm</button>
     </form>
-    <button class="btn1" (click)="ngOnInit()">Hiện tất cả</button>
+    <button class="btn1 label" (click)="ngOnInit()">Hiện tất cả</button>
   </div>
 
   <h3 *ngIf="message; else elseBlock">Not Found!</h3>
@@ -60,7 +58,8 @@
     list-style: none;
     border-radius: 1rem;
     color: white;
-    font-size: 16px;">
+    font-size: 16px;
+    font-family: 'Raleway Bold'">
         <li [hidden]="totalPagination==1" class="page-item"><a class="page-link1" (click)="firstPage()">Đầu</a></li>
         <li [hidden]="totalPagination==1" class="page-item"><a class="page-link1" (click)="previousPage()">Trang trước</a></li>
         <!--                    <li class="page-item active"><a class="page-link" href="#">1</a></li>-->
@@ -135,5 +134,5 @@
     <!-- Modal Caption (Image Text) -->
     <div id="caption"></div>
   </div>
-  <div class="footer">Copyright @2022</div>
+<!--  <div class="footer">Copyright @2022</div>-->
 </div>
