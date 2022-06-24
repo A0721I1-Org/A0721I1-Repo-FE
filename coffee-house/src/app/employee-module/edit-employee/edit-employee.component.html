@@ -35,7 +35,7 @@
                 <i>họ và tên Không được để trống!</i>
               </p>
               <p style="color: red" *ngIf="(editEmployeeForm.get('nameEmployee').hasError('pattern') && editEmployeeForm.get('nameEmployee').touched)">
-                <i>họ và tên sai định dạng!</i>
+                <i>Họ và tên không được chứa số và kí tự đặc biẹt!</i>
               </p>
             </div>
             <div class="form-group">
@@ -56,6 +56,10 @@
                   <p style="color: red" *ngIf="(editEmployeeForm.get('dateOfBirthEmployee').hasError('required')
               && editEmployeeForm.get('dateOfBirthEmployee').touched)">
                     <i>ngày sinh Không được để trống!</i>
+                  </p>
+                  <p style="color: red" *ngIf="(editEmployeeForm.get('dateOfBirthEmployee').hasError('checkage')
+              && editEmployeeForm.get('dateOfBirthEmployee').touched)">
+                    <i>nhân viên phải trên 18 tuổi!</i>
                   </p>
                 </div>
               </div>
@@ -79,16 +83,16 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <span class="form-label">Lương<i class="text-danger">(*)</i></span>
-                  <input class="form-control" type="text"  formControlName="salaryEmployee">
+                  <input class="form-control" type="number"  formControlName="salaryEmployee">
                   <span class="select-arrow"></span>
                   <p style="color: red" *ngIf="(editEmployeeForm.get('salaryEmployee').hasError('required')
               && editEmployeeForm.get('salaryEmployee').touched)">
                     <i>lương Không được để trống!</i>
                   </p>
-<!--                  <p style="color: red" *ngIf="(editEmployeeForm.get('salaryEmployee').hasError('min')-->
-<!--              && editEmployeeForm.get('salaryEmployee').touched)">-->
-<!--                    <i>lương thấp nhất là 100,000!</i>-->
-<!--                  </p>-->
+                  <p style="color: red" *ngIf="(editEmployeeForm.get('salaryEmployee').hasError('min')
+              && editEmployeeForm.get('salaryEmployee').touched)">
+                    <i>lương phải lớn hơn 100000!</i>
+                  </p>
                 </div>
               </div>
               <div class="col-md-6">

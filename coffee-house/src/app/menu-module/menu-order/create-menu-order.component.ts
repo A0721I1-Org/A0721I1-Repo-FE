@@ -239,7 +239,7 @@ export class MenuOrderComponent implements OnInit, OnDestroy {
       order: {idOrder: this.idOrder},
       product: {idProduct: idProduct}
     };
-    if(this.product.quatityProduct > 0) {
+    if (this.product.quatityProduct > 0) {
       if (orderDetail) {
         this.menuService.saveOrderDetail(orderDetail).subscribe(
           data => {
@@ -252,6 +252,7 @@ export class MenuOrderComponent implements OnInit, OnDestroy {
     } else {
       this.message = 'Sản phẩm đã hết vui lòng chọn món khác';
       document.getElementById('noti').hidden = false;
+     // document.getElementById('noti').classList.remove('position-absolute');
       this.checkProductEx = false;
     }
   }

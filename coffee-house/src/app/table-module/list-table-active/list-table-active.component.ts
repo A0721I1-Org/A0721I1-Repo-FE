@@ -29,7 +29,7 @@ export class ListTableActiveComponent implements OnInit {
   }
 
   addOrderBeNull(idTable: number) {
-    this.tableService.addNewOrder(this.tokenStorageService.getUser().id, idTable).subscribe(data => {
+    this.tableService.addNewOrder(1, idTable).subscribe(data => {
       this.idOrder = data.idOrder;
       this.router.navigate(['../menu/menu-order-child', idTable, this.idOrder]);
     }, () => {

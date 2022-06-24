@@ -1,4 +1,13 @@
-
+<!-- Modal notification -->
+<div [hidden]="true" id="noti" class="alert alert-warning alert-dismissible fade show position-fixed sticky-top" role="alert">
+  <h4 class="alert-heading text-warning">Thông báo!!</h4>
+  <strong>Xin chào!</strong>
+  <p>{{message}}</p>
+  <button type="button" class="close" (click)="hide()" aria-label="Close">
+    <span>&times;</span>
+  </button>
+  <hr>
+</div>
 <div class="menu__container">
   <div class="row w-100 h-100 m-mb-0 d-mb-block">
     <div class="col-sm-3 col-md-4 col-lg-3 p-mb-0">
@@ -256,19 +265,9 @@
   <div class="modal fade" id="modal1">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content position-relative">
-        <!-- Modal notification -->
-        <div [hidden]="true" id="noti" class="alert alert-warning alert-dismissible fade show" role="alert">
-          <h4 class="alert-heading text-warning">Thông báo!!</h4>
-          <strong>Xin chào!</strong>
-          <p>{{message}}</p>
-          <button type="button" class="close" (click)="hide()" aria-label="Close">
-            <span>&times;</span>
-          </button>
-          <hr>
-        </div>
         <!-- Modal Header -->
         <div class="modal-header">
-          <h4 class="modal-title">{{product?.nameProduct}}</h4>
+          <h4 class="modal-title font-weight-bold" style="font-size: 1.8rem">{{product?.nameProduct}}</h4>
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         <!-- Modal body -->
@@ -281,8 +280,8 @@
                 </div>
                 <div class="col-xs-7 flex-custum" style="padding-top: 2vh;">
                   <ul type="none">
-                    <li class="font-weight-bold" style="font-size: 1.4rem">{{product?.nameProduct}}</li>
-                    <li class="font-weight-light" style="font-size: 1.4rem">{{product?.descriptionProduct}}
+<!--                    <li class="font-weight-bold" style="font-size: 1.4rem">{{product?.nameProduct}}</li>-->
+                    <li class="font-weight-light " style="font-size: 1.5rem; margin-left: 3rem">{{product?.descriptionProduct | titlecase}}
                     </li>
                   </ul>
                 </div>
@@ -295,7 +294,7 @@
                     <a class="px-2" (click)="subQuatity()" *ngIf="quatity > 1">
                       <i class='bx bxs-minus-circle bx-lg' style='color:#fa8c16; font-size: 1.5rem'></i>
                     </a>
-                    <span>{{quatity}}</span>
+                    <span  style="font-size: 1.4rem">{{quatity}}</span>
                     <a class="px-2" (click)="addQuality()">
                       <i class='bx bxs-plus-circle bx-lg'
                          style='color:#fa8c16'></i>
