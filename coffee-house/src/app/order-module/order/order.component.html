@@ -82,8 +82,8 @@
   </div>
 </div>
 <div class="container">
-  <table class="table table-striped table-hover ">
-    <thead>
+  <table class="table table-light table-hover ">
+    <thead >
     <tr>
       <th>STT</th>
       <th>Số hóa đơn</th>
@@ -97,7 +97,7 @@
     <tbody>
     <tr *ngFor="let order of orders ; let i = index">
       <td>{{i + 1| number}}</td>
-      <td>{{order.idOrder}}</td>
+      <td >{{order.idOrder}}</td>
       <td>{{order.dateOrder|date: 'dd/MM/yyyy'}}</td>
       <td>{{order.employee.nameEmployee}}</td>
       <td>{{order.table.idTable}}</td>
@@ -108,7 +108,7 @@
 <!--        </a>-->
 <!--      </td>-->
       <td>
-        <a [routerLink]="['/order-detail/' + order.idOrder]">
+        <a [routerLink]="['/order/order-detail/' + order.idOrder]">
           <i class='bx bxs-show bx-md'></i>
         </a>
       </td>

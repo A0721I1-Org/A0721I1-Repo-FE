@@ -11,7 +11,7 @@ import {OderDetail} from '../../model/oderDetail';
 export class OderService {
   public API_PAGE = 'http://localhost:8080/api/order/listOrder';
   public API_LIST = 'http://localhost:8080/api/order/list';
-  public API_DETAIL = 'http://localhost:8080/api/order/orderDetail/';
+  public API_DETAIL = 'http://localhost:8080/api/order-detail/orderDetail/';
 
   constructor(private httpClient: HttpClient) {
   }
