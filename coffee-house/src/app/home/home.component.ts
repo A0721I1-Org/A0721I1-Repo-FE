@@ -6,7 +6,6 @@ import {TokenStorageService} from '../login-module/service/token-storage.service
 import {Router} from '@angular/router';
 import {Employee} from '../model/employee';
 import {EmployeeService} from '../employee-module/service/employee.service';
-import {User} from '../model/user';
 
 @Component({
   selector: 'app-home',
@@ -32,8 +31,6 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.isLogin = this.tokenStorageService.getUser().id ? true : false;
-    // console.log(this.isLogin);
     this.findAllNew();
     this.findAllCart();
     this.getPositionById();
@@ -72,12 +69,14 @@ export class HomeComponent implements OnInit {
 
 // HauLST - làm menu quản lí nhân viên
   getPositionById() {
-    this.idUser = this.tokenStorageService.getUser().id;
-    console.log(this.idUser);
-    this.employeeService.findByIdUser(this.idUser).subscribe(
-      (data) => {
-        this.employee = data;
-      }
-    );
+    if (this.tokenStorageService.getUser()){
+      this.idUser = this.tokenStorageService.getUser().id;
+      console.log(this.idUser);
+      this.employeeService.findByIdUser(this.idUser).subscribe(
+        (data) => {
+          this.employee = data;
+        }
+      );
+    }
   }
 }
