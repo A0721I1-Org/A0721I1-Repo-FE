@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {TableService} from '../service/table.service';
 import {FormControl, FormGroup} from '@angular/forms';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-list-table',
@@ -9,14 +10,17 @@ import {Router} from '@angular/router';
   styleUrls: ['./list-table.component.css']
 })
 export class ListTableComponent implements OnInit {
+  private subscription: Subscription | undefined;
   tables: any;
   formSearch: FormGroup;
   message: String = null;
   pageNumber = 0;
   totalPage: number[];
 
-  constructor(private tableService: TableService, private router: Router) {
-  }
+  constructor(private tableService: TableService, private router: Router,
+  private _service: TableService,
+  private _router: Router,
+  private _activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.findAllTable(this.pageNumber);
@@ -125,8 +129,8 @@ export class ListTableComponent implements OnInit {
       this.tableService.message = null;
       this.ngOnInit();
     }
+    this.tableService.message = null;
   }
-
   hide() {
     document.getElementById('noti').hidden = true;
   }
@@ -173,7 +177,7 @@ export class ListTableComponent implements OnInit {
   }
 
   checkEdit(codeTable: string) {
-    this.message = 'Không thể chỉnh sửa bàn ' + codeTable;
+    this.message = 'Không thể chỉnh sửa ' + codeTable;
     document.getElementById('noti').hidden = false;
   }
 }

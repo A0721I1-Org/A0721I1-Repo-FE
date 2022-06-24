@@ -57,7 +57,7 @@
       </tr>
       <tr *ngFor="let table of tables; index as i">
         <td>{{i+1}}</td>
-        <td><a [routerLink]="['../detail/',table.idTable]">{{table.codeTable}}</a></td>
+        <td><a (click)="returnTableDetail(table.idTable)">{{table.codeTable}}</a></td>
         <td>
           <div *ngIf="table.status.idStatus == 1; then good else bad"></div>
           <ng-template #good>Tốt</ng-template>
