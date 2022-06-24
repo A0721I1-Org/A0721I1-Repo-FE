@@ -12,6 +12,8 @@ import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {FeedbackModuleModule} from './feedback-module/feedback-module.module';
 import {HeaderComponent} from './header/header.component';
+import {IncomeModuleModule} from "./income-module/income-module.module";
+import {DatePipe} from "@angular/common";
 
 
 @NgModule({
@@ -38,10 +40,12 @@ import {HeaderComponent} from './header/header.component';
     AppRoutingModule,
     HttpClientModule,
     FeedbackModuleModule,
+    IncomeModuleModule,
   ],
   providers: [
     {provide: JWT_OPTIONS, useValue: JWT_OPTIONS},
     JwtHelperService,
+    DatePipe
   ],
   bootstrap: [AppComponent]
 })
