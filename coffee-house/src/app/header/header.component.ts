@@ -1,11 +1,10 @@
-import {Component, OnChanges, OnInit, SimpleChanges} from '@angular/core';
-import {TokenStorageService} from '../service/token-storage.service';
+import {Component, OnInit} from '@angular/core';
 import {Router, RouterLinkActive} from '@angular/router';
-import {Employee} from '../../model/employee';
-import {ProductService} from '../../product-module/service/product.service';
-import {EmployeeService} from '../../employee-module/service/employee.service';
-import {LoginServiceService} from '../service/login.service';
-import {ShareService} from '../service/share.service';
+import {Employee} from '../model/employee';
+import {ProductService} from '../product-module/service/product.service';
+import {TokenStorageService} from '../login-module/service/token-storage.service';
+import {EmployeeService} from '../employee-module/service/employee.service';
+import {ShareService} from '../login-module/service/share.service';
 
 @Component({
   selector: 'app-header',
@@ -20,6 +19,7 @@ export class HeaderComponent implements OnInit {
   private role: string;
   username: string;
 
+
   constructor(
     private service: ProductService,
     public tokenStorageService: TokenStorageService,
@@ -32,12 +32,14 @@ export class HeaderComponent implements OnInit {
     });
   }
 
+
   loadHeader(): void {
     if (this.tokenStorageService.getToken()) {
       this.role = this.tokenStorageService.getUser().roles[0];
       this.username = this.tokenStorageService.getUser().username;
     }
     this.isLogin = this.idUser != null;
+    console.log(this.isLogin);
     this.getPositionById();
   }
 

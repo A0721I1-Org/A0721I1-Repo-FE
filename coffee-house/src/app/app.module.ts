@@ -10,9 +10,8 @@ import {JWT_OPTIONS, JwtHelperService, JwtModule} from '@auth0/angular-jwt';
 import {HomeComponent} from './home/home.component';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {EmployeeModuleModule} from './employee-module/employee-module.module';
 import {FeedbackModuleModule} from './feedback-module/feedback-module.module';
-import {HeaderComponent} from './login-module/header/header.component';
+import {HeaderComponent} from './header/header.component';
 
 
 @NgModule({
@@ -34,17 +33,10 @@ import {HeaderComponent} from './login-module/header/header.component';
     }),
     BrowserAnimationsModule,
     JwtModule,
-    FormsModule,
-    ReactiveFormsModule,
-    AppRoutingModule,
-    HttpClientModule,
-    FeedbackModuleModule
   ],
   providers: [
     {provide: JWT_OPTIONS, useValue: JWT_OPTIONS},
     JwtHelperService,
-    HttpClientModule,
-    ReactiveFormsModule
   ],
   bootstrap: [AppComponent]
 })
