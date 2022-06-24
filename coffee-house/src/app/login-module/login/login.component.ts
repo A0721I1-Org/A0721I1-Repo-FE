@@ -7,6 +7,7 @@ import {LoginServiceService} from '../service/login.service';
 import {TokenStorageService} from '../service/token-storage.service';
 
 import {ToastrService} from 'ngx-toastr';
+import {ShareService} from '../service/share.service';
 
 
 @Component({
@@ -22,19 +23,17 @@ export class LoginComponent implements OnInit {
   roles: string[] = [];
   show = false;
   rememberMeToken: string;
-  isLoggedIn = false;
 
   constructor(private formBuilder: FormBuilder,
               private router: Router, private loginServer: LoginServiceService,
               private activatedRoute: ActivatedRoute,
               private tokenStorageService: TokenStorageService,
-              private toast: ToastrService) {
+              private toast: ToastrService,
+              private shareService: ShareService) {
   }
 
   ngOnInit(): void {
-    this.isLoggedIn = this.tokenStorageService.getUser() ? true : false;
-    console.log(this.isLoggedIn);
-    if (this.isLoggedIn){
+    if (this.tokenStorageService.getUser()){
       this.router.navigateByUrl('/home');
     }
     this.formLogin = this.formBuilder.group({
@@ -76,6 +75,8 @@ export class LoginComponent implements OnInit {
         this.rememberMeToken = this.tokenStorageService.getToken();
         this.formLogin.reset();
         this.router.navigateByUrl('/home');
+        this.shareService.sendClickEvent();
+        window.location.reload();
       },
       err => {
         // this.errorMessage = err.error.message;

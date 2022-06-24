@@ -67,6 +67,7 @@ export class CreateTableComponent implements OnInit {
           this.tableCreate.status = this.status[i];
         }
       }
+      console.log(this.tableCreate);
       this.service.createTable(this.tableCreate).subscribe(() => {
         console.log('success');
         this.service.message = 'Tạo mới thành công!';

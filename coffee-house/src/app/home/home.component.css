@@ -58,12 +58,13 @@ html::-webkit-scrollbar-thumb{
   border-radius: 5rem;
 }
 
-body{
-  background: var(--bg);
-}
+/*body{*/
+/*  background-color: #010103;*/
+/*}*/
 
 section{
   padding:2rem 7%;
+  background-color: #010103;
 }
 
 .heading{
@@ -105,6 +106,7 @@ section{
   left: 0;
   right: 0;
   z-index: 1000;
+  padding-right: 200px;
 }
 
 .header .logo img{
@@ -133,7 +135,6 @@ section{
 .header .icons div:hover{
   color:var(--main-color);
 }
-
 
 #menu-btn{
   display: none;
@@ -187,7 +188,7 @@ section{
   min-height: 100vh;
   display: flex;
   align-items: center;
-  /*background:url(/assets/images/home-img.jpeg) no-repeat;*/
+  background:url(/assets/images/home-img.jpeg) no-repeat;
   background-size: cover;
   background-position: center;
 }
@@ -203,6 +204,66 @@ section{
   font-size: 2rem;
   padding-top: 4px;
   color: #fff;
+}
+/* Nút Dropdown*/
+.nut_dropdown {
+  background-color: #0080ff;
+  /*color: white;*/
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+/* Thiết lập vị trí cho thẻ div với class dropdown*/
+.dropdown {
+  position: relative;
+  display: inline-block;
+  /*border-bottom: .1rem solid var(--main-color);*/
+  /*padding-bottom: .5rem;*/
+}
+
+.dropdown:hover{
+  color:var(--main-color);
+  padding-bottom: .5rem;
+}
+/* Nội dung Dropdown */
+.noidung_dropdown {
+  /*Ẩn nội dụng các đường dẫn*/
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+/* Thiết kế style cho các đường dẫn tronng Dropdown */
+.noidung_dropdown a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+.hienThi{
+  display:block;
+}
+/* Thiết lập vị trí cho thẻ div với class dropdown*/
+/* Nội dung Dropdown */
+.noi_dropdown {
+  /*Ẩn nội dụng các đường dẫn*/
+  display: none;
+  position: absolute;
+  background-color: black;
+  min-width: 160px;
+  z-index: 1;
+}
+/* Thiết kế style cho các đường dẫn tronng Dropdown */
+.noi_dropdown a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+.inRa{
+  display:block;
 }
 
 .home .content p{
@@ -252,13 +313,13 @@ section{
 }
 
 .menu .box-container .box{
-  padding:5rem;
+  padding:4rem;
   text-align: center;
   border:var(--border);
 }
 
 .menu .box-container .box img{
-  height: 10rem;
+  height: 15rem;
 }
 
 .menu .box-container .box h3{
@@ -286,9 +347,7 @@ section{
 .menu .box-container .box:hover > *{
   color:var(--black);
 }
-body{
-  background: var(--bg);
-}
+
 .products .box-container{
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
@@ -298,7 +357,7 @@ body{
 .products .box-container .box{
   text-align: center;
   border:var(--border);
-  padding: 2rem;
+  padding: 3rem;
 }
 
 .products .box-container .box .icons a{
@@ -313,10 +372,12 @@ body{
 
 .products .box-container .box .icons a:hover{
   background:var(--main-color);
+  text-decoration: none;
+
 }
 
 .products .box-container .box .image{
-  padding: 2.5rem 0;
+  padding: 2rem 0;
 }
 
 .products .box-container .box .image img{
@@ -350,7 +411,7 @@ body{
 
 .review .box-container{
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr));
   gap:1.5rem;
 }
 
@@ -436,7 +497,7 @@ body{
 
 .blogs .box-container{
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr));
   gap:1.5rem;
 }
 
@@ -481,11 +542,19 @@ body{
   font-size: 2rem;
 }
 
-.blogs .box-container .box .content p{
-  font-size: 1.6rem;
-  line-height: 1.8;
-  color:#ccc;
-  padding:1rem 0;
+/*.blogs .box-container .box .content p{*/
+/*  font-size: 1.6rem;*/
+/*  line-height: 1.8;*/
+/*  color:#ccc;*/
+/*  padding:1rem 0;*/
+/*}*/
+
+.navbar a:hover {
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: none;
 }
 
 .footer{
@@ -530,21 +599,6 @@ body{
 .footer .links a:hover{
   background:var(--main-color);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* media queries  */
 @media (max-width:991px){
 
@@ -605,14 +659,6 @@ body{
 
   .home .content p{
     font-size: 1.5rem;
-  }
-
-}
-
-@media (max-width:450px){
-
-  html{
-    font-size: 50%;
   }
 
 }
