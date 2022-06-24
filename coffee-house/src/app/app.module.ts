@@ -33,6 +33,11 @@ import {HeaderComponent} from './header/header.component';
     }),
     BrowserAnimationsModule,
     JwtModule,
+    FormsModule,
+    ReactiveFormsModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FeedbackModuleModule,
   ],
   providers: [
     {provide: JWT_OPTIONS, useValue: JWT_OPTIONS},
