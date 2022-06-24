@@ -12,15 +12,17 @@ import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {FeedbackModuleModule} from './feedback-module/feedback-module.module';
 import {HeaderComponent} from './header/header.component';
-import {IncomeModuleModule} from "./income-module/income-module.module";
-import {DatePipe} from "@angular/common";
+import { HeaderUnloginComponent } from './header-unlogin/header-unlogin.component';
+import {IncomeModuleModule} from './income-module/income-module.module';
+import {DatePipe} from '@angular/common';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    HeaderComponent
+    HeaderComponent,
+    HeaderUnloginComponent
   ],
   imports: [
     BrowserModule,
