@@ -15,7 +15,7 @@
     outline: none;
     border:none;
     text-decoration: none;
-    text-transform: capitalize;
+    /*text-transform: capitalize;*/
     transition: .2s linear;
 }
 
@@ -37,10 +37,6 @@ html::-webkit-scrollbar-track{
 html::-webkit-scrollbar-thumb{
     background: #fff;
     border-radius: 5rem;
-}
-
-body{
-    background: var(--bg);
 }
 
 section{
