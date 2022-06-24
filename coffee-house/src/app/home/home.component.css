@@ -79,6 +79,7 @@ section {
 .heading span {
   color: var(--main-color);
   text-transform: uppercase;
+  font-size: 4rem;
 }
 
 .btn {
