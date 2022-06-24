@@ -60,6 +60,7 @@ export class CreateFeedbackComponent implements OnInit {
           this.createFeedbackForm.patchValue({imageFeedback: url});
 
           this.feedBackService.saveFeedback(this.feedBack).subscribe(() => {
+            this.createFeedbackForm.reset();
             this.router.navigateByUrl('/').then(r => alert("Thêm mới phản hồi thành công!"));
           })
         });
