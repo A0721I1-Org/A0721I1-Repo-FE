@@ -35,7 +35,7 @@
                 <i>họ và tên Không được để trống!</i>
               </p>
               <p style="color: red" *ngIf="(editEmployeeForm.get('nameEmployee').hasError('pattern') && editEmployeeForm.get('nameEmployee').touched)">
-                <i>họ và tên sai định dạng!</i>
+                <i>Họ và tên không được chứa số và kí tự đặc biẹt!</i>
               </p>
             </div>
             <div class="form-group">
