@@ -1,3 +1,10 @@
+
+body {
+  background: url("src/assets/images/home-img.jpeg") no-repeat;
+  background-size: 100% 600px;
+  height: 600px;
+}
+
 button.btn.openmodal {
   font-size: 25px;
   color: var(--main-color);
@@ -24,6 +31,11 @@ button.btn.openmodal {
   border: none!important;
 }
 
+/*.form {*/
+/*  !*position: absolute;*!*/
+/*  left: 10%;*/
+/*  right: 10%;*/
+/*}*/
 .form {
   position: absolute;
   left: 10%;
@@ -51,8 +63,4 @@ button.btn.openmodal {
 /*  animation-name: noti;*/
 /*  animation-duration: 1s;*/
 /*}*/
-body {
-  background: url("src/assets/images/home-img.jpeg") no-repeat;
-  background-size: 100% 600px;
-  height: 600px;
-}
+
