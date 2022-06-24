@@ -34,7 +34,7 @@ export class CreateTableComponent implements OnInit {
 
     this.tableForm = new FormGroup(
       {
-        idTable: new FormControl('',),
+        idTable: new FormControl('', ),
         codeTable: new FormControl('', [Validators.required, Validators.pattern('^TB[0-9]{3}$')], [checkCodeTable(this.service)]),
         emptyTable: new FormControl('true'),
         status: new FormControl('', [Validators.required])
