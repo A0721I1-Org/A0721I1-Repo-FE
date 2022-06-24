@@ -63,7 +63,7 @@ export class EditProductComponent implements OnInit {
         finalize(() => {
           fileRef.getDownloadURL().subscribe((url) => {
             this.editForm.patchValue({imageProduct: url});
-            // const product = this.editForm.value;
+
             this.service.updateProduct(this.editForm.value).subscribe(() => {
               console.log(this.editForm.value);
               this.product = this.editForm.value;
@@ -90,7 +90,6 @@ export class EditProductComponent implements OnInit {
     }
     console.log(this.editForm.value);
   }
-
   showPreview(event: any) {
     this.selectedImage = event.target.files[0];
     const reader = new FileReader();

@@ -1,5 +1,6 @@
 export const environment = {
   production: false,
+
   // For Firebase JS SDK v7.20.0 and later, measurementId is optional
   firebaseConfig : {
     apiKey: 'AIzaSyAm-Y5YuYRhacF59tC76_40znYzJRN80Cc',
@@ -12,5 +13,6 @@ export const environment = {
     measurementId: 'G-XB2D3LGDY3'
   },
   apiBaseUrl: 'http://localhost:8080',
+
   apiUrl: 'http://localhost:8080'
 };
