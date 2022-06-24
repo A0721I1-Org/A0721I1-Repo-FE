@@ -8,8 +8,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/coffee-house/src/app/feedback-module/create-feedback/create-feedback.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/src/app/feedback-module/create-feedback/create-feedback.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/coffee-house/src/app/feedback-module/create-feedback/create-feedback.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/src/app/feedback-module/create-feedback/create-feedback.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/feedback-module/service/feedback.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/src/app/feedback-module/service/feedback.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +60,7 @@
       <workItem from="1655458157643" duration="312000" />
       <workItem from="1655463289530" duration="5003000" />
       <workItem from="1656041958418" duration="120000" />
-      <workItem from="1656043013165" duration="2436000" />
+      <workItem from="1656043013165" duration="3313000" />
     </task>
     <servers />
   </component>

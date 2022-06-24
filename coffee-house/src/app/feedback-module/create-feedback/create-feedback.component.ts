@@ -52,21 +52,29 @@ export class CreateFeedbackComponent implements OnInit {
 
   onSubmit() {
     this.feedBack = this.createFeedbackForm.value;
-    const nameImg = this.getCurrentDateTime() + this.selectImg.name;
+    const nameImg = this.getCurrentDateTime() + this.selectImg;
     const fileRef = this.storage.ref(nameImg);
-    this.storage.upload(nameImg, this.selectImg).snapshotChanges().pipe(
-      finalize(() => {
-        fileRef.getDownloadURL().subscribe((url) => {
-          this.createFeedbackForm.patchValue({imageFeedback: url});
+    if(nameImg != null) {
+      this.storage.upload(nameImg, this.selectImg).snapshotChanges().pipe(
+        finalize(() => {
+          fileRef.getDownloadURL().subscribe((url) => {
+            this.createFeedbackForm.patchValue({imageFeedback: url});
 
-          this.feedBackService.saveFeedback(this.feedBack).subscribe(() => {
-            this.createFeedbackForm.reset();
-            this.router.navigateByUrl('/').then(r => alert("Thêm mới phản hồi thành công!"));
-          })
-        });
+            this.feedBackService.saveFeedback(this.feedBack).subscribe(() => {
+              console.log('hi')
+
+              this.router.navigateByUrl('/').then(r => alert("Thêm mới phản hồi thành công!"));
+            })
+          });
+        })
+      ).subscribe();
+    } else {
+      this.feedBackService.saveFeedback(this.feedBack).subscribe(() => {
+        console.log('hi')
+
+        this.router.navigateByUrl('/').then(r => alert("Thêm mới phản hồi thành công!"));
       })
-    ).subscribe();
-
+    }
   }
 
   showPreview(event: any) {
