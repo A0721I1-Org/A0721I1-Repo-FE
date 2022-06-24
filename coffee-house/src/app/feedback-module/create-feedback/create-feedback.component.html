@@ -13,15 +13,14 @@
 <div class="container d-flex justify-content-center mt-100">
 
   <!-- Button to Open the Modal -->
-  <button type="button" class="btn openmodal" data-toggle="modal" data-target="#modal1" style="background: #212529; color: white; size: 500px">
+  <button type="button" class="btn openmodal" data-toggle="modal" data-target="#modal1"
+          style="background: #212529; color: white; size: 500px">
     Phản hồi
   </button>
   <!-- The Modal -->
-  <div class="modal fade" id="modal1" >
+  <div class="modal fade" id="modal1">
     <div class="modal-dialog modal-dialog-centered">
-      <!--      <form class="form" [formGroup]="createFeedbackForm" (ngSubmit)="onSubmit()">-->
-      <form class="form" [formGroup]="createFeedbackForm" >
-
+      <form class="form" [formGroup]="createFeedbackForm">
         <div class="modal-content">
           <!-- Modal Header -->
           <div class="modal-header" style="background: rgb(236, 155, 68)">
@@ -35,7 +34,8 @@
               <div class="row">
                 <div class="col-md-12">
                   <div class="form-group">
-                    <span class="form-label" for="namePeopleFeedback">Họ và tên<span class="text-danger">(*):</span></span>
+                      <span class="form-label" for="namePeopleFeedback">Họ và tên<span
+                        class="text-danger">(*):</span></span>
                     <input class="form-control" type="text" formControlName="namePeopleFeedback">
                     <div class="text-danger" *ngFor="let validation of VALIDATE_MESSAGES.namePeopleFeedback">
                       <div class="error-message"
@@ -47,7 +47,8 @@
                 </div>
                 <div class="col-md-12">
                   <div class="form-group">
-                    <span class="form-label" for="emailPeopleFeedback">Email<span class="text-danger">(*):</span></span>
+                      <span class="form-label" for="emailPeopleFeedback">Email<span
+                        class="text-danger">(*):</span></span>
                     <input class="form-control" type="email" formControlName="emailPeopleFeedback">
                     <div class="text-danger" *ngFor="let validation of VALIDATE_MESSAGES.emailPeopleFeedback">
                       <div class="error-message"
@@ -62,14 +63,17 @@
                 <div class="col-md-12">
                   <div class="form-group">
                     <span class="form-label" for="imageFeedback">Hình ảnh<span class="text-danger">(*):</span></span>
-                    <input class="form-control-file" type="file" name="imageFeedback" id="imageFeedback" (change)="showPreview($event)">
+                    <input class="form-control-file" type="file" name="imageFeedback" id="imageFeedback"
+                           (change)="showPreview($event)">
                     <img [src]="imgVip" height="200" width="300" alt="Image preview...">
                   </div>
                 </div>
                 <div class="col-md-12">
                   <div class="form-group">
-                    <span class="form-label" for="contentFeedback">Phản hồi<span class="text-danger">(*):</span></span>
-                    <textarea class="form-control" type="text" style="height: 200px" formControlName="contentFeedback"></textarea>
+                      <span class="form-label" for="contentFeedback">Phản hồi<span
+                        class="text-danger">(*):</span></span>
+                    <textarea class="form-control" type="text" style="height: 200px"
+                              formControlName="contentFeedback"></textarea>
                     <div class="text-danger" *ngFor="let validation of VALIDATE_MESSAGES.contentFeedback">
                       <div class="error-message"
                            *ngIf="createFeedbackForm.get('contentFeedback').hasError(validation.type) && (createFeedbackForm.get('contentFeedback').dirty ||
@@ -85,13 +89,10 @@
 
           <!-- Modal footer -->
           <div class="modal-footer">
-            <button type="button" class="btn btn-primary btn-lg btn-block btn-custom" data-dismiss="modal"
-                    style="margin: 5px 0 0 2.5px;">
+            <div class="btn btn-primary btn-lg btn-block btn-custom" data-dismiss="modal"
+                 style="margin: 5px 0 0 2.5px;">
               Đóng
-            </button>
-            <!--            <button type="submit"style="margin: 5px 0 0 2.5px;" class="btn btn-primary btn-lg btn-block btn-custom">-->
-            <!--             Gửi Phản hồi-->
-            <!--            </button>-->
+            </div>
             <button type="submit" style="margin: 5px 0 0 2.5px;" (click)="onSubmit()" data-dismiss="modal"
                     class="btn btn-primary btn-lg btn-block btn-custom">
               Gửi Phản hồi

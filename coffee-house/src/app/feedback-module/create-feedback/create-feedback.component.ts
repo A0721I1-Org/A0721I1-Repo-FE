@@ -55,7 +55,7 @@ export class CreateFeedbackComponent implements OnInit {
 
   onSubmit() {
     console.log(this.createFeedbackForm.value);
-    const nameImg = this.getCurrentDateTime() + this.selectImg.name;
+    const nameImg = this.getCurrentDateTime() + this.selectImg;
     const fileRef = this.storage.ref(nameImg);
     this.storage.upload(nameImg, this.selectImg).snapshotChanges().pipe(
       finalize(() => {

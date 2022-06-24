@@ -36,6 +36,11 @@ button.btn.openmodal {
 /*  left: 10%;*/
 /*  right: 10%;*/
 /*}*/
+.form {
+  position: absolute;
+  left: 10%;
+  right: 10%;
+}
 
 /*Noti*/
 /*@keyframes noti{*/
