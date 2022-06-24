@@ -1,10 +1,29 @@
-<!-- header section starts  -->
+
+<header class="header">
+
+  <a href="#" class="logo">
+    <img style="height: 75px" src="assets/images/logo.png" alt="">
+  </a>
 
 
-
-<!-- header section starts  -->
-
-<!--<header class="header">-->
+  <nav class="navbar" >
+    <a href="/home#home">Trang chủ</a>
+    <a href="/home#about">Giới thiệu</a>
+    <a href="/home#menu">Sản phẩm</a>
+    <a href="/home#review">Đánh giá</a>
+    <a href="/home#contact">Liên hệ</a>
+    <div class="dropdown" *ngIf="tokenStorageService.getUser()">
+      <button style="font-size: 1.6em; background: black; margin-left: 1.2rem;color: white" onclick="noiDropdown()" >Quản lý</button>
+      <div class="noi_dropdown">
+        <a href="/employee/list" *ngIf="employee.position?.namePosition =='Quản lý'"><span>EMPLOYEE</span></a>
+        <a href="#">PRODUCT</a>
+        <a href="#">TABLE</a>
+        <a href="#">SERVICE</a>
+        <a href="#">ORDER</a>
+        <a href="#">BILL</a>
+        <a href="/feedback/list">FEEDBACK</a>
+      </div>
+    </div>
 
 <!--  <a href="#" class="logo">-->
 <!--    <img style="height: 75px" src="assets/images/logo.png" alt="">-->
@@ -101,7 +120,7 @@ home section starts  -->
     <div class="box" *ngFor="let product of products; index as i">
       <img [src]="product.imageProduct" alt="">
       <h3> {{product.nameProduct}} </h3>
-      <div class="price">{{product.priceProduct}}đ <span>{{product.priceProduct + 20 / 100}}đ</span></div>
+      <div class="price">{{product.priceProduct | number}}đ <span>{{product.priceProduct + 20 / 100}}đ</span></div>
       <a href="#" class=" btn fa bx bxs-cart"> Thêm vào giỏ</a>
     </div>
 
@@ -382,3 +401,5 @@ home section starts  -->
   </div>
 
 </section>
+  </nav>
+</header>

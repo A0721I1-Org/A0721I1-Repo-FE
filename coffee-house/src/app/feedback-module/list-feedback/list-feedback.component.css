@@ -3,6 +3,7 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+
 @font-face {
   font-family: '#9Slide03 Quicksand Bold';
   src: url('src/assets/fonts/9Slide03QuicksandBold-Bold.ttf') format('truetype');
@@ -185,7 +186,9 @@ input::-webkit-inner-spin-button {
 :root{
   /*--background-color: rgb(236, 155, 68);*/
 }
-
+.container-lg {
+  margin-top: 120px;
+}
 .table-responsive {
   margin: 30px 0;
 }
@@ -229,11 +232,13 @@ input::-webkit-inner-spin-button {
 }
 .table-title {
   /*background-image: url("/img/Header-Banner.webp");*/
+
   height: 100px;
   padding: 16px 25px;
   margin: -20px -25px 10px;
   border-radius: 3px 3px 0 0;
 }
+
 .table-title h2 {
   margin: 5px 0 0;
   font-size: 24px;
@@ -463,7 +468,7 @@ a{
 
 .footer {
   background-color: #FA8C16;
-  color: black;
+  color: white;
   text-align: center;
   margin-top: 30px;
   font-family: "Raleway Bold";
