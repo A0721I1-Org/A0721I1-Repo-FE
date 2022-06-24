@@ -8,7 +8,8 @@ import {OrderDetailMenuDTO} from '../../model/OrderDetailMenuDTO';
 import {Oder} from '../../model/oder';
 import {environment} from '../../../environments/environment';
 
-const API_URL = `${environment.apiBaseUrl}`;
+const API_URL1 = `${environment.apiBaseUrl}`;
+const API_URL = `${environment.apiUrl}`;
 
 @Injectable({
   providedIn: 'root'
