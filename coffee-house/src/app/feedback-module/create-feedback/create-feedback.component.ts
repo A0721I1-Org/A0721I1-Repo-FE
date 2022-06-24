@@ -3,7 +3,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {FeedbackService} from '../service/feedback.service';
 import {Router} from '@angular/router';
 import {formatDate} from '@angular/common';
-import {AngularFireStorage} from "@angular/fire/storage";
+import {AngularFireStorage} from '@angular/fire/storage';
 import {finalize} from 'rxjs/operators';
 import {ToastrService} from 'ngx-toastr';
 

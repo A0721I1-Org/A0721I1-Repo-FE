@@ -13,11 +13,12 @@
       <a *ngIf="employee.position?.namePosition == 'Quản lý'" onclick="noiDropdown()">Quản lý</a>
       <div class="noi_dropdown">
         <a href="/employee/list" *ngIf="employee.position?.namePosition == 'Quản lý'"><span>Nhân viên</span></a>
-        <a href="#">Món ăn</a>
+        <a href="/product/list">Món ăn</a>
         <a href="/table/list">Bàn</a>
-        <a href="/table/active">ORDER</a>
-        <a href="#">BILL</a>
-        <a href="feedback/list">FEEDBACK</a>
+        <a href="/table/active">Bán hàng</a>
+        <a href="/order/order-child">Hóa đơn</a>
+        <a href="/income/income-child">Thu nhập</a>
+        <a href="/feedback/list">Phản hồi</a>
       </div>
     </div>
   </nav>
