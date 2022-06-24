@@ -1,8 +1,8 @@
+import {RouterModule} from '@angular/router';
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
-import {HttpClient} from '@angular/common/http';
 import {LoginModuleModule} from './login-module/login-module.module';
 import {ToastrModule} from 'ngx-toastr';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -29,6 +29,8 @@ import {DatePipe} from '@angular/common';
   imports: [
     HttpClientModule,
     BrowserModule,
+    HttpClientModule,
+    RouterModule,
     AppRoutingModule,
     OrderModuleRoutingModule,
     HttpClientModule,
