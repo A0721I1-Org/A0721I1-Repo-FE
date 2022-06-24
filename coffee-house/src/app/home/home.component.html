@@ -1,6 +1,4 @@
-
-
-<!-- header section starts  -->
+!-- header section starts  -->
 
 
 
@@ -43,7 +41,6 @@
 
 <!-- <header class="header">
 >>>>>>> 1f9071043e6c28181ceae41cd51b06656752ef36
-
 home section starts  -->
 
 <!-- home section starts  -->
@@ -104,7 +101,7 @@ home section starts  -->
     <div class="box" *ngFor="let product of products; index as i">
       <img [src]="product.imageProduct" alt="">
       <h3> {{product.nameProduct}} </h3>
-      <div class="price">{{product.priceProduct}}đ <span>{{product.priceProduct + 20 / 100}}đ</span></div>
+      <div class="price">{{product.priceProduct | number}}đ <span>{{product.priceProduct + 20 / 100}}đ</span></div>
       <a href="#" class=" btn fa bx bxs-cart"> Thêm vào giỏ</a>
     </div>
 
@@ -385,14 +382,3 @@ home section starts  -->
   </div>
 
 </section>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/employee-management
->>>>>>> 841646832d658ac13273ea81015a5521b456a2d7
->>>>>>> 1f9071043e6c28181ceae41cd51b06656752ef36
