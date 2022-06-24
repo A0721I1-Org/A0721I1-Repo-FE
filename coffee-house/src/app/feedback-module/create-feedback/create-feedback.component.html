@@ -19,7 +19,7 @@
   <!-- The Modal -->
   <div class="modal fade" id="modal1" >
     <div class="modal-dialog modal-dialog-centered">
-      <form class="form" [formGroup]="createFeedbackForm" (ngSubmit)="onSubmit()">
+      <form class="form" [formGroup]="createFeedbackForm">
         <div class="modal-content">
           <!-- Modal Header -->
           <div class="modal-header" style="background: rgb(236, 155, 68)">
@@ -83,11 +83,11 @@
 
           <!-- Modal footer -->
           <div class="modal-footer">
-            <button type="button" class="btn btn-primary btn-lg btn-block btn-custom" data-dismiss="modal"
+            <div type="button" class="btn btn-primary btn-lg btn-block btn-custom" data-dismiss="modal"
                     style="margin: 5px 0 0 2.5px;">
               Đóng
-            </button>
-            <button type="submit"style="margin: 5px 0 0 2.5px;"   class="btn btn-primary btn-lg btn-block btn-custom">
+            </div>
+            <button type="submit"style="margin: 5px 0 0 2.5px;" (click)="onSubmit()" data-dismiss="modal"  class="btn btn-primary btn-lg btn-block btn-custom">
              Gửi Phản hồi
             </button>
           </div>
