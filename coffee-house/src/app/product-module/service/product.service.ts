@@ -1,23 +1,66 @@
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import {HttpClient} from "@angular/common/http";
+
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
 import {Product} from '../../model/product';
-const API_URL = "http://localhost:8080/find";
-const API_URL1 = "http://localhost:8080/cart";
+import {TypeProduct} from '../../model/typeProduct';
+
+const API_URL = 'http://localhost:8080/find';
+const API_URL1 = 'http://localhost:8080/cart';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
+  URLPRODUCT = 'http://localhost:8080/product';
 
-  constructor(private _httpClient: HttpClient) {
+
+  constructor(private http: HttpClient) {
   }
 
-  findAllNew(): Observable<Product[]> {
-    return this._httpClient.get<Product[]>(API_URL);
+
+  findByAll(): Observable<Product[]> {
+    return this.http.get<Product[]>(this.URLPRODUCT);
   }
-  findAllCart(): Observable<Product[]> {
-    return this._httpClient.get<Product[]>(API_URL1);
+
+  findByAllPaginng(page: number): Observable<Product[]> {
+    return this.http.get<Product[]>(this.URLPRODUCT + '/page' + '?page=' + page);
+  }
+
+  deleteById(id: any): Observable<any> {
+    return this.http.delete<any>(this.URLPRODUCT + '/' + id);
+  }
+
+  search(code: string, name: string): Observable<Product[]> {
+    return this.http.get<Product[]>(this.URLPRODUCT + '/search?code=' + code + '&name=' + name);
+  }
+
+  searchPage(code: string, name: string, page1: number): Observable<Product[]> {
+    return this.http.get<Product[]>(this.URLPRODUCT + '/searchPage?code=' + code + '&name=' + name + '&page1=' + page1);
+  }
+
+  findById(id: any): Observable<Product>{
+    return this.http.get<Product>(this.URLPRODUCT + '/find/' + id );
+  }
+
+  findType(): Observable<TypeProduct[]> {
+    return this.http.get<TypeProduct[]>(this.URLPRODUCT + '/type');
+  }
+
+  updateProduct(product1: Product): Observable<void> {
+    return this.http.patch<void>(this.URLPRODUCT + '/edit', product1);
+  }
+
+  createProduct(product: Product): Observable<Product> {
+    console.log(product);
+    return this.http.post<Product>(this.URLPRODUCT + '/create', product);
+  }
+    findAllNew(): Observable<Product[]> {
+    return this.http.get<Product[]>(API_URL);
+  }
+    findAllCart(): Observable<Product[]> {
+    return this.http.get<Product[]>(API_URL1);
   }
 }
 
