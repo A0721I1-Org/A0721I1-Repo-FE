@@ -10,7 +10,7 @@ export class FeedbackService {
 
   constructor(private http: HttpClient) { }
 
-  saveFeedback(feedBack) {
+  saveFeedback(feedBack: Feedback) {
     return this.http.post<Feedback>(API_URL + "/api/feedback/createFeedback", feedBack);
   }
 }

@@ -5,6 +5,7 @@ import {Router} from "@angular/router";
 import {formatDate} from "@angular/common";
 import {AngularFireStorage} from "@angular/fire/storage";
 import {finalize} from "rxjs/operators";
+import {Feedback} from "../../model/feedback";
 
 @Component({
   selector: 'app-create-feedback',
@@ -12,13 +13,13 @@ import {finalize} from "rxjs/operators";
   styleUrls: ['./create-feedback.component.css']
 })
 export class CreateFeedbackComponent implements OnInit {
-
+  feedBack: Feedback;
 
   selectImg: any;
   imgVip = "https://accounts.viblo.asia/assets/webpack/profile_default.0bca52a.png";
 
   createFeedbackForm: FormGroup = new FormGroup({
-    contentFeedback: new FormControl('',[Validators.required]),
+    contentFeedback: new FormControl('',[Validators.required , Validators.minLength(4) , Validators.maxLength(50)]),
     namePeopleFeedback: new FormControl('', [Validators.required, Validators.pattern("^[a-zA-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂẾưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\\s\\W|_]+")]),
     emailPeopleFeedback: new FormControl('', [Validators.required, Validators.email]),
     imageFeedback: new FormControl('', [Validators.required])
@@ -50,7 +51,7 @@ export class CreateFeedbackComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.createFeedbackForm.value);
+    this.feedBack = this.createFeedbackForm.value;
     const nameImg = this.getCurrentDateTime() + this.selectImg.name;
     const fileRef = this.storage.ref(nameImg);
     this.storage.upload(nameImg, this.selectImg).snapshotChanges().pipe(
@@ -58,8 +59,7 @@ export class CreateFeedbackComponent implements OnInit {
         fileRef.getDownloadURL().subscribe((url) => {
           this.createFeedbackForm.patchValue({imageFeedback: url});
 
-
-          this.feedBackService.saveFeedback(this.createFeedbackForm.value).subscribe(() => {
+          this.feedBackService.saveFeedback(this.feedBack).subscribe(() => {
             this.router.navigateByUrl('/').then(r => alert("Thêm mới phản hồi thành công!"));
           })
         });
