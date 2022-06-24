@@ -1,9 +1,17 @@
+
 body {
   background: url("src/assets/images/home-img.jpeg") no-repeat;
   background-size: 100% 600px;
   height: 600px;
 }
 
+button.btn.openmodal {
+  font-size: 25px;
+  color: var(--main-color);
+}
+.container.d-flex.justify-content-center.mt-100 {
+  margin-top: 103px;
+}
 .flex-custum {
   flex-direction: column;
 }

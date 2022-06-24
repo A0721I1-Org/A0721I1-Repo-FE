@@ -1,4 +1,4 @@
-<!-- header section starts  -->
+!-- header section starts  -->
 
 
 
@@ -101,7 +101,7 @@ home section starts  -->
     <div class="box" *ngFor="let product of products; index as i">
       <img [src]="product.imageProduct" alt="">
       <h3> {{product.nameProduct}} </h3>
-      <div class="price">{{product.priceProduct}}đ <span>{{product.priceProduct + 20 / 100}}đ</span></div>
+      <div class="price">{{product.priceProduct | number}}đ <span>{{product.priceProduct + 20 / 100}}đ</span></div>
       <a href="#" class=" btn fa bx bxs-cart"> Thêm vào giỏ</a>
     </div>
 

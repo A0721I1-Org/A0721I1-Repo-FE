@@ -1,12 +1,12 @@
 import {Component, Inject, OnInit} from '@angular/core';
-import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {FeedbackService} from "../service/feedback.service";
-import {Router} from "@angular/router";
-import {formatDate} from "@angular/common";
-import {AngularFireStorage} from "@angular/fire/storage";
-import {finalize} from "rxjs/operators";
-import {Feedback} from "../../model/feedback";
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {FeedbackService} from '../service/feedback.service';
+import {Router} from '@angular/router';
+import {formatDate} from '@angular/common';
+import {AngularFireStorage} from '@angular/fire/storage';
+import {finalize} from 'rxjs/operators';
 import {ToastrService} from 'ngx-toastr';
+
 
 @Component({
   selector: 'app-create-feedback',
@@ -14,15 +14,15 @@ import {ToastrService} from 'ngx-toastr';
   styleUrls: ['./create-feedback.component.css']
 })
 export class CreateFeedbackComponent implements OnInit {
-  feedBack: Feedback;
+
 
 
   selectImg: any;
   imgVip = 'https://accounts.viblo.asia/assets/webpack/profile_default.0bca52a.png';
 
   createFeedbackForm: FormGroup = new FormGroup({
-    namePeopleFeedback: new FormControl('', [Validators.required, Validators.pattern("^[a-zA-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂẾưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\\s\\W|_]+")]),
     contentFeedback: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(100)]),
+    namePeopleFeedback: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(50), Validators.pattern('^[a-zA-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂẾưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\\s\\W|_]+')]),
     emailPeopleFeedback: new FormControl('', [Validators.required, Validators.pattern('^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$')]),
     imageFeedback: new FormControl('', [Validators.required])
   });
@@ -54,17 +54,20 @@ export class CreateFeedbackComponent implements OnInit {
   }
 
   onSubmit() {
-    this.feedBack = this.createFeedbackForm.value;
-    const nameImg = this.getCurrentDateTime() + this.selectImg;
+    console.log(this.createFeedbackForm.value);
+    const nameImg = this.getCurrentDateTime() + this.selectImg.name;
     const fileRef = this.storage.ref(nameImg);
     this.storage.upload(nameImg, this.selectImg).snapshotChanges().pipe(
       finalize(() => {
         fileRef.getDownloadURL().subscribe((url) => {
           this.createFeedbackForm.patchValue({imageFeedback: url});
 
-          this.feedBackService.saveFeedback(this.feedBack).subscribe(() => {
-            this.router.navigateByUrl('/').then(r => alert("Thêm mới phản hồi thành công!"));
-          })
+
+          this.feedBackService.saveFeedback(this.createFeedbackForm.value).subscribe(() => {
+            this.router.navigateByUrl('/home').then(r => this.toast.success(
+              'Thêm mới phản hồi thành công', 'Thông báo'
+            ));
+          });
         });
       })
     ).subscribe();

@@ -11,6 +11,9 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
   declarations: [
     IncomeComponent
   ],
+  exports: [
+    IncomeComponent
+  ],
   imports: [
     CommonModule,
     IncomeModuleRoutingModule,

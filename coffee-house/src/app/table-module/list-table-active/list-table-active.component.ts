@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Table} from '../../model/table';
 import {TableService} from '../service/table.service';
-import {Oder} from '../../model/oder';
 import {Router} from '@angular/router';
 import {Employee} from '../../model/employee';
 import {TokenStorageService} from '../../login-module/service/token-storage.service';
@@ -15,6 +14,8 @@ export class ListTableActiveComponent implements OnInit {
   tables: Table[];
   employee: Employee; // dữ liệu cứng  . chờ a hoàng code để lấy idEmployee
   dateOrder: string;
+  /* Lưu giá trị idOrder */
+  idOrder: number;
 
   constructor(private tableService: TableService,
               private router: Router,
@@ -28,15 +29,12 @@ export class ListTableActiveComponent implements OnInit {
   }
 
   addOrderBeNull(idTable: number) {
-    this.tableService.addNewOrder(this.tokenStorageService.getUser().id, idTable, this.dateOrder).subscribe(() => {
-
-      },
-      () => {
-      }, () => {
-        this.router.navigateByUrl('/menu/menu-order-child');
-      }
-    )
-    ;
+    this.tableService.addNewOrder(1, idTable).subscribe(data => {
+      this.idOrder = data.idOrder;
+      this.router.navigate(['../menu/menu-order-child', idTable, this.idOrder]);
+    }, () => {
+    }, () => {
+    });
   }
 
 }
