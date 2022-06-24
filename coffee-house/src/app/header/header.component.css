@@ -170,3 +170,11 @@
   text-decoration: none !important;
   padding-bottom: 12px !important;
 }
+.adminList:hover .noi_dropdown{
+  /*margin-top: 10px;*/
+  display: block;
+}
+
+.adminList .noi_dropdown a{
+  text-decoration: none !important;
+}
