@@ -1,17 +1,18 @@
-import {Component, OnInit} from '@angular/core';
-import {Router, RouterLinkActive} from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 import {Employee} from '../model/employee';
 import {ProductService} from '../product-module/service/product.service';
 import {TokenStorageService} from '../login-module/service/token-storage.service';
+import {Router} from '@angular/router';
 import {EmployeeService} from '../employee-module/service/employee.service';
 import {ShareService} from '../login-module/service/share.service';
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  selector: 'app-header-unlogin',
+  templateUrl: './header-unlogin.component.html',
+  styleUrls: ['./header-unlogin.component.css']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderUnloginComponent implements OnInit {
+
 
   employee: Employee;
   idUser: number;
@@ -43,7 +44,6 @@ export class HeaderComponent implements OnInit {
     this.isLogin = this.token != null;
     console.log(this.isLogin);
     console.log(this.token);
-    this.getPositionById();
   }
 
   ngOnInit(): void {
@@ -55,15 +55,4 @@ export class HeaderComponent implements OnInit {
     this.ngOnInit();
   }
 
-  getPositionById() {
-    if (this.tokenStorageService.getUser()){
-      this.idUser = this.tokenStorageService.getUser().id;
-      console.log(this.idUser);
-      this.employeeService.findByIdUser(this.idUser).subscribe(
-        (data) => {
-          this.employee = data;
-        }
-      );
-    }
-  }
 }
