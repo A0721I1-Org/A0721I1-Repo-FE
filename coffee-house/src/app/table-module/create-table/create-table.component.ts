@@ -53,40 +53,29 @@ export class CreateTableComponent implements OnInit {
   createTable() {
     this.messageAlert = [];
     if (this.tableForm.invalid) {
-      if (this.tableForm.get('codeTable')?.errors?.required || this.tableForm.get('status')?.errors?.required)
-        this.messageAlert.push("Bạn phải nhập đầy đủ thông tin!");
-
-      console.log(this.tableForm.get('status')?.errors?.required);
-      if ((this.tableForm.get('codeTable')?.errors?.required) || (this.tableForm.get('status')?.errors?.required)) {
+      if (this.tableForm.get('codeTable')?.errors?.required || this.tableForm.get('status')?.errors?.required) {
         this.messageAlert.push('Bạn phải nhập đầy đủ thông tin!');
       }
-
       if (this.tableForm.get('codeTable')?.errors?.checkCodeTable) {
-        this.messageAlert.push("CodeTable " + this.tableForm.value.codeTable + " đã tồn tại!");
-        if (this.tableForm.get('codeTable')?.errors?.required || this.tableForm.get('status')?.errors?.required) {
-          this.messageAlert.push('Bạn phải nhập đầy đủ thông tin!');
-        }
-        if (this.tableForm.get('codeTable')?.errors?.checkCodeTable) {
-          this.messageAlert.push('CodeTable ' + this.tableForm.value.codeTable + ' đã tồn tại!');
-        }
-        document.getElementById('noti').hidden = false;
-      } else {
-        this.tableCreate = this.tableForm.value;
-        for (let i = 0; i < this.status.length; i++) {
-          if ((this.tableCreate.status) == (this.status[i].idStatus)) {
-            this.tableCreate.status = this.status[i];
-          }
-        }
-        console.log(this.tableCreate);
-        this.service.createTable(this.tableCreate).subscribe(() => {
-          console.log('success');
-          this.service.message = 'Tạo mới thành công!';
-          this.router.navigateByUrl('/table/list');
-        }, err => {
-          console.log('err');
-          console.log(err.error.message);
-        });
+        this.messageAlert.push('CodeTable ' + this.tableForm.value.codeTable + ' đã tồn tại!');
       }
+      document.getElementById('noti').hidden = false;
+    } else {
+      this.tableCreate = this.tableForm.value;
+      for (let i = 0; i < this.status.length; i++) {
+        if ((this.tableCreate.status) == (this.status[i].idStatus)) {
+          this.tableCreate.status = this.status[i];
+        }
+      }
+      console.log(this.tableCreate);
+      this.service.createTable(this.tableCreate).subscribe(() => {
+        console.log('success');
+        this.service.message = 'Tạo mới thành công!';
+        this.router.navigateByUrl('/table/list');
+      }, err => {
+        console.log('err');
+        console.log(err.error.message);
+      });
     }
   }
 
