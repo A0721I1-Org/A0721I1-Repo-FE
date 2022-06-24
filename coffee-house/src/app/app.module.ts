@@ -12,13 +12,15 @@ import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {FeedbackModuleModule} from './feedback-module/feedback-module.module';
 import {HeaderComponent} from './header/header.component';
+import { HeaderUnloginComponent } from './header-unlogin/header-unlogin.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    HeaderComponent
+    HeaderComponent,
+    HeaderUnloginComponent
   ],
   imports: [
     BrowserModule,
