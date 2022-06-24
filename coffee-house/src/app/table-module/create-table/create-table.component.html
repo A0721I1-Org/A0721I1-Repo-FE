@@ -1,7 +1,7 @@
 <div [hidden]="true" id="noti" class="alert alert-warning alert-dismissible fade show" role="alert">
   <h4 class="alert-heading text-warning">Cảnh báo!!</h4>
   <strong>Xin chào!</strong>
-  <p *ngFor="let item of messageAlert">{{item}}</p>
+  <p *ngFor="let item of messageAlert" class="message-body">{{item}}</p>
   <button type="button" class="close" (click)="hide()" aria-label="Close">
     <span>&times;</span>
   </button>

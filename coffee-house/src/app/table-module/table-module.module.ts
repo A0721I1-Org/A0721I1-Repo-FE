@@ -6,9 +6,7 @@ import { ListTableComponent } from './list-table/list-table.component';
 import { CreateTableComponent } from './create-table/create-table.component';
 import { DetailTableComponent } from './detail-table/detail-table.component';
 import {HttpClientModule} from '@angular/common/http';
-import {NgxPaginationModule} from 'ngx-pagination';
-
-import { ListTableActiveComponent } from './list-table-active/list-table-active.component';
+import {ListTableActiveComponent} from './list-table-active/list-table-active.component';
 import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
@@ -22,7 +20,6 @@ import {ReactiveFormsModule} from '@angular/forms';
         CommonModule,
         TableModuleRoutingModule,
         HttpClientModule,
-        NgxPaginationModule,
         ReactiveFormsModule
     ]
 })

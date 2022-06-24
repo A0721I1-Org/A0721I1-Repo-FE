@@ -240,6 +240,7 @@ input:checked + .slider:before {
 
 .delete-message {
   text-align: center;
+  color: red;
 }
 
 /*Noti*/
@@ -256,9 +257,39 @@ input:checked + .slider:before {
 #noti{
   position: absolute;
   z-index: 100;
-  top: 44%;
-  right: 15%;
-  left: 15%;
+  top: 10%;
+  right: 30%;
+  left: 30%;
   animation-name: noti;
   animation-duration: 1s;
+}
+
+.modal-body {
+  text-align: center;
+}
+
+.message-body {
+  text-align: center;
+}
+
+.alert-dismissible {
+   padding-right: 0rem;
+}
+
+.page-item.active .page-link {
+  z-index: 1;
+  color: #fff;
+  background-color: rgb(236, 155, 68);
+  border-color: rgb(236, 155, 68);
+}
+
+.page-link {
+  position: relative;
+  display: block;
+  padding: 0.5rem 0.75rem;
+  margin-left: -1px;
+  line-height: 1.25;
+  color: rgb(236, 155, 68);
+  background-color: #fff;
+  border: 1px solid #dee2e6;
 }

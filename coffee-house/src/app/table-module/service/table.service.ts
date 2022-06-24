@@ -27,29 +27,28 @@ export class TableService {
     this._message = value;
   }
 
-  //HuyNN findAllTableWithSearch, updateEmptyTable, deleteTable, findTableById method
-  findAllTable(): Observable<Table[]> {
-    return this.httpClient.get<Table[]>(API_URL + '/manager/findAllTableWithSearch');
+  /*
+  HuyNN findAllTableWithSearch, updateEmptyTable, deleteTable, findTableById method
+  */
+  findAllTable(pageNumber: number): Observable<Table[]> {
+    return this.httpClient.get<Table[]>(API_URL + '/manager/findAllTableWithSearchAndPaging?page=' + pageNumber);
   }
 
-  findAllTableByCodeTable(codeTable: string): Observable<Table[]> {
-    return this.httpClient.get<Table[]>(API_URL + '/manager/findAllTableWithSearch?codeTable=' + codeTable);
+
+  findAllTableByCodeTable(codeTable: string, pageNumber: number): Observable<Table[]> {
+    return this.httpClient.get<Table[]>(API_URL + '/manager/findAllTableWithSearchAndPaging?codeTable=' + codeTable + '&page=' + pageNumber);
   }
 
-  findAllTableByIdStatusAndEmptyTable(idStatus: string, emptyTable: string): Observable<Table[]> {
-    return this.httpClient.get<Table[]>(API_URL + '/manager/findAllTableWithSearch?idStatus=' + idStatus + '&emptyTable=' + emptyTable);
+  findAllTableByIdStatusAndEmptyTable(idStatus: string, emptyTable: string, pageNumber: number): Observable<Table[]> {
+    return this.httpClient.get<Table[]>(API_URL + '/manager/findAllTableWithSearchAndPaging?idStatus=' + idStatus + '&emptyTable=' + emptyTable + '&page=' + pageNumber);
   }
 
-  findAllTableByIdStatus(idStatus: string): Observable<Table[]> {
-    return this.httpClient.get<Table[]>(API_URL + '/manager/findAllTableWithSearch?idStatus=' + idStatus);
+  findAllTableByIdStatus(idStatus: string, pageNumber: number): Observable<Table[]> {
+    return this.httpClient.get<Table[]>(API_URL + '/manager/findAllTableWithSearchAndPaging?idStatus=' + idStatus + '&page=' + pageNumber);
   }
 
-  findAllTableByEmptyTable(emptyTable: string): Observable<Table[]> {
-    return this.httpClient.get<Table[]>(API_URL + '/manager/findAllTableWithSearch?emptyTable=' + emptyTable);
-  }
-
-  updateEmptyTable(id: number, table: Table): Observable<Table> {
-    return this.httpClient.put<Table>(API_URL + '/manager/updateEmptyTable/' + id, table);
+  findAllTableByEmptyTable(emptyTable: string, pageNumber: number): Observable<Table[]> {
+    return this.httpClient.get<Table[]>(API_URL + '/manager/findAllTableWithSearchAndPaging?emptyTable=' + emptyTable + '&page=' + pageNumber);
   }
 
   deleteTable(id: number):Observable<Table> {
@@ -88,6 +87,14 @@ export class TableService {
 
   getAllTable(): Observable<Table[]> {
     return this.httpClient.get<Table[]>(API_URL + '/manager/findAllTable');
+  }
+
+  getTableById(id): Observable<Table> {
+      return this.httpClient.get<Table>(`${API_URL}/manager/findTableById/${id}`);
+  }
+
+  updateTable(id, table: Table): Observable<Table> {
+    return this.httpClient.put<Table>(`${API_URL}/manager/updateTable/${id}`, table);
   }
 
   createTable(table: Table): Observable<Table> {
