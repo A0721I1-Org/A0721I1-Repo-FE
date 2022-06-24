@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {Routes, RouterModule} from '@angular/router';
 import {ResetPasswordComponent} from './forgotpass-module/reset-password/reset-password.component';
 
 import {
@@ -19,8 +19,8 @@ const routes: Routes = [
     loadChildren: () => import('./feedback-module/feedback-module.module').then(module => module.FeedbackModuleModule)
   },
   {
-    path: 'incomef',
-    loadChildren: () => import('./income-module/income-module.module').then(module => module.IncomeModuleModule),
+    path: 'income',
+    loadChildren: () => import('./income-module/income-module.module').then(module => module.IncomeModuleModule) ,
     canActivate: [AuthGuard]
   },
   {
@@ -54,11 +54,12 @@ const routes: Routes = [
   {
     path: 'home', component: HomeComponent
   },
-  { path: '**', redirectTo: '/home' }
+  {path: '**', redirectTo: '/home'}
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}
