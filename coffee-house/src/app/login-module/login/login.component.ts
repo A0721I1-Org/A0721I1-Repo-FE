@@ -76,6 +76,7 @@ export class LoginComponent implements OnInit {
         this.formLogin.reset();
         // window.location.reload();
         this.router.navigateByUrl('/home');
+        this.shareService.sendClickEvent();
       },
       err => {
         // this.errorMessage = err.error.message;
