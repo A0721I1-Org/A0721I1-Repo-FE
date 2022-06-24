@@ -33,7 +33,7 @@ export class FeedbackService {
     return this.http.get<Feedback[]>(`${API_URL}/manager/api/feedback/search-not-pagination?date=` + date);
   }
 
-  saveFeedback(feedBack) {
+  saveFeedback(feedBack: Feedback) {
     return this.http.post<Feedback>(API_URL + "/api/feedback/createFeedback", feedBack);
 
   }

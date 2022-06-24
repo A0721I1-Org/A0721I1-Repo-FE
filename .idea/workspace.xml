@@ -88,6 +88,21 @@
     <option name="showLibraryContents" value="true" />
   </component>
 <<<<<<< HEAD
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="ts.external.directory.path" value="D:\Project_Sprint1\A0721I1-Repo-FE\coffee-house\node_modules\typescript\lib" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\A0421I1-NguyenCuuQuocHuy\module 6\coding\angular\A0721I1-Repo-FE\coffee-house\src\app\feedback-module" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
+=======
+<<<<<<< HEAD
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;Git.Branch.Popup.ShowAllRemotes&quot;: &quot;true&quot;,
@@ -150,6 +165,7 @@
 >>>>>>> 7a28bab5cb1c991ae1bf9de0d14ff72fafb90d4e
   </component>
 >>>>>>> 4b05b46e53ada75f8b492e2ca804d5ad6be3abc0
+>>>>>>> c505fc4a8df7f973918af47f4d439808604ad305
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -163,6 +179,20 @@
       <option name="presentableId" value="Default" />
       <updated>1654532833012</updated>
       <workItem from="1654532845616" duration="33000" />
+<<<<<<< HEAD
+      <workItem from="1654686858383" duration="5270000" />
+      <workItem from="1654860522623" duration="4625000" />
+      <workItem from="1655117708354" duration="3444000" />
+      <workItem from="1655122665694" duration="7169000" />
+      <workItem from="1655187705005" duration="2313000" />
+      <workItem from="1655260882436" duration="3851000" />
+      <workItem from="1655291081136" duration="11314000" />
+      <workItem from="1655351754424" duration="3236000" />
+      <workItem from="1655458157643" duration="312000" />
+      <workItem from="1655463289530" duration="5003000" />
+      <workItem from="1656041958418" duration="120000" />
+      <workItem from="1656043013165" duration="3313000" />
+=======
       <workItem from="1655437653734" duration="25000" />
     </task>
 =======
@@ -222,11 +252,15 @@
       <workItem from="1655429812501" duration="5104000" />
 >>>>>>> Stashed changes
 >>>>>>> b19c912 (DanHB)
+>>>>>>> c505fc4a8df7f973918af47f4d439808604ad305
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> c505fc4a8df7f973918af47f4d439808604ad305
     <option name="version" value="2" />
   </component>
 <<<<<<< HEAD
@@ -240,6 +274,15 @@
         </entry>
       </map>
     </option>
+<<<<<<< HEAD
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="421" y="116" key="FileChooserDialogImpl" timestamp="1656042077264">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state x="421" y="116" key="FileChooserDialogImpl/0.0.1280.720@0.0.1280.720" timestamp="1656042077264" />
+=======
 =======
   <component name="WindowStateProjectService">
     <state x="261" y="94" key="Vcs.Push.Dialog.v2" timestamp="1655434753718">
@@ -300,5 +343,6 @@
 >>>>>>> origin/employee-management
 >>>>>>> origin/employee-management
 >>>>>>> 841646832d658ac13273ea81015a5521b456a2d7
+>>>>>>> c505fc4a8df7f973918af47f4d439808604ad305
   </component>
 </project>
