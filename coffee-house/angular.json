@@ -20,14 +20,14 @@
             "tsConfig": "tsconfig.app.json",
             "aot": true,
             "assets": [
-
+              "src/favicon.ico",
+              "src/assets",
+              "src/assets/css/style.css"
             ],
             "styles": [
               "src/styles.css"
             ],
-            "scripts": [
-              ""
-            ]
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -85,6 +85,9 @@
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
             "assets": [
+              "src/favicon.ico",
+              "src/assets",
+              "src/assets/css/style.css"
             ],
             "styles": [
               "src/styles.css"

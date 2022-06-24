@@ -8,15 +8,18 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
 @NgModule({
-  declarations: [
-    IncomeComponent
-  ],
-  imports: [
-    CommonModule,
-    IncomeModuleRoutingModule,
-    HttpClientModule,
-    ReactiveFormsModule,
-    FormsModule
-  ]
+    declarations: [
+        IncomeComponent
+    ],
+    exports: [
+        IncomeComponent
+    ],
+    imports: [
+        CommonModule,
+        IncomeModuleRoutingModule,
+        HttpClientModule,
+        ReactiveFormsModule,
+        FormsModule
+    ]
 })
 export class IncomeModuleModule { }
