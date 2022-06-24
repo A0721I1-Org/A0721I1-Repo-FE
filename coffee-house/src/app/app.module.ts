@@ -8,27 +8,30 @@ import {LoginModuleModule} from './login-module/login-module.module';
 import {ToastrModule} from 'ngx-toastr';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {JWT_OPTIONS, JwtHelperService, JwtModule} from '@auth0/angular-jwt';
-import { HomeComponent } from './home/home.component';
+import {HomeComponent} from './home/home.component';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-
-import {EmployeeModuleModule} from './employee-module/employee-module.module';
-
 import {FeedbackModuleModule} from './feedback-module/feedback-module.module';
+
+import {HeaderComponent} from './header/header.component';
+import { HeaderUnloginComponent } from './header-unlogin/header-unlogin.component';
+import {IncomeModuleModule} from './income-module/income-module.module';
+import {DatePipe} from '@angular/common';
+
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
+    HeaderComponent,
+    HeaderUnloginComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-
-    HttpClientModule,
     RouterModule,
-    BrowserAnimationsModule,
+    AppRoutingModule,
     LoginModuleModule,
     ToastrModule.forRoot({
       positionClass: 'toast-top-right',
@@ -37,16 +40,17 @@ import {FeedbackModuleModule} from './feedback-module/feedback-module.module';
     JwtModule,
     FormsModule,
     ReactiveFormsModule,
-    AppRoutingModule,
     HttpClientModule,
-    FeedbackModuleModule
+    FeedbackModuleModule,
+    IncomeModuleModule,
   ],
   providers: [
-    { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
+    {provide: JWT_OPTIONS, useValue: JWT_OPTIONS},
     JwtHelperService,
-    HttpClientModule,
-    ReactiveFormsModule
+
+    DatePipe
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

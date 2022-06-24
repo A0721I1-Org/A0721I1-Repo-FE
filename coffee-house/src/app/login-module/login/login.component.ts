@@ -7,6 +7,7 @@ import {LoginServiceService} from '../service/login.service';
 import {TokenStorageService} from '../service/token-storage.service';
 
 import {ToastrService} from 'ngx-toastr';
+import {ShareService} from '../service/share.service';
 
 
 @Component({
@@ -27,11 +28,14 @@ export class LoginComponent implements OnInit {
               private router: Router, private loginServer: LoginServiceService,
               private activatedRoute: ActivatedRoute,
               private tokenStorageService: TokenStorageService,
-              private toast: ToastrService) {
-
+              private toast: ToastrService,
+              private shareService: ShareService) {
   }
 
   ngOnInit(): void {
+    if (this.tokenStorageService.getUser()){
+      this.router.navigateByUrl('/home');
+    }
     this.formLogin = this.formBuilder.group({
         username: [''],
         password: [''],
@@ -70,12 +74,14 @@ export class LoginComponent implements OnInit {
         this.roles = this.tokenStorageService.getUser().roles;
         this.rememberMeToken = this.tokenStorageService.getToken();
         this.formLogin.reset();
+        // window.location.reload();
         this.router.navigateByUrl('/home');
+        this.shareService.sendClickEvent();
       },
       err => {
         // this.errorMessage = err.error.message;
         this.loginServer.isLoggedIn = false;
-        this.toast.error('Sai tên đăng nhập hoặc mật khẩu hoặc tài khoản chưa được kích hoạt', 'Đăng nhập thất bại: ', {
+        this.toast.error('Sai tên đăng nhập hoặc mật khẩu', 'Đăng nhập thất bại: ', {
           timeOut: 3000,
           extendedTimeOut: 1500
         });
