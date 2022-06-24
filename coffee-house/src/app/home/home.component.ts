@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Subscription} from 'rxjs';
 import {Product} from '../model/product';
-import { ProductService } from '../product-module/service/product.service';
+import {ProductService} from '../product-module/service/product.service';
 import {TokenStorageService} from '../login-module/service/token-storage.service';
 import {Router} from '@angular/router';
 import {Employee} from '../model/employee';
@@ -19,13 +19,14 @@ export class HomeComponent implements OnInit {
   productsCart: Product[];
   employee: Employee;
   idUser: number;
+  isLogin = false;
+
 
   constructor(
     private service: ProductService,
     public tokenStorageService: TokenStorageService,
     private router: Router,
     private employeeService: EmployeeService,
-
   ) {
   }
 
@@ -65,14 +66,17 @@ export class HomeComponent implements OnInit {
     this.tokenStorageService.signOut();
     this.router.navigateByUrl('/login/authentication');
   }
+
 // HauLST - làm menu quản lí nhân viên
   getPositionById() {
-    this.idUser = this.tokenStorageService.getUser().id;
-    console.log(this.idUser);
-    this.employeeService.findByIdUser(this.idUser).subscribe(
-      (data) => {
-        this.employee = data;
-      }
-    );
+    if (this.tokenStorageService.getUser()){
+      this.idUser = this.tokenStorageService.getUser().id;
+      console.log(this.idUser);
+      this.employeeService.findByIdUser(this.idUser).subscribe(
+        (data) => {
+          this.employee = data;
+        }
+      );
+    }
   }
 }
