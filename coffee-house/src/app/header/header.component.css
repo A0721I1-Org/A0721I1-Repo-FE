@@ -100,11 +100,11 @@
 
 .noidung_dropdown a{
   background-color: black;
-  color: rgb(236, 155, 68);
+  color: white;
 }
 
 .noidung_dropdown a:hover{
-  color: white;
+  color: rgb(236, 155, 68);
 }
 
 .hienThi{
@@ -123,7 +123,16 @@
 .hienThi a:hover{
   text-decoration: none;
 }
+
+
 .dropdown {
+  position: relative;
+  display: inline-block;
+  align-items: center;
+  /*border-bottom: .1rem solid var(--main-color);*/
+  /*padding-bottom: .5rem;*/
+}
+.adminList {
   position: relative;
   display: inline-block;
   align-items: center;
@@ -147,18 +156,36 @@
 
 .noi_dropdown {
   /*Ẩn nội dụng các đường dẫn*/
+  /*display: none;*/
+  /*position: absolute;*/
+  /*background-color: black;*/
+  /*min-width: 160px;*/
+  /*z-index: 1;*/
   display: none;
   position: absolute;
   background-color: black;
   min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
 }
 /* Thiết kế style cho các đường dẫn tronng Dropdown */
 .noi_dropdown a {
+  /*color: black;*/
+  /*padding: 12px 16px;*/
+  /*display: block;*/
   color: black;
   padding: 12px 16px;
+  text-decoration: none;
   display: block;
+  background-color: black;
+  color: rgb(236, 155, 68);
 }
+
+.noi_dropdown a:hover{
+  color: white;
+  padding: 12px 16px !important;
+}
+
 
 .inRa{
   display:block;
@@ -169,4 +196,13 @@
   color: black;
   text-decoration: none !important;
   padding-bottom: 12px !important;
+}
+
+.adminList:hover .noi_dropdown{
+  /*margin-top: 10px;*/
+  display: block;
+}
+
+.adminList .noi_dropdown a{
+  text-decoration: none !important;
 }
