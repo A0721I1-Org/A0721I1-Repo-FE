@@ -163,7 +163,7 @@
   /*z-index: 1;*/
   display: none;
   position: absolute;
-  background-color: black;
+  background-color: rgba(0,0,0,0.9);
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
@@ -197,7 +197,10 @@
   text-decoration: none !important;
   padding-bottom: 12px !important;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 311daf3d375bed15db9f15581974a62000d358f5
 .adminList:hover .noi_dropdown{
   /*margin-top: 10px;*/
   display: block;

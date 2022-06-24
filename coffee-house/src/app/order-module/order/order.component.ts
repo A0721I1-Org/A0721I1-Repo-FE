@@ -38,7 +38,7 @@ export class OrderComponent implements OnInit {
       idOrder: new FormControl('', Validators.pattern('[1-9]+')),
       dateOrder: new FormControl('')
     });
-    this.getTotalPage();
+    // this.getTotalPage();
     this.findAll();
   }
 
@@ -68,6 +68,7 @@ export class OrderComponent implements OnInit {
 
   findAll() {
     this.oderService.getPage(0).subscribe((data: Oder[]) => this.orders = data['content']);
+    console.log(this.orders);
   }
 
   search() {
