@@ -8,7 +8,7 @@ import {OrderDetailMenuDTO} from '../../model/OrderDetailMenuDTO';
 import {Oder} from '../../model/oder';
 import {environment} from '../../../environments/environment';
 
-const API_URL = `${environment.apiUrl}`;
+const API_URL = `${environment.apiBaseUrl}`;
 
 @Injectable({
   providedIn: 'root'
@@ -19,13 +19,16 @@ export class TableService {
   constructor(private httpClient: HttpClient) {
   }
 
+  // tslint:disable-next-line:variable-name ban-types
   private _message: String;
 
 
+  // tslint:disable-next-line:ban-types
   get message(): String {
     return this._message;
   }
 
+  // tslint:disable-next-line:ban-types
   set message(value: String) {
     this._message = value;
   }
@@ -99,6 +102,7 @@ export class TableService {
     return this.httpClient.post<Table>(API_URL + '/manager/createTable', table);
   }
 
+  // tslint:disable-next-line:ban-types
   checkId(id: String): Observable<Table[]> {
     return this.httpClient.get<Table[]>(API_URL + '/manager/checkId?id=' + id);
   }
