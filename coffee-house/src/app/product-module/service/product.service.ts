@@ -1,8 +1,12 @@
+
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Product} from '../../model/product';
 import {TypeProduct} from '../../model/typeProduct';
+
+const API_URL = 'http://localhost:8080/find';
+const API_URL1 = 'http://localhost:8080/cart';
 
 
 @Injectable({
@@ -11,8 +15,10 @@ import {TypeProduct} from '../../model/typeProduct';
 export class ProductService {
   URLPRODUCT = 'http://localhost:8080/product';
 
+
   constructor(private http: HttpClient) {
   }
+
 
   findByAll(): Observable<Product[]> {
     return this.http.get<Product[]>(this.URLPRODUCT);
@@ -46,8 +52,15 @@ export class ProductService {
     return this.http.patch<void>(this.URLPRODUCT + '/edit', product1);
   }
 
-  createProduct(product: Product): Observable<Product>{
+  createProduct(product: Product): Observable<Product> {
     console.log(product);
     return this.http.post<Product>(this.URLPRODUCT + '/create', product);
   }
+    findAllNew(): Observable<Product[]> {
+    return this.http.get<Product[]>(API_URL);
+  }
+    findAllCart(): Observable<Product[]> {
+    return this.http.get<Product[]>(API_URL1);
+  }
 }
+
