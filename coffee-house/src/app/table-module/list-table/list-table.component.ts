@@ -15,7 +15,6 @@ export class ListTableComponent implements OnInit {
   pageNumber = 0;
   totalPage: number[];
 
-
   constructor(private tableService: TableService, private router: Router) {
   }
 
@@ -34,7 +33,6 @@ export class ListTableComponent implements OnInit {
 
   findAllTable(pageNumber) {
     this.tableService.findAllTable(pageNumber).subscribe((tables: any) => {
-      console.log(tables)
       this.tables = tables.content;
       this.setPage(tables.totalPages);
     });
@@ -172,5 +170,10 @@ export class ListTableComponent implements OnInit {
       this.pageNumber += 1;
       this.submitFormSearch(this.pageNumber);
     }
+  }
+
+  checkEdit(codeTable: string) {
+    this.message = 'Không thể chỉnh sửa bàn ' + codeTable;
+    document.getElementById('noti').hidden = false;
   }
 }
