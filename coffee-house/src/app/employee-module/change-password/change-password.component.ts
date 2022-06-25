@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {EmployeeService} from '../service/employee.service';
-import { Router} from '@angular/router';
-import { TokenStorageService } from 'src/app/login-module/service/token-storage.service';
+import { ActivatedRoute, ParamMap, Router} from '@angular/router';
 
 @Component({
   selector: 'change-password-employee',
@@ -12,11 +11,17 @@ import { TokenStorageService } from 'src/app/login-module/service/token-storage.
 })
 export class ChangePasswordComponent implements OnInit {
   changePasswordForm: FormGroup;
+  userId;
+  message = '';
 
   constructor(private employeeService: EmployeeService,
               private router: Router,
-              private tokenStorageService: TokenStorageService,
+              private activatedRoute: ActivatedRoute,
               private formBuilder: FormBuilder) {
+
+    this.activatedRoute.paramMap.subscribe((paramMap: ParamMap) => {
+      this.userId = Number(paramMap.get('id'));
+    });
   }
 
   ngOnInit(): void {
@@ -32,24 +37,33 @@ export class ChangePasswordComponent implements OnInit {
       return;
     }
 
-    const { username } = this.tokenStorageService.getUser();
     const {oldPassword, newPassword, reNewPassword} = this.changePasswordForm.value;
 
     if (newPassword != reNewPassword) {
       // Show message newPassword and reNewPassword not same
+      this.message = "Mật khẩu nhập lại phải giống với mật khẩu cũ";
       return;
     }
 
     const params = {
-      userName: username,
+      userId: this.userId,
       password: newPassword,
       oldPassword: oldPassword
     }
     
     this.employeeService.changePassword(params)
-      .subscribe((response: any) => {
-        console.log(response);
-      }
+      .subscribe(
+        () => {
+        },
+        (res) => {
+          this.message = "Thay đổi password thành công"
+        },
+        () => {
+        },
     );
+  }
+
+  back() {
+    this.router.navigateByUrl('/employee/detail/' + this.userId);
   }
 }

@@ -70,6 +70,6 @@ export class DetailEmployeeComponent implements OnInit {
   }
 
   changePassword() {
-    this.router.navigateByUrl('/employee/change-password');
+    this.router.navigateByUrl('/employee/change-password/' + this.idUser);
   }
 }
