@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {EmployeeService} from '../service/employee.service';
-import {ActivatedRoute, ParamMap, Router} from '@angular/router';
+import { Router} from '@angular/router';
+import { TokenStorageService } from 'src/app/login-module/service/token-storage.service';
 
 @Component({
   selector: 'change-password-employee',
@@ -10,26 +11,45 @@ import {ActivatedRoute, ParamMap, Router} from '@angular/router';
   styleUrls: ['./change-password.component.css']
 })
 export class ChangePasswordComponent implements OnInit {
-  // editEmployeeForm: FormGroup;
+  changePasswordForm: FormGroup;
 
   constructor(private employeeService: EmployeeService,
               private router: Router,
-              private activatedRoute: ActivatedRoute,
+              private tokenStorageService: TokenStorageService,
               private formBuilder: FormBuilder) {
   }
 
   ngOnInit(): void {
-  //   this.editEmployeeForm = this.formBuilder.group({
-  //     idEmployee: ['', ],
+    this.changePasswordForm = this.formBuilder.group({
+      oldPassword:  ['', Validators.required],
+      newPassword:  ['', Validators.required],
+      reNewPassword:  ['', Validators.required]
+    });
+  }
 
-  //     nameEmployee: ['', [Validators.required,Validators.pattern(/^[A-Za-zỳọáầảấờễàạằệếýộậốũứĩõúữịỗìềểẩớặòùồợãụủíỹắẫựỉỏừỷởóéửỵẳẹèẽổẵẻỡơôưăêâđ' ]+$/)]],
-  //     addressEmployee:  ['', Validators.required],
-  //     phoneEmployee: ['', [Validators.required,Validators.pattern(/^(0?)(3[2-9]|5[6|8|9]|7[0|6-9]|8[0-6|8|9]|9[0-4|6-9])[0-9]{7}$/)]],
-  //     genderEmployee:  ['', Validators.required],
-  //     dateOfBirthEmployee:  ['', [Validators.required,checkAgeEdit]],
-  //     salaryEmployee: ['', [Validators.required]],
-  //     position:  ['', Validators.required],
-  //     user:  ['', [Validators.required,Validators.minLength(6 ), Validators.pattern(/^(?!.*admin)+(?!.*root).*$/)]],
-  //   });
+  changePassSubmit() {
+    if (!this.changePasswordForm.valid) {
+      return;
+    }
+
+    const { username } = this.tokenStorageService.getUser();
+    const {oldPassword, newPassword, reNewPassword} = this.changePasswordForm.value;
+
+    if (newPassword != reNewPassword) {
+      // Show message newPassword and reNewPassword not same
+      return;
+    }
+
+    const params = {
+      userName: username,
+      password: newPassword,
+      oldPassword: oldPassword
+    }
+    
+    this.employeeService.changePassword(params)
+      .subscribe((response: any) => {
+        console.log(response);
+      }
+    );
   }
 }
