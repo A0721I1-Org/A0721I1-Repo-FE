@@ -56,7 +56,8 @@ export class ChangePasswordComponent implements OnInit {
         () => {
         },
         (res) => {
-          this.message = "Thay đổi password thành công"
+          const { error } = res;
+          this.message = error.text;
         },
         () => {
         },
