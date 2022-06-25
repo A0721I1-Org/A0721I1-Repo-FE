@@ -13,6 +13,7 @@ export class ChangePasswordComponent implements OnInit {
   changePasswordForm: FormGroup;
   userId;
   message = '';
+  isSucess = false;
 
   constructor(private employeeService: EmployeeService,
               private router: Router,
@@ -56,8 +57,13 @@ export class ChangePasswordComponent implements OnInit {
         () => {
         },
         (res) => {
-          const { error } = res;
-          this.message = error.text;
+          const { error, status } = res;
+          if (status == 200) {
+            this.isSucess = true;
+            this.message = error.text;
+          } else {
+            this.message = error;
+          }
         },
         () => {
         },
