@@ -68,4 +68,8 @@ export class DetailEmployeeComponent implements OnInit {
       // passField.setAttribute('type', currentType === 'password' ? 'text' : 'password');
     });*/
   }
+
+  changePassword() {
+    this.router.navigateByUrl('/employee/change-password');
+  }
 }
