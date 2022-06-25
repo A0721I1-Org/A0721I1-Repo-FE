@@ -614,6 +614,7 @@ section {
 }
 
 /* media queries  */
+/*máy tính bảng*/
 @media (max-width: 991px) {
 
   html {
@@ -675,5 +676,12 @@ section {
   .home .content p {
     font-size: 1.5rem;
   }
+}
+  @media (max-width:1200px){
+
+    html{
+      font-size: 50%;
+    }
+
 
 }
