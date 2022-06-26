@@ -11,6 +11,7 @@ import {HomeComponent} from './home/home.component';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {FeedbackModuleModule} from './feedback-module/feedback-module.module';
+import {OrderModuleRoutingModule} from './order-module/order-module-routing.module';
 import {HeaderComponent} from './header/header.component';
 import { HeaderUnloginComponent } from './header-unlogin/header-unlogin.component';
 import {IncomeModuleModule} from './income-module/income-module.module';
@@ -26,10 +27,12 @@ import {DatePipe} from '@angular/common';
     HeaderUnloginComponent
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     HttpClientModule,
     RouterModule,
     AppRoutingModule,
+    OrderModuleRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
     FeedbackModuleModule,

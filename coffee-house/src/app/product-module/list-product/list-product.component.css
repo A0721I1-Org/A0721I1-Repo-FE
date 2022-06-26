@@ -34,7 +34,9 @@ html::-webkit-scrollbar {
 html::-webkit-scrollbar-track {
   background: transparent;
 }
-
+.box-container {
+  margin-top: 105px;
+}
 html::-webkit-scrollbar-thumb {
   background: #fff;
   border-radius: 5rem;

@@ -9,7 +9,7 @@
     <a routerLink="/feedback/create" >Đánh giá</a>
     <a href="/home#contact">Liên hệ</a>
     <div class="adminList" >
-      <a *ngIf="tokenStorageService.getUser()" onclick="noiDropdown()">Quản lý</a>
+      <a *ngIf="tokenStorageService.getUser()" onclick="noiDropdown()" class="adminDrop">Quản lý</a>
       <div class="noi_dropdown">
         <a routerLink="/employee/list" *ngIf="employee.position?.namePosition == 'Quản lý'"><span>Nhân viên</span></a>
         <a routerLink="/product/list">Món ăn</a>
