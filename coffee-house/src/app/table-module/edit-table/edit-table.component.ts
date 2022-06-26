@@ -75,7 +75,7 @@ export class EditTableComponent implements OnInit {
   }
 
   return() {
-    // this._service.message = 'Cập nhật bàn thất bại!';
+    this._service.message = 'Cập nhật bàn thất bại!';
     this._router.navigateByUrl('/table/list');
   }
 
