@@ -1,28 +1,29 @@
+<div class="main" >
+  <div class="container-flutter">
+    <div class="table-title">
+      <h1 style="font-size: 35px !important;">Danh sách phản hồi</h1>
+    </div>
 
-<div class="container-lg">
-  <div class="container-fluid" style="height:191px; margin-bottom: 70px; width: 1000px">
-    <div style="background-color: #FA8C16; height:191px;width: 970px; position: absolute; opacity: 30%"></div>
-    <img src="/assets/images/1.jpg" style="height:191px" class="img-fluid"/>
+    <div class="row justify-content-between align-items-center">
+      <div class="col-10">
+        <form method="post" class="d-flex align-items-center form__search justify-content-end"
+              (ngSubmit)="search()" [formGroup]="searchFeedback">
+          <label>Ngày phản hồi</label>
+          <input type="date" class="form-control" formControlName="date">
+          <button class="ml-3 button__1" data-target="#searchError" data-toggle="modal" (click)="search()">
+            <i class='bx bx-search'></i>
+          </button>
+          <button class="btn btn1-primary" (click)="ngOnInit()">Hiện tất cả</button>
+        </form>
+      </div>
+    </div>
   </div>
+</div>
 
-  <div class="container">
-    <h2 style="color: #FA8C16; font-size: 24pt; padding: 0; display: flex; justify-content: center" class="label">Quản lý phản hồi</h2>
-  </div>
-
-
-  <div class="label" style="display: flex;align-items: center; justify-content: center; margin-top: 20px">
-    <p class="label" style="color: #FA8C16; font-size: 16px; margin-top: 10px">Ngày phản hồi: </p>
-    <form [formGroup]="searchFeedback" (ngSubmit)="search()" style="display: flex;align-items: center;">
-      <input type="date" class="form-control" formControlName="date" style="width: 200px; margin-left: 15px; font-family: 'Raleway Bold'">
-      <button class="btn1 label" style="margin: 0 15px">Tìm kiếm</button>
-    </form>
-    <button class="btn1 label" (click)="ngOnInit()">Hiện tất cả</button>
-  </div>
-
-  <h3 *ngIf="message; else elseBlock">Not Found!</h3>
+  <h3 *ngIf="message; else elseBlock" style="display: flex; justify-content: center">Not Found!</h3>
   <ng-template #elseBlock>
-  <table class="table" style="margin-top: 30px">
-    <tr style=" box-shadow: 0 2px 5px #FA8C16; font-size: 15px">
+  <table class="table">
+    <tr>
       <th>STT</th>
       <th>Mã số phản hồi</th>
       <th>Ngày phản hồi</th>
@@ -49,36 +50,31 @@
     </tr>
   </table>
 
-  <div class="label" style="display: flex; justify-content: center;color: #FA8C16; font-size: 16px">
-    <nav aria-label="Page navigation example">
-      <ul class="label" style="display: -webkit-box;
+  <div style="display: flex; justify-content: center">
+    <nav>
+      <ul  style="display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     padding-left: 0;
     list-style: none;
     border-radius: 1rem;
-    color: white;
-    font-size: 16px;
-    font-family: 'Raleway Bold'">
+    font-size: 16px">
         <li [hidden]="totalPagination==1" class="page-item"><a class="page-link1" (click)="firstPage()">Đầu</a></li>
         <li [hidden]="totalPagination==1" class="page-item"><a class="page-link1" (click)="previousPage()">Trang trước</a></li>
-        <!--                    <li class="page-item active"><a class="page-link" href="#">1</a></li>-->
-        <li class="page-item col-md-1 col-2  px-0">
-          <!--                        <input class="form-control shadow-none rounded-0" type="text" placeholder="2/5">-->
-          <div class="input-group">
-            <input [hidden]="totalPagination==1" type="number" min="1" class="form-control text-right rounded-0"
-                   aria-describedby="basic-addon1" [value]="indexPagination" (change)="indexPaginationChange($event)">
-          </div>
-        </li>
-        <li>
-          <div class="input-group-prepend">
-            <span class="input-group-text" id="basic-addon1">{{totalPagination}}</span>
-          </div>
-        </li>
-        <li [hidden]="totalPagination==1" class="page-item">
-          <button class="page-link1" (click)="findPagination()">Đi</button>
-        </li>
-        <li [hidden]="totalPagination==1" class="page-item"><a class="page-link1" (click)="nextPage()">Trang kế</a></li>
+        <li [hidden]="totalPagination==1" class="page-item" *ngFor="let paginationButton of totalPaginationArray">
+          <a class="page-link1" (click)="findPagination(paginationButton.valueOf())">{{paginationButton.valueOf()}}</a></li>
+<!--        <li class="page-item col-md-1 col-2  px-0">-->
+<!--          <div class="input-group">-->
+<!--            <input [hidden]="totalPagination==1" type="number" min="1" class="form-control text-right rounded-0"-->
+<!--                   aria-describedby="basic-addon1" [value]="indexPagination" (change)="indexPaginationChange($event)">-->
+<!--          </div>-->
+<!--        </li>-->
+<!--        <li>-->
+<!--          <div class="input-group-prepend">-->
+<!--            <span class="input-group-text" id="basic-addon1">{{totalPagination}}</span>-->
+<!--          </div>-->
+<!--        </li>-->
+        <li [hidden]="totalPagination==1" class="page-item"><a class="page-link1" (click)="nextPage()">Trang sau</a></li>
         <li [hidden]="totalPagination==1" class="page-item"><a class="page-link1" (click)="lastPage()">Cuối</a></li>
       </ul>
     </nav>
@@ -88,10 +84,9 @@
   <div class="modal fade font-modal" id="feedbackInfo">
     <div class=" modal-dialog modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content" style="border-radius: 1rem;">
-          <div class="modal-header" style="display:inline ;font-size: 20px;background: #FA8C16;color: white; border-top-left-radius: 1rem;
+          <div class="modal-header" style="display:inline; border-top-left-radius: 1rem;
     border-top-right-radius: 1rem;">
-            <h5 class="modal-title" style="font-weight: bold">Chi tiết phản hồi</h5>
-<!--            <button type="button" class="close" data-dismiss="modal" style="margin: 0">&times;</button>-->
+            <h5 class="modal-title">Chi tiết phản hồi</h5>
           </div>
           <div class="modal-body">
             <div class="container">
@@ -135,4 +130,3 @@
     <div id="caption"></div>
   </div>
 <!--  <div class="footer">Copyright @2022</div>-->
-</div>

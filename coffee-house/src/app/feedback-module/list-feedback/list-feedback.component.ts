@@ -26,6 +26,7 @@ export class ListFeedbackComponent implements OnInit {
   date: String;
   indexPagination = 1;
   totalPagination: number;
+  totalPaginationArray:number[] = [];
   listFeedbackNotPagination: Feedback[] = [];
   public searchFeedback: FormGroup;
   message = false;
@@ -71,6 +72,10 @@ export class ListFeedbackComponent implements OnInit {
       this.listFeedbackNotPagination = feedbackList;
       if ((this.listFeedbackNotPagination.length % 10) != 0) {
         this.totalPagination = (Math.round(this.listFeedbackNotPagination.length / 10)) + 1;
+        for (let i = 0; i < this.totalPagination; i++) {
+          this.totalPaginationArray[i] = i +1;
+          console.log(this.totalPaginationArray[i]);
+        }
       }
       console.log(this.totalPagination);
     });
@@ -100,8 +105,9 @@ export class ListFeedbackComponent implements OnInit {
     });
   }
 
-  findPagination() {
-    this.feedbackService.getAll(this.indexPagination - 1).subscribe(feedbackList => {
+  findPagination(index) {
+    console.log((index));
+    this.feedbackService.getAll(index -1).subscribe(feedbackList => {
       this.feedbackList = feedbackList['content'];
     });
   }
