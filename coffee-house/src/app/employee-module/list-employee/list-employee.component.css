@@ -1,7 +1,8 @@
 :root {
   --primary-color: rgb(236, 155, 68);
 }
-*{
+
+* {
   font-size: 15px;
   font-weight: normal;
 }
@@ -42,8 +43,8 @@
   position: relative;
   font-weight: 1000;
   font-size: 17px;
-  -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
-  box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+  -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
   transition: all 250ms;
   overflow: hidden;
 }
@@ -167,3 +168,42 @@ a {
   color: #fff;
 }
 
+.pagination li a.active {
+  background-color: var(--primary-color) !important;
+  color: #fff !important;
+}
+
+.page-item.active .page-link {
+  z-index: 1;
+  color: #fff;
+  background-color: rgb(236, 155, 68);
+  border-color: rgb(236, 155, 68);
+}
+
+.page-link {
+  position: relative;
+  display: block;
+  padding: 0.5rem 0.75rem;
+  margin-left: -1px;
+  line-height: 1.25;
+  color: rgb(236, 155, 68);
+  background-color: #fff;
+  border: 1px solid #dee2e6;
+}
+
+
+@media (max-width: 739px) {
+  .form__search{
+    flex-direction: column;
+  }
+}
+
+/* Mobile and Tablet */
+@media (max-width: 1023px) {
+
+}
+
+/* Tablet */
+@media (min-width: 740px) and (max-width: 1023px) {
+
+}

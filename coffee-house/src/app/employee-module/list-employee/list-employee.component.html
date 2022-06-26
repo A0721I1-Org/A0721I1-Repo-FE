@@ -5,7 +5,7 @@
     </div>
 
     <div class="row justify-content-between align-items-center">
-      <div class="col-2">
+      <div class="col-sm-12">
         <button class="learn-more button1">
                     <span class="circle" aria-hidden="true">
                     <span class="icon arrow">
@@ -14,13 +14,13 @@
           <span class="button-text button1" routerLink="/employee/create" style="font-size: 18px ! important" >Thêm mới nhân viên</span>
         </button>
       </div>
-      <div class="col-10">
+      <div class="col-sm-12">
         <form method="post" class="d-flex align-items-center form__search justify-content-end"
-              (ngSubmit)="searchEmployee()" [formGroup]="searchForm">
-          <input type="text" class="form-control" placeholder="Tên tài khoản" formControlName="username">
+              (ngSubmit)="checkSearchEmployee()" [formGroup]="searchForm">
+          <input type="text" class="form-control " placeholder="Tên tài khoản" formControlName="username">
           <input type="text" class="form-control ml-3" placeholder="Họ và tên" formControlName="name">
           <input type="text" class="form-control ml-3" placeholder="Số điện thoại" formControlName="phone">
-          <button class="ml-3 button__1" data-target="#searchError" data-toggle="modal" (click)="searchEmployee()">
+          <button class="ml-3 button__1" data-target="#searchError" data-toggle="modal" (click)="checkSearchEmployee()">
 <!--            <i class="fa-solid fa-magnifying-glass"></i>-->
             <i class='bx bx-search'></i>
           </button>
@@ -41,7 +41,7 @@
         <th>Vị trí</th>
         <td></td>
       </tr>
-      <tr *ngFor="let employee of employeeList | paginate: { itemsPerPage: 10, currentPage: p };let i = index">
+      <tr *ngFor="let employee of employeeList; let i = index">
         <td>{{i + 1}}</td>
         <td>{{employee.user.username}}</td>
         <td>{{employee.nameEmployee}}</td>
@@ -49,7 +49,7 @@
         <td>{{employee.phoneEmployee}}</td>
         <td *ngIf="employee.genderEmployee">Nam</td>
         <td *ngIf="!employee.genderEmployee">Nữ</td>
-        <td>{{employee.dateOfBirthEmployee}}</td>
+        <td>{{employee.dateOfBirthEmployee | date: 'dd/MM/yyyy'}}</td>
         <td>{{employee.salaryEmployee | number :'1.0-3'}}</td>
         <td>{{employee.position.namePosition}}</td>
         <td><a [routerLink]="['/employee/edit/',employee.idEmployee]">
@@ -74,8 +74,49 @@
       </tr>
     </table>
     <button class="btn btn1-primary" (click)="resetPage()" >Đặt lại</button>
-    <pagination-controls (pageChange)="p = $event" previousLabel="Trang trước"
-                         nextLabel="Trang sau" class="float-lg-right"></pagination-controls>
+    <div class="clearfix">
+      <nav aria-label="...">
+        <ul class="pagination">
+          <div *ngIf="pageNumber > 0; then enablePrevious else disablePrevious"></div>
+          <ng-template #enablePrevious>
+            <li class="page-item">
+              <span class="page-link" (click)="perviousPage()">Trang trước</span>
+            </li>
+          </ng-template>
+          <ng-template #disablePrevious>
+            <li class="page-item disabled">
+              <span class="page-link">Trang trước</span>
+            </li>
+          </ng-template>
+
+          <div *ngFor="let page of totalPage; index as i">
+            <div *ngIf="pageNumber == i; then isCurrentPage else notCurrentPage"></div>
+            <ng-template #isCurrentPage>
+              <li class="page-item active">
+                <span class="page-link" (click)="changePageNumber(i)">{{i + 1}}</span>
+              </li>
+            </ng-template>
+            <ng-template #notCurrentPage>
+              <li class="page-item">
+                <span class="page-link" (click)="changePageNumber(i)">{{i + 1}}</span>
+              </li>
+            </ng-template>
+          </div>
+
+          <div *ngIf="pageNumber < totalPage.length - 1; then enableNext else disableNext"></div>
+          <ng-template #enableNext>
+            <li class="page-item">
+              <span class="page-link" (click)="nextPage()">Trang sau</span>
+            </li>
+          </ng-template>
+          <ng-template #disableNext>
+            <li class="page-item disabled">
+              <span class="page-link">Trang sau</span>
+            </li>
+          </ng-template>
+        </ul>
+      </nav>
+    </div>
   </div>
 </div>
 <!-- Modal -->
@@ -96,7 +137,7 @@
         Số điện thoại : {{employee?.phoneEmployee}}<br>
         Giới tính: <span *ngIf="employee?.genderEmployee">Nam</span>
         <span *ngIf="!employee?.genderEmployee">Nữ</span><br/>
-        Ngày sinh : {{employee?.dateOfBirthEmployee}}<br>
+        Ngày sinh : {{employee?.dateOfBirthEmployee | date: 'dd/MM/yyyy'}}<br>
         Lương(VND) : {{employee?.salaryEmployee | number :'1.0-3'}}<br>
         Vị trí : {{employee?.position.namePosition}}
       </div>
