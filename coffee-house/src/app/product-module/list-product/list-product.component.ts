@@ -36,7 +36,8 @@ totalPageSearch = 0;
     console.log(idProduct);
     this.service.deleteById(idProduct).subscribe(()  => {
       this.ngOnInit();
-      setInterval(this.message = 'Xoá Thành Công' , 4000 );
+      setInterval(this.message = 'Xoá Thành Công', 3 );
+      setInterval(this.message = '', 5 );
     }
     );
   }
