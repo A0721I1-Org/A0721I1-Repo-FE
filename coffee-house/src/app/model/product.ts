@@ -1,8 +1,6 @@
 import {TypeProduct} from './typeProduct';
 
 export interface Product {
-
-
   idProduct?: number;
   codeProduct?: string;
   nameProduct?: string;
@@ -11,5 +9,4 @@ export interface Product {
   imageProduct?: string;
   descriptionProduct?: string;
   typeProduct?: any;
-
 }

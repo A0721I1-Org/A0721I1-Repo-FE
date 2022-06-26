@@ -78,6 +78,7 @@ export class CreateProductComponent implements OnInit {
       priceProduct: new FormControl('', Validators.required),
       imageProduct: new FormControl('', Validators.required),
       descriptionProduct: new FormControl('', Validators.required),
+      quatityProduct: new FormControl('', Validators.required),
       typeProduct: new FormControl('', Validators.required),
     });
 
@@ -104,7 +105,7 @@ export class CreateProductComponent implements OnInit {
           this.service.createProduct(this.createForm.value).subscribe(
             () => {},
             error => {
-            this.errorImage = error.error.errorMap.image;
+            // this.errorImage = error.error.errorMap.image;
           }, () => {
               this.remind.success('Thêm món mới thành công!', 'Thông báo:');
               this.router.navigateByUrl('/product/list');
