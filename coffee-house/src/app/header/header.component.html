@@ -32,7 +32,7 @@
       <button class ="bx bxs-user-account bx-lg nut_dropdown"></button>
       <div class="noidung_dropdown">
         <a [routerLink]="['/employee/detail/'] + tokenStorageService.getUser().id" (click)="getPositionById()" >Chi tiết tài khoản</a>
-        <a (click)="logout()" href="">Đăng xuất</a>
+        <a (click)="logout()">Đăng xuất</a>
       </div>
     </div>
   </div>

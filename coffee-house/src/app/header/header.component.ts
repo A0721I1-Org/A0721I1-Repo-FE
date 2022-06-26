@@ -5,6 +5,7 @@ import {ProductService} from '../product-module/service/product.service';
 import {TokenStorageService} from '../login-module/service/token-storage.service';
 import {EmployeeService} from '../employee-module/service/employee.service';
 import {ShareService} from '../login-module/service/share.service';
+import swal from 'sweetalert';
 
 @Component({
   selector: 'app-header',
@@ -33,7 +34,6 @@ export class HeaderComponent implements OnInit {
     });
   }
 
-
   loadHeader(): void {
     if (this.tokenStorageService.getToken()) {
       this.token = this.tokenStorageService.getUser().token;
@@ -51,8 +51,29 @@ export class HeaderComponent implements OnInit {
   }
 
   logout() {
-    this.tokenStorageService.signOut();
-    this.ngOnInit();
+    swal({
+      title: 'Đăng xuất',
+      text: 'Bạn có chắc là muốn đăng xuất khỏi hệ thống không ?',
+      icon: 'warning',
+      buttons: ['Hủy', true],
+      dangerMode: true,
+    })
+      .then((willSignOut) => {
+        if (willSignOut) {
+          swal('Bạn đã đăng xuất khỏi hệ thống', {
+            icon: 'success',
+          });
+          setTimeout(() => {
+            this.tokenStorageService.signOut();
+            this.ngOnInit();
+            window.location.reload();
+          }, 700);
+        } else {}
+      });
+    // if (window.confirm('Bạn có chắc là muốn đăng xuất ra khỏi hệ thống ?')){
+    //   this.tokenStorageService.signOut();
+    //   this.ngOnInit();
+    // }
   }
 
   getPositionById() {
