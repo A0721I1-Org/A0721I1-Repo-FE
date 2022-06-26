@@ -1,17 +1,8 @@
-
-
-
 import {Product} from '../../model/product';
 import {TypeProduct} from '../../model/typeProduct';
-
-
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import {HttpClient} from '@angular/common/http';
-
-
-
-
 const API_URL = 'http://localhost:8080/find';
 const API_URL1 = 'http://localhost:8080/cart';
 
@@ -21,6 +12,7 @@ const API_URL1 = 'http://localhost:8080/cart';
 })
 export class ProductService {
   URLPRODUCT = 'http://localhost:8080/product';
+  // tslint:disable-next-line:variable-name
   constructor(private http: HttpClient, private _httpClient: HttpClient) {
   }
 

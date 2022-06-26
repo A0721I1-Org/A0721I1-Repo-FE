@@ -1,4 +1,3 @@
-
 import {RouterModule} from '@angular/router';
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
@@ -12,7 +11,7 @@ import {HomeComponent} from './home/home.component';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {FeedbackModuleModule} from './feedback-module/feedback-module.module';
-
+import {OrderModuleRoutingModule} from './order-module/order-module-routing.module';
 import {HeaderComponent} from './header/header.component';
 import { HeaderUnloginComponent } from './header-unlogin/header-unlogin.component';
 import {IncomeModuleModule} from './income-module/income-module.module';
@@ -29,9 +28,15 @@ import {DatePipe} from '@angular/common';
     HeaderUnloginComponent
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     RouterModule,
     AppRoutingModule,
+    OrderModuleRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    FeedbackModuleModule,
+    FormsModule,
     LoginModuleModule,
     ToastrModule.forRoot({
       positionClass: 'toast-top-right',
@@ -47,7 +52,6 @@ import {DatePipe} from '@angular/common';
   providers: [
     {provide: JWT_OPTIONS, useValue: JWT_OPTIONS},
     JwtHelperService,
-
     DatePipe
   ],
   bootstrap: [AppComponent]
