@@ -1,8 +1,8 @@
+import {RouterModule} from '@angular/router';
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
-import {HttpClient} from '@angular/common/http';
 import {LoginModuleModule} from './login-module/login-module.module';
 import {ToastrModule} from 'ngx-toastr';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -11,18 +11,28 @@ import {HomeComponent} from './home/home.component';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {FeedbackModuleModule} from './feedback-module/feedback-module.module';
+import {OrderModuleRoutingModule} from './order-module/order-module-routing.module';
 import {HeaderComponent} from './header/header.component';
+import { HeaderUnloginComponent } from './header-unlogin/header-unlogin.component';
+import {IncomeModuleModule} from './income-module/income-module.module';
+import {DatePipe} from '@angular/common';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    HeaderComponent
+    HeaderComponent,
+    HeaderUnloginComponent
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
+    HttpClientModule,
+    RouterModule,
     AppRoutingModule,
+    OrderModuleRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
     FeedbackModuleModule,
@@ -33,10 +43,17 @@ import {HeaderComponent} from './header/header.component';
     }),
     BrowserAnimationsModule,
     JwtModule,
+    FormsModule,
+    ReactiveFormsModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FeedbackModuleModule,
+    IncomeModuleModule,
   ],
   providers: [
     {provide: JWT_OPTIONS, useValue: JWT_OPTIONS},
     JwtHelperService,
+    DatePipe
   ],
   bootstrap: [AppComponent]
 })

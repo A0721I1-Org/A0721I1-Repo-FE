@@ -1,5 +1,5 @@
 <div class="login" ng-show="authenticated" style="z-index: 20000">
-  <form (submit)="login()" [formGroup]="formLogin" method="post" style="background-color:#f1f1f1;">
+  <form (submit)="login($event)" [formGroup]="formLogin" method="post" style="background-color:#f1f1f1;">
     <h2>Đăng Nhập</h2>
     <div class="container">
       <div class="form">
@@ -15,9 +15,9 @@
       </div>
       <button type="submit" class="orange">Đăng nhập</button>
       <label id="remember">
-        <input type="checkbox" name="Nhớ mật khẩu">  Nhớ mật khẩu
+<!--        <input type="checkbox" name="Nhớ mật khẩu">  Nhớ mật khẩu-->
       </label>
-      <a href="/forgot-password/forgot-password-child">Quên mật khẩu ?</a>
+      <a routerLink="/forgot-password/forgot-password-child" style="font-size: 17px">Quên mật khẩu ?</a>
     </div>
     <div class="container-cancel" style="height: 70px;">
       <button type="button" class="cancelbtn red" [routerLink]="'/home'">Trở lại trang chủ</button>

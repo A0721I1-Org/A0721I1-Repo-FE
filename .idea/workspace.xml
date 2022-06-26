@@ -1,21 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-<<<<<<< HEAD
-    <list default="true" id="17545742-62f2-45e3-9df0-e76d6d9ee38d" name="Default Changelist" comment="" />
-=======
-<<<<<<< HEAD
+
     <list default="true" id="17545742-62f2-45e3-9df0-e76d6d9ee38d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+
+  <component name="ChangeListManager">
+
+    <list default="true" id="17545742-62f2-45e3-9df0-e76d6d9ee38d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee-house/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/product-module/list-product/list-product.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/src/app/product-module/list-product/list-product.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/product-module/list-product/list-product.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/src/app/product-module/list-product/list-product.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee-house/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/src/index.html" afterDir="false" />
+    </list>
+
+    <list default="true" id="17545742-62f2-45e3-9df0-e76d6d9ee38d" name="Default Changelist" comment="" />
+
+    <list default="true" id="17545742-62f2-45e3-9df0-e76d6d9ee38d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+
       <change beforePath="$PROJECT_DIR$/coffee-house/src/app/employee-module/list-employee/list-employee.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/src/app/employee-module/list-employee/list-employee.component.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/coffee-house/src/app/employee-module/list-employee/list-employee.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/src/app/employee-module/list-employee/list-employee.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/coffee-house/src/app/employee-module/list-employee/list-employee.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/src/app/employee-module/list-employee/list-employee.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/coffee-house/src/app/employee-module/service/employee.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/src/app/employee-module/service/employee.service.ts" afterDir="false" />
-=======
-<<<<<<< HEAD
+
+      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/menu-module/menu-order/create-menu-order.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/src/app/menu-module/menu-order/create-menu-order.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/menu-module/menu-order/create-menu-order.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/src/app/menu-module/menu-order/create-menu-order.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/menu-module/menu-order/create-menu-order.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/src/app/menu-module/menu-order/create-menu-order.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coffee-house/src/app/menu-module/service/menu.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/src/app/menu-module/service/menu.service.ts" afterDir="false" />
+
     <list default="true" id="3a3925d4-fb4b-4c68-a667-9ecec32557b4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-=======
+
 
     <list default="true" id="17545742-62f2-45e3-9df0-e76d6d9ee38d" name="Default Changelist" comment="" />
       <change afterPath="$PROJECT_DIR$/coffee-house/src/app/table-module/detail-table/img/login-background.jpeg" afterDir="false" />
@@ -40,17 +76,17 @@
       <change beforePath="$PROJECT_DIR$/coffee-house/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/src/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/coffee-house/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/coffee-house/src/styles.css" afterDir="false" />
 
->>>>>>> eba76ca43e93abb19ee49367b34b1baa2ffbabe4
->>>>>>> 4b05b46e53ada75f8b492e2ca804d5ad6be3abc0
+
     </list>
->>>>>>> origin/employee-management
+
+    </list>
+
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-<<<<<<< HEAD
-=======
+
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -66,28 +102,36 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-<<<<<<< HEAD
+
+  <component name="ProjectId" id="2AD8XG61sGB1LKYggKw3Eq5v7Ho" />
+
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="ProjectErrors" />
   </component>
-=======
-<<<<<<< HEAD
+
   <component name="ProjectId" id="2AgIdk2Q4Rf44vjMRphIoAKEjmq" />
-=======
+
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
->>>>>>> 4b05b46e53ada75f8b492e2ca804d5ad6be3abc0
+
   <component name="ProjectId" id="2AD8XG61sGB1LKYggKw3Eq5v7Ho" />
->>>>>>> eba76ca43e93abb19ee49367b34b1baa2ffbabe4
+
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-<<<<<<< HEAD
+
+  <component name="PropertiesComponent">
+    <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
+
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;Git.Branch.Popup.ShowAllRemotes&quot;: &quot;true&quot;,
@@ -99,7 +143,7 @@
   }
 }</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
-=======
+
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
@@ -112,50 +156,67 @@
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
->>>>>>> origin/employee-management
+
   <component name="PropertiesComponent">
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<<<<<<< Updated upstream
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
-=======
+
+  <component name="PropertiesComponent">
+
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+
     <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
->>>>>>> Stashed changes
->>>>>>> 841646832d658ac13273ea81015a5521b456a2d7
+
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-<<<<<<< HEAD
+
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/coffee-house" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2019.3.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
+  </component>
+
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../A0721I1-Repo-BE" />
+    <property name="ts.external.directory.path" value="D:\Project_Sprint1\A0721I1-Repo-FE\coffee-house\node_modules\typescript\lib" />
+
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../My-Project/GUI_coffee/angular-coffee-management" />
-=======
-<<<<<<< HEAD
+
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-=======
+
     <property name="last_opened_file_path" value="$PROJECT_DIR$/coffee-house/src/app/table-module/create-table/img" />
->>>>>>> eba76ca43e93abb19ee49367b34b1baa2ffbabe4
+
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-<<<<<<< HEAD
->>>>>>> 841646832d658ac13273ea81015a5521b456a2d7
-=======
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/coffee-house" />
->>>>>>> origin/employee-management
+
     <property name="nodejs_package_manager_path" value="npm" />
->>>>>>> 7a28bab5cb1c991ae1bf9de0d14ff72fafb90d4e
+    <property name="ts.external.directory.path" value="D:\A0321I1-HuynhBaDan\project_coffee\A0721I1-Repo-FE\coffee-house\node_modules\typescript\lib" />
+
+    <property name="ts.external.directory.path" value="E:\A0721I1-Repo-FE\coffee-house\node_modules\typescript\lib" />
   </component>
->>>>>>> 4b05b46e53ada75f8b492e2ca804d5ad6be3abc0
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\A0721I1-Repo-FE\coffee-house\src\app\table-module\create-table\validate-table" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\A0721I1-Repo-FE\coffee-house\src\app\table-module\create-table\img" />
+      <recent name="E:\A0721I1-Repo-FE\coffee-house\src\app\table-module\create-table" />
+    </key>
+
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/coffee-house" />
+
+    <property name="nodejs_package_manager_path" value="npm" />
+
+  </component>
+
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
-<<<<<<< HEAD
-<<<<<<< HEAD
+
     <task active="true" id="Default" summary="Default task">
       <changelist id="17545742-62f2-45e3-9df0-e76d6d9ee38d" name="Default Changelist" comment="" />
       <created>1654532833012</created>
@@ -163,32 +224,57 @@
       <option name="presentableId" value="Default" />
       <updated>1654532833012</updated>
       <workItem from="1654532845616" duration="33000" />
+
+      <workItem from="1654688150965" duration="451000" />
+    </task>
+
       <workItem from="1655437653734" duration="25000" />
     </task>
-=======
->>>>>>> 7a28bab5cb1c991ae1bf9de0d14ff72fafb90d4e
-=======
->>>>>>> 841646832d658ac13273ea81015a5521b456a2d7
+
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
-=======
+
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="496" y="120" key="FileChooserDialogImpl" timestamp="1654688607622">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state x="496" y="120" key="FileChooserDialogImpl/0.0.1536.816@0.0.1536.816" timestamp="1654688607622" />
+    <state x="496" y="127" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1654532884916" />
+    <state width="1515" height="208" key="GridCell.Tab.0.bottom" timestamp="1654688589973">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state width="1515" height="208" key="GridCell.Tab.0.bottom/0.0.1536.816@0.0.1536.816" timestamp="1654688589973" />
+    <state width="1515" height="208" key="GridCell.Tab.0.center" timestamp="1654688589973">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state width="1515" height="208" key="GridCell.Tab.0.center/0.0.1536.816@0.0.1536.816" timestamp="1654688589973" />
+    <state width="1515" height="208" key="GridCell.Tab.0.left" timestamp="1654688589973">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state width="1515" height="208" key="GridCell.Tab.0.left/0.0.1536.816@0.0.1536.816" timestamp="1654688589973" />
+    <state width="1515" height="208" key="GridCell.Tab.0.right" timestamp="1654688589973">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state width="1515" height="208" key="GridCell.Tab.0.right/0.0.1536.816@0.0.1536.816" timestamp="1654688589973" />
+
     <task active="true" id="Default" summary="Default task">
       <changelist id="3a3925d4-fb4b-4c68-a667-9ecec32557b4" name="Default Changelist" comment="" />
       <created>1655399150044</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-<<<<<<< HEAD
+
       <updated>1655399150044</updated>
       <workItem from="1655399154698" duration="862000" />
       <workItem from="1655424894282" duration="476000" />
-<<<<<<< Updated upstream
+
       <workItem from="1655429812501" duration="4681000" />
-=======
+
       <updated>1654532833012</updated>
       <workItem from="1654532845616" duration="33000" />
-<<<<<<< HEAD
+
       <workItem from="1654604666598" duration="56000" />
       <workItem from="1654846788448" duration="7698000" />
       <workItem from="1654858078702" duration="9823000" />
@@ -198,7 +284,26 @@
       <workItem from="1655348751231" duration="30000" />
       <workItem from="1655431764330" duration="5885000" />
       <workItem from="1655446426408" duration="8604000" />
-=======
+
+      <workItem from="1654858871677" duration="3548000" />
+      <workItem from="1654864283476" duration="3255000" />
+      <workItem from="1654869245736" duration="13000" />
+      <workItem from="1654876351718" duration="4383000" />
+      <workItem from="1654937121284" duration="2000" />
+      <workItem from="1655049966331" duration="3917000" />
+      <workItem from="1655087357161" duration="5363000" />
+      <workItem from="1655100635385" duration="954000" />
+      <workItem from="1655155890291" duration="7547000" />
+      <workItem from="1655164239768" duration="2098000" />
+      <workItem from="1655189737300" duration="5125000" />
+      <workItem from="1655282716885" duration="5453000" />
+      <workItem from="1655290708867" duration="9795000" />
+      <workItem from="1655303350463" duration="2359000" />
+      <workItem from="1655341913735" duration="5044000" />
+      <workItem from="1655360772280" duration="5037000" />
+      <workItem from="1655438507961" duration="2514000" />
+      <workItem from="1655456436335" duration="7185000" />
+
       <workItem from="1655290314495" duration="495000" />
       <workItem from="1655291278419" duration="756000" />
       <workItem from="1655295983574" duration="331000" />
@@ -214,22 +319,17 @@
       <workItem from="1655209637464" duration="13198000" />
       <workItem from="1655224080691" duration="5348000" />
       <workItem from="1655268300941" duration="2839000" />
->>>>>>> eba76ca43e93abb19ee49367b34b1baa2ffbabe4
-<<<<<<< HEAD
->>>>>>> 4b05b46e53ada75f8b492e2ca804d5ad6be3abc0
-=======
-=======
+
       <workItem from="1655429812501" duration="5104000" />
->>>>>>> Stashed changes
->>>>>>> b19c912 (DanHB)
+
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-<<<<<<< HEAD
+
     <option name="version" value="2" />
   </component>
-<<<<<<< HEAD
+
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
@@ -240,26 +340,70 @@
         </entry>
       </map>
     </option>
-=======
+
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="413" y="106" key="FileChooserDialogImpl" timestamp="1654869256380">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state x="413" y="106" key="FileChooserDialogImpl/0.0.1280.720@0.0.1280.720" timestamp="1654869256380" />
+    <state x="496" y="127" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1654532884916" />
+    <state x="233" y="94" key="Vcs.Push.Dialog.v2" timestamp="1654860951998">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state x="233" y="94" key="Vcs.Push.Dialog.v2/0.0.1280.720@0.0.1280.720" timestamp="1654860951998" />
+    <state x="297" y="161" key="run.anything.popup" timestamp="1654863812306">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state x="297" y="161" key="run.anything.popup/0.0.1280.720@0.0.1280.720" timestamp="1654863812306" />
+
+    <option name="version" value="2" />
+  </component>
+
+  <component name="WindowStateProjectService">
+    <state x="261" y="94" key="Vcs.Push.Dialog.v2" timestamp="1655434218327">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+
   <component name="WindowStateProjectService">
     <state x="261" y="94" key="Vcs.Push.Dialog.v2" timestamp="1655434753718">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-<<<<<<< Updated upstream
+
     <state x="261" y="94" key="Vcs.Push.Dialog.v2/0.0.1536.864@0.0.1536.864" timestamp="1655434218327" />
-=======
+
     <option name="version" value="3" />
     <option name="version" value="2" />
->>>>>>> origin/employee-management
+
   </component>
   <component name="WindowStateProjectService">
-<<<<<<< HEAD
+    <state x="488" y="80" key="#com.intellij.ide.util.MemberChooser" timestamp="1655275006772">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="488" y="80" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1655275006772" />
+    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1654690181197">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1654690181197" />
+    <state x="496" y="121" key="FileChooserDialogImpl" timestamp="1654692052112">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="496" y="121" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1654692052112" />
+    <state x="413" y="111" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1654916896893">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="413" y="111" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1654916896893" />
+    <state x="441" y="107" key="FileChooserDialogImpl" timestamp="1654791066803">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+  </component>
+  <component name="WindowStateProjectService">
     <state x="441" y="107" key="FileChooserDialogImpl" timestamp="1655437673960">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="441" y="107" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1655437673960" />
     <state x="496" y="127" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1654532884916" />
-=======
     <state x="740" y="272" key="FileChooserDialogImpl" timestamp="1655728442288">
       <screen x="0" y="0" width="1920" height="1032" />
     </state>
@@ -279,26 +423,9 @@
     <state width="1899" height="279" key="GridCell.Tab.0.right" timestamp="1655728443524">
       <screen x="0" y="0" width="1920" height="1032" />
     </state>
-<<<<<<< HEAD
     <state width="1899" height="279" key="GridCell.Tab.0.right/0.0.1920.1032@0.0.1920.1032" timestamp="1655728443524" />
-<<<<<<< HEAD
->>>>>>> 7a28bab5cb1c991ae1bf9de0d14ff72fafb90d4e
-=======
-=======
     <state x="441" y="107" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1654791066803" />
     <state x="496" y="127" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1654532884916" />
->>>>>>> eba76ca43e93abb19ee49367b34b1baa2ffbabe4
-<<<<<<< HEAD
->>>>>>> 4b05b46e53ada75f8b492e2ca804d5ad6be3abc0
-<<<<<<< HEAD
-=======
-=======
     <state x="261" y="94" key="Vcs.Push.Dialog.v2/0.0.1536.864@0.0.1536.864" timestamp="1655434753718" />
->>>>>>> Stashed changes
->>>>>>> b19c912 (DanHB)
-=======
->>>>>>> origin/employee-management
->>>>>>> origin/employee-management
->>>>>>> 841646832d658ac13273ea81015a5521b456a2d7
   </component>
 </project>

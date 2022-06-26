@@ -1,6 +1,4 @@
-
-
-<!-- header section starts  -->
+!-- header section starts  -->
 
 
 
@@ -43,7 +41,6 @@
 
 <!-- <header class="header">
 >>>>>>> 1f9071043e6c28181ceae41cd51b06656752ef36
-
 home section starts  -->
 
 <!-- home section starts  -->
@@ -85,7 +82,7 @@ home section starts  -->
         phần mang đến những giá trị về tinh thần, văn hóa và phong cách sống… của người Việt.</p>
       <p>Cà phê là thức uống quen thuộc mỗi buổi sáng giúp tôi có thể cảm nhận được cả thế giới chuyển động trong cơ
         thể.</p>
-      <!--            <a href="#" class="btn">learn more</a>-->
+                  <a href="#" class="btn">learn more</a>
     </div>
   </div>
 
@@ -104,7 +101,7 @@ home section starts  -->
     <div class="box" *ngFor="let product of products; index as i">
       <img [src]="product.imageProduct" alt="">
       <h3> {{product.nameProduct}} </h3>
-      <div class="price">{{product.priceProduct}}đ <span>{{product.priceProduct + 20 / 100}}đ</span></div>
+      <div class="price">{{product.priceProduct | number}}đ <span>{{product.priceProduct + 20 / 100}}đ</span></div>
       <a href="#" class=" btn fa bx bxs-cart"> Thêm vào giỏ</a>
     </div>
 
@@ -385,4 +382,3 @@ home section starts  -->
   </div>
 
 </section>
-

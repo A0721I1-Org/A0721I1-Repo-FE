@@ -40,13 +40,13 @@
 }
 
 .btn-login{
-  margin-top: 1rem;
   display: inline-block;
   padding:.9rem 3rem;
   font-size: 1.7rem;
-  color:#fff;
+  color: white !important;
   background: black;
   cursor: pointer;
+  margin-left: 10px;
 }
 
 .btn-login:hover{
@@ -131,15 +131,25 @@
   /*padding-bottom: .5rem;*/
 }
 
-.dropdown:hover{
-  color:var(--main-color);
-  padding-bottom: .5rem;
+.dropdown .nut_dropdown{
+  cursor: pointer;
 }
+
+.dropdown .nut_dropdown:hover{
+  background-color:var(--main-color);
+  /*padding-bottom: .5rem;*/
+}
+
+.dropdown:hover .noidung_dropdown{
+  display: block;
+}
+
+
 .noi_dropdown {
   /*Ẩn nội dụng các đường dẫn*/
   display: none;
   position: absolute;
-  background-color: black;
+  background-color: rgba(0,0,0,0.9);
   min-width: 160px;
   z-index: 1;
 }
@@ -159,4 +169,12 @@
   color: black;
   text-decoration: none !important;
   padding-bottom: 12px !important;
+}
+.adminList:hover .noi_dropdown{
+  /*margin-top: 10px;*/
+  display: block;
+}
+
+.adminList .noi_dropdown a{
+  text-decoration: none !important;
 }
