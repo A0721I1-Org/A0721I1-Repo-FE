@@ -522,7 +522,7 @@ a {
   color: var(--main-color);
   display: block;
   padding-top: 1rem;
-  font-size: 2rem;
+  font-size: 20px;
 }
 
 .blogs .box-container .box .content p {
