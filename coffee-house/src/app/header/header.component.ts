@@ -66,7 +66,10 @@ export class HeaderComponent implements OnInit {
           setTimeout(() => {
             this.tokenStorageService.signOut();
             this.ngOnInit();
-            window.location.reload();
+            this.router.navigateByUrl('/');
+            setTimeout(() => {
+              window.location.reload();
+            }, 50);
           }, 700);
         } else {}
       });
