@@ -46,7 +46,7 @@ export class EditProductComponent implements OnInit {
         this.service.findById(id).subscribe(next => {
           console.log(next);
           this.imgVip = next.imageProduct;
-          this.editForm.setValue(next);
+          this.editForm.patchValue(next);
           console.log(this.editForm);
 
         });
