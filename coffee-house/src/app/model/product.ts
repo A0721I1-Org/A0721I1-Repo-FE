@@ -9,5 +9,6 @@ export interface Product {
   imageProduct?: string;
   descriptionProduct?: string;
   createAt?: string;
+  amountProduct?: number;
   typeProduct?: any;
 }
