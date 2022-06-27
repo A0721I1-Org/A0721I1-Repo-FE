@@ -33,18 +33,8 @@ export class EmployeeService {
   }
 
   // // VinhTQ
-  searchEmployee(username: string, name: string, phone: string): Observable<Employee[]> {
-    return this.httpClient.get<Employee[]>(URL_API + '/search/' + username + '/' + name + '/' + phone);
-  }
-
-  /* VinhTQ */
-  getLengthOfEmployees(): Observable<number> {
-    return this.httpClient.get<number>(URL_API + '/length/list');
-  }
-
-  /* VinhTQ */
-  getLengthOfEmployeeSearch(username: string, name: string, phone: string): Observable<number> {
-    return this.httpClient.get<number>(URL_API + '/length/search/' + username + '/' + name + '/' + phone);
+  showSearchEmployee(username: string, name: string, phone: string, page:number): Observable<Employee[]> {
+    return this.httpClient.get<Employee[]>(URL_API + '/search/' + username + '/' + name + '/' + phone+'?page='+page);
   }
 
   createEmployee(employee: Employee): Observable<void> {
@@ -61,7 +51,6 @@ export class EmployeeService {
     // @ts-ignore
     return this.httpClient.get(URL_API + '/position');
   }
-
 
   findByIdEmployee(id: number): Observable<Employee> {
     return this.httpClient.get<Employee>(URL_API + '/find-id-employee/' + id);

@@ -1,5 +1,4 @@
-<header class="header">
-
+<header class="header" *ngIf="isLogin">
   <a href="#" class="logo">
     <img style="height: 75px" src="assets/images/photosmile.vn_.jpg" alt="">
   </a>
@@ -7,10 +6,11 @@
     <a href="/home">Trang chủ</a>
     <a href="/home#about">Giới thiệu</a>
     <a href="/home#menu">Sản phẩm</a>
-    <a routerLink="/feedback/create">Đánh giá</a>
+    <a href="/home#review" *ngIf="tokenStorageService.getUser()">Đánh giá</a>
+    <a routerLink="/feedback/create" *ngIf="!tokenStorageService.getUser()">Đánh giá</a>
     <a href="/home#contact">Liên hệ</a>
     <div class="adminList" >
-      <a *ngIf="tokenStorageService.getUser()" onclick="noiDropdown()">Quản lý</a>
+      <a *ngIf="tokenStorageService.getUser()" class="adminDrop">Quản lý</a>
       <div class="noi_dropdown">
         <a routerLink="/employee/list" *ngIf="employee.position?.namePosition == 'Quản lý'"><span>Nhân viên</span></a>
         <a routerLink="/product/list">Món ăn</a>
@@ -27,12 +27,12 @@
     <div class='bx bxs-cart bx-lg' id="cart-btn"></div>
     <!--    <div class="nav-item dropdown show">-->
     <!--        <a class='bx bxs-user-account bx-lg'></a>-->
-    <a routerLink="/login/authentication" class="btn-login" [hidden]="!isLogin"> Đăng nhập </a>
+<!--    <a routerLink="/login/authentication" class="btn-login"> Đăng nhập </a>-->
     <div class="dropdown">
-      <button class ="bx bxs-user-account bx-lg nut_dropdown" *ngIf="username"></button>
+      <button class ="bx bxs-user-account bx-lg nut_dropdown"></button>
       <div class="noidung_dropdown">
         <a [routerLink]="['/employee/detail/'] + tokenStorageService.getUser().id" (click)="getPositionById()" >Chi tiết tài khoản</a>
-        <a (click)="logout()" href="">Đăng xuất</a>
+        <a (click)="logout()">Đăng xuất</a>
       </div>
     </div>
   </div>
