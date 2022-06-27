@@ -29,6 +29,8 @@ export class EditProductComponent implements OnInit {
     priceProduct: ['', Validators.required],
     imageProduct: ['', Validators.required],
     descriptionProduct: ['', Validators.required],
+    quatityProduct: ['', Validators.required],
+    createAt: ['', Validators.required],
     typeProduct: ['', [Validators.required]]
   });
 
@@ -46,7 +48,7 @@ export class EditProductComponent implements OnInit {
         this.service.findById(id).subscribe(next => {
           console.log(next);
           this.imgVip = next.imageProduct;
-          this.editForm.setValue(next);
+          this.editForm.patchValue(next);
           console.log(this.editForm);
 
         });
@@ -63,7 +65,7 @@ export class EditProductComponent implements OnInit {
         finalize(() => {
           fileRef.getDownloadURL().subscribe((url) => {
             this.editForm.patchValue({imageProduct: url});
-            // const product = this.editForm.value;
+
             this.service.updateProduct(this.editForm.value).subscribe(() => {
               console.log(this.editForm.value);
               this.product = this.editForm.value;
@@ -90,7 +92,6 @@ export class EditProductComponent implements OnInit {
     }
     console.log(this.editForm.value);
   }
-
   showPreview(event: any) {
     this.selectedImage = event.target.files[0];
     const reader = new FileReader();

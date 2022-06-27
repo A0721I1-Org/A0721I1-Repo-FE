@@ -7,6 +7,7 @@ import {Oder} from '../../model/oder';
 import {TokenStorageService} from '../../login-module/service/token-storage.service';
 
 
+
 @Component({
   selector: 'app-detail-table',
   templateUrl: './detail-table.component.html',

@@ -42,10 +42,12 @@ export class TableService {
   }
 
   findAllTableByCodeTable(codeTable: string, pageNumber: number): Observable<Table[]> {
+    // tslint:disable-next-line:max-line-length
     return this.httpClient.get<Table[]>(API_URL + '/manager/findAllTableWithSearchAndPaging?codeTable=' + codeTable + '&page=' + pageNumber);
   }
 
   findAllTableByIdStatusAndEmptyTable(idStatus: string, emptyTable: string, pageNumber: number): Observable<Table[]> {
+    // tslint:disable-next-line:max-line-length
     return this.httpClient.get<Table[]>(API_URL + '/manager/findAllTableWithSearchAndPaging?idStatus=' + idStatus + '&emptyTable=' + emptyTable + '&page=' + pageNumber);
   }
 
@@ -54,6 +56,7 @@ export class TableService {
   }
 
   findAllTableByEmptyTable(emptyTable: string, pageNumber: number): Observable<Table[]> {
+    // tslint:disable-next-line:max-line-length
     return this.httpClient.get<Table[]>(API_URL + '/manager/findAllTableWithSearchAndPaging?emptyTable=' + emptyTable + '&page=' + pageNumber);
   }
 
