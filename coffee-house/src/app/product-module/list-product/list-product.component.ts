@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ProductService} from '../service/product.service';
 import {Product} from '../../model/product';
+import {ToastrService} from 'ngx-toastr';
 
 
 @Component({
@@ -17,7 +18,7 @@ page = 0;
 pageSearch = 0;
 totalPage: number;
 totalPageSearch = 0;
-  constructor(private service: ProductService) { }
+  constructor(private service: ProductService, private remind: ToastrService) { }
   productList: Product[];
   ngOnInit(): void {
     this.page = 0;
@@ -36,7 +37,7 @@ totalPageSearch = 0;
     console.log(idProduct);
     this.service.deleteById(idProduct).subscribe(()  => {
       this.ngOnInit();
-      setInterval(this.message = 'Xoá Thành Công' , 4000 );
+      this.remind.success('Xoá thành công!', 'Thông báo:');
     }
     );
   }
