@@ -67,9 +67,9 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <span class="form-label">Số lượng<a style="color: red"> (*)</a> :</span>
-                  <input class="form-control" formControlName="amountProduct" type="number">
+                  <input class="form-control" formControlName="quatityProduct" type="number">
                   <div *ngFor="let validation of VALIDATION_MESSAGE.amountProduct" class="text-danger">
-                    <div *ngIf="createForm.get('amountProduct').hasError(validation.type) && (createForm.get('amountProduct').dirty || createForm.get('amountProduct').touched)"
+                    <div *ngIf="createForm.get('quatityProduct').hasError(validation.type) && (createForm.get('quatityProduct').dirty || createForm.get('quatityProduct').touched)"
                          class="error-message">
                       {{validation.message}}</div>
                   </div>
