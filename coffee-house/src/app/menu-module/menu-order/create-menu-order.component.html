@@ -42,9 +42,8 @@
             <div class="col-md-6" *ngFor="let product of products">
               <div class="menu__item">
                 <div class="menu__item-img-group">
-                  <img src="./assets/img/bac-xiu.jpg" alt="">
+                  <img src="/assets/img/{{product.imageProduct}}" alt="">
                 </div>
-
                 <div class="menu__item-body">
                   <div class="info">
                     <span class="name">{{product.nameProduct}}</span>
@@ -276,7 +275,7 @@
             <div class="row">
               <div>
                 <div class="col">
-                  <img class="img-fluid" src="./assets/img/bac-xiu.jpg">
+                  <img *ngIf="showImg" class="img-fluid" src="assets/img/{{product.imageProduct}}">
                 </div>
                 <div class="col-xs-7 flex-custum" style="padding-top: 2vh;">
                   <ul type="none">
@@ -286,7 +285,7 @@
                   </ul>
                 </div>
                 <div class="d-flex justify-content-around align-items-center">
-                  <span class="font-weight-bold" style="font-size: 1.4rem">{{product?.priceProduct * quatity}} VND</span>
+                  <span class="font-weight-bold" style="font-size: 1.4rem">{{product?.priceProduct * quatity | number:'1.00'}} VND</span>
                   <div class="d-flex justify-content-between align-items-center">
                     <a class="px-2" (click)="subQuatity()" *ngIf="quatity === 1">
                       <i class='bx bx-minus-circle bx-lg' style='color:#fa8c16 ; font-size: 1.5rem'></i>
