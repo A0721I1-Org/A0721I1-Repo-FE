@@ -2,6 +2,9 @@
   font-weight: 500;
   font-size: 15px;
 }
+.sale-group {
+  width: 100%;
+}
 .title-product{
   margin-top: 120px;
   font-size: 25px;
@@ -44,5 +47,8 @@
 }
 .table{
   text-align: center;
+}
+.sale-group{
+  width: 100%!important;
 }
 

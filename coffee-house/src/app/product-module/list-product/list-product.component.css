@@ -34,7 +34,9 @@ html::-webkit-scrollbar {
 html::-webkit-scrollbar-track {
   background: transparent;
 }
-
+.box-container {
+  margin-top: 105px;
+}
 html::-webkit-scrollbar-thumb {
   background: #fff;
   border-radius: 5rem;
@@ -302,7 +304,7 @@ a {
 
 .menu .box-container .box h3 {
   color: #fff;
-  font-size: 1rem;
+  font-size: 16px;
   padding: 1rem 0;
 }
 
@@ -522,7 +524,7 @@ a {
   color: var(--main-color);
   display: block;
   padding-top: 1rem;
-  font-size: 2rem;
+  font-size: 20px;
 }
 
 .blogs .box-container .box .content p {
@@ -572,8 +574,9 @@ a {
 }
 
 .magin-top {
-  margin-top: 20px;
+  margin-top: 35px;
   height: 20px;
+  float: right;
 }
 
 .footer .links a:hover {
@@ -669,7 +672,6 @@ a {
   font-size: small;
   width: 30%;
   text-align: center;
-  padding-bottom: 25px;
 }
 
 .modaltextdelete {
@@ -677,7 +679,6 @@ a {
   margin-top: -1px;
   font-size: 20px;
   color: white;
-  height: 1px;
 }
 
 .menu .box-container .box button.edit {
@@ -687,7 +688,6 @@ a {
   font-size: small;
   width: 50%;
   text-align: center;
-  padding-bottom: 25px;
 }
 .menu .box-container .box button.edit:hover {
 background: red;
@@ -697,20 +697,24 @@ background: red;
 .inputsearch {
   margin-top: 35px;
   width: 80%;
-  text-align: center
+  text-align: center;
+  font-size: 15px;
 }
-.inputsearch:hover {
-  cursor: pointer;
-  margin-top: 38px;
-}
+/*.inputsearch:hover {*/
+/*  cursor: pointer;*/
+/*  margin-top: 38px;*/
+/*}*/
 
 .search {
   background-color: transparent;
   color: white;
-  margin-top: 35px;
+  margin-top: 30px;
   width: 25%;
   float: left;
   margin-right: 30px;
+  text-align: center;
+
+  padding-top: 10px;
 
 }
 .search:hover {
@@ -747,4 +751,19 @@ background: red;
 .create:active {
   transform: translateY(10px);
   box-shadow: 0px 5px 5px 5px red;
+}
+.b{
+  float: right;
+  margin-right: 30px;
+  font-size: 18px;
+  color: white;
+}
+.changePage{
+  background: #13131a;
+  color: white;
+  height: 25px;
+  font-size: small;
+  width: 30%;
+  text-align: center;
+  padding-bottom: 25px;
 }
