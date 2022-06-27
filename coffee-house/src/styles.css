@@ -1,10 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
 
+/*@import "~bootstrap/dist/css/bootstrap.css";*/
+
 /*HauLST - đặt biến global cho css*/
+
+
 /*:root {*/
+
+
 /*  --main-color : rgb(236, 155, 68);*/
+
+
 /*}*/
+
 @import '~ngx-toastr/toastr';
+
 /*@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap');*/
 
 .toast-container .ngx-toastr {
@@ -12,65 +22,64 @@
   font-size: 14px !important;
 }
 
-.toast-title{
+.toast-title {
   font-size: 20px !important;
 }
 
-.toast-message{
+.toast-message {
   font-size: 16px !important;
 }
 
-:root{
+:root {
   --primary-color: rgb(236, 155, 68);
   --main-color: rgb(236, 155, 68);
-  --black:#13131a;
-  --bg:#010103;
-  --border:.1rem solid rgba(255,255,255,.3);
+  --black: #13131a;
+  --bg: #010103;
+  --border: .1rem solid rgba(255, 255, 255, .3);
   --color-content: rgb(236, 155, 68);
 }
 
-*{
+* {
   font-family: 'Roboto', sans-serif;
-  margin:0;
-  padding:0;
+  font-size: 15px;
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
   outline: none;
-  border:none;
+  border: none;
   text-decoration: none;
-  text-transform: capitalize;
+  /*text-transform: capitalize;*/
   transition: .2s linear;
 }
 
-html{
+html {
   /*font-size: 62.5%;*/
   overflow-x: hidden;
   scroll-padding-top: 9rem;
   scroll-behavior: smooth;
 }
 
-html::-webkit-scrollbar{
+html::-webkit-scrollbar {
   width: .8rem;
 }
 
-html::-webkit-scrollbar-track{
+html::-webkit-scrollbar-track {
   background: transparent;
 }
 
-html::-webkit-scrollbar-thumb{
+html::-webkit-scrollbar-thumb {
   background: #fff;
   border-radius: 5rem;
 }
 
-section{
-  padding:2rem 7%;
+section {
+  padding: 2rem 7%;
 }
 
-@media (max-width:450px){
-
-  html{
+@media (max-width:450px) {
+  html {
     font-size: 50%;
   }
-
 }
 
 body {
