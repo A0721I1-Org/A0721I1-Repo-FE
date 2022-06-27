@@ -28,7 +28,7 @@ export class MenuOrderComponent implements OnInit, OnDestroy {
   message = '';
 
   constructor(private menuService: MenuService, private _formBuilder: FormBuilder, private router: Router
-  ,private activatedRoute: ActivatedRoute) {
+    ,private activatedRoute: ActivatedRoute) {
   }
 
   /* Count down time for food */
@@ -83,7 +83,7 @@ export class MenuOrderComponent implements OnInit, OnDestroy {
   table: Table;
   order: Oder;
 
- // origin/menu-management
+  // origin/menu-management
   ngOnInit(): void {
     this.getAll()
     /* Set value type default is get all */
@@ -428,13 +428,13 @@ export class MenuOrderComponent implements OnInit, OnDestroy {
   }
 
   checkFoodChosen(idOrderDetail: number , data: MenuOrderDTO) {
-   data.checked = !data.checked;
-   console.log(data.checked);
-   if(data.checked) {
-     this.listIdOrderDetails.push(idOrderDetail);
-   } else {
-     this.listIdOrderDetails.splice(this.listIdOrderDetails.indexOf(idOrderDetail), 1);
-   }
+    data.checked = !data.checked;
+    console.log(data.checked);
+    if(data.checked) {
+      this.listIdOrderDetails.push(idOrderDetail);
+    } else {
+      this.listIdOrderDetails.splice(this.listIdOrderDetails.indexOf(idOrderDetail), 1);
+    }
   }
 
   handleDeleteFood() {
@@ -500,4 +500,3 @@ export class FormatTimePipe implements PipeTransform {
     );
   }
 }
-

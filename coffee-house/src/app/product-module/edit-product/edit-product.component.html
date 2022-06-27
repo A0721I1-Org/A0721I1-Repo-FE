@@ -51,6 +51,17 @@
               </div>
               <div class="col-md-6">
                 <div class="form-group">
+                  <span class="form-label">Số lượng<a style="color: red"> (*)</a> :</span>
+                  <input class="form-control" formControlName="amountProduct" type="number">
+<!--                  <div *ngFor="let validation of VALIDATION_MESSAGE.amountProduct" class="text-danger">-->
+<!--                    <div *ngIf="createForm.get('amountProduct').hasError(validation.type) && (createForm.get('amountProduct').dirty || createForm.get('amountProduct').touched)"-->
+<!--                         class="error-message">-->
+<!--                      {{validation.message}}</div>-->
+<!--                  </div>-->
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
                   <span class="form-label">Mô tả :</span>
                   <input class="form-control" formControlName="descriptionProduct" type="text">
                 </div>
