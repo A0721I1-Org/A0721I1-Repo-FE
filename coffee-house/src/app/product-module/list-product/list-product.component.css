@@ -599,6 +599,9 @@ a {
   html {
     font-size: 55%;
   }
+  b {
+    font-size: 80%!important;
+  }
 
   .header {
     padding: 1.5rem 2rem;
@@ -612,6 +615,10 @@ a {
 @media (max-width: 768px) {
   #menu-btn {
     display: inline-block;
+  }
+  b {
+    font-size: 80%!important;
+
   }
 
   .header .navbar {
@@ -658,6 +665,9 @@ a {
 @media (max-width: 450px) {
   html {
     font-size: 50%;
+  }
+  .b {
+    font-size: 80%!important;
   }
 }
 
