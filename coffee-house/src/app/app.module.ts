@@ -37,6 +37,8 @@ import {DatePipe} from '@angular/common';
     ReactiveFormsModule,
     FeedbackModuleModule,
     FormsModule,
+    FeedbackModuleModule,
+    FormsModule ,
     LoginModuleModule,
     ToastrModule.forRoot({
       positionClass: 'toast-top-right',

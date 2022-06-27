@@ -9,8 +9,6 @@ import {HttpClientModule} from '@angular/common/http';
 import {ListTableActiveComponent} from './list-table-active/list-table-active.component';
 import {ReactiveFormsModule} from '@angular/forms';
 
-import {NgxPaginationModule} from 'ngx-pagination';
-
 @NgModule({
   declarations: [
     ListTableComponent,
@@ -19,13 +17,12 @@ import {NgxPaginationModule} from 'ngx-pagination';
     EditTableComponent,
     ListTableActiveComponent
   ],
-  imports: [
-    CommonModule,
-    TableModuleRoutingModule,
-    HttpClientModule,
-    NgxPaginationModule,
-    ReactiveFormsModule
-  ]
+    imports: [
+        CommonModule,
+        TableModuleRoutingModule,
+        HttpClientModule,
+        ReactiveFormsModule
+    ]
 })
 
 export class TableModuleModule {
