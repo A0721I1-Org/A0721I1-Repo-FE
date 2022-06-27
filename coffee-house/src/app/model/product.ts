@@ -8,5 +8,6 @@ export interface Product {
   priceProduct?: number;
   imageProduct?: string;
   descriptionProduct?: string;
+  createAt?: string;
   typeProduct?: any;
 }

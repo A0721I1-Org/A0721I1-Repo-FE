@@ -26,8 +26,19 @@
             <td>{{dto.priceProduct | number:'1.00'}} VND</td>
           </tr>
         </ng-template>
-        <!-- Modal -->
-        <div class="modal" [id]="'cancelTable' + idTable" tabindex="-1" aria-labelledby="exampleModalLabel"
+
+        </tbody>
+      </table>
+
+      <div class="d-flex aligns-item-center justify-content-between w-100">
+        <div>
+          <!--<button type="button" class="btn btn-warning" (click)="handlePayment(idTable)">Tính Tiền</button>-->
+          <button type="button" data-toggle="modal" [attr.data-target]="'#handlePayment' + idTable"
+                  class="btn btn-outline-warning">Tính tiền
+          </button>
+        </div>
+        <!-- Modal box tính tiền-->
+        <div class="modal" [id]="'handlePayment' + idTable" tabindex="-1" aria-labelledby="exampleModalLabel"
              aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-content">
@@ -36,22 +47,16 @@
                 <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
-                Bạn có muốn hủy bàn {{codeTable}} hay không?
+                Bàn số {{codeTable}} <br>
+                Giá : {{totalOrder}} VND
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Không</button>
-                <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="cancelTable(idTable)">Có
+                <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="handlePayment(idTable)">Có
                 </button>
               </div>
             </div>
           </div>
-        </div>
-        </tbody>
-      </table>
-
-      <div class="d-flex aligns-item-center justify-content-between w-100">
-        <div>
-          <button type="button" class="btn btn-warning" (click)="handlePayment(idTable)">Tính Tiền</button>
         </div>
         <div>
           <button type="button" class="btn btn-warning" (click)="redirectOrderPage(idTable)">Thêm món</button>
@@ -60,10 +65,28 @@
           <button type="button" data-toggle="modal" [attr.data-target]="'#cancelTable' + idTable"
                   class="btn btn-outline-warning">Hủy bàn
           </button>
+          <!-- Modal box hủy bàn-->
+          <div class="modal" [id]="'cancelTable' + idTable" tabindex="-1" aria-labelledby="exampleModalLabel"
+               aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Xác nhận</h5>
+                  <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  Bạn có muốn hủy bàn {{codeTable}} hay không?
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Không</button>
+                  <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="cancelTable(idTable)">Có
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-
-
