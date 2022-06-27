@@ -16,15 +16,11 @@ export class ListEmployeeComponent implements OnInit {
   searchForm: FormGroup;
   emptyForm = false;
   allow = false;
+  pageNumber = 0;
+  totalPage: number[];
   message = this.employeeService.message;
-  p = 0;
-  dataTarget: string;
 
   constructor(private employeeService: EmployeeService, private activatedRoute: ActivatedRoute, private router: Router) {
-  }
-
-  ngOnInit(): void {
-    this.getListEmployee();
     this.searchForm = new FormGroup({
       username: new FormControl(''),
       name: new FormControl(''),
@@ -32,16 +28,18 @@ export class ListEmployeeComponent implements OnInit {
     });
   }
 
-  getListEmployee() {
-    this.employeeService.getAllEmployee().subscribe(data => {
-      this.employeeList = data;
+  ngOnInit(): void {
+    this.showSearchEmployee(this.pageNumber=0);
+    this.searchForm = new FormGroup({
+      username: new FormControl(''),
+      name: new FormControl(''),
+      phone: new FormControl('')
     });
   }
 
   deleteEmployee(idEmployee: number) {
     this.employeeService.findByIdEmployee(idEmployee).subscribe(data => {
-      if (data.idEmployee === idEmployee){
-        this.dataTarget = 'deleteSuccess';
+      if (data.idEmployee === idEmployee) {
         this.employeeService.deleteEmployee(idEmployee).subscribe(next => {
           this.ngOnInit();
         });
@@ -55,7 +53,7 @@ export class ListEmployeeComponent implements OnInit {
     });
   }
 
-  searchEmployee() {
+  checkSearchEmployee() {
     let username = this.searchForm.value.username;
     let name = this.searchForm.value.name;
     let phone = this.searchForm.value.phone;
@@ -70,16 +68,59 @@ export class ListEmployeeComponent implements OnInit {
     }
     if (username === 'null' && name === 'null' && phone === 'null') {
       this.emptyForm = true;
+    }
+    this.pageNumber =0;
+    this.showSearchEmployee( this.pageNumber);
+  }
+
+  showSearchEmployee(page: number) {
+    let username = this.searchForm.value.username;
+    let name = this.searchForm.value.name;
+    let phone = this.searchForm.value.phone;
+    if (username === '') {
+      username = 'null';
+    }
+    if (name === '') {
+      name = 'null';
+    }
+    if (phone === '') {
+      phone = 'null';
+    }
+    this.employeeService.showSearchEmployee(username, name, phone, page).subscribe((data: any) => {
+      this.employeeList = data.content;
+      this.setPage(data.totalPages);
+    });
+  }
+
+  resetPage() {
+    this.ngOnInit();
+  }
+
+  setPage(totalPage: number) {
+    this.totalPage = new Array(totalPage);
+  }
+
+  changePageNumber(number: number) {
+    this.pageNumber = number;
+    this.showSearchEmployee(this.pageNumber);
+  }
+
+  perviousPage() {
+    if (this.pageNumber <= 0) {
+      alert('Không thể chuyển qua trang trước!');
     } else {
-      this.emptyForm = false;
-      this.employeeService.searchEmployee(username, name, phone).subscribe(data => {
-        this.employeeList = data;
-      });
+      this.pageNumber -= 1;
+      this.showSearchEmployee(this.pageNumber);
     }
   }
 
-  resetPage(){
-    this.ngOnInit();
-
+  nextPage() {
+    if (this.pageNumber == this.totalPage.length) {
+      alert('Không thể chuyển qua trang sau!');
+    } else {
+      this.pageNumber += 1;
+      this.showSearchEmployee(this.pageNumber);
+    }
   }
+
 }
