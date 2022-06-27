@@ -26,6 +26,7 @@ export class MenuOrderComponent implements OnInit, OnDestroy {
   quatity = 1;
   checkProductEx = true;
   message = '';
+  showImg: boolean = false;
 
   constructor(private menuService: MenuService, private _formBuilder: FormBuilder, private router: Router
     ,private activatedRoute: ActivatedRoute) {
@@ -196,6 +197,7 @@ export class MenuOrderComponent implements OnInit, OnDestroy {
   // Get product by ID
   getProductById(id: number) {
     this.quatity = 1;
+    this.showImg = true;
     this.menuService.findByIdProduct(id).subscribe(
       (data) => {
         if (data) {
