@@ -21,6 +21,7 @@
 }
 
 :root{
+  --primary-color: rgb(236, 155, 68);
   --main-color: rgb(236, 155, 68);
   --black:#13131a;
   --bg:#010103;
