@@ -1,9 +1,4 @@
-!-- header section starts  -->
-
-
-
-<!-- header section starts  -->
-
+<!--!&#45;&#45; header section starts  &ndash;&gt;-->
 <!--<header class="header">-->
 
 <!--  <a href="#" class="logo">-->
@@ -54,7 +49,6 @@ home section starts  -->
       để tạo nên sự khác biệt cho thương hiệu THE COFFEE HOUSE trên toàn quốc và vươn tầm ra toàn thế giới.</p>
     <br>
     <br>
-    <!--    <a href="#" class="btn">Xem thêm</a>-->
   </div>
 
 </section>
@@ -68,24 +62,35 @@ home section starts  -->
   <h1 class="heading"><span>Giới</span> thiệu </h1>
 
   <div class="row">
-
     <div class="image">
       <img src="assets/images/about-img.jpeg" alt="">
     </div>
 
     <div class="content">
       <h3 style="font-size: 25px">điều gì làm cho cà phê của chúng tôi trở nên đặt biệt?</h3>
-      <p>Không đơn thuần chỉ là một chuỗi cà phê phục vụ thức uống chất lượng, thơm ngon, đi đôi với phong cách và thái
-        độ thân thiện để ghi điểm với cộng đồng khách hàng.
-        Hơn thế, The Coffee House đã luôn đầu tư và phát triển để mang lại những giá trị mới đầy ý nghĩa. Vậy nên, ngoài
+      <br>
+      <span>Không đơn thuần chỉ là một chuỗi cà phê phục vụ thức uống chất lượng, thơm ngon, đi đôi với phong cách và thái
+        độ thân thiện để ghi điểm với cộng đồng khách hàng.</span>
+      <br>
+      <br>
+      <span>Hơn thế, The Coffee House đã luôn đầu tư và phát triển để mang lại những giá trị mới đầy ý nghĩa.</span>
+      <br>
+      <br>
+      <span class="dots">...</span>
+      <span class="more-content">
+      <span>Hơn thế, The Coffee House đã luôn đầu tư và phát triển để mang lại những giá trị mới đầy ý nghĩa. Vậy nên, ngoài
         giá trị thương mại, The Coffee House còn góp
-        phần mang đến những giá trị về tinh thần, văn hóa và phong cách sống… của người Việt.</p>
-      <p>Cà phê là thức uống quen thuộc mỗi buổi sáng giúp tôi có thể cảm nhận được cả thế giới chuyển động trong cơ
-        thể.</p>
-      <a href="#" class="btn">learn more</a>
+        phần mang đến những giá trị về tinh thần, văn hóa và phong cách sống của người Việt.</span>
+        <br>
+        <br>
+              <span>Một tách cà phê uống vào buổi sáng mang lại sự hưng phấn tuyệt vời mà không một tách cà phê nào khác dù là buổi chiều hay buổi tối có thể tạo ra được.</span>
+
+      </span>
+
+      <button class="read-more">Xêm thêm</button>
+
     </div>
   </div>
-
 </section>
 
 <!-- about section ends -->
@@ -94,52 +99,16 @@ home section starts  -->
 
 <section class="menu" id="menu">
 
-  <h1 class="heading"> Tất cả <span>sản phẩm</span></h1>
+  <h1 class="heading"> Sản phẩm <span>mới nhất</span></h1>
 
   <div class="box-container">
 
     <div class="box" *ngFor="let product of products; index as i">
       <img [src]="product.imageProduct" alt="">
       <h3> {{product.nameProduct}} </h3>
-      <div class="price">{{product.priceProduct | number}}đ <span>{{product.priceProduct + 20 / 100}}đ</span></div>
-      <a href="#" class=" btn fa bx bxs-cart"> Thêm vào giỏ</a>
+      <div class="price">{{product.priceProduct | number}} VNĐ</div>
+      <!--      <a href="#" class=" btn fa bx bxs-cart"> Thêm vào giỏ</a>-->
     </div>
-
-    <!--    <div class="box">-->
-    <!--      <img src="assets/images/menu-2.png" alt="">-->
-    <!--      <h3>sản phẩm 2</h3>-->
-    <!--      <div class="price">30.000đ <span>140.000đ</span></div>-->
-    <!--      <a href="#" class=" btn fa bx bxs-cart">  Thêm vào giỏ</a>-->
-    <!--    </div>-->
-
-    <!--    <div class="box">-->
-    <!--      <img src="assets/images/menu-3.png" alt="">-->
-    <!--      <h3>sản phẩm 3</h3>-->
-    <!--      <div class="price">70.000đ <span>140.000đ</span></div>-->
-    <!--      <a href="#" class=" btn fa bx bxs-cart">  Thêm vào giỏ</a>-->
-    <!--    </div>-->
-
-    <!--    <div class="box">-->
-    <!--      <img src="assets/images/menu-4.png" alt="">-->
-    <!--      <h3>sản phẩm 4</h3>-->
-    <!--      <div class="price">60.000đ <span>140.000đ</span></div>-->
-    <!--      <a href="#" class=" btn fa bx bxs-cart">  Thêm vào giỏ</a>-->
-    <!--    </div>-->
-
-    <!--    <div class="box">-->
-    <!--      <img src="assets/images/menu-5.png" alt="">-->
-    <!--      <h3>sản phẩm 5</h3>-->
-    <!--      <div class="price">100.000đ <span>140.000đ</span></div>-->
-    <!--      <a href="#" class="btn">Thêm vào giỏ</a>-->
-    <!--    </div>-->
-
-    <!--    <div class="box">-->
-    <!--      <img src="assets/images/menu-6.png" alt="">-->
-    <!--      <h3>sản phẩm 5</h3>-->
-    <!--      <div class="price">20.000đ <span>140.000đ</span></div>-->
-    <!--      <a href="#" class=" btn fa bx bxs-cart">  Thêm vào giỏ</a>-->
-    <!--    </div>-->
-
   </div>
 
 </section>
@@ -169,54 +138,9 @@ home section starts  -->
           <i class="fas bx bxs-star bx-md"></i>
           <i class="fas bx bxs-star-half bx-md"></i>
         </div>
-        <div class="price">{{product.priceProduct| number}} Đ <span>{{product.priceProduct + 20 / 100}} Đ</span></div>
+        <div class="price">{{product.priceProduct| number}} VNĐ</div>
       </div>
     </div>
-
-    <!--    <div class="box">-->
-    <!--      <div class="icons">-->
-    <!--        <a href="#" class="fa bx bxs-cart"></a>-->
-    <!--        <a href="#" class="fas bx bxs-heart"></a>-->
-    <!--        <a href="#" class="fas bx bxs-bullseye"></a>-->
-    <!--      </div>-->
-    <!--      <div class="image">-->
-    <!--        <img src="assets/images/product-2.png" alt="">-->
-    <!--      </div>-->
-    <!--      <div class="content">-->
-    <!--        <h3>Sản phẩm 8</h3>-->
-    <!--        <div class="stars">-->
-    <!--          <i class="fas bx bxs-star"></i>-->
-    <!--          <i class="fas bx bxs-star"></i>-->
-    <!--          <i class="fas bx bxs-star"></i>-->
-    <!--          <i class="fas bx bxs-star"></i>-->
-    <!--          <i class="fas bx bxs-star-half"></i>-->
-    <!--        </div>-->
-    <!--        <div class="price">70.000đ <span>140.000đ</span></div>-->
-    <!--      </div>-->
-    <!--    </div>-->
-
-    <!--    <div class="box">-->
-    <!--      <div class="icons">-->
-    <!--        <a href="#" class="fa bx bxs-cart"></a>-->
-    <!--        <a href="#" class="fas bx bxs-heart"></a>-->
-    <!--        <a href="#" class="fas bx bxs-bullseye"></a>-->
-    <!--      </div>-->
-    <!--      <div class="image">-->
-    <!--        <img src="assets/images/product-3.png" alt="">-->
-    <!--      </div>-->
-    <!--      <div class="content">-->
-    <!--        <h3>sản phẩm 10</h3>-->
-    <!--        <div class="stars">-->
-    <!--          <i class="fas bx bxs-star"></i>-->
-    <!--          <i class="fas bx bxs-star"></i>-->
-    <!--          <i class="fas bx bxs-star"></i>-->
-    <!--          <i class="fas bx bxs-star"></i>-->
-    <!--          <i class="fas bx bxs-star-half"></i>-->
-    <!--        </div>-->
-    <!--        <div class="price">78.000đ <span>140.000đ</span></div>-->
-    <!--      </div>-->
-    <!--    </div>-->
-
   </div>
 
 </section>
@@ -314,53 +238,48 @@ home section starts  -->
 
 <!-- blogs section starts  -->
 
-<section class="blogs" id="blogs">
+<!--<section class="blogs" id="blogs">-->
 
-  <h1 class="heading">Sản phẩm <span> mới nhất</span></h1>
+<!--  <h1 class="heading">Sản phẩm <span> mới nhất</span></h1>-->
 
-  <div style="text-align: center" class="box-container">
+<!--  <div style="text-align: center" class="box-container">-->
 
-    <div class="box" *ngFor="let product of products; index as i">
-      <div class="image">
-        <img [src]="product.imageProduct" alt="" style="width: 500px">
-      </div>
-      <div class="content">
-        <a class="title">{{product.nameProduct}}</a>
-        <br>
-        <br>
-        <div style="font-size: 20px;color: white" class="price">{{product.priceProduct| number}} Đ</div>
+<!--    <div class="box" *ngFor="let product of products; index as i">-->
+<!--      <div class="image">-->
+<!--        <img [src]="product.imageProduct" alt="" style="width: 500px">-->
+<!--      </div>-->
+<!--      <div class="content">-->
+<!--        <a class="title">{{product.nameProduct}}</a>-->
+<!--        <br>-->
+<!--        <div style="font-size: 20px;color: white" class="price">{{product.priceProduct| number}} Đ</div>-->
 
-        <span>{{product.descriptionProduct}}</span>
+<!--        <span>{{product.descriptionProduct}}</span>-->
 
-        <a href="#" class="btn fa bx bxs-cart"> Thêm vào giỏ</a>
-      </div>
-    </div>
+<!--        <a href="#" class="btn fa bx bxs-cart"> Thêm vào giỏ</a>-->
+<!--      </div>-->
+<!--    </div>-->
 
-    <!--    <div class="box">-->
-    <!--      <div class="image">-->
-    <!--        <img src="assets/images/blog-2.jpeg" alt="">-->
-    <!--      </div>-->
-    <!--      <div class="content">-->
-    <!--        <a  href="#" class="title">sản phẩm 9</a>-->
-    <!--        <span>Cà phê đậm đà, thơm ngon nguyên chất.</span>-->
-    <!--        <a href="#" class='btn fa bx bxs-cart'> Thêm vào giỏ</a>-->
-    <!--      </div>-->
-    <!--    </div>-->
+<!--    <div class="box">-->
+<!--      <div class="image">-->
+<!--        <img src="assets/images/blog-2.jpeg" alt="">-->
+<!--      </div>-->
+<!--      <div class="content">-->
+<!--        <a  href="#" class="title">sản phẩm 9</a>-->
+<!--        <span>Cà phê đậm đà, thơm ngon nguyên chất.</span>-->
+<!--        <a href="#" class='btn fa bx bxs-cart'> Thêm vào giỏ</a>-->
+<!--      </div>-->
+<!--    </div>-->
 
-    <!--    <div class="box">-->
-    <!--      <div class="image">-->
-    <!--        <img src="assets/images/blog-3.jpeg" alt="">-->
-    <!--      </div>-->
-    <!--      <div class="content">-->
-    <!--        <a href="#" class="title">sản phẩm 12</a>-->
-    <!--        <span>Cà phê đậm đà, thơm ngon nguyên chất.</span>-->
-    <!--        <a href="#" class='btn fa bx bxs-cart' > Thêm vào giỏ</a>-->
-    <!--      </div>-->
-    <!--    </div>-->
-
-  </div>
-
-</section>
+<!--    <div class="box">-->
+<!--      <div class="image">-->
+<!--        <img src="assets/images/blog-3.jpeg" alt="">-->
+<!--      </div>-->
+<!--      <div class="content">-->
+<!--        <a href="#" class="title">sản phẩm 12</a>-->
+<!--        <span>Cà phê đậm đà, thơm ngon nguyên chất.</span>-->
+<!--        <a href="#" class='btn fa bx bxs-cart' > Thêm vào giỏ</a>-->
+<!--      </div>-->
+<!--    </div>-->
 
 <!-- blogs section ends -->
 <section class="footer">

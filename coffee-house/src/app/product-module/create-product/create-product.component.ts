@@ -53,7 +53,6 @@ export class CreateProductComponent implements OnInit {
       descriptionProduct: new FormControl('', Validators.required),
       quatityProduct: new FormControl('', Validators.required),
       createAt: new FormControl('', Validators.required),
-      amountProduct: new FormControl('', Validators.required),
       typeProduct: new FormControl('', Validators.required),
     });
 
