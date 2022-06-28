@@ -87,6 +87,7 @@ export class OrderComponent implements OnInit {
       () => {
       });
     this.oderService.getPage(0).subscribe((data: Oder[]) => this.orders = data['content']);
+    console.log(this.orders);
   }
 
   search() {

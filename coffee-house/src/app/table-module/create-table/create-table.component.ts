@@ -34,7 +34,7 @@ export class CreateTableComponent implements OnInit {
 
     this.tableForm = new FormGroup(
       {
-        idTable: new FormControl('',),
+        idTable: new FormControl('', ),
         codeTable: new FormControl('', [Validators.required, Validators.pattern('^TB[0-9]{3}$')], [checkCodeTable(this.service)]),
         emptyTable: new FormControl('true'),
         status: new FormControl('', [Validators.required])
@@ -49,17 +49,16 @@ export class CreateTableComponent implements OnInit {
     });
   }
 
-// method create table Quang NV
+  // method create table Quang NV
   createTable() {
     this.messageAlert = [];
     if (this.tableForm.invalid) {
-      if (this.tableForm.get('codeTable')?.errors?.required || this.tableForm.get('status')?.errors?.required) {
-        this.messageAlert.push('Bạn phải nhập đầy đủ thông tin!');
-      }
+      if (this.tableForm.get('codeTable')?.errors?.required || this.tableForm.get('status')?.errors?.required)
+        this.messageAlert.push("Bạn phải nhập đầy đủ thông tin!");
       if (this.tableForm.get('codeTable')?.errors?.checkCodeTable) {
-        this.messageAlert.push('CodeTable ' + this.tableForm.value.codeTable + ' đã tồn tại!');
+        this.messageAlert.push("ID Bàn " + this.tableForm.value.codeTable + " đã tồn tại!");
       }
-      document.getElementById('noti').hidden = false;
+      document.getElementById("noti").hidden = false;
     } else {
       this.tableCreate = this.tableForm.value;
       for (let i = 0; i < this.status.length; i++) {
@@ -67,24 +66,23 @@ export class CreateTableComponent implements OnInit {
           this.tableCreate.status = this.status[i];
         }
       }
-      console.log(this.tableCreate);
       this.service.createTable(this.tableCreate).subscribe(() => {
-        console.log('success');
-        this.service.message = 'Tạo mới thành công!';
+        console.log("success");
+        this.service.message = "Tạo mới thành công!"
         this.router.navigateByUrl('/table/list');
       }, err => {
-        console.log('err');
+        console.log("err");
         console.log(err.error.message);
-      });
+      })
     }
   }
 
   returnList() {
-    this.service.message = 'Tạo mới thất bại!';
+    this.service.message = "Tạo mới thất bại!"
     this.router.navigateByUrl('/table/list');
   }
 
   hide() {
-    document.getElementById('noti').hidden = true;
+    document.getElementById("noti").hidden = true;
   }
 }

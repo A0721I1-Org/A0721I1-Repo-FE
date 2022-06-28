@@ -28,20 +28,13 @@
         <div class="form-group">
           <span for="exampleFormControlInput1" class="textInput form-label ">Từ ngày: <i style="color: red"> (*)</i></span>
           <input class="form-control mt-2 date" type="date" formControlName="startDayForm" style="" />
-          <p style="color: red" *ngIf="(formSumInCome.get('endDayForm').hasError('required')
-              && formSumInCome.get('endDayForm').untouched)">
-            <i>Ngày bắt đầu phải nhỏ hơn ngày kết thúc.</i>
-          </p>
+
         </div>
       </div>
       <div class="col-md-6">
         <div class="form-group">
           <span  for="exampleFormControlInput1" class="textInput form-label">Đến ngày:<i style="color: red"> (*)</i></span>
           <input class="form-control mt-2 date" type="date" formControlName="endDayForm" />
-          <p style="color: red" *ngIf="(formSumInCome.get('endDayForm').hasError('required')
-              && formSumInCome.get('endDayForm').untouched)">
-            <i>Ngày kết thúc phải lớn hơn ngày bắt đầu.</i>
-          </p>
         </div>
       </div>
       <div class="col-md-3">

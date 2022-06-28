@@ -19,6 +19,7 @@ import {DatePipe} from '@angular/common';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +30,6 @@ import {DatePipe} from '@angular/common';
   imports: [
     HttpClientModule,
     BrowserModule,
-    HttpClientModule,
     RouterModule,
     AppRoutingModule,
     OrderModuleRoutingModule,
@@ -37,6 +37,8 @@ import {DatePipe} from '@angular/common';
     ReactiveFormsModule,
     FeedbackModuleModule,
     FormsModule,
+    FeedbackModuleModule,
+    FormsModule ,
     LoginModuleModule,
     ToastrModule.forRoot({
       positionClass: 'toast-top-right',
@@ -45,7 +47,6 @@ import {DatePipe} from '@angular/common';
     JwtModule,
     FormsModule,
     ReactiveFormsModule,
-    AppRoutingModule,
     HttpClientModule,
     FeedbackModuleModule,
     IncomeModuleModule,
