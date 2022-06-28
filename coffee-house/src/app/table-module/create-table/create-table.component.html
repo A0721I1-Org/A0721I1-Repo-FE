@@ -33,7 +33,7 @@
               <div *ngIf="!tableForm.get('codeTable').valid && tableForm.get('codeTable').touched">
                 <p *ngIf="tableForm.get('codeTable').errors?.required" style="color: red"><i>Không được để trống!</i></p>
                 <p *ngIf="tableForm.get('codeTable').errors?.pattern" style="color: red"><i>Sai định dạng(TBXXX)!</i>
-                <p *ngIf="tableForm.get('codeTable').errors?.checkCodeTable" style="color: red"><i>codeTable đã tồn tại! </i>
+                <p *ngIf="tableForm.get('codeTable').errors?.checkCodeTable" style="color: red"><i>ID Bàn đã tồn tại! </i>
                 </p>
               </div>
             </div>
