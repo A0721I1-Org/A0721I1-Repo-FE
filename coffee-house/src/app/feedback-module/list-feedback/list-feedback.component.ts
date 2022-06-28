@@ -1,10 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-
 import {Feedback} from '../../model/feedback';
 import {FeedbackService} from '../service/feedback.service';
 import {ActivatedRoute} from '@angular/router';
 import {FormBuilder, FormGroup} from '@angular/forms';
-
 
 @Component({
   selector: 'app-list-feedback',
@@ -23,9 +21,10 @@ export class ListFeedbackComponent implements OnInit {
     emailPeopleFeedback: '',
     imageFeedback: '',
   };
-  date: String;
-  indexPagination = 1;
+  date: string;
+  indexPagination = 0;
   totalPagination: number;
+  totalPaginationArray: number[] = [];
   listFeedbackNotPagination: Feedback[] = [];
   public searchFeedback: FormGroup;
   message = false;
@@ -51,6 +50,7 @@ export class ListFeedbackComponent implements OnInit {
       if (feedbackList !== null) {
         this.message = false;
         this.feedbackList = feedbackList['content'];
+        this.totalPagination = feedbackList['totalPages'];
         console.log(feedbackList);
         console.log(this.feedbackList);
         console.log(typeof feedbackList);
@@ -71,6 +71,10 @@ export class ListFeedbackComponent implements OnInit {
       this.listFeedbackNotPagination = feedbackList;
       if ((this.listFeedbackNotPagination.length % 10) != 0) {
         this.totalPagination = (Math.round(this.listFeedbackNotPagination.length / 10)) + 1;
+        for (let i = 0; i < this.totalPagination; i++) {
+          this.totalPaginationArray[i] = i + 1;
+          console.log(this.totalPaginationArray[i]);
+        }
       }
       console.log(this.totalPagination);
     });
@@ -100,20 +104,12 @@ export class ListFeedbackComponent implements OnInit {
     });
   }
 
-  findPagination() {
-    this.feedbackService.getAll(this.indexPagination - 1).subscribe(feedbackList => {
+  indexPaginationChange(value: number) {
+    this.indexPagination = value;
+    this.feedbackService.getAll(this.indexPagination ).subscribe(feedbackList => {
       this.feedbackList = feedbackList['content'];
+      this.totalPagination = feedbackList['totalPages'];
     });
-  }
-
-  indexPaginationChange(value) {
-    this.indexPagination = value.target.value;
-  }
-
-
-  firstPage() {
-    this.indexPagination = 1;
-    this.ngOnInit();
   }
 
   nextPage() {
@@ -121,8 +117,9 @@ export class ListFeedbackComponent implements OnInit {
     if (this.indexPagination > this.totalPagination) {
       this.indexPagination = this.indexPagination - 1;
     }
-    this.feedbackService.getAll(this.indexPagination - 1).subscribe(feedbackList => {
+    this.feedbackService.getAll(this.indexPagination ).subscribe(feedbackList => {
       this.feedbackList = feedbackList['content'];
+      this.totalPagination = feedbackList['totalPages'];
       console.log(this.indexPagination);
       console.log(this.feedbackList);
     });
@@ -130,20 +127,15 @@ export class ListFeedbackComponent implements OnInit {
 
   previousPage() {
     this.indexPagination = this.indexPagination - 1;
-    if (this.indexPagination == 0) {
-      this.indexPagination = 1;
+    if (this.indexPagination === 0) {
+      this.indexPagination = 0;
       this.ngOnInit();
     } else {
-      this.feedbackService.getAll(this.indexPagination - 1).subscribe(feedbackList => {
+      this.feedbackService.getAll(this.indexPagination).subscribe(feedbackList => {
         this.feedbackList = feedbackList['content'];
+        this.totalPagination = feedbackList['totalPages'];
       });
     }
   }
 
-  lastPage() {
-    this.indexPagination = this.totalPagination;
-    this.feedbackService.getAll(this.indexPagination - 1).subscribe(feedbackList => {
-      this.feedbackList = feedbackList['content'];
-    });
-  }
 }

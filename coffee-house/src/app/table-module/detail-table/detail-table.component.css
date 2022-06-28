@@ -1,19 +1,6 @@
 * {
   font-weight: 500;
 }
-
-/*.body-1{
-  content: ' ';
-  display: block;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  opacity: 0.9;
-  background-image: url("../../../assets/img/login-background.jpeg");
-  background-repeat: no-repeat;
-  background-position: 50% 0;
-  background-size: cover;
-}*/
 /*list product*/
 .list-product-title {
   width: 100%;
@@ -55,4 +42,3 @@
 .table {
   text-align: center;
 }
-

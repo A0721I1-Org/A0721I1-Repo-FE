@@ -10,7 +10,7 @@ describe('ListFeedbackComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ ListFeedbackComponent ]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
