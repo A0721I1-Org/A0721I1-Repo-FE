@@ -1,306 +1,310 @@
+
+<!--day la code moi-->
 <div class="container">
-  <div class="table-responsive">
-    <div class="table-wrapper">
+  <div *ngIf="message != null">
+    <div id="noti" class="alert alert-warning alert-dismissible fade show" role="alert">
+      <h4 class="alert-heading text-warning">Thông báo!!</h4>
+<!--      <strong>Xin chào!</strong>-->
+      <p *ngIf="message != null" class="message-body">{{message}}</p>
+      <button type="button" class="close" (click)="hide()" aria-label="Close">
+        <span>&times;</span>
+      </button>
+      <hr>
+    </div>
+  </div>
+  <div class="main">
+    <div class="container-flutter">
       <div class="table-title">
-        <div class="row">
-          <div class="col-12">
-            <h1>Danh sách hóa đơn
-            </h1>
-          </div>
-          <!--          <div class="col-sm-8">-->
-          <!--
-          <a href="#" style="border-radius: 10px;" class="btn-create btn bg-light">
-              <svg style="font-weight: 900" xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
-              <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
-          </svg>
-              <span class="btn-add">Thêm hóa đơn</span>
-          </a> -->
+        <h2>Danh sách hoá đơn</h2>
+      </div>
+
+      <div class="row justify-content-between align-items-center">
+        <div class="col-2">
+          <button class="learn-more">
+                    <span class="circle" aria-hidden="true">
+                      <span class="icon arrow"></span></span>
+            <span routerLink="['/order/order-child']" class="button-text">Hiển thị tất cả</span>
+          </button>
+        </div>
+        <div class="col-10">
+          <form [formGroup]="searchOrder" (ngSubmit)="search()"
+                class="d-flex align-items-center form__search justify-content-end">
+            <input type="text" class="form-control ml-3" style="width: 25%; height: 30px" placeholder="Số hóa đơn"
+                   formControlName="idOrder">
+            <label for="ngayTao">Ngày tạo</label>
+            <input type="date" id="ngayTao" class="form-control ml-3" style="width: 25%; height: 30px" placeholder="Ngày tạo"
+                   formControlName="dateOrder">
+            <!--                 (ngModelChange)="changeTableNumber($event)">-->
+
+            <!--          <select class="form-control ml-3" style="width: 25%; height: 30px" formControlName="status">-->
+            <!--            <option value="null" [selected]="true">&#45;&#45;Vui Lòng Chọn&#45;&#45;</option>-->
+            <!--            <option value="1">Tốt</option>-->
+            <!--            <option value="2">Lỗi</option>-->
+            <!--          </select>-->
+
+            <!--          <select class="form-control ml-3" style="width: 25%; height: 30px" formControlName="emptyTable">-->
+            <!--            <option value="null" [selected]="true">&#45;&#45;Vui Lòng Chọn&#45;&#45;</option>-->
+            <!--            <option value="true">Còn trống</option>-->
+            <!--            <option value="false">Đã đặt</option>-->
+            <!--          </select>-->
+
+            <button type="submit" class="ml-3 button__1"><i class="fa-solid fa-magnifying-glass"></i></button>
+          </form>
+        </div>
+      </div>
+
+      <table class="table table-hover">
+        <tr>
+          <th>STT</th>
+          <th>Số hóa đơn</th>
+          <th>Ngày tạo</th>
+          <th>Người tạo</th>
+          <th>Số bàn</th>
+          <th>Tổng tiền</th>
+          <th>Chi tiết</th>
+        </tr>
+        <tr *ngFor="let order of orders ; let i = index">
+          <td>{{i + 1| number}}</td>
+          <td>{{order.idOrder}}</td>
+          <td>{{order.dateOrder|date: 'dd/MM/yyyy'}}</td>
+          <td>{{order.employee.nameEmployee}}</td>
+          <td>{{order.table.idTable}}</td>
+          <td>{{order.totalOrder|number}}<span> VNĐ</span></td>
+<!--          <td><a [attr.data-target]="'#myModal'+ order.idOrder">-->
+<!--            <i class='bx bxs-show bx-md'></i></a>-->
+<!--          </td>-->
+<!--           <td>-->
+<!--                  <a [routerLink]="['/order/order-detail/' + order.idOrder]">-->
+<!--                    <i class='bx bxs-show bx-md'></i>-->
+<!--                  </a>-->
+<!--        </td>-->
+          <td>
+            <a href="#"  data-toggle="modal" data-target="#exampleModal" (click)="getDetailOrder(order.idOrder)">
+              <i class='bx bxs-show bx-md'></i>
+            </a>
+          </td>
+          <!--      <tr *ngFor="let table of tables; index as i">-->
+          <!--        <td>{{i+1}}</td>-->
+          <!--        <td><a (click)="returnTableDetail(table.idTable)">{{table.codeTable}}</a></td>-->
+          <!--        <td>-->
+          <!--          <div *ngIf="table.status.idStatus == 1; then good else bad"></div>-->
+          <!--          <ng-template #good>Tốt</ng-template>-->
+          <!--          <ng-template #bad>Lỗi</ng-template>-->
+          <!--        </td>-->
+          <!--        <td>-->
+          <!--          <div *ngIf="table.emptyTable; then empty else notEmpty"></div>-->
+          <!--          <ng-template #empty>-->
+          <!--            <label class="switch">-->
+          <!--              <input type="checkbox" checked="1" disabled>-->
+          <!--              <span class="slider round"></span>-->
+          <!--            </label>-->
+          <!--          </ng-template>-->
+          <!--          <ng-template #notEmpty>-->
+          <!--            <label class="switch">-->
+          <!--              <input type="checkbox" disabled>-->
+          <!--              <span class="slider round"></span>-->
+          <!--            </label>-->
+          <!--          </ng-template>-->
+          <!--        </td>-->
+          <!--        <td>-->
+          <!--          <div *ngIf="table.emptyTable===true;then content else other_content"></div>-->
+          <!--          <ng-template #content>-->
+          <!--            <a [routerLink]="['../edit/',table.idTable]">-->
+          <!--              <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"-->
+          <!--                   class="bi bi-pencil-square" viewBox="0 0 16 16">-->
+          <!--                <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>-->
+          <!--                <path fill-rule="evenodd"-->
+          <!--                      d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>-->
+          <!--              </svg>-->
+          <!--            </a>-->
+          <!--          </ng-template>-->
+          <!--          <ng-template #other_content>-->
+          <!--            <a href="#">-->
+          <!--              &lt;!&ndash;            <a (click)="checkEdit(table.codeTable)">&ndash;&gt;-->
+          <!--              <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"-->
+          <!--                   class="bi bi-pencil-square" viewBox="0 0 16 16">-->
+          <!--                <path-->
+          <!--                  d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>-->
+          <!--                <path fill-rule="evenodd"-->
+          <!--                      d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>-->
+          <!--              </svg>-->
+          <!--            </a>-->
+          <!--          </ng-template>-->
+          <!--        </td>-->
+          <!--        <td>-->
+          <!--          <a href="#">-->
+          <!--          <a data-toggle="modal" [attr.data-target]="'#deleteModal' + table.idTable">-->
+          <!--            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"-->
+          <!--                 class="bi bi-trash" viewBox="0 0 16 16">-->
+          <!--              <path-->
+          <!--                d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>-->
+          <!--              <path fill-rule="evenodd"-->
+          <!--                    d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>-->
+          <!--            </svg>-->
+          <!--          </a>-->
+          <!--        </td>-->
+
+          <!-- Modal -->
+          <!--        <div class="modal fade" [attr.id]="'deleteModal' + table.idTable" tabindex="-1" role="dialog"-->
+          <!--             aria-labelledby="exampleModalLabel" aria-hidden="true">-->
+          <!--          <div class="modal-dialog" role="document">-->
+          <!--            <div class="modal-content">-->
+          <!--              <div class="modal-header">-->
+          <!--                <h4 class="modal-title" id="exampleModalLabel"><b>Xoá bàn</b></h4>-->
+          <!--                <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
+          <!--                  <span aria-hidden="true">&times;</span>-->
+          <!--                </button>-->
+          <!--              </div>-->
+          <!--              <div class="modal-body">-->
+          <!--                <div>Số bàn: {{table.codeTable}}</div>-->
+          <!--                <div *ngIf="table.status.idStatus == 1; then goodTable else badTable"></div>-->
+          <!--                <div>-->
+          <!--                  <ng-template #goodTable>Trạng thái: Tốt</ng-template>-->
+          <!--                  <ng-template #badTable>Trạng thái: Lỗi</ng-template>-->
+          <!--                </div>-->
+          <!--                <div *ngIf="table.emptyTable; then emptyTable else notEmptyTable"></div>-->
+          <!--                <div>-->
+          <!--                  <ng-template #emptyTable class="ng-template">Còn trống</ng-template>-->
+          <!--                  <ng-template #notEmptyTable class="ng-template">Đã đặt</ng-template>-->
+          <!--                </div>-->
+          <!--                <div class="delete-message">Thao tác này không thể hoàn tác!</div>-->
+          <!--              </div>-->
+          <!--              <div class="modal-footer">-->
+          <!--                <div type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</div>-->
+          <!--                <div type="button" class="btn btn-danger" data-dismiss="modal" (click)="deleteTable(table.idTable)">-->
+          <!--                  Xoá-->
+          <!--                </div>-->
+          <!--              </div>-->
+          <!--            </div>-->
           <!--          </div>-->
-        </div>
-      </div>
-      <div class="table-filter">
-        <!--        <h4 *ngIf="message" style="text-align: center;color:red;background: red;border: red"><b></b></h4>-->
-        <div class="alert alert-danger text-center" role="alert" *ngIf="message">
-          {{message}}
-        </div>
-        <form [formGroup]="searchOrder" (ngSubmit)="search()">
-          <div class="row">
-            <div class="col-lg-3 col-md-6 ">
-              <div class="filter-group">
-                <label for="pageQuantity">Hiển thị</label>
-                <select class="form-control select-option" id="pageQuantity">
-                  <!--                        onchange="numberPage(this)"-->
-                  <!--                        [(ngModel)]="pageQuantity" -->
-                  <!--                  <option *ngFor="let pageq of pageQuantity" [value]="pageq.id">{{pageq.value}}</option>-->
-                  <option value="5" selected="selected">5</option>
-                  <option value="10">10</option>
-                  <option value="15">15</option>
-                  <option value="20">20</option>
-                  <option value="25">25</option>
-                </select>
-                <label>hóa đơn</label>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-              <div class="filter-group">
-                <label for="soHoaDon">Số hóa đơn</label>
-                <input type="text" class="form-control" id="soHoaDon" formControlName="idOrder">
-                <!--              <div class="col alert alert-danger" role="alert"-->
-                <!--                   *ngIf="searchOrder.hasError('idOrder', ['idOrder']) &&-->
-                <!--                  searchOrder.get('idOrder').touched">-->
-                <!--                Invalid idOrder!-->
-                <!--              </div>-->
-                <div class="alert alert-danger"
-                     *ngIf="searchOrder.get('idOrder')?.invalid && searchOrder.get('idOrder')?.touched"
-                     style="color: red">
-                  Id Order Is Invalid
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-              <div class="filter-group">
-                <label for="ngayTao">Ngày tạo</label>
-                <input type="date" class="form-control" id="ngayTao" formControlName="dateOrder">
-                <div class="alert alert-danger"
-                     *ngIf="searchOrder.get('dateOrder')?.invalid && searchOrder.get('dateOrder')?.touched"
-                     style="color: red">
-                  date Order Is Invalid
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-1 col-md-6 d-flex justify-content-center">
-              <div class="filter-group">
-                <button type="submit" class="btn">
-                  <i class='bx bx-search'></i>
-                </button>
-              </div>
-            </div>
-          </div>
-        </form>
+          <!--        </div>-->
+        </tr>
+      </table>
+
+      <div class="clearfix">
+        <nav aria-label="...">
+          <ul class="pagination">
+            <div *ngIf="page > 0; then enablePrevious else disablePrevious"></div>
+            <ng-template #enablePrevious>
+              <li class="page-item">
+                <span class="page-link" (click)="previousPage()">Trang trước</span>
+              </li>
+            </ng-template>
+            <ng-template #disablePrevious>
+              <li class="page-item disabled">
+                <span class="page-link">Trang trước</span>
+              </li>
+            </ng-template>
+<!--                      <div *ngFor="let page of totalPage; index as i">-->
+<!--                        <div *ngIf="pageNumber == i; then isCurrentPage else notCurrentPage"></div>-->
+<!--                        <ng-template #isCurrentPage>-->
+<!--                          <li class="page-item active">-->
+<!--                            <span class="page-link" (click)="changePageNumber(i)">{{i + 1}}</span>-->
+<!--                          </li>-->
+<!--                        </ng-template>-->
+<!--                        <ng-template #notCurrentPage>-->
+<!--                          <li class="page-item">-->
+<!--                            <span class="page-link" (click)="changePageNumber(i)">{{i + 1}}</span>-->
+<!--                          </li>-->
+<!--                        </ng-template>-->
+<!--                      </div>-->
+            <span>{{page+1}} / {{totalPage}}</span>
+            <div *ngIf="page < totalPage - 1; then enableNext else disableNext"></div>
+            <ng-template #enableNext>
+              <li class="page-item">
+                <span class="page-link" (click)="nextPage()">Trang sau</span>
+              </li>
+            </ng-template>
+            <ng-template #disableNext>
+              <li class="page-item disabled">
+                <span class="page-link">Trang sau</span>
+              </li>
+            </ng-template>
+          </ul>
+        </nav>
       </div>
     </div>
   </div>
-</div>
-<div class="container">
-  <table class="table table-light table-hover ">
-    <thead >
-    <tr>
-      <th>STT</th>
-      <th>Số hóa đơn</th>
-      <th>Ngày tạo</th>
-      <th>Người tạo</th>
-      <th>Số bàn</th>
-      <th>Tổng tiền</th>
-      <th>Chi tiết</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let order of orders ; let i = index">
-      <td>{{i + 1| number}}</td>
-      <td >{{order.idOrder}}</td>
-      <td>{{order.dateOrder|date: 'dd/MM/yyyy'}}</td>
-      <td>{{order.employee.nameEmployee}}</td>
-      <td>{{order.table.idTable}}</td>
-      <td>{{order.totalOrder|number}}<span> VNĐ</span></td>
-<!--      <td>-->
-<!--        <a type="button" data-toggle="modal" data-target="#exampleModal">-->
-<!--          <i class='bx bxs-show bx-md' (click)="viewDetail()"></i>-->
-<!--        </a>-->
-<!--      </td>-->
-      <td>
-        <a [routerLink]="['/order/order-detail/' + order.idOrder]">
-          <i class='bx bxs-show bx-md'></i>
-        </a>
-      </td>
-    </tr>
-    </tbody>
-  </table>
-  <div class="container">
-    <div class="clearfix">
-      <div class="hint-text">Hiển thị <b>5</b> trong số <b>25</b> mục nhập</div>
-      <ul class="pagination">
-        <li class="page-item"><a class="redirect" (click)="previousPage()" *ngIf="page>0">Trước</a></li>
-        <!--      <li class="page-item"><a href="#" class="page-link">1</a></li>-->
-        <!--      <li class="page-item"><a href="#" class="page-link">2</a></li>-->
-        <!--      <li class="page-item"><a href="#" class="page-link">3</a></li>-->
-        <!--      <li style="background-color: var(&#45;&#45;background-color)" class="active"><a href="#" class="page-link redirect">4</a></li>-->
-        <!--      <li class="page-item"><a href="#" class="page-link">5</a></li>-->
-        <!--      <li class="page-item"><a href="#" class="page-link">6</a></li>-->
-        <!--      <li class="page-item"><a href="#" class="page-link">7</a></li>-->
-
-        <span>{{page+1}}  /  {{totalPage}}</span>
-        <li class="page-item"><a class="redirect" (click)="nextPage()" *ngIf="page<totalPage-1">Sau</a></li>
-      </ul>
-    </div>
-  </div>
-
 </div>
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-     aria-hidden="true">
-  <div class="modal-dialog" role="document">
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" >
+  <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+      <div class="modal-header text-center">
+        <h5 class="modal-title " id="exampleModalLabel" >Chi tiết sản phẩm</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
-        <div class="container">
-          <div class="my-2 page ">
-            <div class="p-5">
-              <section class="top-content bb d-flex justify-content-between">
-                <div class="logo">
-                  <img src="" alt="" class="img-fluid">
-                </div>
-                <div class="top-left">
-                  <div class="graphic-path">
-                    <p>Coffee</p>
-                  </div>
-                  <div class="position-relative" *ngFor="let detail of orders; let i = index">
-                    <p *ngIf="i<1">Coffee số. <span>{{detail.idOrder}}</span></p>
-                  </div>
-                </div>
-              </section>
-
-              <section class="store-user mt-3">
-                <div class="col-12">
-                  <div class="row bb pb-3">
-                    <div class="col-7" *ngFor="let detail of orders; let i = index">
-                      <p *ngIf="i<1">Nhân Viên,</p>
-                      <h2 *ngIf="i<1">{{detail.employee.nameEmployee}}</h2>
-                      <p class="address" *ngIf="i<1"> {{detail.employee.addressEmployee}}
-                        <!--                12 Nguyễn Như Hạnh, <br> Liên Chiểu <br>Đà Nẵng -->
-                      </p>
-                    </div>
-                    <div class="col-5">
-                    </div>
-                  </div>
-                  <div class="row  extra-info pt-1">
-                    <div class="col-7" *ngFor="let detail of orders; let i = index">
-                      <p *ngIf="i<1">
-                        Ngày mua: <span>{{detail.dateOrder|date:'dd/MM/yyyy'}}</span>
-                      </p>
-                    </div>
-                    <div class="col-5">
-                    </div>
-                  </div>
-                </div>
-              </section>
-              <section class="product-area mt-2">
-                <table class="table table-hover">
-                  <thead>
-                  <tr>
-                    <td>STT</td>
-                    <td>Chi tiết sản phẩm</td>
-                    <td>Giá</td>
-                    <td>Số lượng</td>
-                    <td>Tổng</td>
-                  </tr>
-                  </thead>
-                  <tbody>
-                  <!--                  <tr *ngFor="let detail of orders; let i = index">-->
-                  <!--                    <td>{{i + 1| number}}</td>-->
-                  <!--                    <td>-->
-                  <!--                      <div class="media">-->
-                  <!--                        <img class="mr-3 img-fluid" [src]="detail.product.imageProduct" alt="Product">-->
-                  <!--                        <div class="media-body">-->
-                  <!--                          <p class="mt-0 title">{{detail.product.nameProduct}}</p>-->
-                  <!--                        </div>-->
-                  <!--                      </div>-->
-                  <!--                    </td>-->
-                  <!--                    <td>{{detail.product.priceProduct | number}} <span>VNĐ</span></td>-->
-                  <!--                    <td>{{detail.numberProduct}}</td>-->
-                  <!--                    <td>{{detail.totalProduct | number}}  <span>VNĐ</span></td>-->
-                  <!--                  </tr>-->
-                  </tbody>
-                </table>
-              </section>
-
-              <section class="balance-info">
-                <div class="row">
-                  <div class="col-7">
-                  </div>
-                  <div class="col-5">
-                    <table class="table border-0 table-hover">
-                      <tfoot>
-                      <tr *ngFor="let detail of orders; let i = index">
-                        <td *ngIf="i<1">Tổng tiền thu:</td>
-                        <td *ngIf="i<1">{{detail.totalOrder | number}}  <span>VNĐ</span></td>
-                      </tr>
-                      </tfoot>
-                    </table>
-                  </div>
-                </div>
-              </section>
-
-              <!-- Cart BG -->
-
-              <div class="container mt-4 mb-4">
-                <div class="row d-flex justify-content-center">
-                  <footer>
-                    <hr>
-                    <p class="m-0 text-center">
-                      Cảm ơn bạn đã ủng hộ chúng tôi!
-                    </p>
-                    <div class="social pt-3">
-                    <span class="pr-2">
-                        <i class='bx bx-mobile bx-sm'></i>
-                        <span>0123456789</span>
-                    </span>
-                      <span class="pr-2">
-                  <i class='bx bxs-envelope bx-sm'></i>
-                        <span>a0721i1@codegym.com</span>
-                    </span>
-                      <span class="pr-2">
-                        <i class='bx bxl-facebook bx-sm'></i>
-                        <span>/codegym.a0721i1</span>
-                    </span>
-                      <span class="pr-2">
-                       <i class='bx bxl-youtube bx-sm'></i>
-                        <span>/codegym</span>
-                    </span>
-                      <span class="pr-2">
-                       <i class='bx bxl-github bx-sm'></i>
-                        <span>/codegym</span>
-                    </span>
-                    </div>
-                  </footer>
-                </div>
+      <div class="modal-body ">
+        <section class="store-user mt-1">
+          <div class="col-12">
+            <div class="row bb pb-3">
+              <div class="col-7" *ngFor="let detail of detailOrder ; let i = index">
+                <p *ngIf="i<1">Nhân Viên,</p>
+                <h2 *ngIf="i<1">{{detail.order.employee.nameEmployee}}</h2>
+                <p class="address" *ngIf="i<1"> {{detail.order.employee.addressEmployee}}
+                </p>
+              </div>
+              <div class="col-5">
               </div>
             </div>
-
-            <!--          </div>-->
-            <!--          <div class="row">-->
-            <!--            <div class="col-4"></div>-->
-            <!--            <div class="col-4">-->
-            <!--              <a [routerLink]="['/order-child']" class="back-btn">-->
-            <!--                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="18px"-->
-            <!--                     style="fill: white; line-height: 54px; ">-->
-            <!--                  <path d="m8.121 12 4.94-4.939-2.122-2.122L3.879 12l7.06 7.061 2.122-2.122z"></path>-->
-            <!--                  <path d="M17.939 4.939 10.879 12l7.06 7.061 2.122-2.122L15.121 12l4.94-4.939z"></path>-->
-            <!--                </svg>-->
-            <!--                Trở về-->
-            <!--              </a>-->
-            <!--              <div class="col-4"></div>-->
-            <!--            </div>-->
-            <!--          </div>-->
-            <!--        </div>-->
-
+            <div class="row  extra-info pt-1">
+              <div class="col-7" *ngFor="let detail of detailOrder ; let i = index">
+                <p *ngIf="i<1">
+                  Ngày mua: <span>{{detail.order.dateOrder|date:'dd/MM/yyyy'}}</span>
+                </p>
+              </div>
+              <div class="col-5">
+              </div>
+            </div>
           </div>
-          <div class="modal-footer">
-            <a type="button" data-dismiss="modal" class="back-btn">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="18px" style="fill: white; line-height: 54px; ">
-                <path d="m8.121 12 4.94-4.939-2.122-2.122L3.879 12l7.06 7.061 2.122-2.122z"></path>
-                <path d="M17.939 4.939 10.879 12l7.06 7.061 2.122-2.122L15.121 12l4.94-4.939z"></path>
-              </svg>
-              Trở về
-            </a>
+        </section>
+
+        <section class="product-area mt-0">
+          <table class="table table-striped table-hover">
+            <tr>
+              <th>STT</th>
+              <th>Chi tiết sản phẩm</th>
+              <th>Giá</th>
+              <th>Số lượng</th>
+              <th>Tổng</th>
+            </tr>
+            <tr *ngFor="let detail of detailOrder ; let i = index">
+              <td>{{i + 1| number}}</td>
+              <td>
+                <div class="media">
+                  <img class="mr-3 img-fluid" [src]="detail.product.imageProduct" alt="Product">
+                  <div class="media-body">
+                    <p class="mt-0 title">{{detail.product.nameProduct}}</p>
+                  </div>
+                </div>
+              </td>
+              <td>{{detail.product.priceProduct | number}} <span>VNĐ</span></td>
+              <td>{{detail.numberProduct}}</td>
+              <td>{{detail.totalProduct | number}}  <span>VNĐ</span></td>
+            </tr>
+          </table>
+        </section>
+
+        <section class="balance-info">
+          <div class="row">
+            <div class="col-7">
+            </div>
+            <div class="col-5 foot">
+<!--              <table class="table border-0 table-hover">-->
+<!--                <tfoot>-->
+                <tr *ngFor="let detail of detailOrder ; let i = index" >
+                  <td *ngIf="i<1">Tổng tiền thu:</td>
+                  <td *ngIf="i<1">{{detail.order.totalOrder | number}}  <span>VNĐ</span></td>
+                </tr>
+<!--                </tfoot>-->
+<!--              </table>-->
+            </div>
           </div>
-        </div>
+        </section>
       </div>
-    </div>
 
+    </div>
   </div>
 </div>

@@ -23,7 +23,17 @@ export class OrderComponent implements OnInit {
   pageQuantity: number;
   message: string;
   idOrder: number;
-  orderDetail: OderDetail[];
+  detailOrder: OderDetail[] = [];
+  // orderDetail: OderDetail[];
+  // idSearch: string;
+  // dateSearch: string;
+  orderDetail: OderDetail = {
+    idOrderDetail: 0,
+    numberProduct: 0,
+    totalProduct: 0,
+    order: '',
+    product: '',
+  };
 
   constructor(private oderService: OderService, private http: HttpClient, private activatedRoute: ActivatedRoute) {
   }
@@ -38,7 +48,7 @@ export class OrderComponent implements OnInit {
       idOrder: new FormControl('', Validators.pattern('[1-9]+')),
       dateOrder: new FormControl('')
     });
-    this.getTotalPage();
+    // this.getTotalPage();
     this.findAll();
   }
 
@@ -67,19 +77,41 @@ export class OrderComponent implements OnInit {
   }
 
   findAll() {
+    this.oderService.getList().subscribe(data => {
+        this.totalPage = Math.ceil(data.length / 5);
+        console.log('day la tong so trang' + this.totalPage);
+      }
+      ,
+      () => {
+      },
+      () => {
+      });
     this.oderService.getPage(0).subscribe((data: Oder[]) => this.orders = data['content']);
   }
 
   search() {
+    const idSearch = this.searchOrder.value.idOrder;
+    const dateSearch = this.searchOrder.value.dateOrder;
+    console.log('day la id:' + idSearch);
+    console.log('day la date:' + dateSearch);
+    this.oderService.searchList(this.searchOrder.value.idOrder, this.searchOrder.value.dateOrder).subscribe(data => {
+        this.totalPage = Math.ceil(data.length / 5);
+        console.log('day la tong so trang' + this.totalPage);
+      }
+      ,
+      () => {
+      },
+      () => {
+      });
     this.oderService.searchPage(this.searchOrder.value.idOrder, this.searchOrder.value.dateOrder, 0).subscribe(
       data => {
-        if (data != null) {
-          this.orders = data['content'];
-          this.message = '';
-        } else {
-          // this.ngOnInit();
+        if (data == null) {
           this.orders = null;
+          this.totalPage = 0;
           this.message = 'Không Tìm Thấy Hoá Đơn, Xin Vui Lòng Nhập Lại';
+          // this.message = '';
+        } else {
+          this.orders = data['content'];
         }
       }
     );
@@ -136,5 +168,18 @@ export class OrderComponent implements OnInit {
     }
   }
 
+  hide() {
+    document.getElementById('noti').hidden = true;
+  }
+
+  getDetailOrder(id: number) {
+
+    this.oderService.getOrderDetailById(id).subscribe(data => {
+      this.detailOrder = data;
+      console.log(this.detailOrder);
+      console.log(id);
+    });
+
+  }
 }
 
