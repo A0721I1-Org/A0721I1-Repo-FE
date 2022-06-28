@@ -36,33 +36,32 @@ export class TableService {
 
   /*
   HuyNN findAllTableWithSearch, updateEmptyTable, deleteTable, findTableById method
-*/
-  findAllTable(): Observable<Table[]> {
-    return this.httpClient.get<Table[]>(API_URL + '/manager/findAllTableWithSearch');
+  */
+  findAllTable(pageNumber: number): Observable<Table[]> {
+    return this.httpClient.get<Table[]>(API_URL + '/manager/findAllTableWithSearchAndPaging?page=' + pageNumber);
   }
 
-  findAllTableByCodeTable(codeTable: string): Observable<Table[]> {
-    return this.httpClient.get<Table[]>(API_URL + '/manager/findAllTableWithSearch?codeTable=' + codeTable);
+  findAllTableByCodeTable(codeTable: string, pageNumber: number): Observable<Table[]> {
+    // tslint:disable-next-line:max-line-length
+    return this.httpClient.get<Table[]>(API_URL + '/manager/findAllTableWithSearchAndPaging?codeTable=' + codeTable + '&page=' + pageNumber);
   }
 
-  findAllTableByIdStatusAndEmptyTable(idStatus: string, emptyTable: string): Observable<Table[]> {
-    return this.httpClient.get<Table[]>(API_URL + '/manager/findAllTableWithSearch?idStatus=' + idStatus + '&emptyTable=' + emptyTable);
+  findAllTableByIdStatusAndEmptyTable(idStatus: string, emptyTable: string, pageNumber: number): Observable<Table[]> {
+    // tslint:disable-next-line:max-line-length
+    return this.httpClient.get<Table[]>(API_URL + '/manager/findAllTableWithSearchAndPaging?idStatus=' + idStatus + '&emptyTable=' + emptyTable + '&page=' + pageNumber);
   }
 
-  findAllTableByIdStatus(idStatus: string): Observable<Table[]> {
-    return this.httpClient.get<Table[]>(API_URL + '/manager/findAllTableWithSearch?idStatus=' + idStatus);
+  findAllTableByIdStatus(idStatus: string, pageNumber: number): Observable<Table[]> {
+    return this.httpClient.get<Table[]>(API_URL + '/manager/findAllTableWithSearchAndPaging?idStatus=' + idStatus + '&page=' + pageNumber);
   }
 
-  findAllTableByEmptyTable(emptyTable: string): Observable<Table[]> {
-    return this.httpClient.get<Table[]>(API_URL + '/manager/findAllTableWithSearch?emptyTable=' + emptyTable);
+  findAllTableByEmptyTable(emptyTable: string, pageNumber: number): Observable<Table[]> {
+    // tslint:disable-next-line:max-line-length
+    return this.httpClient.get<Table[]>(API_URL + '/manager/findAllTableWithSearchAndPaging?emptyTable=' + emptyTable + '&page=' + pageNumber);
   }
 
   deleteTable(id: number): Observable<Table> {
     return this.httpClient.delete<Table>(API_URL + '/manager/deleteTable/' + id);
-  }
-
-  findTableById(id: number): Observable<Table> {
-    return this.httpClient.get<Table>(API_URL + '/manager/findTableById/' + id);
   }
 
   /*
