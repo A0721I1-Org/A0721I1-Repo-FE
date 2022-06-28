@@ -28,7 +28,7 @@ export class ListProductComponent implements OnInit {
     this.page = 0;
     this.service.findByAll().subscribe(data => this.totalPage = Math.ceil(data.length / 8), () => {
     }, () => {
-    },);
+    }, );
     this.findByAllPage();
   }
 
