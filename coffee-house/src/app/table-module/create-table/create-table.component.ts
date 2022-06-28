@@ -56,7 +56,7 @@ export class CreateTableComponent implements OnInit {
       if (this.tableForm.get('codeTable')?.errors?.required || this.tableForm.get('status')?.errors?.required)
         this.messageAlert.push("Bạn phải nhập đầy đủ thông tin!");
       if (this.tableForm.get('codeTable')?.errors?.checkCodeTable) {
-        this.messageAlert.push("CodeTable " + this.tableForm.value.codeTable + " đã tồn tại!");
+        this.messageAlert.push("ID Bàn " + this.tableForm.value.codeTable + " đã tồn tại!");
       }
       document.getElementById("noti").hidden = false;
     } else {
