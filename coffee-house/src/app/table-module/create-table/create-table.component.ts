@@ -34,7 +34,7 @@ export class CreateTableComponent implements OnInit {
 
     this.tableForm = new FormGroup(
       {
-        idTable: new FormControl('',),
+        idTable: new FormControl('', ),
         codeTable: new FormControl('', [Validators.required, Validators.pattern('^TB[0-9]{3}$')], [checkCodeTable(this.service)]),
         emptyTable: new FormControl('true'),
         status: new FormControl('', [Validators.required])
@@ -56,7 +56,7 @@ export class CreateTableComponent implements OnInit {
       if (this.tableForm.get('codeTable')?.errors?.required || this.tableForm.get('status')?.errors?.required)
         this.messageAlert.push("Bạn phải nhập đầy đủ thông tin!");
       if (this.tableForm.get('codeTable')?.errors?.checkCodeTable) {
-        this.messageAlert.push("CodeTable " + this.tableForm.value.codeTable + " đã tồn tại!");
+        this.messageAlert.push("ID Bàn " + this.tableForm.value.codeTable + " đã tồn tại!");
       }
       document.getElementById("noti").hidden = false;
     } else {

@@ -6,6 +6,7 @@ import {TypeProduct} from '../../model/typeProduct';
 import {finalize} from 'rxjs/operators';
 import {AngularFireStorage} from '@angular/fire/storage';
 import {ToastrService} from 'ngx-toastr';
+import {formatDate} from '@angular/common';
 
 @Component({
   selector: 'app-create-product',
@@ -18,6 +19,7 @@ export class CreateProductComponent implements OnInit {
   errorImage: string;
   imgVip = 'https://accounts.viblo.asia/assets/webpack/profile_default.0bca52a.png';
   submitted = false;
+
 
 
   VALIDATION_MESSAGE = {
@@ -36,39 +38,10 @@ export class CreateProductComponent implements OnInit {
     ],
     descriptionProduct: [
       {type: 'required', message: 'Vui lòng nhập mô tả'},
-      // {type: 'pattern', message: 'Vui lòng nhập số giấy phép lớn hơn 0'}
     ],
-    // origin: [
-    //   {type: 'required', message: 'Vui lòng nhập nước sản xuất'},
-    //   {type: 'pattern', message: 'Vui lòng nhập nước sản xuất đúng'},
-    //   {type: 'minlength', message: 'Vui lòng nhập tên có ít nhất 2 kí tự'},
-    // ],
-    // provider: [
-    //   {type: 'required', message: 'Vui lòng nhập nhà cung cấp'},
-    //   {type: 'pattern', message: 'Vui lòng nhập nhà cung cấp đúng'},
-    //   {type: 'minlength', message: 'Vui lòng nhập tên có ít nhất 4 kí tự'},
-    // ],
-    // unitPrice: [
-    //   {type: 'required', message: 'Vui lòng nhập giá'},
-    //   {type: 'min', message: 'Vui lòng nhập giá lớn hơn hoặc bằng 0'},
-    // ],
-    // dosage: [
-    //   {type: 'required', message: 'Vui lòng nhập liều lượng'},
-    //   {type: 'min', message: 'Vui lòng nhập liều lượng lớn hơn hoặc bằng 0'},
-    // ],
-    // quantity: [
-    //   {type: 'required', message: 'Vui lòng nhập số lượng'},
-    //   {type: 'min', message: 'Vui lòng nhập số lượng lớn hơn hoặc bằng 0'},
-    // ],
-    // maintenance: [
-    //   {type: 'required', message: 'Vui lòng nhập điều kiện bảo quản'},
-    // ],
-    // age: [
-    //   {type: 'required', message: 'Vui lòng nhập độ tuổi tiêm chủng'},
-    // ],
-    // expired: [
-    //   {type: 'required', message: 'Vui lòng nhập thời gian hết hạn'},
-    // ],
+    amountProduct: [
+      {type: 'required', message: 'Vui lòng nhập số lượng'},
+    ],
   };
 
   createForm: FormGroup = new FormGroup({
@@ -78,6 +51,8 @@ export class CreateProductComponent implements OnInit {
       priceProduct: new FormControl('', Validators.required),
       imageProduct: new FormControl('', Validators.required),
       descriptionProduct: new FormControl('', Validators.required),
+      quatityProduct: new FormControl('', Validators.required),
+      createAt: new FormControl('', Validators.required),
       typeProduct: new FormControl('', Validators.required),
     });
 
@@ -104,7 +79,7 @@ export class CreateProductComponent implements OnInit {
           this.service.createProduct(this.createForm.value).subscribe(
             () => {},
             error => {
-            this.errorImage = error.error.errorMap.image;
+            // this.errorImage = error.error.errorMap.image;
           }, () => {
               this.remind.success('Thêm món mới thành công!', 'Thông báo:');
               this.router.navigateByUrl('/product/list');
@@ -146,6 +121,11 @@ export class CreateProductComponent implements OnInit {
       console.log(e);
       this.imgVip = reader.result as string;
     };
+  }
+
+
+  getDateTime(): string {
+    return formatDate(new Date(), 'dd-MM-yyyyhhmmssa', 'en-US');
   }
 
   get nameProduct() {

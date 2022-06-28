@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ProductService} from '../service/product.service';
 import {Product} from '../../model/product';
+import {ToastrService} from 'ngx-toastr';
 
 
 @Component({
@@ -17,11 +18,11 @@ page = 0;
 pageSearch = 0;
 totalPage: number;
 totalPageSearch = 0;
-  constructor(private service: ProductService) { }
+  constructor(private service: ProductService, private remind: ToastrService) { }
   productList: Product[];
   ngOnInit(): void {
     this.page = 0;
-    this.service.findByAll().subscribe( data => this.totalPage = Math.ceil(data.length / 6), () => {}, () => {}, );
+    this.service.findByAll().subscribe( data => this.totalPage = Math.ceil(data.length / 8), () => {}, () => {}, );
     this.findByAllPage();
   }
   findByAllPage(){
@@ -36,13 +37,13 @@ totalPageSearch = 0;
     console.log(idProduct);
     this.service.deleteById(idProduct).subscribe(()  => {
       this.ngOnInit();
-      alert(`delete thành công :${idProduct}`);
+      this.remind.success('Xoá thành công!', 'Thông báo:');
     }
     );
   }
   searchPage() {
     this.pageSearch = 0 ;
-    this.service.search(this.codeName, this.nameProduct).subscribe(data => this.totalPageSearch = Math.ceil(data.length / 6) );
+    this.service.search(this.codeName, this.nameProduct).subscribe(data => this.totalPageSearch = Math.ceil(data.length / 8) );
     this.service.searchPage(this.codeName, this.nameProduct, 0).subscribe(
       (data: Product[]) => {
         if (data != null){
