@@ -225,9 +225,21 @@
 #noti{
   position: absolute;
   z-index: 100;
-  top: 44%;
-  right: 15%;
-  left: 15%;
+  top: 25%;
+  right: 30%;
+  left: 30%;
   animation-name: noti;
   animation-duration: 1s;
+}
+
+.modal-body {
+  text-align: center;
+}
+
+.message-body {
+  text-align: center;
+}
+
+.alert-dismissible {
+  padding-right: 0rem;
 }

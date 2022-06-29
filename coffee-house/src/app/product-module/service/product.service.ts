@@ -1,10 +1,8 @@
-
-import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {Observable} from 'rxjs';
 import {Product} from '../../model/product';
 import {TypeProduct} from '../../model/typeProduct';
-
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import {HttpClient} from '@angular/common/http';
 const API_URL = 'http://localhost:8080/find';
 const API_URL1 = 'http://localhost:8080/cart';
 
@@ -14,9 +12,8 @@ const API_URL1 = 'http://localhost:8080/cart';
 })
 export class ProductService {
   URLPRODUCT = 'http://localhost:8080/product';
-
-
-  constructor(private http: HttpClient) {
+  // tslint:disable-next-line:variable-name
+  constructor(private http: HttpClient, private _httpClient: HttpClient) {
   }
 
 
@@ -56,11 +53,14 @@ export class ProductService {
     console.log(product);
     return this.http.post<Product>(this.URLPRODUCT + '/create', product);
   }
-    findAllNew(): Observable<Product[]> {
-    return this.http.get<Product[]>(API_URL);
+
+  findAllNew(): Observable<Product[]> {
+    return this._httpClient.get<Product[]>(API_URL);
   }
-    findAllCart(): Observable<Product[]> {
-    return this.http.get<Product[]>(API_URL1);
+  findAllCart(): Observable<Product[]> {
+    return this._httpClient.get<Product[]>(API_URL1);
+
+
   }
 }
 

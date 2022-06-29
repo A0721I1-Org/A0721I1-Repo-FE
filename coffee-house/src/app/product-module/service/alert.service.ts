@@ -10,4 +10,8 @@ export class AlertService {
   showMessage(message){
     this.remain.success(message, 'Thông báo:');
   }
+
+  showMessageErrors(message){
+    this.remain.error(message, 'Thông báo:');
+  }
 }

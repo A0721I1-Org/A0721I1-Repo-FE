@@ -4,7 +4,9 @@ import {TableService} from '../service/table.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {OrderDetailMenuDTO} from '../../model/OrderDetailMenuDTO';
 import {Oder} from '../../model/oder';
-import {TokenStorageService} from "../../login-module/service/token-storage.service";
+import {TokenStorageService} from '../../login-module/service/token-storage.service';
+
+
 
 @Component({
   selector: 'app-detail-table',
@@ -23,6 +25,7 @@ export class DetailTableComponent implements OnInit {
 
   constructor(private tableService: TableService,
               private activatedRouter: ActivatedRoute,
+              private  tokenStorageService: TokenStorageService,
               private router: Router
   ) {
   }
@@ -55,15 +58,15 @@ export class DetailTableComponent implements OnInit {
   }
 
   handlePayment(idTable: number) {
-    this.tableService.payment(idTable).subscribe(()=> {
+    this.tableService.payment(idTable).subscribe(() => {
       this.router.navigateByUrl('table/active');
-    })
+    });
   }
 
   redirectOrderPage(idTable: number) {
-    this.tableService.findOrderByTableId(idTable).subscribe(data=> {
+    this.tableService.findOrderByTableId(idTable).subscribe(data => {
       this.idOrder = data.idOrder;
       this.router.navigate(['../menu/menu-order-child', idTable, this.idOrder]);
-    })
+    });
   }
 }

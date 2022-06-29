@@ -14,8 +14,8 @@
       <ul class="navbar__menu-list">
         <li (click)="getTypeOfGet(0)" [ngClass]="checkGetAll==true?'active':null">Tất cả</li>
         <li (click)="getTypeOfGet(productType.idTypeProduct)"
-          [ngClass]="checkGetAll == false && idTypeProduct == productType.idTypeProduct?'active':null"
-          *ngFor="let productType of typeProducts">{{productType.nameTypeProduct}}</li>
+            [ngClass]="checkGetAll == false && idTypeProduct == productType.idTypeProduct?'active':null"
+            *ngFor="let productType of typeProducts">{{productType.nameTypeProduct}}</li>
       </ul>
 
       <ul (click)="showMenuOnPhone()" class="navbar__menu-list-on-phone">
@@ -29,8 +29,8 @@
         <ul *ngIf="showMenuPhone" class="navbar__menu-list-child">
           <li (click)="getTypeOfGet(0)" [ngClass]="checkGetAll==true?'active':null">Tất cả</li>
           <li (click)="getTypeOfGet(productType.idTypeProduct)"
-            [ngClass]="checkGetAll == false && idTypeProduct == productType.idTypeProduct?'active':null"
-            *ngFor="let productType of typeProducts">{{productType.nameTypeProduct}}</li>
+              [ngClass]="checkGetAll == false && idTypeProduct == productType.idTypeProduct?'active':null"
+              *ngFor="let productType of typeProducts">{{productType.nameTypeProduct}}</li>
         </ul>
       </ul>
     </div>
@@ -39,10 +39,10 @@
       <div class="row">
         <div class="col-sm-12 col-md-12 col-lg-12">
           <div class="row">
-            <div class="col-md-6" *ngFor="let product of products">
+            <div class="col-lg-3 col-md-6 col-sm-3" *ngFor="let product of products">
               <div class="menu__item">
                 <div class="menu__item-img-group">
-                  <img src="/assets/img/{{product.imageProduct}}" alt="">
+                  <img [src]="product.imageProduct" alt="">
                 </div>
                 <div class="menu__item-body">
                   <div class="info">
@@ -52,7 +52,7 @@
                     </span>
                   </div>
                   <button [disabled]="product.quatityProduct <= 0" (click)="getProductById(product.idProduct)" class="btn button btn-buy" data-toggle="modal"
-                                                                   data-target="#modal1">
+                          data-target="#modal1">
                     <i class="fa-solid fa-plus"></i>
                   </button>
                 </div>
@@ -64,7 +64,7 @@
               <i class="fa-solid fa-angle-left"></i>
             </li>
             <li (click)="redirectPagination(tg+1 ,true)"
-              *ngFor="let tg of totalPageArray" [ngClass]="activedButton==tg+1?'active':null">{{tg + 1}}</li>
+                *ngFor="let tg of totalPageArray" [ngClass]="activedButton==tg+1?'active':null">{{tg + 1}}</li>
             <li (click)="nextPage(true)" *ngIf="this.activedButton != this.totalPageArray.length">
               <i class="fa-solid fa-angle-right"></i>
             </li>
@@ -101,8 +101,8 @@
                         <th>STT</th>
                         <th>Tên món</th>
                         <th>Số lượng</th>
-                        <th>Giá</th>
-                        <th>Tổng tiền</th>
+                        <th>Giá(VND)</th>
+                        <th>Tổng tiền(VND)</th>
                         <th>Thời gian chờ</th>
                       </tr>
 
@@ -115,8 +115,8 @@
                           <td>{{i + 1}}</td>
                           <td>{{menuOrderDTO.nameProduct}}</td>
                           <td>{{menuOrderDTO.quantity}}</td>
-                          <td>{{menuOrderDTO.price |number:'1.0'}} VND</td>
-                          <td>{{menuOrderDTO.totalPrice| number:'1.0'}} VND</td>
+                          <td>{{menuOrderDTO.price |number:'1.0'}}</td>
+                          <td>{{menuOrderDTO.totalPrice| number:'1.0'}}</td>
                           <td>{{counter | formatTime}}</td>
                         </tr>
                       </ng-container>
@@ -128,7 +128,7 @@
                           <i class="fa-solid fa-angle-left"></i>
                         </li>
                         <li (click)="redirectPagination(tg+1, false)"
-                          *ngFor="let tg of totalPageTableArray" [ngClass]="activedButtonTable==tg+1?'active':null">{{tg + 1}}</li>
+                            *ngFor="let tg of totalPageTableArray" [ngClass]="activedButtonTable==tg+1?'active':null">{{tg + 1}}</li>
                         <li (click)="nextPage(false)" *ngIf="this.activedButtonTable != this.totalPageTableArray.length">
                           <i class="fa-solid fa-angle-right"></i>
                         </li>
@@ -275,11 +275,11 @@
             <div class="row">
               <div>
                 <div class="col">
-                  <img *ngIf="showImg" class="img-fluid" src="assets/img/{{product.imageProduct}}">
+                  <img *ngIf="showImg" class="img-fluid" [src]="product.imageProduct">
                 </div>
                 <div class="col-xs-7 flex-custum" style="padding-top: 2vh;">
                   <ul type="none">
-<!--                    <li class="font-weight-bold" style="font-size: 1.4rem">{{product?.nameProduct}}</li>-->
+                    <!--                    <li class="font-weight-bold" style="font-size: 1.4rem">{{product?.nameProduct}}</li>-->
                     <li class="font-weight-light " style="font-size: 1.5rem; margin-left: 3rem">{{product?.descriptionProduct | titlecase}}
                     </li>
                   </ul>

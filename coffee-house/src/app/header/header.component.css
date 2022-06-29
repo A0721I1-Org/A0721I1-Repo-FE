@@ -3,14 +3,13 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding:1.5rem 7%;
   border-bottom: var(--border);
   position: fixed;
   top:0;
   left: 0;
   right: 0;
   z-index: 1000;
-  padding-right: 200px;
+  padding: 20px;
 }
 
 .header .logo img{
@@ -178,3 +177,4 @@
 .adminList .noi_dropdown a{
   text-decoration: none !important;
 }
+
