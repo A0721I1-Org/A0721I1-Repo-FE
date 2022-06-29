@@ -34,12 +34,12 @@
     </div>
   </div>
   <section class="menu" id="menu">
-    <h1 class="heading"> Danh Sách<span style="color: #d3ad7f;font-size: 20px"> Món Ăn</span></h1>
+    <h1 class="heading"> Danh Sách<span style="color: #d3ad7f;font-size: 4rem"> Món Ăn</span></h1>
 
     <div class="box-container">
 
-      <div class="box" *ngFor="let product of productList" style="height: 600px;width: 300px;position: relative">
-        <div>
+      <div class="box hoverable"  *ngFor="let product of productList" style="height: 400px;width: 300px;margin-top: 30px">
+        <div >
           <img [src]="product.imageProduct" alt="">
           <h3 hidden>{{product.idProduct}}</h3>
           <h3>Mã Món:{{product.codeProduct}}</h3>
@@ -47,9 +47,43 @@
           <h3>Loại:{{product.typeProduct.nameTypeProduct}}</h3>
           <div class="price">Giá: {{product.priceProduct | currency:"VND"}}
             <span> {{(product.priceProduct + product.priceProduct / 100) }}</span></div>
-          <b>Mô Tả : {{product.descriptionProduct}}</b>
         </div>
-        <div style="position: absolute;    top: 552px;left: 43px;width: 70%;">
+          <button type="button" class="btn edit hoverable__tooltip" style="width: 40%" data-toggle="modal" [attr.data-target]="'#exampleModalLong'+product.idProduct">Xem Thêm</button>
+        <!-- Modal -->
+        <div class="modal fade" [attr.id]="'exampleModalLong'+product.idProduct" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle1" aria-hidden="true" style="margin-left: 500px;margin-top: 50px">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content" style="border: 2px lightgoldenrodyellow solid;width: 514px;">
+              <div class="modal-header" style="background-color: gray;">
+                <h5 class="modal-title modaltextdelete" id="exampleModalLongTitle1">Chi Tiết</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body" style="background: #13131a;color: white">
+                <div style="text-align: center">
+                  <img [src]="product.imageProduct" alt="" style="height: 200px;width: 200px">
+                  <h3 >Id :{{product.idProduct}}</h3>
+                  <h3>Mã Món:{{product.codeProduct}}</h3>
+                  <h3>Tên Món Ăn:{{product.nameProduct}}</h3>
+                  <h3>Số Lượng:{{product.quatityProduct}}</h3>
+                  <h3>Loại:{{product.typeProduct.nameTypeProduct}}</h3>
+                  <div class="price">Giá: {{product.priceProduct | currency:"VND"}}
+                    <span> {{(product.priceProduct + product.priceProduct / 100) }}</span>
+                  </div>
+                  <h3>Ngày Tạo:{{product.createAt | date :'d/M/yy'}}</h3>
+                            <p style="margin-bottom: 70px">Mô Tả : {{product.descriptionProduct}}</p>
+
+                </div>
+              </div>
+              <div class="modal-footer" style="background-color: gray;">
+                <h3 class="modaltextdelete">The Coffee House CG-DN</h3>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <div style="position: absolute;    top: 352px;left: 43px;width: 70%;">
           <!--          Edit-->
 
           <a [routerLink]="'/product/edit/' + product.idProduct">
