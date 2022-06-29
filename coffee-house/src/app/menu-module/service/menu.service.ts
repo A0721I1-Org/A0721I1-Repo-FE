@@ -59,7 +59,7 @@ export class MenuService {
 
   /* Define size page and current page */
   currentPage: number = 0;
-  sizePage: number = 4;
+  sizePage: number = 8;
 
   /* Size page for table */
   currentPageTable: number = 0;
