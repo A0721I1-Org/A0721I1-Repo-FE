@@ -56,4 +56,8 @@ export class EmployeeService {
     return this.httpClient.get<Employee>(URL_API + '/find-id-employee/' + id);
   }
 
+  changePassword(params): Observable<void> {
+    // @ts-ignore
+    return this.httpClient.post(URL_API + `/change_password?userId=${params.userId}&password=${params.password}&oldPassword=${params.oldPassword}`);
+  }
 }
