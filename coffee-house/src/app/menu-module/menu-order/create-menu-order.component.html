@@ -14,8 +14,8 @@
       <ul class="navbar__menu-list">
         <li (click)="getTypeOfGet(0)" [ngClass]="checkGetAll==true?'active':null">Tất cả</li>
         <li (click)="getTypeOfGet(productType.idTypeProduct)"
-          [ngClass]="checkGetAll == false && idTypeProduct == productType.idTypeProduct?'active':null"
-          *ngFor="let productType of typeProducts">{{productType.nameTypeProduct}}</li>
+            [ngClass]="checkGetAll == false && idTypeProduct == productType.idTypeProduct?'active':null"
+            *ngFor="let productType of typeProducts">{{productType.nameTypeProduct}}</li>
       </ul>
 
       <ul (click)="showMenuOnPhone()" class="navbar__menu-list-on-phone">
@@ -29,8 +29,8 @@
         <ul *ngIf="showMenuPhone" class="navbar__menu-list-child">
           <li (click)="getTypeOfGet(0)" [ngClass]="checkGetAll==true?'active':null">Tất cả</li>
           <li (click)="getTypeOfGet(productType.idTypeProduct)"
-            [ngClass]="checkGetAll == false && idTypeProduct == productType.idTypeProduct?'active':null"
-            *ngFor="let productType of typeProducts">{{productType.nameTypeProduct}}</li>
+              [ngClass]="checkGetAll == false && idTypeProduct == productType.idTypeProduct?'active':null"
+              *ngFor="let productType of typeProducts">{{productType.nameTypeProduct}}</li>
         </ul>
       </ul>
     </div>
@@ -39,10 +39,10 @@
       <div class="row">
         <div class="col-sm-12 col-md-12 col-lg-12">
           <div class="row">
-            <div class="col-md-6" *ngFor="let product of products">
+            <div class="col-sm-3 col-md-6 col-lg-4 col-xl-4" *ngFor="let product of products">
               <div class="menu__item">
                 <div class="menu__item-img-group">
-                  <img src="./assets/img/bac-xiu.jpg" alt="">
+                  <img [src]="product.imageProduct" alt="">
                 </div>
 
                 <div class="menu__item-body">
@@ -53,7 +53,7 @@
                     </span>
                   </div>
                   <button [disabled]="product.quatityProduct <= 0" (click)="getProductById(product.idProduct)" class="btn button btn-buy" data-toggle="modal"
-                                                                   data-target="#modal1">
+                          data-target="#modal1">
                     <i class="fa-solid fa-plus"></i>
                   </button>
                 </div>
@@ -65,7 +65,7 @@
               <i class="fa-solid fa-angle-left"></i>
             </li>
             <li (click)="redirectPagination(tg+1 ,true)"
-              *ngFor="let tg of totalPageArray" [ngClass]="activedButton==tg+1?'active':null">{{tg + 1}}</li>
+                *ngFor="let tg of totalPageArray" [ngClass]="activedButton==tg+1?'active':null">{{tg + 1}}</li>
             <li (click)="nextPage(true)" *ngIf="this.activedButton != this.totalPageArray.length">
               <i class="fa-solid fa-angle-right"></i>
             </li>
@@ -89,7 +89,7 @@
 
                   <div class="d-flex align-items-center justify-content-between">
                     <button class="button mr-3">Gọi phục vụ</button>
-                    <button class="button">Phản hồi</button>
+                    <button class="button" routerLink="/feedback/create">Phản hồi</button>
                   </div>
                 </div>
               </div>
@@ -102,8 +102,8 @@
                         <th>STT</th>
                         <th>Tên món</th>
                         <th>Số lượng</th>
-                        <th>Giá</th>
-                        <th>Tổng tiền</th>
+                        <th>Giá(VND)</th>
+                        <th>Tổng tiền(VND)</th>
                         <th>Thời gian chờ</th>
                       </tr>
 
@@ -116,8 +116,8 @@
                           <td>{{i + 1}}</td>
                           <td>{{menuOrderDTO.nameProduct}}</td>
                           <td>{{menuOrderDTO.quantity}}</td>
-                          <td>{{menuOrderDTO.price |number:'1.0'}} VND</td>
-                          <td>{{menuOrderDTO.totalPrice| number:'1.0'}} VND</td>
+                          <td>{{menuOrderDTO.price |number:'1.0'}}</td>
+                          <td>{{menuOrderDTO.totalPrice| number:'1.0'}}</td>
                           <td>{{counter | formatTime}}</td>
                         </tr>
                       </ng-container>
@@ -129,7 +129,7 @@
                           <i class="fa-solid fa-angle-left"></i>
                         </li>
                         <li (click)="redirectPagination(tg+1, false)"
-                          *ngFor="let tg of totalPageTableArray" [ngClass]="activedButtonTable==tg+1?'active':null">{{tg + 1}}</li>
+                            *ngFor="let tg of totalPageTableArray" [ngClass]="activedButtonTable==tg+1?'active':null">{{tg + 1}}</li>
                         <li (click)="nextPage(false)" *ngIf="this.activedButtonTable != this.totalPageTableArray.length">
                           <i class="fa-solid fa-angle-right"></i>
                         </li>
@@ -276,17 +276,16 @@
             <div class="row">
               <div>
                 <div class="col">
-                  <img class="img-fluid" src="./assets/img/bac-xiu.jpg">
+                  <img *ngIf="showImg" class="img-fluid" [src]="product.imageProduct">
                 </div>
                 <div class="col-xs-7 flex-custum" style="padding-top: 2vh;">
                   <ul type="none">
-<!--                    <li class="font-weight-bold" style="font-size: 1.4rem">{{product?.nameProduct}}</li>-->
                     <li class="font-weight-light " style="font-size: 1.5rem; margin-left: 3rem">{{product?.descriptionProduct | titlecase}}
                     </li>
                   </ul>
                 </div>
                 <div class="d-flex justify-content-around align-items-center">
-                  <span class="font-weight-bold" style="font-size: 1.4rem">{{product?.priceProduct * quatity}} VND</span>
+                  <span class="font-weight-bold" style="font-size: 1.4rem">{{product?.priceProduct * quatity | number:'1.00'}} VND</span>
                   <div class="d-flex justify-content-between align-items-center">
                     <a class="px-2" (click)="subQuatity()" *ngIf="quatity === 1">
                       <i class='bx bx-minus-circle bx-lg' style='color:#fa8c16 ; font-size: 1.5rem'></i>

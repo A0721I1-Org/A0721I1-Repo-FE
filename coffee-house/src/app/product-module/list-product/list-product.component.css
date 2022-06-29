@@ -34,9 +34,11 @@ html::-webkit-scrollbar {
 html::-webkit-scrollbar-track {
   background: transparent;
 }
+
 .box-container {
-  margin-top: 105px;
+  margin-top: 30px;
 }
+
 html::-webkit-scrollbar-thumb {
   background: #fff;
   border-radius: 5rem;
@@ -55,7 +57,7 @@ section {
   color: #fff;
   text-transform: uppercase;
   padding-bottom: 3.5rem;
-  font-size: 2rem;
+  font-size: 4rem;
 }
 
 .heading span {
@@ -304,7 +306,7 @@ a {
 
 .menu .box-container .box h3 {
   color: #fff;
-  font-size: 1rem;
+  font-size: 16px;
   padding: 1rem 0;
 }
 
@@ -320,12 +322,31 @@ a {
   font-weight: lighter;
 }
 
+
 .menu .box-container .box:hover {
   background-color: #ffffff25;
-  background-image: linear-gradient(315deg, #ffffff25 0%, #777777 74%);
+  background-image: linear-gradient(315deg, #ffffff25, #777777);
   color: black;
+  border: 2px solid gray;
 }
 
+
+
+.hoverable {
+  position: relative;
+}
+.hoverable>.hoverable__tooltip {
+  display: none;
+}
+
+.hoverable:hover>.hoverable__tooltip {
+  display: inline;
+  position: absolute;
+  top: 317px;
+  left: 91px;
+  background: #888;
+  border: 1px solid black;
+}
 .menu .box-container .box button:hover {
   background-color: #ffffff25;
 }
@@ -524,7 +545,7 @@ a {
   color: var(--main-color);
   display: block;
   padding-top: 1rem;
-  font-size: 2rem;
+  font-size: 20px;
 }
 
 .blogs .box-container .box .content p {
@@ -574,8 +595,9 @@ a {
 }
 
 .magin-top {
-  margin-top: 20px;
+  margin-top: 35px;
   height: 20px;
+  float: right;
 }
 
 .footer .links a:hover {
@@ -599,6 +621,10 @@ a {
     font-size: 55%;
   }
 
+  b {
+    font-size: 80% !important;
+  }
+
   .header {
     padding: 1.5rem 2rem;
   }
@@ -611,6 +637,11 @@ a {
 @media (max-width: 768px) {
   #menu-btn {
     display: inline-block;
+  }
+
+  b {
+    font-size: 80% !important;
+
   }
 
   .header .navbar {
@@ -658,6 +689,10 @@ a {
   html {
     font-size: 50%;
   }
+
+  .b {
+    font-size: 80% !important;
+  }
 }
 
 .menu .box-container .box button.delete:hover {
@@ -671,7 +706,6 @@ a {
   font-size: small;
   width: 30%;
   text-align: center;
-  padding-bottom: 25px;
 }
 
 .modaltextdelete {
@@ -679,7 +713,6 @@ a {
   margin-top: -1px;
   font-size: 20px;
   color: white;
-  height: 1px;
 }
 
 .menu .box-container .box button.edit {
@@ -689,37 +722,44 @@ a {
   font-size: small;
   width: 50%;
   text-align: center;
-  padding-bottom: 25px;
 }
+
 .menu .box-container .box button.edit:hover {
-background: red;
+  background: red;
 }
 
 
 .inputsearch {
   margin-top: 35px;
   width: 80%;
-  text-align: center
+  text-align: center;
+  font-size: 15px;
 }
-.inputsearch:hover {
-  cursor: pointer;
-  margin-top: 38px;
-}
+
+/*.inputsearch:hover {*/
+/*  cursor: pointer;*/
+/*  margin-top: 38px;*/
+/*}*/
 
 .search {
   background-color: transparent;
   color: white;
-  margin-top: 35px;
+  margin-top: 30px;
   width: 25%;
   float: left;
   margin-right: 30px;
+  text-align: center;
+
+  padding-top: 10px;
 
 }
+
 .search:hover {
   color: lightskyblue;
   cursor: pointer;
   margin-right: 25px;
 }
+
 .search:active {
   transform: translateY(10px);
   box-shadow: 0px 5px 5px 5px red;
@@ -730,7 +770,8 @@ background: red;
   background-color: #d3ad7f;
   color: white
 }
-.create{
+
+.create {
   cursor: pointer;
   opacity: 0.9;
   border-radius: 20px;
@@ -742,11 +783,31 @@ background: red;
   margin-top: 35px;
   float: left;
 }
-.create:hover{
+
+.create:hover {
   background-color: #d3ad7f;
   color: white;
 }
+
 .create:active {
   transform: translateY(10px);
   box-shadow: 0px 5px 5px 5px red;
 }
+
+.b {
+  float: right;
+  margin-right: 30px;
+  font-size: 18px;
+  color: white;
+}
+
+.changePage {
+  background: #13131a;
+  color: white;
+  height: 25px;
+  font-size: small;
+  width: 30%;
+  text-align: center;
+  padding-bottom: 25px;
+}
+

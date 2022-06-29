@@ -5,6 +5,7 @@ import {EditEmployeeComponent} from './edit-employee/edit-employee.component';
 import {ListEmployeeComponent} from './list-employee/list-employee.component';
 import {DetailEmployeeComponent} from './detail-employee/detail-employee.component';
 import {AuthGuardService as AuthGuard} from '../login-module/service/auth-guard.service';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 
 
 const routes: Routes = [
@@ -26,6 +27,11 @@ const routes: Routes = [
   {
     path: 'detail/:userRoutes',
     component: DetailEmployeeComponent,
+    canLoad: [AuthGuard]
+  },
+  {
+    path: 'change-password/:id',
+    component: ChangePasswordComponent,
     canLoad: [AuthGuard]
   }
 ];
