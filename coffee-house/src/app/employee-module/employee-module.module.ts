@@ -10,6 +10,7 @@ import { DetailEmployeeComponent } from './detail-employee/detail-employee.compo
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NgxPaginationModule} from 'ngx-pagination';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import {NgxPaginationModule} from 'ngx-pagination';
     CreateEmployeeComponent,
     EditEmployeeComponent,
     ListEmployeeComponent,
-    DetailEmployeeComponent
+    DetailEmployeeComponent,
+    ChangePasswordComponent
   ],
     imports: [
         CommonModule,
