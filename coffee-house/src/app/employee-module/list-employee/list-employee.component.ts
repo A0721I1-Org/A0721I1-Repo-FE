@@ -20,6 +20,10 @@ export class ListEmployeeComponent implements OnInit {
   totalPage: number[];
   message = this.employeeService.message;
 
+  /* Check employee extend */
+  checkEmployeeExtend: Employee;
+  checkExtend: boolean = true;
+
   constructor(private employeeService: EmployeeService, private activatedRoute: ActivatedRoute, private router: Router) {
     this.searchForm = new FormGroup({
       username: new FormControl(''),
@@ -123,4 +127,21 @@ export class ListEmployeeComponent implements OnInit {
     }
   }
 
+  extendCell(order) {
+    let orders = document.querySelectorAll('.address-employee');
+    this.checkExtend = !this.checkExtend;
+    for(let i = 0 ; i < orders.length ; i++) {
+      if(order == i+1) {
+        if (this.checkExtend) {
+          orders[i].classList.add('extend');
+          orders[i].classList.remove('no-extend');
+        } else {
+          orders[i].classList.add('no-extend');
+          orders[i].classList.remove('extend');
+        }
+      } else {
+        continue;
+      }
+    }
+  }
 }
