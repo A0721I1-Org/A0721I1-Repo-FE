@@ -48,7 +48,7 @@
         <td>{{i + 1}}</td>
         <td>{{employee.user.username}}</td>
         <td>{{employee.nameEmployee}}</td>
-        <td>{{employee.addressEmployee}}</td>
+        <td (click)="extendCell(i+1)" class="address-employee">{{employee.addressEmployee}}</td>
         <td>{{employee.phoneEmployee}}</td>
         <td *ngIf="employee.genderEmployee">Nam</td>
         <td *ngIf="!employee.genderEmployee">Nữ</td>
