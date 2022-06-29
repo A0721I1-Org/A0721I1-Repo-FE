@@ -135,4 +135,7 @@ export class CreateProductComponent implements OnInit {
     return this.createForm.controls;
   }
 
+  previod() {
+    this.remind.error('Huỷ Thêm Mới', 'Thông Báo');
+  }
 }
