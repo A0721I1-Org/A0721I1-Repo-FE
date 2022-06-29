@@ -1,9 +1,7 @@
-<!--day la code moi-->
 <div class="container">
   <div *ngIf="message != null">
     <div id="noti" class="alert alert-warning alert-dismissible fade show" role="alert">
       <h4 class="alert-heading text-warning">Thông báo!!</h4>
-      <!--      <strong>Xin chào!</strong>-->
       <p *ngIf="message != null" class="message-body">{{message}}</p>
       <button type="button" class="close" (click)="hide()" aria-label="Close">
         <span>&times;</span>
@@ -22,14 +20,6 @@
       </div>
 
       <div class="row justify-content-between align-items-center">
-        <!--        <div class="col-2">-->
-        <!--          <button class="learn-more">-->
-        <!--                    <span class="circle" aria-hidden="true">-->
-        <!--                      <span class="icon arrow"></span></span>-->
-        <!--            &lt;!&ndash;                      <a routerLink="/order/order-child">Hóa đơn</a>&ndash;&gt;-->
-        <!--            <span routerLink="/order/order-child" class="button-text">Hiển thị tất cả</span>-->
-        <!--          </button>-->
-        <!--        </div>-->
         <div class="col-10">
           <form [formGroup]="searchOrder" (ngSubmit)="search()"
                 class="d-flex align-items-center form__search justify-content-end">
@@ -87,7 +77,6 @@
                 <span class="page-link" (click)="changePage(i)">{{i + 1}}</span>
               </li>
             </div>
-            <!--            <span>{{page + 1}} / {{totalPage}}</span>-->
             <div *ngIf="page < totalPage - 1; then enableNext else disableNext"></div>
             <ng-template #enableNext>
               <li class="page-item">
