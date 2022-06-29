@@ -17,7 +17,8 @@
 }
 
 .no-extend {
-  max-width: unset !important;
+  word-break: break-all;
+  white-space: unset !important;
 }
 
 .table tr:first-child {
