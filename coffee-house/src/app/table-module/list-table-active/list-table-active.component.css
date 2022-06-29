@@ -1,9 +1,12 @@
-*{
+* {
   font-weight: 500;
-  font-size: 15px;
 }
-.sale-group{
+
+.sale-group {
   width: 100%;
+}
+.card-title{
+  font-size: 20px;
 }
 .title-product{
   margin-top: 120px;
@@ -15,6 +18,7 @@
 /*list product*/
 .list-product-title{
   margin-top: 12px;
+  font-size: 20px;
   width: 100%;
   text-transform: uppercase;
   margin-left: 5px;
@@ -48,4 +52,6 @@
 .table{
   text-align: center;
 }
-
+.sale-group{
+  width: 100%!important;
+}

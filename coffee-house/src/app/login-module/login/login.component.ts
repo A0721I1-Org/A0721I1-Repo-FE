@@ -58,7 +58,7 @@ export class LoginComponent implements OnInit {
     // }
   }
 
-  login() {
+  login(event) {
     this.formLogin.value.remember_me = this.tokenStorageService;
     this.loginServer.login(this.formLogin.value).subscribe(
       (data) => {
@@ -74,7 +74,7 @@ export class LoginComponent implements OnInit {
         this.roles = this.tokenStorageService.getUser().roles;
         this.rememberMeToken = this.tokenStorageService.getToken();
         this.formLogin.reset();
-        window.location.reload();
+        // window.location.reload();
         this.router.navigateByUrl('/home');
         this.shareService.sendClickEvent();
       },
@@ -82,7 +82,7 @@ export class LoginComponent implements OnInit {
         // this.errorMessage = err.error.message;
         this.loginServer.isLoggedIn = false;
         this.toast.error('Sai tên đăng nhập hoặc mật khẩu', 'Đăng nhập thất bại: ', {
-          timeOut: 3000,
+          timeOut: 2000,
           extendedTimeOut: 1500
         });
       }
@@ -95,7 +95,7 @@ export class LoginComponent implements OnInit {
     console.log(event.target.checked);
     if (event.target.checked === true){
       console.log(this.rememberMeToken);
-      localStorage.setItem('remember_me', this.tokenStorageService.getToken());
+      localStorage.setItem('remember_me', this.tokenStorageService.getUser().token);
     } else {
       localStorage.removeItem('remember_me');
     }

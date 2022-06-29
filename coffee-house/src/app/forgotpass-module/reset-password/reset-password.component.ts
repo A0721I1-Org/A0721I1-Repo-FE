@@ -33,7 +33,9 @@ export class ResetPasswordComponent implements OnInit {
 
   onSubmit() {
     this.token = window.localStorage.getItem('reset_token');
+    console.log(this.token);
     this.password = this.resetPasswordForm.get(['passwordGroup', 'password']).value;
+    console.log(this.password);
     this.forgotPasswordService.processResetPassword(this.token, this.password).subscribe(
       message => {
         console.log(message);

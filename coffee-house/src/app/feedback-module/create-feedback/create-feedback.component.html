@@ -34,7 +34,7 @@
                 <div class="col-md-12">
                   <div class="form-group">
                     <span class="form-label" for="namePeopleFeedback">Họ và tên<span class="text-danger">(*):</span></span>
-                    <input class="form-control" type="text" formControlName="namePeopleFeedback">
+                    <input class="form-control" type="text" formControlName="namePeopleFeedback" style="font-size: 20px">
                     <div class="text-danger" *ngFor="let validation of VALIDATE_MESSAGES.namePeopleFeedback">
                       <div class="error-message"
                            *ngIf="createFeedbackForm.get('namePeopleFeedback').hasError(validation.type) && (createFeedbackForm.get('namePeopleFeedback').dirty ||
@@ -46,7 +46,7 @@
                 <div class="col-md-12">
                   <div class="form-group">
                     <span class="form-label" for="emailPeopleFeedback">Email<span class="text-danger">(*):</span></span>
-                    <input class="form-control" type="email" formControlName="emailPeopleFeedback">
+                    <input class="form-control" type="email" formControlName="emailPeopleFeedback" style="font-size: 20px">
                     <div class="text-danger" *ngFor="let validation of VALIDATE_MESSAGES.emailPeopleFeedback">
                       <div class="error-message"
                            *ngIf="createFeedbackForm.get('emailPeopleFeedback').hasError(validation.type) && (createFeedbackForm.get('emailPeopleFeedback').dirty ||
@@ -67,7 +67,7 @@
                 <div class="col-md-12">
                   <div class="form-group">
                     <span class="form-label" for="contentFeedback">Phản hồi<span class="text-danger">(*):</span></span>
-                    <textarea class="form-control" type="text" style="height: 200px" formControlName="contentFeedback"></textarea>
+                    <textarea class="form-control" type="text" style="height: 200px" formControlName="contentFeedback" style="font-size: 20px"></textarea>
                     <div class="text-danger" *ngFor="let validation of VALIDATE_MESSAGES.contentFeedback">
                       <div class="error-message"
                            *ngIf="createFeedbackForm.get('contentFeedback').hasError(validation.type) && (createFeedbackForm.get('contentFeedback').dirty ||
@@ -87,9 +87,7 @@
                     style="margin: 5px 0 0 2.5px;">
               Đóng
             </button>
-            <button type="submit"style="margin: 5px 0 0 2.5px;" data-dismiss="modal" class="btn btn-primary btn-lg btn-block btn-custom">
-             Gửi Phản hồi
-            </button>
+            <button type="submit" style="margin: 5px 0 0 2.5px;" (click)="onSubmit()" data-dismiss="modal" class="btn btn-primary btn-lg btn-block btn-custom">Gửi Phản hồi</button>
           </div>
         </div>
       </form>

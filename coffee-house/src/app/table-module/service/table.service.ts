@@ -8,6 +8,7 @@ import {OrderDetailMenuDTO} from '../../model/OrderDetailMenuDTO';
 import {Oder} from '../../model/oder';
 import {environment} from '../../../environments/environment';
 
+const API_URL1 = `${environment.apiBaseUrl}`;
 const API_URL = `${environment.apiUrl}`;
 
 @Injectable({
@@ -19,46 +20,48 @@ export class TableService {
   constructor(private httpClient: HttpClient) {
   }
 
+  // tslint:disable-next-line:variable-name ban-types
   private _message: String;
 
 
+  // tslint:disable-next-line:ban-types
   get message(): String {
     return this._message;
   }
 
+  // tslint:disable-next-line:ban-types
   set message(value: String) {
     this._message = value;
   }
 
   /*
   HuyNN findAllTableWithSearch, updateEmptyTable, deleteTable, findTableById method
-*/
-  findAllTable(): Observable<Table[]> {
-    return this.httpClient.get<Table[]>(API_URL + '/manager/findAllTableWithSearch');
+  */
+  findAllTable(pageNumber: number): Observable<Table[]> {
+    return this.httpClient.get<Table[]>(API_URL + '/manager/findAllTableWithSearchAndPaging?page=' + pageNumber);
   }
 
-  findAllTableByCodeTable(codeTable: string): Observable<Table[]> {
-    return this.httpClient.get<Table[]>(API_URL + '/manager/findAllTableWithSearch?codeTable=' + codeTable);
+  findAllTableByCodeTable(codeTable: string, pageNumber: number): Observable<Table[]> {
+    // tslint:disable-next-line:max-line-length
+    return this.httpClient.get<Table[]>(API_URL + '/manager/findAllTableWithSearchAndPaging?codeTable=' + codeTable + '&page=' + pageNumber);
   }
 
-  findAllTableByIdStatusAndEmptyTable(idStatus: string, emptyTable: string): Observable<Table[]> {
-    return this.httpClient.get<Table[]>(API_URL + '/manager/findAllTableWithSearch?idStatus=' + idStatus + '&emptyTable=' + emptyTable);
+  findAllTableByIdStatusAndEmptyTable(idStatus: string, emptyTable: string, pageNumber: number): Observable<Table[]> {
+    // tslint:disable-next-line:max-line-length
+    return this.httpClient.get<Table[]>(API_URL + '/manager/findAllTableWithSearchAndPaging?idStatus=' + idStatus + '&emptyTable=' + emptyTable + '&page=' + pageNumber);
   }
 
-  findAllTableByIdStatus(idStatus: string): Observable<Table[]> {
-    return this.httpClient.get<Table[]>(API_URL + '/manager/findAllTableWithSearch?idStatus=' + idStatus);
+  findAllTableByIdStatus(idStatus: string, pageNumber: number): Observable<Table[]> {
+    return this.httpClient.get<Table[]>(API_URL + '/manager/findAllTableWithSearchAndPaging?idStatus=' + idStatus + '&page=' + pageNumber);
   }
 
-  findAllTableByEmptyTable(emptyTable: string): Observable<Table[]> {
-    return this.httpClient.get<Table[]>(API_URL + '/manager/findAllTableWithSearch?emptyTable=' + emptyTable);
+  findAllTableByEmptyTable(emptyTable: string, pageNumber: number): Observable<Table[]> {
+    // tslint:disable-next-line:max-line-length
+    return this.httpClient.get<Table[]>(API_URL + '/manager/findAllTableWithSearchAndPaging?emptyTable=' + emptyTable + '&page=' + pageNumber);
   }
 
   deleteTable(id: number): Observable<Table> {
     return this.httpClient.delete<Table>(API_URL + '/manager/deleteTable/' + id);
-  }
-
-  findTableById(id: number): Observable<Table> {
-    return this.httpClient.get<Table>(API_URL + '/manager/findTableById/' + id);
   }
 
   /*
@@ -106,6 +109,7 @@ export class TableService {
     return this.httpClient.post<Table>(API_URL + '/manager/createTable', table);
   }
 
+  // tslint:disable-next-line:ban-types
   checkId(id: String): Observable<Table[]> {
     return this.httpClient.get<Table[]>(API_URL + '/manager/checkId?id=' + id);
   }

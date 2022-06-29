@@ -59,7 +59,7 @@ export class MenuService {
 
   /* Define size page and current page */
   currentPage: number = 0;
-  sizePage: number = 4;
+  sizePage: number = 8;
 
   /* Size page for table */
   currentPageTable: number = 0;
@@ -127,7 +127,8 @@ export class MenuService {
 
   /* Payment */
   handlePaymentForOrder(idTable: number): Observable<Oder> {
-    return this.httpClient.patch<Oder>(`${API_URL}/table/${idTable}/payment` , {});
+    // @ts-ignore
+    return this.httpClient.patch<any>(`${API_URL}/table/${idTable}/payment`);
   }
 
   /* Delete food */

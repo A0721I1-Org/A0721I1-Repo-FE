@@ -3,14 +3,13 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding:1.5rem 7%;
   border-bottom: var(--border);
   position: fixed;
   top:0;
   left: 0;
   right: 0;
   z-index: 1000;
-  padding-right: 200px;
+  padding: 20px;
 }
 
 .header .logo img{
@@ -149,7 +148,7 @@
   /*Ẩn nội dụng các đường dẫn*/
   display: none;
   position: absolute;
-  background-color: black;
+  background-color: rgba(0,0,0,0.9);
   min-width: 160px;
   z-index: 1;
 }
@@ -170,3 +169,12 @@
   text-decoration: none !important;
   padding-bottom: 12px !important;
 }
+.adminList:hover .noi_dropdown{
+  /*margin-top: 10px;*/
+  display: block;
+}
+
+.adminList .noi_dropdown a{
+  text-decoration: none !important;
+}
+
