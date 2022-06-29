@@ -7,6 +7,7 @@ import {LoginServiceService} from '../service/login.service';
 import {TokenStorageService} from '../service/token-storage.service';
 
 import {ToastrService} from 'ngx-toastr';
+import {ShareService} from '../service/share.service';
 
 
 @Component({
@@ -22,19 +23,17 @@ export class LoginComponent implements OnInit {
   roles: string[] = [];
   show = false;
   rememberMeToken: string;
-  isLoggedIn = false;
 
   constructor(private formBuilder: FormBuilder,
               private router: Router, private loginServer: LoginServiceService,
               private activatedRoute: ActivatedRoute,
               private tokenStorageService: TokenStorageService,
-              private toast: ToastrService) {
+              private toast: ToastrService,
+              private shareService: ShareService) {
   }
 
   ngOnInit(): void {
-    this.isLoggedIn = this.tokenStorageService.getUser() ? true : false;
-    console.log(this.isLoggedIn);
-    if (this.isLoggedIn){
+    if (this.tokenStorageService.getUser()){
       this.router.navigateByUrl('/home');
     }
     this.formLogin = this.formBuilder.group({
@@ -59,7 +58,7 @@ export class LoginComponent implements OnInit {
     // }
   }
 
-  login() {
+  login(event) {
     this.formLogin.value.remember_me = this.tokenStorageService;
     this.loginServer.login(this.formLogin.value).subscribe(
       (data) => {
@@ -75,13 +74,15 @@ export class LoginComponent implements OnInit {
         this.roles = this.tokenStorageService.getUser().roles;
         this.rememberMeToken = this.tokenStorageService.getToken();
         this.formLogin.reset();
+        // window.location.reload();
         this.router.navigateByUrl('/home');
+        this.shareService.sendClickEvent();
       },
       err => {
         // this.errorMessage = err.error.message;
         this.loginServer.isLoggedIn = false;
         this.toast.error('Sai tên đăng nhập hoặc mật khẩu', 'Đăng nhập thất bại: ', {
-          timeOut: 3000,
+          timeOut: 2000,
           extendedTimeOut: 1500
         });
       }
@@ -94,7 +95,7 @@ export class LoginComponent implements OnInit {
     console.log(event.target.checked);
     if (event.target.checked === true){
       console.log(this.rememberMeToken);
-      localStorage.setItem('remember_me', this.tokenStorageService.getToken());
+      localStorage.setItem('remember_me', this.tokenStorageService.getUser().token);
     } else {
       localStorage.removeItem('remember_me');
     }

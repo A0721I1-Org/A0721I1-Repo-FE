@@ -3,8 +3,8 @@ import {EmployeeService} from '../service/employee.service';
 import {Router} from '@angular/router';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Position} from '../../model/position';
-import {Employee} from "../../model/employee";
-import {checkAge} from "./validate/checkAge";
+import {Employee} from '../../model/employee';
+import {checkAge} from './validate/checkAge';
 
 @Component({
   selector: 'app-create-employee',
@@ -26,7 +26,7 @@ export class CreateEmployeeComponent implements OnInit {
       this.employeeList = data;
     });
     this.createEmployeeForm = new FormGroup({
-      nameEmployee: new FormControl('', [Validators.required, Validators.pattern(/^([a-vxyỳọáầảấờễàạằệếýộậốũứĩõúữịỗìềểẩớặòùồợãụủíỹắẫựỉỏừỷởóéửỵẳẹèẽổẵẻỡơôưăêâđ]+)((\s{1}[a-vxyỳọáầảấờễàạằệếýộậốũứĩõúữịỗìềểẩớặòùồợãụủíỹắẫựỉỏừỷởóéửỵẳẹèẽổẵẻỡơôưăêâđ]+){1,})$/)]),
+      nameEmployee: new FormControl('', [Validators.required, Validators.pattern(/^[A-Za-zỳọáầảấờễàạằệếýộậốũứĩõúữịỗìềểẩớặòùồợãụủíỹắẫựỉỏừỷởóéửỵẳẹèẽổẵẻỡơôưăêâđ' ]+$/)]),
       addressEmployee: new FormControl('', Validators.required),
       phoneEmployee: new FormControl('', [Validators.required, Validators.pattern(/^(0?)(3[2-9]|5[6|8|9]|7[0|6-9]|8[0-6|8|9]|9[0-4|6-9])[0-9]{7}$/)]),
       genderEmployee: new FormControl('', Validators.required),
