@@ -162,9 +162,9 @@ tr td:first-child {
   font-weight: 600;
 }
 
-td > span {
-  color: rgb(236, 155, 68);
-}
+/*td > span {*/
+/*  color: rgb(236, 155, 68);*/
+/*}*/
 
 .back-btn {
   text-decoration: none;
@@ -184,6 +184,7 @@ td > span {
 .back-btn:hover {
   background-color: rgba(236, 155, 68, 0.7);
 }
+
 tfoot {
   border-top: 2px solid #ccc;
 }

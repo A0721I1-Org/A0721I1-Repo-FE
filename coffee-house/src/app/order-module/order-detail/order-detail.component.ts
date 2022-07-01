@@ -19,21 +19,18 @@ export class OrderDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.activatedRoute.paramMap.subscribe((data) => {
-      this.idOrder = +data.get('id');
-      console.log('day la id = ' + this.idOrder);
-      // tslint:disable-next-line:no-shadowed-variable
-      this.service.getOrderDetailById(this.idOrder).subscribe(
-        // tslint:disable-next-line:no-shadowed-variable
-        (data) => {
-          this.orderDetail = data;
-          console.log(this.orderDetail);
-        }
-        );
-
-      // this.getOrderDetail(this.idOrder).subscribe((next: OderDetail) => this.orderDetail = next);
-
-    });
+    // this.activatedRoute.paramMap.subscribe((data) => {
+    //   this.idOrder = +data.get('id');
+    //   console.log('day la id = ' + this.idOrder);
+    //   // tslint:disable-next-line:no-shadowed-variable
+    //   this.service.getOrderDetailById(this.idOrder).subscribe(
+    //     // tslint:disable-next-line:no-shadowed-variable
+    //     (data) => {
+    //       this.orderDetail = data;
+    //       console.log(this.orderDetail);
+    //     }
+    //     );
+    // });
   }
 
   getOrderDetail(id: number) {

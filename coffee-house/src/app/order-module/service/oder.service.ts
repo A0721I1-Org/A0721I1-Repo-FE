@@ -34,11 +34,5 @@ export class OderService {
   public getOrderDetailById(id: number): Observable<OderDetail[]> {
     return this.httpClient.get<OderDetail[]>(this.API_DETAIL + id);
   }
-
-
-  // findByAllPaginng(page: number): Observable<Product[]>{
-  //   return this.httpClient.get<Order[]>(this.URLPRODUCT + '/page' + '?page=' + page );
-  // }
-
-
+  
 }
